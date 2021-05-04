@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="事實上在成為全職的 WordPress 工程師之前，我花了很多時間在做網站企劃，不管是自己接案還是在公司任職，企劃都是我的核心工作，也因此踩了超多雷，像是溝通錯誤、資料不齊、時程爆炸等等的慘痛經驗，學習過程中請教了許多前輩以及上過不少課程，希望可以把企劃的技能點補滿。 在這些教訓中，印象最深刻的就是有一個專案我花了兩個月的時間做需求訪談、競業分析、規劃網站架構、流程，還把所有頁面的線框圖、欄位說明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【 心得 】企劃人員如何撰寫有效的軟體需求規格文件">
+<meta property="og:url" content="https://oberonlai.blog/tw/how-to-write-the-effective-specification/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="事實上在成為全職的 WordPress 工程師之前，我花了很多時間在做網站企劃，不管是自己接案還是在公司任職，企劃都是我的核心工作，也因此踩了超多雷，像是溝通錯誤、資料不齊、時程爆炸等等的慘痛經驗，學習過程中請教了許多前輩以及上過不少課程，希望可以把企劃的技能點補滿。 在這些教訓中，印象最深刻的就是有一個專案我花了兩個月的時間做需求訪談、競業分析、規劃網站架構、流程，還把所有頁面的線框圖、欄位說明">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-15-at-10.00.59.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-15-at-10.43.46-1024x302.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-16-at-10.32.24-1024x839.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-20-at-10.04.17.jpg">
+<meta property="article:published_time" content="2020-07-23T04:27:09.000Z">
+<meta property="article:modified_time" content="2021-05-01T10:29:12.257Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="figma">
+<meta property="article:tag" content="mindnode">
+<meta property="article:tag" content="prototype">
+<meta property="article:tag" content="wireframe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-15-at-10.00.59.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/how-to-write-the-effective-specification/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>【 心得 】企劃人員如何撰寫有效的軟體需求規格文件 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/how-to-write-the-effective-specification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【 心得 】企劃人員如何撰寫有效的軟體需求規格文件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-07-23 12:27:09" itemprop="dateCreated datePublished" datetime="2020-07-23T12:27:09+08:00">2020-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 18:29:12" itemprop="dateModified" datetime="2021-05-01T18:29:12+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E4%BD%BF%E7%94%A8%E8%80%85%E4%BB%8B%E9%9D%A2/" itemprop="url" rel="index"><span itemprop="name">使用者介面</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E7%B6%B2%E7%AB%99%E4%BC%81%E5%8A%83/" itemprop="url" rel="index"><span itemprop="name">網站企劃</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E8%80%81%E4%BA%BA%E7%A2%8E%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">老人碎念</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">專案即生活</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B/" itemprop="url" rel="index"><span itemprop="name">資訊架構</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/how-to-write-the-effective-specification/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="how-to-write-the-effective-specification/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>11 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>事實上在成為全職的 WordPress 工程師之前，我花了很多時間在做網站企劃，不管是自己接案還是在公司任職，企劃都是我的核心工作，也因此踩了超多雷，像是溝通錯誤、資料不齊、時程爆炸等等的慘痛經驗，學習過程中請教了許多前輩以及上過不少課程，希望可以把企劃的技能點補滿。</p>
+<p>在這些教訓中，印象最深刻的就是有一個專案我花了兩個月的時間做需求訪談、競業分析、規劃網站架構、流程，還把所有頁面的線框圖、欄位說明、版面配置的資料都整理齊全，想說交給工程師之後應該就萬無一失了吧，結果當工程師拿到文件的時候只冷冷的說了一句：「這東西我看不懂。」</p>
+<p>當下心裡只能飆三字經然後覺得工程師很懶很廢，東西都幫你準備好了你連看都不看就說看不懂，但全天下最不能得罪的就是幫你做吃的廚師跟幫你寫扣的工程師了，所以還是只好虛心請教哪裡看不懂、哪裡需要再補充說明，現在自己換成工程師腦了，終於明白當年為何會得到一句「看不懂」了…</p>
+<span id="more"></span>
+
+<p>再重新回頭看當年自己規劃的東西，看似很完整，但對於工程師來說這就只是視覺上的呈現，重點是缺少了最關鍵的要素：「資料流」，資料是怎麼輸入輸出、輸入的資料會被紀錄在什麼地方、輸出的部分是從哪個輸入來的，這些事情真的只有自己在寫程式的時候才會知道，原來工程師需要的是這些東西。</p>
+<p>所以希望以自己跨領域工作經驗的教訓，寫了這篇文章給自己留下一些紀錄，如果能同時幫助到剛入行網站企劃的朋友就再好也不過了！</p>
+<h2 id="為什麼要整理需求文件？"><a href="#為什麼要整理需求文件？" class="headerlink" title="為什麼要整理需求文件？"></a>為什麼要整理需求文件？</h2><p>通常在上班每天都有忙不完的工作，會接到要做網站專案八成以上都是吃力不討好的苦差事，企業內部除非是接案公司，不然是很少有專門的企劃團隊在做規劃、需求整理這些事情，更不用說要整理文件了。</p>
+<p>另一方面，對於接案者而言，每天為了要開發新客戶、維繫舊客戶忙都不過來了，哪裡還有美國時間去整理什麼文件，就算整理了，是要給誰看？現在許多方便的網頁設計工具點一點拉ㄧ拉套個模板就好了，邊做邊改給客戶不就行了？</p>
+<p>我很幸運的是剛開始做網站就是在一間保險公司，因為公司的組織特性以及金融法規的限制，要處理一堆文件是必然的，在我自己出來接案後，這些整理文件的學習幫助我很大的忙，當業主看到我是個人工作室時卻能整理成這麼多資料來，就能感受到我做事的方式而產生信賴感，進而有後續的合作機會。</p>
+<p>對我來說，需求文件可以幫助企劃人員做到以下四件事：</p>
+<h3 id="一、「真正」搞懂這個專案在做什麼"><a href="#一、「真正」搞懂這個專案在做什麼" class="headerlink" title="一、「真正」搞懂這個專案在做什麼"></a>一、「真正」搞懂這個專案在做什麼</h3><p>需求文件最大的功用就是幫助專案發起者把想法具體化。不管老闆是想要做一個 Facebook，還是開發他自己的個人部落格，當把架構草圖整理出來，就能知道要做的事情有多少，工程師最害怕的就是我丟一個網站範本給他，然後問他做不做得到、要多久，做網站不是工程師一個人的事，而是團隊之間彼此互相溝通合作的過程。</p>
+<p>而且當老闆把需求表達完畢後，企劃人員或業務就把老闆的需求原封不動的交接給工程師，然後讓工程師來反問實際執行上的細節，通常企劃就會被問倒，然後再去問老闆，老闆就會覺得我需求都已經跟你講完了剩下是你們的工作了，企劃就會很為難的被夾在中間 (對，我也幹過這種當傳聲筒的蠢事 Orz..)</p>
+<p>把自己還沒搞懂的事情就交給團隊成員是一件很不負責任的事，讓需求文件先幫自己搞懂老闆要什麼，這樣才能獲得老闆與團隊成員的信賴。</p>
+<h3 id="二、提升團隊溝通效率"><a href="#二、提升團隊溝通效率" class="headerlink" title="二、提升團隊溝通效率"></a>二、提升團隊溝通效率</h3><p>專案開發的需求有大有小，小從一個區塊的背景顏色，大到購物車的完整購買流程，我犯過的錯是以為只有像是大的流程才需要有說明文件來與工程師溝通，小的需求就 Email 或是走到工程師旁邊講一下就搞定。</p>
+<p>但事實上最花時間溝通的就是這種我自以為三分鐘就可以溝通完的需求，因為這個「三分鐘」是我自己認定的時間，所以當我花三分鐘告知「小修改」卻無法在十分鐘內看到成果，我就覺得工程師在擺爛，這麼簡單的事情竟然也要花這麼多的時間。</p>
+<p>工程師在處理每一項工作的時候，都是要歷經一連串的邏輯問題，當他今天在專注開發 A 功能的時候，我跟他說 B C D 這些是小修改請他處理，他就必須先把自己從 A 功能的思緒中抽離出來，等到處理完 B C D 後再重新專注，這是一件非常耗費腦力的事情，因為大腦的轉換需要花費更多時間才能回到原本的狀態。</p>
+<p>有經驗的工程師不會讓自己的專注狀態被打斷，所以即使我提出的修改可能真的只要三分鐘就可以搞定，但對工程師來說先花這三分鐘會讓他自己手邊的工作更難處理。</p>
+<p>這時候需求文件就扮演了很重要的角色，工程師按照文件來施工，他可以依照自己的步調來進行開發，這也是為什麼不管大或小的需求，都要盡可能的在文件中進行說明。</p>
+<p>如果他發現文件裡面有沒說明到的地方不知道該如何開發時，可能是寫 Email 或是私訊問我一下，也許當下我在忙別的事沒空理他，等我回過頭來搞清楚他的問題時再跟他說如何處理，他也許在忙別的功能，等他忙完後再來處理我回他的答案，結果又發現我的答案不完整需要再溝通，這一來一往所耗費的時間超級恐怖，不誇張，常常就這樣一天就過去了…</p>
+<p>雖然文件可能沒有辦法一次溝通到位，但至少能建立起對話的基礎，讓團隊溝通效率不會是從 0 開始，至於如何讓文件朝著可以一次到位的目標去整理，就是需要為團隊成員多想一步，能夠多想一步前提是知道他們需要的是什麼，而這就是這篇文章的目的。</p>
+<h3 id="三、累積自己的企劃資料庫"><a href="#三、累積自己的企劃資料庫" class="headerlink" title="三、累積自己的企劃資料庫"></a>三、累積自己的企劃資料庫</h3><p>每個專案或多或少都會有類似的需求，像是要會員登入、註冊、購物這些流程，很多網站都會遇到，如果以前的規劃有確實留下文件，不用客氣，直接拿過來修改一下交差，雖然不太不可能一次滿足新專案的所有需求，但同樣的功能經過不同專案的歷練，也會透過迭代逐漸完善自己規劃過的功能，這些是企劃人員最重要的資產，也是自己努力的證明。</p>
+<h3 id="四、減少會議時間"><a href="#四、減少會議時間" class="headerlink" title="四、減少會議時間"></a>四、減少會議時間</h3><p>有時候看似直接當面討論會比較有效率的會議，卻也是造成時間浪費的一大兇手，因為很多會議的主題，都只是為了要消除會議發起者的不安與焦慮，當面溝通確認可以讓疑慮消除，同時也能讓團隊成員直接聽到客戶的需求，減少需求傳達的時間，真的是這樣嗎？</p>
+<p>我經歷過最大型的網站專案，一共要與八個部門進行需求溝通，每個部門的行政作業流程我完全不了解，而當時的 IT 都非常資深，所以每次開會時我一定都會請工程師參與會議，並希望他們協助評估每項功能需求的執行可能性，每次聽到不懂的問題就會把目光投向工程師，希望他幫我接手回答問題，然後開完會之後留下會議記錄，就覺得自己能放心了。</p>
+<p>久而久之就養成依賴工程師的習慣，部門同仁的需求就直接轉達給工程師，當他們在討論我完全聽不懂的東西時我就在放空，所以工程師執行時遇到問題問我時我當然是一問三不知，等到問題累積久了，又要開個會議來確認需求，然後又進入放空的會議循環。</p>
+<p>雖然無法保證有文件一定可以減少會議時間，但至少能減少團隊成員的會議時間，因為整理出的文件是我自己消化吸收並與需求者確認過的內容，用文件來與團隊溝通才是最有效率的作法，自己會因為沒開會就沒安全感，大部分都是由於沒有全盤了解需求所導致的。</p>
+<p>我認為真正需要讓團隊成員參與的會議就只有結案的慶功宴(如果有的話)，萬一真的不得已，需要請團隊成員參加的會議，至少可以提前告知會議時間與會議內容，讓他們理解到底是有什麼重要大事需要招開會議，然後在會議上的主要目標是要全力協助團隊成員可以儘快理解需求，消除他們的疑慮。</p>
+<p>所以當客戶看到執行團隊在場時就開始亂許願，我們要做的事不是把目光拋向成員，好像在請示他們這個功能要不要做給客戶，而是直接攔截下來說這新功能需要確認的地方還有很多，我們可以會後再討論。</p>
+<p>總之會議的方向就是解決團隊成員的問題，任何跟這些問題沒關係的東西，像是自己的不安、客戶的新願望都不是重點，而真正的重點就是不要開這種會議，讓自己真的搞懂需求，再來與團隊成員進行溝通。</p>
+<h2 id="真的需要文件嗎？"><a href="#真的需要文件嗎？" class="headerlink" title="真的需要文件嗎？"></a>真的需要文件嗎？</h2><p>如果你是那種理解力超強，只要聽到老闆說想做一個 Facebook 就可以立刻告訴團隊成員所有功能的執行細節，然後你的團隊成員也是記憶力過人，聽你講完一遍後就能記住所有的內容，並且在執行上遇到問題時可以進入老闆的腦袋，完全理解老闆背後的想法而自行下決策，然後最後的成品還能讓老闆 100% 滿意。</p>
+<p>如果能達成這樣的境界，文件顯然就是多餘的，而這樣的情境只有一種可能：你自己就是老闆、企劃、設計、開發人員。事實上就連我自己在玩的 Side Project 也很難達到這樣的境界，每天睡一覺醒來就會有新 Idea，看到別人的好作品也會受到刺激，推翻自己的想法是每日的例行公事，在這樣的情況下，文件可以幫忙檢視自己的思考脈絡，從而提煉出更好的作法，或是看自己有沒有偏離原本的目標。</p>
+<h2 id="需求文件要寫什麼？"><a href="#需求文件要寫什麼？" class="headerlink" title="需求文件要寫什麼？"></a>需求文件要寫什麼？</h2><p>雖然這篇文章是在說明文件的重要性，但我想表達的「文件」並不是做出那種厚厚一疊為了申請什麼資格或是交報告用的，而是求質不求量、以溝通為前提的說明文件。既然是以溝通為前提的文件，就必須要知道溝通的對象是誰，以下四種角色是網站專案常見的成員：</p>
+<h3 id="一、客戶-專案發起者"><a href="#一、客戶-專案發起者" class="headerlink" title="一、客戶 / 專案發起者"></a>一、客戶 / 專案發起者</h3><p>負責告訴我們要開始執行這個專案的人，這人可能會有很大的願景、很多想法希望可以實現，文件溝通的方向，就是要讓他的想法可以落地，具體要描述的事項可能會有：</p>
+<ul>
+<li>  在有限的時間下應該先做什麼？</li>
+<li>  為什麼要先做這個？</li>
+<li>  做這個的目的是什麼？</li>
+<li>  為了要達成這個目的有哪些具體的目標？</li>
+<li>  為了要達成階段性目標需要做哪些事？</li>
+</ul>
+<p>如果沒有先把這專案的目的地訂出來，整個團隊就會非常辛苦，隨時都要配合專案發起者一覺醒來的新想法而忙得團團轉，如果在專案發起後先整理出這樣的資訊，對於發起者來說可以先讓他知道現實世界的限制條件是什麼，以及幫他釐清哪件事才是他真正最想要做的。</p>
+<p>更重要的是，方向明確才能讓團隊成員有所依據，每週根據核心目標展開各項計畫，如果大家剛被告知這個禮拜要去象山，然後出發後好不容易才爬到半山腰，卻被告知要下山去爬另外一座山，這樣會讓成員們士氣大傷，久而久之就會覺得就假裝爬一下就好，反正過不久又不用爬了。</p>
+<p>但現實是就算訂了專案目的與目標，也常常還是拉不回專案發起者的遠大夢想，而文件至少能提醒他一個月前我們是因為這些理由而決定這樣走的，現在要改變的方向有符合我們當初討論的目的嗎？透過文件來檢視思考的脈絡，讓後續的想法還是能維持在原先的目的上。</p>
+<p>針對專案發起者的文件，我習慣是先用心智圖軟體來進行發想，透過初步的需求訪談，把專案發起者的願景、目的以及其他相關資訊全部都丟到心智圖裡面，不用任何歸類，想到什麼就寫下什麼，這個階段把所有想法盡可能一字不漏的紀錄下來：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-15-at-10.00.59.jpg"></p>
+<p>通常資料搜集&amp;發想階段會長得如上圖一樣，許多散落的區塊，可能是發起者的一句話，或是在網路上找到的相關資料，只要覺得可能有相關的資訊全部貼進去。</p>
+<p>下一個步驟是導入觀點，也就是問自己要從這一堆資料中找出什麼東西，我們要透過這份文件幫助專案發起者把願景落實，所以要找出三種大分類：目的、目標、執行方法。</p>
+<p>目的是這個專案完成後希望達成的事情，可能是幫助某些人解決什麼問題，或是實現某些人心中的願望，最常見的目的就是建立品牌形象創造差異化，或是透過網站增加銷售管道提升公司營收等等。</p>
+<p>目標是為了達到這個目的之前需要完成的階段性任務，像是為了透過網站增加銷售，可能要先訂出每月營收提升 5%、或是把實體店面客戶轉換為線上會員等等的目標，而為了要達成目標又會有很多的子目標產生。這邊要注意的是不要把目的與目標搞混，如果把目標當成目的，視野就會變得狹隘，看不到更多的可能性。</p>
+<p>執行方法是為了達到目標需要做的事情，像是提供點數累積回饋、生日會員禮、特定節日買一送一等等，很多時候 idea 都是執行方法，但這個方法背後要達成什麼目標、去到哪個目的，都是需要透過整理出文件後，再拿文件去跟專案發起者確認背後的動機，以確保專案的方向是符合他的期待。</p>
+<p>把一堆資料歸納分類後，可以得到這樣的結果：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-15-at-10.43.46-1024x302.jpg"></p>
+<p>一張圖表達完目的、目標以及執行方法，當然如果要專業些，弄成 Word 檔或是簡報是免不了的，但我常常直接用心智圖進行溝通，好處是可以讓對方直接看到完整的架構，一目瞭然，重點是可以溝通就好。</p>
+<p>如果是面對比較有規模的企業，整個專案有不同的部門參與，用這個方法也能有效整理出各別部門的需求，並檢視這些需求是否有符合公司的經營目標與目的。</p>
+<h3 id="二、視覺設計師"><a href="#二、視覺設計師" class="headerlink" title="二、視覺設計師"></a>二、視覺設計師</h3><p>視覺設計師主要職責為設計網站的視覺元素，大從 Banner、小到圖標，以及色彩計畫、文字排版，甚至是插畫設計、或是與商品攝影師的風格溝通等等，所有看得到的東西該長什麼樣都是視覺設計師的負責範圍。</p>
+<p>因此文件的溝通方向，盡可能以視覺為主、文字為輔的方式來進行傳達，具體可能會需要描述的事項有：</p>
+<ul>
+<li>  客戶喜歡的風格比較偏向於市場上哪些品牌？</li>
+<li>  客戶喜歡這些品牌風格的哪些視覺元素？</li>
+<li>  另外提供三到五個經過客戶認同的首頁設計參考網站</li>
+<li>  網站地圖</li>
+<li>  頁面線框圖</li>
+<li>  文案</li>
+<li>  素材</li>
+</ul>
+<p>與視覺設計師溝通最忌諱的就是用形容詞來表達，像是：客戶想要一個大氣簡約不失巴洛克典雅華麗樸實風格的網站，結果客戶給出來的參考對象是 Apple。另外也不能把客戶提供的參考網站直接請視覺設計師照做，主要原因並非抄襲，而是客戶的產品是賣農藥的，以 Apple 的風格來說真的適合嗎？</p>
+<p>身為溝通端必須先深入探究對象背後的動機，了解為何會喜歡 Apple 的風格，喜歡的點是什麼，然後擷取客戶在意的部分，去找出其他有這個點、又符合客戶產品屬性的網站範例，把這些範例彙整起來再與客戶進行討論，最後討論出來的結果才是我們可以交付給視覺設計師的資料。</p>
+<p>其次是透過網站地圖告訴視覺設計師這個專案一共有多少個版型需要設計，讓他了解工作範疇，要注意是「版型」而非頁面，因為為了維持網站瀏覽的一致性，相同屬性的內容應共用同一版型，像是文章分類列表頁只要一種版型就好，如果不同文章分類使用不同版型會造成使用者的混亂，除非是有特殊的需求。</p>
+<p>頁面線框圖 ( wireframe ) 是一種描述頁面內容結構的方法，主要說明該頁面需要包含哪些區塊、區塊的排序、區塊內的視覺元素要強調什麼、頁面的核心任務等等，讓視覺設計師可以根據這些說明去設計出瀏覽動線，進而引導使用者完成網站任務。</p>
+<p>文案跟素材是視覺設計師最頭痛的部分，身為溝通端一定要儘可能的在頁面線框圖中一併把這些資料蒐集齊全，文案的內容與字數的多寡，都會影響視覺呈現的氛圍以及版面的配置，更不用說客戶提供的商品素材萬一只有 100 x 100px 卻要放在大 Banner 裡面來展示，這些都是我們必須要幫視覺設計師清除的障礙，讓他們可以專注在視覺設計的產出。</p>
+<p>頁面線框圖我習慣是用介面設計軟體來製作，用方塊跟文字註解就能很直覺的表達這個頁面要做什麼內容，當確定頁面的大區塊後，再逐一發展每個區塊內的細節，請客戶提供文案與素材，完成頁面內容的編排，要記得這個階段不要加入任何的視覺元素，與客戶的討論只要專注在內容即可。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-16-at-10.32.24-1024x839.jpg"></p>
+<p><a target="_blank" rel="noopener" href="http://www.wireframeshowcase.com/">Wireframe Showcase</a> 這個網站很有趣，它專門收集頁面線框圖與最後完成視覺設計的範例，從裡面的範例可以大概理解頁面線框圖的作用與畫法，仿間也有不少關於繪製頁面線框圖的課程，有興趣的朋友可以自行 Google。</p>
+<h3 id="三、前端工程師"><a href="#三、前端工程師" class="headerlink" title="三、前端工程師"></a>三、前端工程師</h3><p>前端工程師負責把視覺設計師的圖像轉換為瀏覽器看得懂的語言，主要是透過 HTML、CSS 與 JavaScript，因此溝通的主要方向，是關於視覺元素的尺寸、版面位置，以及使用者與網站進行互動時所有的操作行為都是與前端工程師的工作範疇，具體會有的描述事項有：</p>
+<ul>
+<li>  網站地圖</li>
+<li>  各頁面英文名稱</li>
+<li>  網站原型</li>
+<li>  RWD 區塊說明</li>
+<li>  版面設計尺寸標記</li>
+<li>  打包好並以英文命名的素材</li>
+<li>  需要連結外站的網址</li>
+</ul>
+<p>同樣的，網站地圖讓前端工程師對於整個專案有個概觀，但與視覺設計師不同之處在於前端設計師需要頁面的英文名稱，因為瀏覽器的網址通常都是英文的，在這個階段先幫前端工程師把頁面英文名稱命名好，可以減少他不少負擔。</p>
+<p>重點是交給前端工程師命名頁面名稱會有大問題，拼錯字事小，網址結構無法符合客戶網站的內容才是關鍵。我們都知道網址結構會影響搜尋引擎的搜尋結果，這在規劃頁面名稱時就必須一併思考，頁面命名的邏輯以「版型 - 單元名稱」的方式來處理，下面的說明以 WordPress 的範本為例子，如果你負責的網站不是用 WordPress 開發也沒關係，掌握住「版型 - 單元名稱」的大原則即可：</p>
+<ul>
+<li>  網站首頁 / front-page</li>
+<li>  產品列表頁 / archive-product</li>
+<li>  產品分類列表頁 / category-product</li>
+<li>  產品說明頁 / single-product</li>
+<li>  最新消息列表頁 / archive-news</li>
+<li>  最新消息分類頁 / category-news</li>
+<li>  最新消息內頁 / single-news</li>
+<li>  關於我們頁 / page-about</li>
+<li>  聯絡我們頁 / page-contact</li>
+<li>  部落格文章列表頁 / archive</li>
+<li>  部落格分類列表頁 / category</li>
+<li>  部落格文章頁 / single</li>
+</ul>
+<p>以上的頁面名稱我們可以拆解成五個大單元來看：分別是首頁、產品、最新消息、企業資訊與部落格。首頁在 WordPress 裡面的範本名稱叫做 front-page.php，所以這邊直接使用 front-page，接下來先跳到部落格這個單元，因為 WordPress 是以部落格起家的，而所有的頁面內容都統一被視為 post，而 post 一定都會有三個範本：所有文章列表頁、分類文章列表頁以及文章內頁，對應到的三種版型就是 archive、category 與 single。</p>
+<p>而產品、最新消息這三個單元，就是衍伸部落格的結構而來的，因此頁面的命名方式就是參照部落格的版型 + 單元名稱，像是產品列表頁就叫做 archive-product，最新消息內頁就叫做 single-news，這就是「版型 - 單元名稱」的命名原則。</p>
+<blockquote>
+<p>WordPress 為了要區分內容的類型，資料庫裡面定義了一個欄位叫做 post type，部落格文章的 post type 就叫做 post，而產品的 post type 就是 product，最新消息的 post type 就是 news，而後兩者是由開發人員自行新增且有別於預設的文章類型，統稱為 Custom Post Type 自定義文章類型。</p>
+<p>在實務上我們通常都會把部落格文章這個 post type 作為最新消息使用，就可以少新增一個 post type。</p>
+</blockquote>
+<p>至於企業資訊的兩個頁面：關於我們以及聯絡我們，可以發現到它的版型是以 page 開頭，頁面跟文章最大的不同點在於頁面只需要一個版型，不像文章會需要列表頁、分類列表頁、內頁三種，所以我們在規劃的時候發現這個單元不需要列表只需要內頁時，就可以用 page 的版型來命名。</p>
+<p>其次網站原型 ( Web Prototyping ) 與頁面線框圖很類似，但差別在於網站原型可以使用滑鼠進行瀏覽，包含點擊連結換頁、彈跳視窗、輪播廣告等等的互動效果，而這也是前端工程師最需要的文件，他們必須了解每個導覽的操作流程，像是點下去會發生什麼事，以及效果的呈現方式。</p>
+<p>網站原型也可以用在 RWD 的溝通需求上，像是在手機版哪些區塊要隱藏、哪些區塊的欄數要縮減，或是在平板電腦的尺寸下，哪些區塊的顯示順序要往前，這些需求的溝通都能透過網站原型進行視覺化的表達。</p>
+<p>另外，為了讓前端工程師可以精準施工，就像室內設計師要提供給工班師傅的工程圖一樣，標題距離上方多少像素、Banner 的尺寸規格等等，都需要精確的告知前端工程師，不然蓋出歪樓也是理所當然的。</p>
+<p>以上這些文件看似要花很多時間整理，但現在的介面設計軟體都已經越來越工程師化，透過這些軟體可以直接產出元件的 CSS 原始碼，並且也能直接把完成的設計稿做成網站原型，所以頁面線框圖、設計稿、網站原型、尺寸標記、素材打包、註解說明這些作業，都可以在同一個軟體下完成，因此我會建議企劃人員對介面設計軟體要有基礎的操作能力，學會它不是為了做設計，而是為了產出讓團隊成員可以更好理解的說明文件。</p>
+<h3 id="四、後端工程師"><a href="#四、後端工程師" class="headerlink" title="四、後端工程師"></a>四、後端工程師</h3><p>後端工程師負責網站的資料邏輯，舉凡像是首頁的輪播要顯示幾篇、輪播內容是要抓取哪個單元的文章、熱門文章是依照什麼排序、表單提交後會發生什麼事，這些都是後端工程師的守備範圍，因此有別於視覺設計師與前端工程師的視覺化溝通方式，後端工程師溝通的主要方向是資料結構與流程，具體的描述事項如下：</p>
+<ul>
+<li>  網站地圖</li>
+<li>  資料欄位</li>
+<li>  資料處理流程</li>
+<li>  各頁面內區塊的資料顯示規則</li>
+</ul>
+<p>沒錯，第一要件還是網站地圖，理由也是要讓後端工程師對於工作內容有初步的概觀，而採用「版型 - 單元名稱」的命名方式，可以讓他們快速理解網站架構，進而決定是否要新增自定義文章與自定義類別。</p>
+<p>資料欄位的說明可以採用 Excel 的方式進行整理，標註每個單元會需要顯示哪些資料與功能，以最新消息這個單元為例，一篇文章要顯示的資料可能有標題、日期、作者、內文、瀏覽數、回應數、按讚數，而功能可能有留言、按讚與分享文章，範例如下：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2020/07/CleanShot-2020-07-20-at-10.04.17.jpg"></p>
+<p>當後端工程師看到這份資料後，他就會知道最新消息需要新增一個 news 的 post type，然後要加入留言功能以及指定顯示的側邊欄，再來新增 news 的相關欄位，並瞭解某些欄位可以能是要對應到某些功能。</p>
+<p>接下來資料的處理流程，以使用者的操作情境去描述這些功能的流程，並搭配四種操作動作 CRUD。C 是 Create，也就是這功能建立了什麼資料，R 是 Read，使用者在哪裡可以瀏覽已經建立的資料，U 是 Update，使用者如何更新已建立的資料，D 是 Delete，使用者如何刪除已建立的資料。</p>
+<p>譬如文章的按讚功能可以這樣描述：當使用者按下後，文章的按讚總數會加一 ( Create )，並且在使用者我的文章列表中加入這篇文章 ( Read )，使用者可以再次按讚取消 ( Update )，或是進到我的文章列表去刪除它 ( Delete )。</p>
+<p>有經驗的工程師會幫我們把一個功能可能會有的資料處理流程拆解出來，並且反問我們萬一在某些特殊情況下該如何處理，這時候就是我們的學習機會，我們不一定每次都會遇到有經驗的工程師，可能很多時候都是做到哪想到哪，所以每當被工程師反問到我們沒想過的問題，都是一種檢驗自己思考是否夠全面的機會。</p>
+<p>最危險的就是把這些流程拆解的事情當作是工程師的工作，把功能開出來後剩下就不關企劃的事，這樣工程師只能自己腦補，結果做出來的東西不是自己希望的，反而去埋怨工程師難溝通，這些都是我自己曾經犯過的錯 Orz..</p>
+<p>當然有規模一點的團隊還會有系統分析師、系統架構師等等的專業職位，如果只領 22K 卻必須要做到這麼多事情，換作是我我一定擺爛。但我覺得做網站這行的最大好處就是不受限於產業，現階段多做的事在未來能得到更多的機會。</p>
+<p>像是因為你這麼幫工程師設想，哪天他換工作時發現其他公司的企劃根本就沒有像你一樣會幫他準備這麼齊全的文件，萬一他們公司一有企劃空缺他一定第一個找你過去，或是在多做的過程之中，無意間跨越了不少的領域，雖然這年頭跨領域感覺是基本條件了，但多跨一個領域就多一個求生技能，未來選擇的路才會寬廣，才不容易走到死胡同。</p>
+<p>扯遠了，最後一個後端工程師需要的文件就是我們在頁面線框圖裡面各區塊的顯示邏輯，舉例像是熱門文章區塊「熱門」的定義是什麼？最多人瀏覽的？管理員手動決定的？還是是隨機顯示？如果是最多人瀏覽要如何讓該區塊保持新鮮度，而不是只會永遠顯示最多人看過的那篇？</p>
+<p>像這一類的顯示邏輯都會關係到網站能否達成當初設定的目標，如果沒把這些條件溝通好，好心的工程師都會用自身的經驗幫我們處理，但這樣我們就不會知道為什麼今天流量會高，或是為什麼大家從來都不點某個區塊的內容，我們也就因此少了很多可以學習進步的機會。</p>
+<h2 id="如何有效的回報問題"><a href="#如何有效的回報問題" class="headerlink" title="如何有效的回報問題"></a>如何有效的回報問題</h2><p>當我們不管是跟設計師或是工程師在表達自己希望修改的項目時，永遠都要先問自己一個問題：團隊成員能理解我傳達的內容嗎？如果每次我提出修改時，工程師都要再三反覆確認我的問題而無法直接進行，這時候自己就要警覺是不是我的表達方式讓溝通沒有效率。</p>
+<p>我以前回報給工程師的方式是這樣的：</p>
+<ul>
+<li>  網站壞了，幫我檢查下～</li>
+<li>  這個按鈕點下去畫面不見了，是怎麼回事？</li>
+<li>  在手機上面看整個網站怪怪的，幫我調整一下！</li>
+<li>  網站載入好慢，能優化網站速度嗎？</li>
+<li>  …</li>
+</ul>
+<p>這些我以為看似很明確的問題，對於工程師來說根本就是完全沒有幫助的垃圾資訊，對，完全是垃圾無誤！舉「網站壞了」這個問題為例，工程師一看到就會先試著自己連看看，萬一是正常的，接下來就會有一連串的機器人問答：</p>
+<p>工程師：你其他網站可以連嗎？<br>我：可以  </p>
+<p>工程師：你是連哪個網站？<br>我：<a target="_blank" rel="noopener" href="http://abc.com/">http://abc.com</a>  </p>
+<p>工程師：http 加 s 看看<br>我：加了，出現說該網站有危險？  </p>
+<p>工程師：(推測是憑證過期，檢查後重新安裝憑證) 你再試試看！<br>我：沒有警告畫面了，但頁面還是沒內容  </p>
+<p>工程師：(自己連 <a target="_blank" rel="noopener" href="https://abc.com/">https://abc.com</a> 沒問題，開始在想還有什麼可能性) 等我一下<br>我：好的  </p>
+<p>(工程師花了十分鐘檢查伺服器的加密憑證設定，確認 301 轉址是否正確…)  </p>
+<p>工程師：我這邊檢查應該都沒問題，你連的頁面是哪一頁？<br>我：<a target="_blank" rel="noopener" href="https://abc.com/efg">https://abc.com/efg</a>  </p>
+<p>工程師：你網址的 efg 少打一個 h，你看到的是 404 頁面…<br>我：喔喔喔，有了，感謝協助！  </p>
+<p>一個問題花十分鐘在做確認，如果是十個問題就是 100 分鐘，這 100 分鐘工程師還沒做任何的修改工作，只是在找問題。如果一開始就可以做精準的溝通，可以省下一個小時又四十分鐘的時間，而我以前卻覺得網站連不上就是工程師要處理的問題，難道我還要幫他 Debug？</p>
+<p>這些年下來，我才理解到需要別人的協助前，要先把自己的問題表達清楚，甚至是自己做過一些研究，這不僅是對於幫助者的尊重，更是讓自己有學習的機會。網站連不上，我的瀏覽器一定會顯示某些錯誤訊息，把這些錯誤訊息丟到 Google 裡面查看看，原來是 SSL 的問題，然後再去查查什麼是 SSL，雖然看不懂一堆技術細節，但至少知道 SSL 可以用加密讓網站安全一點，就這樣，因為這個錯誤讓我學到了東西。</p>
+<p>然後了解可能發生的問題後，把你覺得可能的原因一併告知工程師，營造一種我不是只是把問題丟給他，而是跟他一起找出問題所在的感覺。有些熱心的工程師會跟你聊很多技術話題，聽不懂也沒關係，至少他覺得你是有 sense 才會跟你聊，但要切記，不要拿 Google 查到的答案來告訴工程師該怎麼做，這就越線了。</p>
+<p>精準的問題回報可以包含以下幾個重點：</p>
+<h3 id="預期的結果"><a href="#預期的結果" class="headerlink" title="預期的結果"></a>預期的結果</h3><p>輸入網址 <a target="_blank" rel="noopener" href="https://abc.com/efg">https://abc.com/efg</a> 要能連到該網站的該頁面並呈現內容</p>
+<h3 id="實際發生的結果"><a href="#實際發生的結果" class="headerlink" title="實際發生的結果"></a>實際發生的結果</h3><p>輸入網址後只看到如下的錯誤訊息「這個網站無法提供安全連線 ERR_SSL_PROTOCOL_ERROR」，並提供截圖</p>
+<h3 id="重現自己的操作過程"><a href="#重現自己的操作過程" class="headerlink" title="重現自己的操作過程"></a>重現自己的操作過程</h3><ol>
+<li> 開啟 Chrome 瀏覽器新分頁</li>
+<li> 在網址列輸入 <a target="_blank" rel="noopener" href="https://abc.com/efg">https://abc.com/efg</a></li>
+<li> 按下 Enter</li>
+</ol>
+<h3 id="自己電腦的規格"><a href="#自己電腦的規格" class="headerlink" title="自己電腦的規格"></a>自己電腦的規格</h3><p>MacOS 10.14.6、Chrome Version 84.0.4147.89</p>
+<p>-–</p>
+<p>掌握一個重點：回報問題時要想辦法重現自己遭遇到問題的步驟，提供越具體的操作流程越好，這樣工程師才有辦法進入你的情境來進行除錯，如果是客戶遇到問題，我們也要先想辦法重現客戶的問題，確定怎麼操作會出問題後，再請工程師來處理。</p>
+<p>我以前最常做的回報方式就是把客戶 Line 給我的問題截圖下來，然後順手轉傳給工程師，回報完畢。而工程師只看到客戶說有問題，但完全不知道我跟客戶之間討論的上下文，所以只能透過反覆詢問來確認，於是又進入跟上面一樣的機器人對話…</p>
+<p>釐清需求、把問題表達清楚都是我們的工作，也是我們對團隊成員應該負起的責任，不管是設計師還是工程師，都是需要花費大量腦力跟高度專注的工作，我們要做的就是幫他們把方向定好、剷除路障，讓他們可以專心的進行產出。</p>
+<h2 id="工具介紹"><a href="#工具介紹" class="headerlink" title="工具介紹"></a>工具介紹</h2><p>在還沒有進行<a href="https://oberonlai.blog/%E6%95%B8%E4%BD%8D%E6%96%B7%E6%8D%A8%E9%9B%A2/">數位斷捨離</a>前我是軟體工具控，最愛嚐鮮使用最新最酷炫的工具，然後逼著身邊的朋友跟我一起用，現在比較乖了，用大家都在用的工具就好，能完成溝通並且是以大家都習慣的方式才是最重要的。</p>
+<p>所以我現在除非原本在用的工具效能爛到不行，或是整間倒了，不然不會輕易的換工具，以下就各種需求文件介紹我常用的溝通工具：</p>
+<p><strong><a target="_blank" rel="noopener" href="https://mindnode.com/">MindNode 心智圖軟體</a></strong> - 整理、歸納資料超好用，尤其是在釐清網站目的與執行方法時可以非常清楚的展現每件待辦任務背後的原因，當專案做到一半覺得有點迷惘時，回過頭來看看當初設定的方向來提醒自己是否還在正確的道路上。</p>
+<p><strong><a target="_blank" rel="noopener" href="https://tw.eagle.cool/">Eagle 圖片收藏及管理必備工具</a></strong> - 整理網站視覺風格設計參考的圖像管理工具，可以把客戶提供的參考對象以及自己蒐集到的整理在裡面，然後直接在上面註記說明需要參考的地方後把資料夾分享給設計師，</p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.figma.com/">Figma 線上介面設計軟體</a></strong> - 我在上面可以畫網站地圖、頁面線框稿、網站原型、下註解，設計師可以在上面進行 UI 設計，工程師可以在上面看尺寸標記、匯出 CSS 程式碼，並且所有人都可以在同一個檔案上即時進行編輯與留言，用一套可以少開三套軟體。</p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.google.com.tw/intl/zh-TW/sheets/about/">Google 試算表</a></strong> - 整理資料欄位、功能、客戶修改清單、彙整客戶提供資料等文件作業的工具，不是因為它最方便最好用，而是大家都有 Google 帳號XD</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>有效的需求文件指的是針對溝通對象整理出能幫助他們理解專案內容的文件，不是為了要整理能交報告或是申請補助的制式文件，而是以溝通為前提，能完成資訊傳達任務的文件。因此協助團隊成員釐清問題、制定開發方向，讓專案盡可能不會因為外力因素而延宕。</p>
+<p>回顧自己過去的工作經驗，很感謝曾經跟我一起合作做的設計師、工程師，當年我的不成熟讓你們受苦了，現在我可以體會你們當年的心情了XD，我現在反而會覺得，要做一個網站的專案負責人，能夠不懂什麼是 SSL、API、RWD 嗎？</p>
+<p>先從做一個自己的網站開始吧，從企劃、設計、前端到後端，全部都自己試著走過一遍，這能幫助我們理解團隊成員每天在做的事情，也能跟他們請益做網站的知識，這都是能增加團隊溝通的方式，也許還會從中找到一條屬於自己的全新道路！</p>
+<blockquote>
+<p>想更有系統與組織來管理好每一個專案嗎？歡迎跟我一起工作，我們一起學習如何把專案做得更好！請參考我的這篇文章「<a href="https://oberonlai.blog/tw/how-can-oberon-help-you/">接案路上少的那一位工程師</a>」</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/figma/" rel="tag"><i class="fa fa-tag"></i> figma</a>
+              <a href="/tw/tags/mindnode/" rel="tag"><i class="fa fa-tag"></i> mindnode</a>
+              <a href="/tw/tags/prototype/" rel="tag"><i class="fa fa-tag"></i> prototype</a>
+              <a href="/tw/tags/wireframe/" rel="tag"><i class="fa fa-tag"></i> wireframe</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/woocommerce-order-export/" rel="prev" title="【 筆記 】WooCommerce 客製化報表自動匯出&上傳功能開發">
+      <i class="fa fa-chevron-left"></i> 【 筆記 】WooCommerce 客製化報表自動匯出&上傳功能開發
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/how-do-i-make-a-quotation/" rel="next" title="【 心得 】我的接案報價學">
+      【 心得 】我的接案報價學 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E6%95%B4%E7%90%86%E9%9C%80%E6%B1%82%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">為什麼要整理需求文件？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E3%80%8C%E7%9C%9F%E6%AD%A3%E3%80%8D%E6%90%9E%E6%87%82%E9%80%99%E5%80%8B%E5%B0%88%E6%A1%88%E5%9C%A8%E5%81%9A%E4%BB%80%E9%BA%BC"><span class="nav-number">1.1.</span> <span class="nav-text">一、「真正」搞懂這個專案在做什麼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8F%90%E5%8D%87%E5%9C%98%E9%9A%8A%E6%BA%9D%E9%80%9A%E6%95%88%E7%8E%87"><span class="nav-number">1.2.</span> <span class="nav-text">二、提升團隊溝通效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B4%AF%E7%A9%8D%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BC%81%E5%8A%83%E8%B3%87%E6%96%99%E5%BA%AB"><span class="nav-number">1.3.</span> <span class="nav-text">三、累積自己的企劃資料庫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%B8%9B%E5%B0%91%E6%9C%83%E8%AD%B0%E6%99%82%E9%96%93"><span class="nav-number">1.4.</span> <span class="nav-text">四、減少會議時間</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E7%9A%84%E9%9C%80%E8%A6%81%E6%96%87%E4%BB%B6%E5%97%8E%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">真的需要文件嗎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E6%96%87%E4%BB%B6%E8%A6%81%E5%AF%AB%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">需求文件要寫什麼？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%A2%E6%88%B6-%E5%B0%88%E6%A1%88%E7%99%BC%E8%B5%B7%E8%80%85"><span class="nav-number">3.1.</span> <span class="nav-text">一、客戶 &#x2F; 專案發起者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%A6%96%E8%A6%BA%E8%A8%AD%E8%A8%88%E5%B8%AB"><span class="nav-number">3.2.</span> <span class="nav-text">二、視覺設計師</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB"><span class="nav-number">3.3.</span> <span class="nav-text">三、前端工程師</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BE%8C%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB"><span class="nav-number">3.4.</span> <span class="nav-text">四、後端工程師</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E7%9A%84%E5%9B%9E%E5%A0%B1%E5%95%8F%E9%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">如何有效的回報問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%90%E6%9C%9F%E7%9A%84%E7%B5%90%E6%9E%9C"><span class="nav-number">4.1.</span> <span class="nav-text">預期的結果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E7%99%BC%E7%94%9F%E7%9A%84%E7%B5%90%E6%9E%9C"><span class="nav-number">4.2.</span> <span class="nav-text">實際發生的結果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%8F%BE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%93%8D%E4%BD%9C%E9%81%8E%E7%A8%8B"><span class="nav-number">4.3.</span> <span class="nav-text">重現自己的操作過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%E9%9B%BB%E8%85%A6%E7%9A%84%E8%A6%8F%E6%A0%BC"><span class="nav-number">4.4.</span> <span class="nav-text">自己電腦的規格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%B4%B9"><span class="nav-number">5.</span> <span class="nav-text">工具介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">6.</span> <span class="nav-text">結語</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">251</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">561k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:30</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/tw/lib/velocity/velocity.min.js"></script>
+  <script src="/tw/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+<script src="/tw/js/motion.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/how-to-write-the-effective-specification/";
+    this.page.identifier = "how-to-write-the-effective-specification/";
+    this.page.title = "【 心得 】企劃人員如何撰寫有效的軟體需求規格文件";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="6. 增加企業部落格文章-–新增文章功能 企業部落格的內容新增方式，是要以文章為主體，新增方法如下  在左方工具列找到文章 &gt; 新增文章，再輸入標題與文章內容，與分頁不同的是，它沒有模版可以選擇，另外它還可以對文章進行分類與下標籤，這對於網站的搜尋引擎最佳化作業提供運用的空間，完成後點選右方藍色的發表按鈕，新文章就可以發表完成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="寫給網頁設計師-如何整合html頁面至Wordpress（三）">
+<meta property="og:url" content="https://oberonlai.blog/tw/html2wordpress-3/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="6. 增加企業部落格文章-–新增文章功能 企業部落格的內容新增方式，是要以文章為主體，新增方法如下  在左方工具列找到文章 &gt; 新增文章，再輸入標題與文章內容，與分頁不同的是，它沒有模版可以選擇，另外它還可以對文章進行分類與下標籤，這對於網站的搜尋引擎最佳化作業提供運用的空間，完成後點選右方藍色的發表按鈕，新文章就可以發表完成。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/addarticle.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/homepagecontrol3.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/url.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/url2.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/option.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/option2.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav2.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav4.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav5.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav6.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav8.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav9.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav10.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav11.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav12.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav13.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav14.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav15.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav16.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav17.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav18.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav19.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/nav20.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/nav21.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/nav22.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/nav23.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/nav24.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/css01.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2011/10/css02.jpg">
+<meta property="article:published_time" content="2013-07-22T04:38:11.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.152Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2011/09/addarticle.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/html2wordpress-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>寫給網頁設計師-如何整合html頁面至Wordpress（三） | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/html2wordpress-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          寫給網頁設計師-如何整合html頁面至Wordpress（三）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2013-07-22 12:38:11" itemprop="dateCreated datePublished" datetime="2013-07-22T12:38:11+08:00">2013-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/html2wordpress-3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="html2wordpress-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>6. <strong>增加企業部落格文章</strong>-–新增文章功能 企業部落格的內容新增方式，是要以文章為主體，新增方法如下 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/addarticle.jpg" alt="新增部落格文章" title="addarticle"> 在左方工具列找到文章 &gt; 新增文章，再輸入標題與文章內容，與分頁不同的是，它沒有模版可以選擇，另外它還可以對文章進行分類與下標籤，這對於網站的搜尋引擎最佳化作業提供運用的空間，完成後點選右方藍色的發表按鈕，新文章就可以發表完成。</p>
+<span id="more"></span>
+<p>7.<strong>設定網站起始首頁與部落格網址</strong>-–運用外掛Home Page Control 現在我們已經完成的頁面有網站首頁、關於我們、服務項目、聯絡我們，以及剛剛新增部落格的幾篇文章，現在試著連到網站首頁，會發現是以部落格為主要頁面，而不是我們所設計的網站首頁，這時就需要工具來幫忙設定一下，而這工具就是我們之前安裝的Home Page Control。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/homepagecontrol3.jpg" alt="自訂首頁和部落格目錄名稱" title="homepagecontrol3"> 在選擇首頁的部份，點選下拉選單，會發現有我們剛剛所建立的四頁分頁，網站首頁、關於我們、服務項目以及聯絡我們，只要選擇網站首頁，按下儲存後，再回到首頁查看，就會發現我們已經成功改變首頁為我們自己設定的網站首頁了。 而自定部落格目錄名稱則是把網址設成你自己想要的，這名稱一定要設，不然你就沒有網址可以連到你的部落格，另外順帶一提網址的結構，我個人是喜歡用我自己命名的分頁名稱做為網址結尾，看起來清爽又乾淨， <img src="https://oberonlai.blog/wp-content/uploads/2011/09/url.jpg" alt="自訂網址結構" title="url"> 從左方工具選單設定 &gt; 固定網址，勾選最後一個自訂結構，並輸入/%postname%/，這樣我們就可以回去網誌分頁設定目錄名稱 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/url2.jpg" alt="設定目錄名稱" title="url2"> 點選編輯，就可以更改目錄名稱，建議最好是用英文，像聯絡我們就用contact簡單易懂的單字。看到這邊各位應該知道，這目錄名稱並不是我們通常所使用的資料夾名稱，而是可自行命名的，所以這名稱不用真的符合資料夾的名稱。 能夠做到這邊，基本上網站已經完成八成了，剩下最後的關鍵—導覽列的設定。 &lt;四&gt;設定導覽列 在wordpress 3.0的版本開始，在左方的工具列 &gt; 外觀，找的到選單的選項，如果你沒看到的話，趕緊更新一下版本吧，因為這是wordpress正式邁向內容管理系統 (CMS) 的重大一步，就是因為這超級無敵好用的內建選單功能!!! <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav.jpg" alt="自訂選單功能" title="nav"> 以我用過xoops和joomla的經驗來說，wordpress的選單設定實在是設計的最傑出的，簡單說，只有wordpress是從”非工程師”的角度來設計所有的設定流程。 然而雖然3.0版有內建的選單功能，但是你安裝的佈景主題也必須要有設定選單的函式，在這篇文章所提供的這份模版主題，我已經有把它加入選單功能，增加的方法需要修改function.php，對，就是之前我說沒事不要進來，進來會出人命的地方，所以我已經設定好兩組選單，一個是在header的主選單組，一個是在footer的頁尾選單組， 其它類型的選單像是次選單我們可以用Sidebar來設定，因此基本上要動到fucntion.php的機會不高，但我相信各位都有像魯夫一樣不去冒險會死掉的精神，或是有時需要增加特定選單的狀況，我稍後會介紹該如何新增一組選單組。 正常的做法，在我們網誌分頁已經都設定好的同時，相對應的選項程式也會自行產出，我們只要把這些選項加到選單組即可。開始建立之前，我把先把顯示選項調整如下圖 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/option.jpg" alt="點選右上角的顯示選項" title="option"> 在右上角有一個顯示選項，點下去時上方欄位會整個展開 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/option2.jpg" alt="顯示欄位選擇" title="option2"> 依照圖中選項來勾選，裡面的設定包含是否要顯示選單的id或class名，以及連結目標(target)等等，並把不必要的欄位隱藏，這樣比較好辦事。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav2.jpg" alt="建立選單組" title="nav2"> 第一步先建立你的選單組，最好是用英文命名，因為這會是css辨識選單組的名稱。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav4.jpg" alt="控制選單組位置" title="nav4"> 我建立了一個選單組名為main，左側的佈景主題位置就是可以選擇要把選單組顯示在那一個地方，而這些位置，是透過php的一段語法所控制的，主選單位置語法位於header.php與頁尾選單則在footer.php裡面。 假設現在我們要把剛剛新增的選單組main放在主選單的位置，只要在佈景主題位置主選單的下拉清單就可以看到我們所新增的main，選擇它按儲存，這樣就完成選單組的位置安排了。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav5.jpg" alt="選擇選單組的位置" title="nav5"> 如圖選擇剛剛所建立的選單組main即可 決定好位置之後，那選單組的選項呢?聰明的你一定有看到左下方的網誌分頁 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav6.jpg" alt="增加選單組的選項" title="nav6"> 我們剛剛所建立的分頁，都顯示在這邊，按選擇全部，並新增至選單，最後儲存選單，不到三秒，選單就搞定了，但是順序有點亂，而且還沒有看到最重要的企業部落格選單，接下來，我們做自訂鍊結的部份。 還記得之前我們在Home-Page Control所設定的部落格目錄嗎?先開個新網頁，去連到你的部落格，譬如這是我的部落格網址，<a href="https://oberonlai.blog/wblog%EF%BC%8C%E6%8A%8A%E5%AE%83%E8%A4%87%E8%A3%BD%E4%B8%8B%E4%BE%86">https://oberonlai.blog/wblog，把它複製下來</a> <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav8.jpg" alt="增加自訂鍊結" title="nav8"> 把網址貼到鍊結網址的欄位中，並把選項名稱命名為企業部落格，最後按新增至選單，就完成部落格的連結了。 依照這邏輯，看你是想連google還是yahoo都隨便你，只要把網址貼進去就好，當選項都成功加入選單組之後，我們再來把它整理一下。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav9.jpg" alt="當前選項順序" title="nav9"> 這是目前的選單順序，我看它很不順眼，我想把網站首頁放第一個、然後是關於我們、服務項目…，最後是聯絡我們，調整的方法非常簡單也直覺 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav10.jpg" alt="拖曳選項改變順序" title="nav10"> 是地，就是脫拖一下這麼簡單，第一次看到這種UI出現在wordpress時，感動的都快要掉淚了，特別是最近在用xoops，還要填數字來改變順序的蠢方法比起來，wordpress根本就是佛心來的，另外也可以用拖曳來決定層級，實在是直覺到爆炸。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav11.jpg" alt="設定class名" title="nav11"> 按下選項右邊的小三角型，會出現一些選項，包含要讓css辨識名稱，或是網頁的開啟目標都可以設在這邊，每個選項都可以獨立設定，如果要用圖片做選單就非常方便了。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav12.jpg" alt="完成選單順序" title="nav12"> 完成選單順序，記得點儲存選單，就這樣，打完收工。 其它類型的選單，像是次選單或功能選單等等，我們一律都可以用原有的sidebar來解決。sidebar本來是wordpress設計來建立一些瀏覽部落格的輔助工具，在這個版本之中，也可以把選單組加入到sidebar中，這樣可以更方便的來控制次選單。 接著我們再來新增一組關於我們的子選單，新增選單組請參考上面的步驟。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav13.jpg" title="nav13"> 我新增了選單組叫做sub-about，裡面包含了兩個選單，公司歷史與公司文化。 接著選擇左方工具列&gt;外觀&gt;模組，就會看到可以放在sidebar的所有功能。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav14.jpg" alt="啟用模組功能" title="nav14"> 在這邊可以看到許多部落格會常用到的功能，像是文章彙整、近期迴響等功能，這些模組你有空的自己玩看看，當然也可以用裝外掛的方式進行擴充。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav15.jpg" alt="將自訂選單加入sidebar" title="nav15"> 現在我們只要找到自訂選單，然後把它優雅的拖曳到Sidebar Widget欄位中， <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav16.jpg" alt="sidebar選擇選單組" title="nav16"> 然後就會看到如圖中的選項，如果沒有看到請重新整理一下即可，給子選單一個標題，然後用下拉選單選擇我們剛剛建立的選單組sub-about，完成後按下儲存，即成功新增子選單到sidebar中。 假設我們把其它頁面的子選單也都完成了，要來陸續增加到sidebar之中，但你一定會發現，sidebar雖然可以增加很多組選單組，去前臺的看的時候，會發現每一個分頁都是共用所有一樣的sidebar，也就是說，在關於我們可以看到服務項目的子選單，在服務項目也可以看到關於我們的子選單，但這世界不應該是這樣的啊啊啊啊! 當有人說一樣的東西完美無缺的時候，請小心這個人，它不是業務員就是購物頻道主持人，但我都不是，所以我要在這邊來講講wordpress的壞話，那就是他無法從模組這邊設定我那一個分頁要套用那一個模組，這是內容管理系統的基本功能，wordpress如果要朝標準的cms發展，就不能不加入這樣的功能。 之所以抱怨這麼多，是因為之前真的被它玩到了，為了解決不同分頁有不同模組的問題，我甚至一度想直接把次選單做在網誌分頁裡面，把天殺的sidebar踢的遠遠的，雖然很蠢，但至少控制權在自己手上。 後來谷了許多資料，光是這種功能要怎麼下關鍵字查詢就已經夠難了，有找到的多半不是我要的效果，最後在卡了將近三天左右，總算找到了不甚完美的解決辦法，就是安裝一個外掛，叫做Widget logic。 <a target="_blank" rel="noopener" href="http://wordpress.org/extend/plugins/widget-logic/">下載點</a> 以一般安裝外掛的方式安裝，完成後會在模組的Sidebar Widget裡面，再展開其中一個我們所做的選單組，就會發現多了一個欄位叫做widget logic <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav17.jpg" alt="widget logic" title="nav17"> 大家一定會困惑，單單多了一個這樣的欄位，要如何去判斷那一頁該出現相對應的sidebar，而這也是為何它不是完美解的原因，因為它要自行輸入判斷的語法…..暈~ <a target="_blank" rel="noopener" href="http://edblog.net/archives/2063">艾德的部落格天空</a>是我找到這個解決辦法的地方，沒有他我現在大概還在原地吃屎，他提供了一些判斷的語法。 <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav18.jpg" alt="widget logic的判斷語法" title="nav18"> 看似有點複雜但實際上很好懂，我們想要的功能在第三點—is_page(‘分頁名稱’) ，我們把網誌分頁網址的結尾，也就是我們自己命名的名稱當做判斷的依據， <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav19.jpg" alt="widget logic的判斷依據" title="nav19"> 分頁”關於我們”叫做aboutus，那就回到模組的widget logic中，寫is_page(‘aboutus’) ， <img src="https://oberonlai.blog/wp-content/uploads/2011/09/nav20.jpg" alt="寫入判斷語法" title="nav20"> 就是這樣 如果是同一組選單組，想要同時出現在兩個或三個分頁中該怎麼辦?我嘗試在google analytics裡面需要常常用到但也是把我搞得半死的正規表示法，或的表示法是，也就是你的鍵盤的shift+\，所以如果我想讓同一個選單組出現在兩個分頁中，只要寫成這樣 <strong>is_page(“aboutus”)is_page(“contact”)</strong> 依照以上的解法，總算可以這個問題，但理想中還是希望可在設定Sidebar Widget的同時，多出一個欄位選擇出現位置，使用上會較為直覺，如果各位知道有更好的方法請務必讓我知道，不然只能期待下個版本推出時能夠有所改善了。 關於選單的部份，只要依循著上述的使用流程，基本上都能完成我們所需要的功能，但有時總是會有例外的情況，所以我再把關於wordpress的選單設定，解釋其程式碼所負責的部份，讓日後各位可針對自己的需求來修改。 首先先打開function.php，可以在第三行找到一個註解-增加選單功能 <img src="https://oberonlai.blog/wp-content/uploads/2011/10/nav21.jpg" alt="解釋nav function" title="nav21"> 這邊有句判斷式，當函式register_nav_menus存在時，增加一組陣列，第一個資料叫做header-menu，辨識的名稱為主選單，第二個資料叫做footer-menu，名稱為頁尾選單 大家在看這一段的時候，重點就是header-menu和footer-menu，而它們的名稱有沒有似曾相識? <img src="https://oberonlai.blog/wp-content/uploads/2011/10/nav22.jpg" alt="選單的容器" title="nav22"> 這兩個名字主選單與頁尾選單就是定義在這一頁之中會出現的佈景主題位置 在funtion.php之中定義的這兩個選單，主要是將選單的功能開啟，雖然它是以選單的功能和位置來命名，但在這邊的設定最主要是在告訴系統我們有兩套選單。 ‘header-memu’ =&gt; ‘主選單’ 引號中的名稱皆可自行定義，前面的英文是在調用這組選單時的辨識名稱，而後面的中文字則如上述所提到的是控制後臺選單的位置名稱，如果你覺得兩組不夠應付你網站中的選單，只要在這邊增加 ‘your-menu’ =&gt; ‘你的選單’, 即可，看需求來增加。 接著我們來看在開啟選單功能後，該如何把這些選單定義到我們希望它出現的位置，先以header-menu為例，這是主選單的部份，我習慣的做法是把主選單放在header.php，所以先打開這個檔案， 在第55行可以找到定義選單。 <img src="https://oberonlai.blog/wp-content/uploads/2011/10/nav23.jpg" alt="header-menu的位置" title="nav23"> wp_nav_menu是在wordpress中調用選單的函式，後面接的 ‘theme_location’ =&gt; ‘header-menu’ 則是代表套用這個佈景主題所擁有的選單，也就是我們自己定義的header-menu。 以此類推，foot-menu也是一樣的寫法，打開footer.php，在第5行可以看到同樣的語法 <img src="https://oberonlai.blog/wp-content/uploads/2011/10/nav24.jpg" alt="footer-menu的位置" title="nav24"> 跟上面一樣的wp_nav_menu，只是換成footer-menu 透過以上的解說，我們就能彈性控制選單的位置，譬如今天我的主選單是在側欄而不是在上方，就可以把wp_nav_menu這一段整行剪下貼到index.php裡面的某個你自己定義的div中，或是要定義一個頁面中的常用功能選單，都可以運用這樣的方式來做設定，相信已能滿足絕大多數的需求。</p>
+<h2 id="lt-五-gt-設計css"><a href="#lt-五-gt-設計css" class="headerlink" title="&lt;五&gt;設計css"></a>&lt;五&gt;設計css</h2><p>當把所有網誌分頁的html都建置完成後，最後再來設計css。wordpress的css很單純，就是一個檔案style.css，通常我習慣的做法是，使用chrome瀏覽器的檢視元素 <img src="https://oberonlai.blog/wp-content/uploads/2011/10/css01.jpg" alt="chrome瀏覽器的檢視元素" title="css01"> 使用google瀏覽器chrome，打開頁面，在空白的地方按右鍵，選擇最下方的檢視元素 <img src="https://oberonlai.blog/wp-content/uploads/2011/10/css02.jpg" alt="檢視元素內容" title="css02"> 當滑鼠移到某段div時，網頁中會出現相對應的區塊，而在檢視元素中點擊某段標籤，它也會呈現出相對應的css，並且可以勾選或關閉來即時檢視css的套用效果，十分的方便，要修改時再去尋找相對應的id或class即可。 在style.css的檔案中，我把初始化的語法用import來匯入reset.css，如果各位有自己的初始化語法，就貼在reset.css即可，剩下的就是在把你寫好的css全部貼過來吧!</p>
+<h2 id="lt-六-gt-結論"><a href="#lt-六-gt-結論" class="headerlink" title="&lt;六&gt;結論"></a>&lt;六&gt;結論</h2><p>每一套open cms都有自己的特性，也都有自己的支持者，但以一位網頁設計師的角度而言，我還是會推薦wordpress，因為它建立頁面的方式最直覺，在選單的控制上也非常彈性，外掛的數量也是多到爆炸，要能夠讓我相信一套cms很好用，只要頁面好增加，選單好控制就夠了，其它都是附屬的附加價值。 不像xoops增加頁面是要用模組的概念，沒有裝模組你就沒有頁面，而joomla則是要分單元，分類、文章，選單的控制更是麻煩，相信有做過的人就能理解我在說什麼。 所以為了讓還未碰觸過open cms的朋友們少走些冤枉路，我以自身的經驗來分享wordpress如何快速的與我們現有的作業結合，希望能對大家有所幫助，有任何疑問或是有更好的做法也歡迎留言給我，畢竟我也完全沒學過程式，很多自己摸索的不一定是最好的方法，還請各位不吝指教，先感謝各位了!</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/html2wordpress-2/" rel="prev" title="寫給網頁設計師-如何整合html頁面至Wordpress（二）">
+      <i class="fa fa-chevron-left"></i> 寫給網頁設計師-如何整合html頁面至Wordpress（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/responsivewebdesignforplanning/" rel="next" title="響應式網頁設計開發實戰 - 企劃面">
+      響應式網頁設計開發實戰 - 企劃面 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">251</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">561k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:30</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/tw/lib/velocity/velocity.min.js"></script>
+  <script src="/tw/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+<script src="/tw/js/motion.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/html2wordpress-3/";
+    this.page.identifier = "html2wordpress-3/";
+    this.page.title = "寫給網頁設計師-如何整合html頁面至Wordpress（三）";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
