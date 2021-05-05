@@ -367,11 +367,6 @@ td {
 .toggle .toggle-line:not(:first-child) {
   margin-top: 3px;
 }
-@media (max-width: 767px) {
-  .toggle .toggle-line {
-    top: 0;
-  }
-}
 .toggle.toggle-arrow .toggle-line-first {
   top: 14px;
   transform: rotate(-45deg);

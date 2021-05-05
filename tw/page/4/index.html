@@ -19,7 +19,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
@@ -89,7 +89,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -517,7 +517,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>513</span>
+              <span>515</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -535,7 +535,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#x6f;&#114;&#x64;&#x70;&#114;&#x65;&#x73;&#115;&#64;&#x64;&#x6f;&#x6d;&#97;&#105;&#110;&#x2e;&#x63;&#x6f;&#x6d;">&#x77;&#x6f;&#114;&#x64;&#x70;&#114;&#x65;&#x73;&#115;&#64;&#x64;&#x6f;&#x6d;&#97;&#105;&#110;&#x2e;&#x63;&#x6f;&#x6d;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#119;&#111;&#114;&#100;&#112;&#114;&#101;&#x73;&#115;&#x40;&#100;&#111;&#109;&#x61;&#x69;&#110;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#111;&#114;&#100;&#112;&#114;&#101;&#x73;&#115;&#x40;&#100;&#111;&#109;&#x61;&#x69;&#110;&#x2e;&#x63;&#x6f;&#x6d;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
@@ -2660,12 +2660,8 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <script src="/tw/lib/anime.min.js"></script>
   <script src="/tw/lib/pjax/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="/tw/lib/velocity/velocity.min.js"></script>
-  <script src="/tw/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/tw/js/utils.js"></script>
-
-<script src="/tw/js/motion.js"></script>
 
 
 <script src="/tw/js/schemes/muse.js"></script>
