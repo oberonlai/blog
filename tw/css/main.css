@@ -2598,6 +2598,8 @@ hr {
 }
 .posts-expand .post-body img {
   margin: 0 auto;
+  box-shadow: 0 0 1px 1px #e4e4e4;
+  border-radius: 3px;
 }
 .posts-expand .post-tags {
   text-align: left;
@@ -2612,6 +2614,10 @@ hr {
 }
 .posts-expand .post-nav {
   margin-top: 40px;
+}
+.medium-zoom-image--opened {
+  box-shadow: 0 0 1px 1px #e4e4e4;
+  border-radius: 3px;
 }
 .post-button {
   margin-top: 20px;
