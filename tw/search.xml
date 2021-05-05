@@ -2500,6 +2500,16 @@ export default &#123;
       </categories>
   </entry>
   <entry>
+    <title>WooCommerce 步驟結帳外掛</title>
+    <url>/tw/woocommerce-step-checkout/</url>
+    <content><![CDATA[<p>WooCommerce 預設的結帳頁面，是把登入/註冊會員、訂購人資訊、付款方式全都放在同一頁之中，如果欄位較少或是沒有太複雜的進階功能時，放在單頁之中還算方便使用，但如果今天公司需要比較多的結帳功能或是要填寫較詳細的付款資料，拆成獨立的頁面來處理可能對使用者會比較友善，WooCommerce Multi-Step Checout 這支外掛可以很方便的完成此功能，它可以設定哪些步驟需要拆成獨立的頁面，顧客在結帳時也能切換前後步驟，在手機上也能瀏覽，是一支可以改善顧客體驗的 WooCommerce 外掛。 <img src="https://oberonlai.blog/wp-content/uploads/2018/06/woocommerce-step-checkout.jpg"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-1.png"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-3.png"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-4.png"></p>
+<p><a href="https://wordpress.org/plugins/wp-multi-step-checkout/">前往連結</a></p>
+]]></content>
+      <categories>
+        <category>uncategorized</category>
+      </categories>
+  </entry>
+  <entry>
     <title>WooCommerce 六個常見拖慢後台速度的原因</title>
     <url>/tw/woocommerce-%E5%85%AD%E5%80%8B%E5%B8%B8%E8%A6%8B%E6%8B%96%E6%85%A2%E5%BE%8C%E5%8F%B0%E9%80%9F%E5%BA%A6%E7%9A%84%E5%8E%9F%E5%9B%A0/</url>
     <content><![CDATA[<p>當使用 WooCommerce 建立購物網站時，時間久了後台可就會因為暫存資料或是檔案變多的關係而造成讀取緩慢，本文分享了六種可能的原因，正在為此困擾的朋友可以參考看看！</p>
@@ -2508,16 +2518,6 @@ export default &#123;
 ]]></content>
       <categories>
         <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>WooCommerce 步驟結帳外掛</title>
-    <url>/tw/woocommerce-step-checkout/</url>
-    <content><![CDATA[<p>WooCommerce 預設的結帳頁面，是把登入/註冊會員、訂購人資訊、付款方式全都放在同一頁之中，如果欄位較少或是沒有太複雜的進階功能時，放在單頁之中還算方便使用，但如果今天公司需要比較多的結帳功能或是要填寫較詳細的付款資料，拆成獨立的頁面來處理可能對使用者會比較友善，WooCommerce Multi-Step Checout 這支外掛可以很方便的完成此功能，它可以設定哪些步驟需要拆成獨立的頁面，顧客在結帳時也能切換前後步驟，在手機上也能瀏覽，是一支可以改善顧客體驗的 WooCommerce 外掛。 <img src="https://oberonlai.blog/wp-content/uploads/2018/06/woocommerce-step-checkout.jpg"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-1.png"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-3.png"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/screenshot-4.png"></p>
-<p><a href="https://wordpress.org/plugins/wp-multi-step-checkout/">前往連結</a></p>
-]]></content>
-      <categories>
-        <category>uncategorized</category>
       </categories>
   </entry>
   <entry>
@@ -2702,6 +2702,86 @@ export default &#123;
       </categories>
   </entry>
   <entry>
+    <title>WordPress LINE 登入外掛</title>
+    <url>/tw/wordpress-line-login-plugin/</url>
+    <content><![CDATA[<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-00.jpg"></p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>LINE 即時通訊軟體在台灣有超過兩千萬的用戶，持續推出相關的生活應用，從遊戲到新聞、叫車到支付，已經大範圍的滲透到台灣人的日常生活，因此幫自己的電商網站增加 LINE 帳號登入功能，能大幅度減少註冊網站會員的門檻，進而增加購物轉換率，而 WordPress LINE 登入外掛能協助您自行串接，無需再花費技術人員的成本。</p>
+<span id="more"></span>
+
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><p>本外掛適用於由 WordPress 內容管理系統建置的網站，如搭配購物車外掛 WooCommerce 能得到更好的支援，主要功能介紹如下：</p>
+<h3 id="整合-LINE-第三方登入"><a href="#整合-LINE-第三方登入" class="headerlink" title="整合 LINE 第三方登入"></a>整合 LINE 第三方登入</h3><p>在 WooCommerce 帳號登入頁面自動增加 LINE 登入按鈕，點擊後會引導至 LINE 的登入介面來完成會員註冊 or 登入的動作。</p>
+<h3 id="選擇登入跳轉方式"><a href="#選擇登入跳轉方式" class="headerlink" title="選擇登入跳轉方式"></a>選擇登入跳轉方式</h3><p>可以在頁面或文章中加入按鈕後放上由本外掛產生的 LINE 登入網址來進行跳轉，或是在網址中加入參數來設定自動跳轉，就能讓瀏覽者在進入網站前就先完成 LINE 登入的動作，以利後續的操作。</p>
+<p>網址參數說明如下：</p>
+<ul>
+<li>linelogin - 如果設定為 true，當使用者點選該網址時會直接跳轉到 LINE 的登入頁面，待登入完成後會自動跳轉回該頁面，並且顯示為已登入狀態。</li>
+</ul>
+<blockquote>
+<p>範例：當設定連結網址為 <a href="https://example.com/landing?linelogin=true">https://example.com/landing?linelogin=true</a> 時，會先引導使用者完成 LINE 登入，然後跳轉回頁面 <a href="https://example.com/landing">https://example.com/landing</a> ，適合要做商品導購或是表單填寫時可預先帶入會員資料的使用情境。</p>
+</blockquote>
+<ul>
+<li>lineloginredirect - 帶入登入後的跳轉網址，如果有設定該參數，可以指定使用者登入後跳轉的頁面。</li>
+</ul>
+<blockquote>
+<p>範例：當設定連結網址為 <a href="https://example.com/?lineloginredirect=https://example.com/landing">https://example.com/?lineloginredirect=https://example.com/landing</a> 時，完成登入後頁面會跳轉至 <a href="https://example.com/landing">https://example.com/landing</a></p>
+</blockquote>
+<h2 id="外掛基本設定"><a href="#外掛基本設定" class="headerlink" title="外掛基本設定"></a>外掛基本設定</h2><p>LINE 的開發者帳號非常容易申請，只要有 LINE 帳號即可，申請的步驟很單純，只要提供相關的資訊即可建立完成。</p>
+<h3 id="前往-LINE-開發者帳號並新增-Channel"><a href="#前往-LINE-開發者帳號並新增-Channel" class="headerlink" title="前往 LINE 開發者帳號並新增 Channel"></a>前往 LINE 開發者帳號並新增 Channel</h3><p>一共有四個步驟，關鍵是要取得最後產出的 Channel ID 與 Channel secret，這兩個資訊需要填入到本外掛的設定選項中，以下就各步驟進行說明：</p>
+<h4 id="STEP1-使用個人-LINE-帳號登入"><a href="#STEP1-使用個人-LINE-帳號登入" class="headerlink" title="STEP1. 使用個人 LINE 帳號登入"></a><strong>STEP1. 使用個人 LINE 帳號登入</strong></h4><p>先前往 <a href="https://developers.line.biz/">https://developers.line.biz</a> 點擊右上角的 Log in 按鈕</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-01.jpg"></p>
+<p>選擇使用LINE帳號登入</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-02.jpg"></p>
+<p>登入後會被要求輸入開發者相關資訊，需要填入開發者名稱與電子郵件，輸入完成後點選 Create my account 即可。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-03.jpg"></p>
+<p>這樣 LINE 開發者帳號就申請完成了，接下來是新增 Provider。</p>
+<p>&nbsp;</p>
+<h4 id="STEP2-新增-Provider"><a href="#STEP2-新增-Provider" class="headerlink" title="STEP2. 新增 Provider"></a><strong>STEP2. 新增 Provider</strong></h4><p>Provider 指的是內容供應商，點選畫面中 Create a new provider 的按鈕：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-04.jpg"></p>
+<p>輸入 Provider name 之後點選 create</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-05.jpg"></p>
+<p>這樣就完成了 Provider 的新增。</p>
+<p>&nbsp;</p>
+<h4 id="STEP3-新增-Channel-與設定-Callback-URL"><a href="#STEP3-新增-Channel-與設定-Callback-URL" class="headerlink" title="STEP3. 新增 Channel 與設定 Callback URL"></a><strong>STEP3. 新增 Channel 與設定 Callback URL</strong></h4><p>Channel 指的是我們要使用的應用程式，它有很多種類型，由於我們是要使用登入的功能，所以選擇 Create a LINE Login channel：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-06.jpg"></p>
+<p>接下來輸入這個 Channel 的相關資訊，要注意的地方是 Region，記得要填 Taiwan，萬一填錯的話是無法修改的，必須砍掉 Channel 再重新建立一個：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-07.jpg"></p>
+<p>都填寫完畢後點擊最下方的 Create，這樣就完成 Channel 的建立～</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-08.jpg"></p>
+<p>接下來回到 Channel 的主畫面，我們要設定 Callback URL，這個 URL 指的是當使用者登入完成後，會跳轉到我們網站的頁面，而這個頁面會去取得該使用者的資料，後續本外掛會將這些資料與 WordPress 資料庫做整合。</p>
+<p>先進入 LINE Login 的頁面，然後點選 Callback URL 的 Edit 按鈕，就會出現輸入框輸入網址：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-09.jpg"></p>
+<p>接下來停留在這個畫面，新開一個瀏覽器頁籤，登入 WordPress 網站後台，在左邊選單 LINE &gt; 設定裡面，可以找到這個 Callback URL，將它複製後再貼回 LINE 的後台即可。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-09-1.jpg"></p>
+<p>&nbsp;</p>
+<h4 id="STEP4-請求-OpenID-權限與發佈-Channel"><a href="#STEP4-請求-OpenID-權限與發佈-Channel" class="headerlink" title="STEP4. 請求 OpenID 權限與發佈 Channel"></a><strong>STEP4. 請求 OpenID 權限與發佈 Channel</strong></h4><p>完成 Channel 設定後，最後要處理的是請求使用者提供電子郵件的權限，因為在 WordPress 這端我們是用電子郵件來判斷會員的身份，因此取得電子郵件是必要的，而電子郵件在預設的情況下 LINE 是沒有提供的，所以需要 OpenID Connect 來取得權限。</p>
+<p>先回到 LINE Channel Basic Settings 的頁籤，捲到頁面底端可以看到 OpenID Connect 的選項，點選 Apply：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-10.jpg"></p>
+<p>勾選同意 LINE 的隱私權政策以及上傳電子郵件使用用途的截圖後，點選 submit 即申請完成：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-11.jpg"></p>
+<p>最後找到 Channel 上方的發佈按鈕，將狀態改為 Publish 即完成 LINE Channel 的申請流程。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-12.jpg"></p>
+<h3 id="安裝外掛輸入-LINE-資訊"><a href="#安裝外掛輸入-LINE-資訊" class="headerlink" title="安裝外掛輸入 LINE 資訊"></a>安裝外掛輸入 LINE 資訊</h3><p>完成 LINE Channel 的申請之後，要先將兩段文字複製起來，一個是 Channel ID，另一個是 Channel secret，可以在 Channel 的主畫面中找到：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-13.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-14.jpg"></p>
+<p>複製後回到網站後台，將 Channel ID 與 Channel Secret 資訊貼入後儲存即可完成設定。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-15.jpg"></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="如果登入者不提供電子郵件會發生什麼事？"><a href="#如果登入者不提供電子郵件會發生什麼事？" class="headerlink" title="如果登入者不提供電子郵件會發生什麼事？"></a>如果登入者不提供電子郵件會發生什麼事？</h3><p>本外掛會判斷是否有取得電子郵件，如果沒有的話會引導至 WooCommerce 帳號登入頁面並顯示 LINE 登入失敗，提示使用者需要允許存許電子郵件才能完成登入。</p>
+<h3 id="如果網站已經擁有該會員資料會發生什麼事？"><a href="#如果網站已經擁有該會員資料會發生什麼事？" class="headerlink" title="如果網站已經擁有該會員資料會發生什麼事？"></a>如果網站已經擁有該會員資料會發生什麼事？</h3><p>取得電子郵件後本外掛會先做會員資料庫比對，如果發現該電子郵件已存在於資料庫當中，則會更新該會員的顯示名稱以及大頭照，反之則會取得該使用者資料後註冊一個新會員。</p>
+<h3 id="一定要有-LINE-的開發者帳號才能使用本外掛嗎？"><a href="#一定要有-LINE-的開發者帳號才能使用本外掛嗎？" class="headerlink" title="一定要有 LINE 的開發者帳號才能使用本外掛嗎？"></a>一定要有 LINE 的開發者帳號才能使用本外掛嗎？</h3><p>LINE 開者帳號是用來申請 LINE Channel 用的，因此建議要申請才能取得該 Channel 的管理權限。</p>
+<h3 id="一定要有-LINE-的官方帳號才能使用本外掛嗎？"><a href="#一定要有-LINE-的官方帳號才能使用本外掛嗎？" class="headerlink" title="一定要有 LINE 的官方帳號才能使用本外掛嗎？"></a>一定要有 LINE 的官方帳號才能使用本外掛嗎？</h3><p>不用，只要有 LINE 的開發者帳號即可。</p>
+<p>&nbsp;</p>
+<p>需要 WordPress LINE 登入外掛嗎？請<a href="mailto:m615926@gmail.com">與我聯絡</a>～</p>
+<p>&nbsp;</p>
+]]></content>
+      <categories>
+        <category>LINE</category>
+        <category>外掛開發</category>
+      </categories>
+      <tags>
+        <tag>會員登入</tag>
+        <tag>WordPress 會員外掛</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Wordpress 搬家注意事項</title>
     <url>/tw/wordpress-move/</url>
     <content><![CDATA[<p>1.網站蓋好後注意事項 網頁描述換成 meta descrption 網頁描述換成文章摘要 設定 og tag 設定 favicon <a href="http://www.favicon.cc/">http://www.favicon.cc/</a> 裝 w3 total cache</p>
@@ -2727,7 +2807,7 @@ export default &#123;
 <h3 id="STEP2-下載-Eagle-三十天試用版"><a href="#STEP2-下載-Eagle-三十天試用版" class="headerlink" title="STEP2 / 下載 Eagle 三十天試用版"></a>STEP2 / 下載 Eagle 三十天試用版</h3><p>  在等到資料夾同步的時候，可以前往 <a href="https://tw.eagle.cool/macOS">Eagle 官方網站</a>，它會判斷你的作業系統提供適合的安裝版本供下載。   啟用後可以發現 Eagle 的介面很簡潔，三欄式的結構依序為分類目錄、圖像本體以及圖像資訊，它可以直接拖曳圖檔到畫面中央即可加入，或是從 Pinterest 中進行匯入，如果你現在是用 Pinterest 收藏的朋友可無痛移轉。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-5.png">   Eagle 本身內建資源庫功能，而這資源庫是去抓取本機目錄，一個讓 Eagle 可以辨識的資料夾，所以只要這個資料夾存放於雲端硬碟中，所有的收藏就能即時同步，而我們的 WordPress 資源庫就是要使用這個功能來實現。   等 Dropbox 的檔案同步後，從上方選單點選資源庫 &gt; 載入其它資源庫，選擇 Dropbox 中的 WordPress.library，就可以成功載入 WordPress 資源了。接下來你就可以逛逛裡面有啥好物，或是加入自己的 WordPress 收藏，當然你也可以新增自己的分類資料夾，整理屬於自己的清單。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-6.png">  </p>
 <h3 id="STEP3-Eagle-瀏覽器外掛"><a href="#STEP3-Eagle-瀏覽器外掛" class="headerlink" title="STEP3 / Eagle 瀏覽器外掛"></a>STEP3 / Eagle 瀏覽器外掛</h3><p>  除了本機檔案加入、從 Pinterest 匯入，也可以安裝 Eagle 所提供的瀏覽器外掛來截取網頁畫面，Chrome 跟 Safari 都有，可<a href="https://tw.eagle.cool/extensions">前往此處</a>下載。有了瀏覽器外掛後就可以更方便的來收集網頁上的資料。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-7.png">  </p>
 <h2 id="資源庫共享的未來"><a href="#資源庫共享的未來" class="headerlink" title="資源庫共享的未來"></a>資源庫共享的未來</h2><p>  Eagle 當然不僅能收藏 WordPress 外掛，任何你能想到的數位檔案都能用它來整理分類，像是企業標誌、海報、素材、電影番號封面、合約書、食譜、結婚照等等，再搭配雲端同步功能，想像未來如果有一個資源庫管理平台，讓所有願意分享的朋友上傳他們的 Library，就會十分精彩了，當然，前提是硬碟要有 10TB。   另外假使能再搭配手機 APP 收集生活中的事物，以及使用平版電腦做簡報，效果也會非常好，這段是純粹寫給開發團隊的許願項目。   大家有機會可以試試這款軟體，相信會有很不一樣的收藏體驗，一試成主顧的話佛心價是 29 塊美金，而且可以授權兩台電腦，所以再去勸敗另一位朋友請他幫你攤一半的錢就更划算了，大量團購還有再打折，台灣團隊設計製造開發，有問題還可以跟創辦人線上一對一中文諮詢打屁聊天交友(?)，這麼優的軟體不推不行～   註：想同步 WordPress 資源庫的朋友請提供您的 Dropbox 申請帳號於留言中，並留下:</p>
-<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-x64-114-x6f-x70-98-x6f-x78-101-109-97-105-x6c-x40-97-98-x63-46-99-x6f-109-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-x64-114-x6f-x70-98-x6f-x78-101-109-97-105-x6c-x40-97-98-x63-46-99-x6f-109-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#x6d;&#x79;&#x64;&#114;&#x6f;&#x70;&#98;&#x6f;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#46;&#99;&#x6f;&#109; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#x6d;&#x79;&#x64;&#114;&#x6f;&#x70;&#98;&#x6f;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#46;&#99;&#x6f;&#109;">&#x6d;&#x79;&#x64;&#114;&#x6f;&#x70;&#98;&#x6f;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#46;&#99;&#x6f;&#109;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
+<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-100-114-x6f-112-x62-x6f-120-101-109-97-105-108-x40-97-98-x63-x2e-x63-111-x6d-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-100-114-x6f-112-x62-x6f-120-101-109-97-105-108-x40-97-98-x63-x2e-x63-111-x6d-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#x6d;&#x79;&#100;&#114;&#x6f;&#112;&#x62;&#x6f;&#120;&#101;&#109;&#97;&#105;&#108;&#x40;&#97;&#98;&#x63;&#x2e;&#x63;&#111;&#x6d; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#x6d;&#x79;&#100;&#114;&#x6f;&#112;&#x62;&#x6f;&#120;&#101;&#109;&#97;&#105;&#108;&#x40;&#97;&#98;&#x63;&#x2e;&#x63;&#111;&#x6d;">&#x6d;&#x79;&#100;&#114;&#x6f;&#112;&#x62;&#x6f;&#120;&#101;&#109;&#97;&#105;&#108;&#x40;&#97;&#98;&#x63;&#x2e;&#x63;&#111;&#x6d;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -2817,7 +2897,7 @@ export default &#123;
   <entry>
     <title>WordPress 修改系統寄件人以及發信信箱</title>
     <url>/tw/wordpress-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%B5%B1%E5%AF%84%E4%BB%B6%E4%BA%BA%E4%BB%A5%E5%8F%8A%E7%99%BC%E4%BF%A1%E4%BF%A1%E7%AE%B1/</url>
-    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#111;&#x72;&#100;&#x70;&#x72;&#x65;&#115;&#115;&#64;&#100;&#x6f;&#x6d;&#97;&#105;&#110;&#x2e;&#99;&#111;&#109;">&#x77;&#111;&#x72;&#100;&#x70;&#x72;&#x65;&#115;&#115;&#64;&#100;&#x6f;&#x6d;&#97;&#105;&#110;&#x2e;&#99;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#x6f;&#x72;&#x64;&#x70;&#114;&#101;&#x73;&#x73;&#64;&#100;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#x6f;&#x72;&#x64;&#x70;&#114;&#101;&#x73;&#x73;&#64;&#100;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
@@ -2945,22 +3025,22 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>WordPress 接案者絕佳的溝通工具</title>
-    <url>/tw/wordpress-%E6%8E%A5%E6%A1%88%E8%80%85%E7%B5%95%E4%BD%B3%E7%9A%84%E6%BA%9D%E9%80%9A%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>時常覺得在跟客戶溝通時有種牛頭不對馬尾的感覺嗎？ProjectHuddle 這套 WordPress 外掛就是專門針對這種情境來解決問題的，它可以讓客戶直接在網頁上標記需要修改的地方，並且可以指派對象已經標記是否已解決。而開發人員在後台直接可以看到客戶的待辦清單，對於要量化修改項目的作業會十分方便，此外後台還可以上傳尚未切板前的設計稿，一樣可以讓客戶在上面留言，並有驗收完成的功能，最厲害的是，它還可以加入其它網站來一併做修改管理，超級實用！</p>
+    <title>WordPress 提供會員前台註冊表單</title>
+    <url>/tw/wordpress-%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%89%8D%E5%8F%B0%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/</url>
+    <content><![CDATA[<p>WordPress 在安裝完成後，就直接內建會員資料庫的機制，如果想提供註冊會員的功能，在預設情況下就必須登入網站後台，這會造成某種程度的資安風險以及使用者的體驗不佳，這時候就需要前台註冊表單來解決這個問題。User Registration 這套外掛可以很方便的使用視覺化編輯器來建構註冊表單，所有欄位都可以自行拖拉設計，不需要編寫半行程式碼，此外還有提供會員機制的相關功能，是一套當需要設計會員系統時非常完整的工具。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1526338540806478” display=”yes” title=”V29yZFByZXNzIOaOpeahiOiAhee1leS9s+eahOa6nemAmuW3peWFtw==” body=”5pmC5bi46Ka65b6X5Zyo6Lef5a6i5oi25rqd6YCa5pmC5pyJ56iu54mb6aCt5LiN5bCN6aas5bC+55qE5oSf6Ka65ZeO77yfUHJvamVjdEh1ZGRsZSDpgJnlpZcgV29yZFByZXNzIOWkluaOm+WwseaYr+WwiOmWgOmHneWwjemAmeeoruaDheWig+S+huino+axuuWVj+mhjOeahO+8jOWug+WPr+S7peiuk+WuouaItuebtOaOpeWcqOe2sumggeS4iuaomeiomOmcgOimgeS/ruaUueeahOWcsOaWue+8jOS4puS4lOWPr+S7peaMh+a0vuWwjeixoeW3sue2k+aomeiomOaYr+WQpuW3suino+axuuOAguiAjOmWi+eZvOS6uuWToeWcqOW+jOWPsOebtOaOpeWPr+S7peeci+WIsOWuouaItueahOW+hei+pua4heWWru+8jOWwjeaWvOimgemHj+WMluS/ruaUuemgheebrueahOS9nOalreacg+WNgeWIhuaWueS+v++8jOatpOWkluW+jOWPsOmChOWPr+S7peS4iuWCs+WwmuacquWIh+adv+WJjeeahOioreioiOeov++8jOS4gOaoo+WPr+S7peiuk+WuouaItuWcqOS4iumdoueVmeiogO+8jOS4puaciempl+aUtuWujOaIkOeahOWKn+iDve+8jOacgOWOsuWus+eahOaYr++8jOWug+mChOWPr+S7peWKoOWFpeWFtuWug+e2suermeS+huS4gOS9teWBmuS/ruaUueeuoeeQhu+8jOi2hee0muWvpueUqO+8gQ==” pid=”3239”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1578134302293568” display=”yes” title=”V29yZFByZXNzIOaPkOS+m+acg+WToeWJjeWPsOiou+WGiuihqOWWrg==” body=”V29yZFByZXNzIOWcqOWuieijneWujOaIkOW+jO+8jOWwseebtOaOpeWFp+W7uuacg+WToeizh+aWmeW6q+eahOapn+WItu+8jOWmguaenOaDs+aPkOS+m+iou+WGiuacg+WToeeahOWKn+iDve+8jOWcqOmgkOioreaDheazgeS4i+WwseW/hemgiOeZu+WFpee2suermeW+jOWPsO+8jOmAmeacg+mAoOaIkOafkOeorueoi+W6pueahOizh+WuiemiqOmaquS7peWPiuS9v+eUqOiAheeahOmrlOmpl+S4jeS9s++8jOmAmeaZguWAmeWwsemcgOimgeWJjeWPsOiou+WGiuihqOWWruS+huino+axuumAmeWAi+WVj+mhjOOAglVzZXIgUmVnaXN0cmF0aW9uIOmAmeWll+WkluaOm+WPr+S7peW+iOaWueS+v+eahOS9v+eUqOimluimuuWMlue3qOi8r+WZqOS+huW7uuani+iou+WGiuihqOWWru+8jOaJgOacieashOS9jemDveWPr+S7peiHquihjOaLluaLieioreioiO+8jOS4jemcgOimgee3qOWvq+WNiuihjOeoi+W8j+eivO+8jOatpOWklumChOacieaPkOS+m+acg+WToeapn+WItueahOebuOmXnOWKn+iDve+8jOaYr+S4gOWll+eVtumcgOimgeioreioiOacg+WToeezu+e1seaZgumdnuW4uOWujOaVtOeahOW3peWFt+OAgg==” pid=”3330”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
       </categories>
   </entry>
   <entry>
-    <title>WordPress 提供會員前台註冊表單</title>
-    <url>/tw/wordpress-%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%89%8D%E5%8F%B0%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/</url>
-    <content><![CDATA[<p>WordPress 在安裝完成後，就直接內建會員資料庫的機制，如果想提供註冊會員的功能，在預設情況下就必須登入網站後台，這會造成某種程度的資安風險以及使用者的體驗不佳，這時候就需要前台註冊表單來解決這個問題。User Registration 這套外掛可以很方便的使用視覺化編輯器來建構註冊表單，所有欄位都可以自行拖拉設計，不需要編寫半行程式碼，此外還有提供會員機制的相關功能，是一套當需要設計會員系統時非常完整的工具。</p>
+    <title>WordPress 接案者絕佳的溝通工具</title>
+    <url>/tw/wordpress-%E6%8E%A5%E6%A1%88%E8%80%85%E7%B5%95%E4%BD%B3%E7%9A%84%E6%BA%9D%E9%80%9A%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>時常覺得在跟客戶溝通時有種牛頭不對馬尾的感覺嗎？ProjectHuddle 這套 WordPress 外掛就是專門針對這種情境來解決問題的，它可以讓客戶直接在網頁上標記需要修改的地方，並且可以指派對象已經標記是否已解決。而開發人員在後台直接可以看到客戶的待辦清單，對於要量化修改項目的作業會十分方便，此外後台還可以上傳尚未切板前的設計稿，一樣可以讓客戶在上面留言，並有驗收完成的功能，最厲害的是，它還可以加入其它網站來一併做修改管理，超級實用！</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1578134302293568” display=”yes” title=”V29yZFByZXNzIOaPkOS+m+acg+WToeWJjeWPsOiou+WGiuihqOWWrg==” body=”V29yZFByZXNzIOWcqOWuieijneWujOaIkOW+jO+8jOWwseebtOaOpeWFp+W7uuacg+WToeizh+aWmeW6q+eahOapn+WItu+8jOWmguaenOaDs+aPkOS+m+iou+WGiuacg+WToeeahOWKn+iDve+8jOWcqOmgkOioreaDheazgeS4i+WwseW/hemgiOeZu+WFpee2suermeW+jOWPsO+8jOmAmeacg+mAoOaIkOafkOeorueoi+W6pueahOizh+WuiemiqOmaquS7peWPiuS9v+eUqOiAheeahOmrlOmpl+S4jeS9s++8jOmAmeaZguWAmeWwsemcgOimgeWJjeWPsOiou+WGiuihqOWWruS+huino+axuumAmeWAi+WVj+mhjOOAglVzZXIgUmVnaXN0cmF0aW9uIOmAmeWll+WkluaOm+WPr+S7peW+iOaWueS+v+eahOS9v+eUqOimluimuuWMlue3qOi8r+WZqOS+huW7uuani+iou+WGiuihqOWWru+8jOaJgOacieashOS9jemDveWPr+S7peiHquihjOaLluaLieioreioiO+8jOS4jemcgOimgee3qOWvq+WNiuihjOeoi+W8j+eivO+8jOatpOWklumChOacieaPkOS+m+acg+WToeapn+WItueahOebuOmXnOWKn+iDve+8jOaYr+S4gOWll+eVtumcgOimgeioreioiOacg+WToeezu+e1seaZgumdnuW4uOWujOaVtOeahOW3peWFt+OAgg==” pid=”3330”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1526338540806478” display=”yes” title=”V29yZFByZXNzIOaOpeahiOiAhee1leS9s+eahOa6nemAmuW3peWFtw==” body=”5pmC5bi46Ka65b6X5Zyo6Lef5a6i5oi25rqd6YCa5pmC5pyJ56iu54mb6aCt5LiN5bCN6aas5bC+55qE5oSf6Ka65ZeO77yfUHJvamVjdEh1ZGRsZSDpgJnlpZcgV29yZFByZXNzIOWkluaOm+WwseaYr+WwiOmWgOmHneWwjemAmeeoruaDheWig+S+huino+axuuWVj+mhjOeahO+8jOWug+WPr+S7peiuk+WuouaItuebtOaOpeWcqOe2sumggeS4iuaomeiomOmcgOimgeS/ruaUueeahOWcsOaWue+8jOS4puS4lOWPr+S7peaMh+a0vuWwjeixoeW3sue2k+aomeiomOaYr+WQpuW3suino+axuuOAguiAjOmWi+eZvOS6uuWToeWcqOW+jOWPsOebtOaOpeWPr+S7peeci+WIsOWuouaItueahOW+hei+pua4heWWru+8jOWwjeaWvOimgemHj+WMluS/ruaUuemgheebrueahOS9nOalreacg+WNgeWIhuaWueS+v++8jOatpOWkluW+jOWPsOmChOWPr+S7peS4iuWCs+WwmuacquWIh+adv+WJjeeahOioreioiOeov++8jOS4gOaoo+WPr+S7peiuk+WuouaItuWcqOS4iumdoueVmeiogO+8jOS4puaciempl+aUtuWujOaIkOeahOWKn+iDve+8jOacgOWOsuWus+eahOaYr++8jOWug+mChOWPr+S7peWKoOWFpeWFtuWug+e2suermeS+huS4gOS9teWBmuS/ruaUueeuoeeQhu+8jOi2hee0muWvpueUqO+8gQ==” pid=”3239”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -5004,20 +5084,20 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>載入最快、效能最好的 WordPress 佈景主題</title>
-    <url>/tw/%E8%BC%89%E5%85%A5%E6%9C%80%E5%BF%AB%E3%80%81%E6%95%88%E8%83%BD%E6%9C%80%E5%A5%BD%E7%9A%84-wordpress-%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</url>
-    <content><![CDATA[<p>在挑選佈景主題使用的時候，除了版型好看、操作便利外，最容易被忽略的就是載入速度，基本上付費版型不太可能提供免費試裝讓你行測試，展示頁面的主機環境變數又太多，還好這篇文章找出了 51 款速度飛快的佈景主題，測量標準是以頁面載入速度、檔案容量、請求數來進行評比，另外還有分不同網站型態來進行排行，還在找佈景主題的朋友可以來參考看看～</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1517839714989694” display=”yes” title=”6LyJ5YWl5pyA5b+r44CB5pWI6IO95pyA5aW955qEIFdvcmRQcmVzcyDkvYjmma/kuLvpoYw=” body=”5Zyo5oyR6YG45L2I5pmv5Li76aGM5L2/55So55qE5pmC5YCZ77yM6Zmk5LqG54mI5Z6L5aW955yL44CB5pON5L2c5L6/5Yip5aSW77yM5pyA5a655piT6KKr5b+955Wl55qE5bCx5piv6LyJ5YWl6YCf5bqm77yM5Z+65pys5LiK5LuY6LK754mI5Z6L5LiN5aSq5Y+v6IO95o+Q5L6b5YWN6LK76Kmm6KOd6K6T5L2g6KGM5ris6Kmm77yM5bGV56S66aCB6Z2i55qE5Li75qmf55Kw5aKD6K6K5pW45Y+I5aSq5aSa77yM6YKE5aW96YCZ56+H5paH56ug5om+5Ye65LqGIDUxIOasvumAn+W6pumjm+W/q+eahOS9iOaZr+S4u+mhjO+8jOa4rOmHj+aomea6luaYr+S7pemggemdoui8ieWFpemAn+W6puOAgeaqlOahiOWuuemHj+OAgeiri+axguaVuOS+humAsuihjOipleavlO+8jOWPpuWklumChOacieWIhuS4jeWQjOe2suermeWei+aFi+S+humAsuihjOaOkuihjO+8jOmChOWcqOaJvuS9iOaZr+S4u+mhjOeahOaci+WPi+WPr+S7peS+huWPg+iAg+eci+eci++9ng==” pid=”3227”]</p>
+    <title>開始設計前，想想你的使用者</title>
+    <url>/tw/%E9%96%8B%E5%A7%8B%E8%A8%AD%E8%A8%88%E5%89%8D%EF%BC%8C%E6%83%B3%E6%83%B3%E4%BD%A0%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85/</url>
+    <content><![CDATA[<p>網頁設計有別於平面設計，它除了提供訊息的傳遞外，還必須考量不同的裝置、使用情境以及互動方式，也因為它是互動的，就必須要提供易於操作的介面。這幾年因為網頁技術的發展，以及網站開發工具的便利性，看到很多炫技的網站，圖片飛來 fade 去是基本盤，還有一堆小元素在旁邊蠕動，以及讓老電腦發燙的動畫效果，這些說明了網頁設計的發展已經到了一種前所未有的高度，但也要小心，也許使用者根本看不到內容就只能被迫離開…</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1419483824825284” display=”yes” title=”6ZaL5aeL6Kit6KiI5YmN77yM5oOz5oOz5L2g55qE5L2/55So6ICF” body=”57ay6aCB6Kit6KiI5pyJ5Yil5pa85bmz6Z2i6Kit6KiI77yM5a6D6Zmk5LqG5o+Q5L6b6KiK5oGv55qE5YKz6YGe5aSW77yM6YKE5b+F6aCI6ICD6YeP5LiN5ZCM55qE6KOd572u44CB5L2/55So5oOF5aKD5Lul5Y+K5LqS5YuV5pa55byP77yM5Lmf5Zug54K65a6D5piv5LqS5YuV55qE77yM5bCx5b+F6aCI6KaB5o+Q5L6b5piT5pa85pON5L2c55qE5LuL6Z2i44CC6YCZ5bm+5bm05Zug54K657ay6aCB5oqA6KGT55qE55m85bGV77yM5Lul5Y+K57ay56uZ6ZaL55m85bel5YW355qE5L6/5Yip5oCn77yM55yL5Yiw5b6I5aSa54Kr5oqA55qE57ay56uZ77yM5ZyW54mH6aOb5L6GIGZhZGUg5Y675piv5Z+65pys55uk77yM6YKE5pyJ5LiA5aCG5bCP5YWD57Sg5Zyo5peB6YKK6KCV5YuV77yM5Lul5Y+K6K6T6ICB6Zu76IWm55m854eZ55qE5YuV55Wr5pWI5p6c77yM6YCZ5Lqb6Kqq5piO5LqG57ay6aCB6Kit6KiI55qE55m85bGV5bey57aT5Yiw5LqG5LiA56iu5YmN5omA5pyq5pyJ55qE6auY5bqm77yM5L2G5Lmf6KaB5bCP5b+D77yM5Lmf6Kix5L2/55So6ICF5qC55pys55yL5LiN5Yiw5YWn5a655bCx5Y+q6IO96KKr6L+r6Zui6ZaLLi4u” pid=”2981”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
       </categories>
   </entry>
   <entry>
-    <title>開始設計前，想想你的使用者</title>
-    <url>/tw/%E9%96%8B%E5%A7%8B%E8%A8%AD%E8%A8%88%E5%89%8D%EF%BC%8C%E6%83%B3%E6%83%B3%E4%BD%A0%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85/</url>
-    <content><![CDATA[<p>網頁設計有別於平面設計，它除了提供訊息的傳遞外，還必須考量不同的裝置、使用情境以及互動方式，也因為它是互動的，就必須要提供易於操作的介面。這幾年因為網頁技術的發展，以及網站開發工具的便利性，看到很多炫技的網站，圖片飛來 fade 去是基本盤，還有一堆小元素在旁邊蠕動，以及讓老電腦發燙的動畫效果，這些說明了網頁設計的發展已經到了一種前所未有的高度，但也要小心，也許使用者根本看不到內容就只能被迫離開…</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1419483824825284” display=”yes” title=”6ZaL5aeL6Kit6KiI5YmN77yM5oOz5oOz5L2g55qE5L2/55So6ICF” body=”57ay6aCB6Kit6KiI5pyJ5Yil5pa85bmz6Z2i6Kit6KiI77yM5a6D6Zmk5LqG5o+Q5L6b6KiK5oGv55qE5YKz6YGe5aSW77yM6YKE5b+F6aCI6ICD6YeP5LiN5ZCM55qE6KOd572u44CB5L2/55So5oOF5aKD5Lul5Y+K5LqS5YuV5pa55byP77yM5Lmf5Zug54K65a6D5piv5LqS5YuV55qE77yM5bCx5b+F6aCI6KaB5o+Q5L6b5piT5pa85pON5L2c55qE5LuL6Z2i44CC6YCZ5bm+5bm05Zug54K657ay6aCB5oqA6KGT55qE55m85bGV77yM5Lul5Y+K57ay56uZ6ZaL55m85bel5YW355qE5L6/5Yip5oCn77yM55yL5Yiw5b6I5aSa54Kr5oqA55qE57ay56uZ77yM5ZyW54mH6aOb5L6GIGZhZGUg5Y675piv5Z+65pys55uk77yM6YKE5pyJ5LiA5aCG5bCP5YWD57Sg5Zyo5peB6YKK6KCV5YuV77yM5Lul5Y+K6K6T6ICB6Zu76IWm55m854eZ55qE5YuV55Wr5pWI5p6c77yM6YCZ5Lqb6Kqq5piO5LqG57ay6aCB6Kit6KiI55qE55m85bGV5bey57aT5Yiw5LqG5LiA56iu5YmN5omA5pyq5pyJ55qE6auY5bqm77yM5L2G5Lmf6KaB5bCP5b+D77yM5Lmf6Kix5L2/55So6ICF5qC55pys55yL5LiN5Yiw5YWn5a655bCx5Y+q6IO96KKr6L+r6Zui6ZaLLi4u” pid=”2981”]</p>
+    <title>載入最快、效能最好的 WordPress 佈景主題</title>
+    <url>/tw/%E8%BC%89%E5%85%A5%E6%9C%80%E5%BF%AB%E3%80%81%E6%95%88%E8%83%BD%E6%9C%80%E5%A5%BD%E7%9A%84-wordpress-%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</url>
+    <content><![CDATA[<p>在挑選佈景主題使用的時候，除了版型好看、操作便利外，最容易被忽略的就是載入速度，基本上付費版型不太可能提供免費試裝讓你行測試，展示頁面的主機環境變數又太多，還好這篇文章找出了 51 款速度飛快的佈景主題，測量標準是以頁面載入速度、檔案容量、請求數來進行評比，另外還有分不同網站型態來進行排行，還在找佈景主題的朋友可以來參考看看～</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1517839714989694” display=”yes” title=”6LyJ5YWl5pyA5b+r44CB5pWI6IO95pyA5aW955qEIFdvcmRQcmVzcyDkvYjmma/kuLvpoYw=” body=”5Zyo5oyR6YG45L2I5pmv5Li76aGM5L2/55So55qE5pmC5YCZ77yM6Zmk5LqG54mI5Z6L5aW955yL44CB5pON5L2c5L6/5Yip5aSW77yM5pyA5a655piT6KKr5b+955Wl55qE5bCx5piv6LyJ5YWl6YCf5bqm77yM5Z+65pys5LiK5LuY6LK754mI5Z6L5LiN5aSq5Y+v6IO95o+Q5L6b5YWN6LK76Kmm6KOd6K6T5L2g6KGM5ris6Kmm77yM5bGV56S66aCB6Z2i55qE5Li75qmf55Kw5aKD6K6K5pW45Y+I5aSq5aSa77yM6YKE5aW96YCZ56+H5paH56ug5om+5Ye65LqGIDUxIOasvumAn+W6pumjm+W/q+eahOS9iOaZr+S4u+mhjO+8jOa4rOmHj+aomea6luaYr+S7pemggemdoui8ieWFpemAn+W6puOAgeaqlOahiOWuuemHj+OAgeiri+axguaVuOS+humAsuihjOipleavlO+8jOWPpuWklumChOacieWIhuS4jeWQjOe2suermeWei+aFi+S+humAsuihjOaOkuihjO+8jOmChOWcqOaJvuS9iOaZr+S4u+mhjOeahOaci+WPi+WPr+S7peS+huWPg+iAg+eci+eci++9ng==” pid=”3227”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -5690,11 +5770,11 @@ add\_filter('show\_admin\_bar','\_\_return\_false');
 
 總之這十年來在工作上越深入越覺得自己懂得東西好少，但又有一種信心，只要給我時間我就有辦法找到解決方案並真正的解決它，我想這就是為什麼寫程式會成為我每天的樂趣 ( 痛苦 ) 吧 XD]]></content>
       <categories>
-        <category>WordPress</category>
-        <category>HTML5</category>
         <category>PHP</category>
+        <category>WordPress</category>
         <category>JavaScript</category>
         <category>saas</category>
+        <category>HTML5</category>
         <category>F2E</category>
       </categories>
       <tags>
@@ -8137,8 +8217,8 @@ Bookend 包含了社群分享連結、自訂文字、自訂連結等內容，而
 ]]></content>
       <categories>
         <category>WordPress</category>
-        <category>網站企劃</category>
         <category>使用者介面</category>
+        <category>網站企劃</category>
         <category>老人碎念</category>
         <category>專案即生活</category>
         <category>資訊架構</category>
@@ -10436,90 +10516,6 @@ return strtolower($cleared);
       </categories>
       <tags>
         <tag>OOP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WordPress LINE 登入外掛</title>
-    <url>/tw/wordpress-line-login-plugin/</url>
-    <content><![CDATA[<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-00.jpg"></p>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>LINE 即時通訊軟體在台灣有超過兩千萬的用戶，持續推出相關的生活應用，從遊戲到新聞、叫車到支付，已經大範圍的滲透到台灣人的日常生活，因此幫自己的電商網站增加 LINE 帳號登入功能，能大幅度減少註冊網站會員的門檻，進而增加購物轉換率，而 WordPress LINE 登入外掛能協助您自行串接，無需再花費技術人員的成本。</p>
-<span id="more"></span>
-
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><p>本外掛適用於由 WordPress 內容管理系統建置的網站，如搭配購物車外掛 WooCommerce 能得到更好的支援，主要功能介紹如下：</p>
-<h3 id="整合-LINE-第三方登入"><a href="#整合-LINE-第三方登入" class="headerlink" title="整合 LINE 第三方登入"></a>整合 LINE 第三方登入</h3><p>在 WooCommerce 帳號登入頁面自動增加 LINE 登入按鈕，點擊後會引導至 LINE 的登入介面來完成會員註冊 or 登入的動作。</p>
-<h3 id="選擇登入跳轉方式"><a href="#選擇登入跳轉方式" class="headerlink" title="選擇登入跳轉方式"></a>選擇登入跳轉方式</h3><p>可以在頁面或文章中加入按鈕後放上由本外掛產生的 LINE 登入網址來進行跳轉，或是在網址中加入參數來設定自動跳轉，就能讓瀏覽者在進入網站前就先完成 LINE 登入的動作，以利後續的操作。</p>
-<p>網址參數說明如下：</p>
-<ul>
-<li>linelogin - 如果設定為 true，當使用者點選該網址時會直接跳轉到 LINE 的登入頁面，待登入完成後會自動跳轉回該頁面，並且顯示為已登入狀態。</li>
-</ul>
-<blockquote>
-<p>範例：當設定連結網址為 <a href="https://example.com/landing?linelogin=true">https://example.com/landing?linelogin=true</a> 時，會先引導使用者完成 LINE 登入，然後跳轉回頁面 <a href="https://example.com/landing">https://example.com/landing</a> ，適合要做商品導購或是表單填寫時可預先帶入會員資料的使用情境。</p>
-</blockquote>
-<ul>
-<li>lineloginredirect - 帶入登入後的跳轉網址，如果有設定該參數，可以指定使用者登入後跳轉的頁面。</li>
-</ul>
-<blockquote>
-<p>範例：當設定連結網址為 <a href="https://example.com/?lineloginredirect=https://example.com/landing">https://example.com/?lineloginredirect=https://example.com/landing</a> 時，完成登入後頁面會跳轉至 <a href="https://example.com/landing">https://example.com/landing</a></p>
-</blockquote>
-<h2 id="外掛基本設定"><a href="#外掛基本設定" class="headerlink" title="外掛基本設定"></a>外掛基本設定</h2><p>LINE 的開發者帳號非常容易申請，只要有 LINE 帳號即可，申請的步驟很單純，只要提供相關的資訊即可建立完成。</p>
-<h3 id="前往-LINE-開發者帳號並新增-Channel"><a href="#前往-LINE-開發者帳號並新增-Channel" class="headerlink" title="前往 LINE 開發者帳號並新增 Channel"></a>前往 LINE 開發者帳號並新增 Channel</h3><p>一共有四個步驟，關鍵是要取得最後產出的 Channel ID 與 Channel secret，這兩個資訊需要填入到本外掛的設定選項中，以下就各步驟進行說明：</p>
-<p>** STEP1. 使用個人 LINE 帳號登入 **</p>
-<p>先前往 <a href="https://developers.line.biz/">https://developers.line.biz</a> 點擊右上角的 Log in 按鈕</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-01.jpg"></p>
-<p>選擇使用LINE帳號登入</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-02.jpg"></p>
-<p>登入後會被要求輸入開發者相關資訊，需要填入開發者名稱與電子郵件，輸入完成後點選 Create my account 即可。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-03.jpg"></p>
-<p>這樣 LINE 開發者帳號就申請完成了，接下來是新增 Provider。</p>
-<p>&nbsp;</p>
-<p>** STEP2. 新增 Provider **</p>
-<p>Provider 指的是內容供應商，點選畫面中 Create a new provider 的按鈕：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-04.jpg"></p>
-<p>輸入 Provider name 之後點選 create</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-05.jpg"></p>
-<p>這樣就完成了 Provider 的新增。</p>
-<p>&nbsp;</p>
-<p>** STEP3. 新增 Channel 與設定 Callback URL **</p>
-<p>Channel 指的是我們要使用的應用程式，它有很多種類型，由於我們是要使用登入的功能，所以選擇 Create a LINE Login channel：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-06.jpg"></p>
-<p>接下來輸入這個 Channel 的相關資訊，要注意的地方是 Region，記得要填 Taiwan，萬一填錯的話是無法修改的，必須砍掉 Channel 再重新建立一個：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-07.jpg"></p>
-<p>都填寫完畢後點擊最下方的 Create，這樣就完成 Channel 的建立～</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-08.jpg"></p>
-<p>接下來回到 Channel 的主畫面，我們要設定 Callback URL，這個 URL 指的是當使用者登入完成後，會跳轉到我們網站的頁面，而這個頁面會去取得該使用者的資料，後續本外掛會將這些資料與 WordPress 資料庫做整合。</p>
-<p>先進入 LINE Login 的頁面，然後點選 Callback URL 的 Edit 按鈕，就會出現輸入框輸入網址：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-09.jpg"></p>
-<p>接下來停留在這個畫面，新開一個瀏覽器頁籤，登入 WordPress 網站後台，在左邊選單 LINE &gt; 設定裡面，可以找到這個 Callback URL，將它複製後再貼回 LINE 的後台即可。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-09-1.jpg"></p>
-<p>&nbsp;</p>
-<p>** STEP4. 請求 OpenID 權限與發佈 Channel **</p>
-<p>完成 Channel 設定後，最後要處理的是請求使用者提供電子郵件的權限，因為在 WordPress 這端我們是用電子郵件來判斷會員的身份，因此取得電子郵件是必要的，而電子郵件在預設的情況下 LINE 是沒有提供的，所以需要 OpenID Connect 來取得權限。</p>
-<p>先回到 LINE Channel Basic Settings 的頁籤，捲到頁面底端可以看到 OpenID Connect 的選項，點選 Apply：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-10.jpg"></p>
-<p>勾選同意 LINE 的隱私權政策以及上傳電子郵件使用用途的截圖後，點選 submit 即申請完成：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-11.jpg"></p>
-<p>最後找到 Channel 上方的發佈按鈕，將狀態改為 Publish 即完成 LINE Channel 的申請流程。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-12.jpg"></p>
-<h3 id="安裝外掛輸入-LINE-資訊"><a href="#安裝外掛輸入-LINE-資訊" class="headerlink" title="安裝外掛輸入 LINE 資訊"></a>安裝外掛輸入 LINE 資訊</h3><p>完成 LINE Channel 的申請之後，要先將兩段文字複製起來，一個是 Channel ID，另一個是 Channel secret，可以在 Channel 的主畫面中找到：</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-13.jpg"></p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-14.jpg"></p>
-<p>複製後回到網站後台，將 Channel ID 與 Channel Secret 資訊貼入後儲存即可完成設定。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-15.jpg"></p>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="如果登入者不提供電子郵件會發生什麼事？"><a href="#如果登入者不提供電子郵件會發生什麼事？" class="headerlink" title="如果登入者不提供電子郵件會發生什麼事？"></a>如果登入者不提供電子郵件會發生什麼事？</h3><p>本外掛會判斷是否有取得電子郵件，如果沒有的話會引導至 WooCommerce 帳號登入頁面並顯示 LINE 登入失敗，提示使用者需要允許存許電子郵件才能完成登入。</p>
-<h3 id="如果網站已經擁有該會員資料會發生什麼事？"><a href="#如果網站已經擁有該會員資料會發生什麼事？" class="headerlink" title="如果網站已經擁有該會員資料會發生什麼事？"></a>如果網站已經擁有該會員資料會發生什麼事？</h3><p>取得電子郵件後本外掛會先做會員資料庫比對，如果發現該電子郵件已存在於資料庫當中，則會更新該會員的顯示名稱以及大頭照，反之則會取得該使用者資料後註冊一個新會員。</p>
-<h3 id="一定要有-LINE-的開發者帳號才能使用本外掛嗎？"><a href="#一定要有-LINE-的開發者帳號才能使用本外掛嗎？" class="headerlink" title="一定要有 LINE 的開發者帳號才能使用本外掛嗎？"></a>一定要有 LINE 的開發者帳號才能使用本外掛嗎？</h3><p>LINE 開者帳號是用來申請 LINE Channel 用的，因此建議要申請才能取得該 Channel 的管理權限。</p>
-<h3 id="一定要有-LINE-的官方帳號才能使用本外掛嗎？"><a href="#一定要有-LINE-的官方帳號才能使用本外掛嗎？" class="headerlink" title="一定要有 LINE 的官方帳號才能使用本外掛嗎？"></a>一定要有 LINE 的官方帳號才能使用本外掛嗎？</h3><p>不用，只要有 LINE 的開發者帳號即可。</p>
-<p>&nbsp;</p>
-<p>需要 WordPress LINE 登入外掛嗎？請<a href="mailto:m615926@gmail.com">與我聯絡</a>～</p>
-<p>&nbsp;</p>
-]]></content>
-      <categories>
-        <category>LINE</category>
-        <category>外掛開發</category>
-      </categories>
-      <tags>
-        <tag>會員登入</tag>
-        <tag>WordPress 會員外掛</tag>
       </tags>
   </entry>
 </search>
