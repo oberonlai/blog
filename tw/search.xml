@@ -659,7 +659,7 @@ git push --set-upstream origin master<span aria-hidden="true" class="line-number
 <h2 id="四小時工作法的前提"><a href="#四小時工作法的前提" class="headerlink" title="四小時工作法的前提"></a>四小時工作法的前提</h2><p>這半年來我嘗試了很多，發現到不是所有類型的案子都適合自己的工作方法，像是一頁式需要快速完成切版或是大型專案要配合其他人員時程的案子我就無法承接，相反的，既有網站的功能修改、新創平台或是剛起步的網站開發比較適合我，而且看到因為我的協助而讓客戶的業績蒸蒸日上讓我可以從中得到成就感。</p>
 <h3 id="我的工作方法如下："><a href="#我的工作方法如下：" class="headerlink" title="我的工作方法如下："></a>我的工作方法如下：</h3><ol>
 <li> 固定時段收信，把待處理事項安排時間處理。非必要不開任何通訊軟體、社群網站，聯繫管道只有電子郵件、專案管理工具與電話聯繫。</li>
-<li> 切割工作時段，配合作息。開電腦時間為 09:00<del>19:00，一天兩班制，早上為 11:00</del>13:00，下午為 4:00~6:00，工作時段就是專注解決待辦事項，其他零碎時間就能寫部落格、收發電子郵件以及運動。</li>
+<li> 切割工作時段，配合作息。開電腦時間為 09:00 到 19:00，一天兩班制，早上為 11:00<del>13:00，下午為 4:00</del>6:00，工作時段就是專注解決待辦事項，其他零碎時間就能寫部落格、收發電子郵件以及運動。</li>
 <li> 晚上下班後檢視本週的剩餘天數的工作安排，並把今日新收到與未完成的項目做分配，看是要安排在本週處理還是下週。</li>
 <li> 細分工作項目，盡力讓每件事都能被追蹤，尤其是是在同一討論串提及的需求，要隨時整理成獨立的待辦工作事項，否則東西一多很容易漏掉。</li>
 <li> 新增的每一項工作都要評估預計花費小時數，這關係到客戶的預算以及該功能有沒有辦法在預期內做出來的判斷標準，估越多才能越了解自己，越了解自己才能幫助客戶越準確的評估。</li>
@@ -2352,6 +2352,53 @@ function scrollIndicatior() &#123;
       </categories>
   </entry>
   <entry>
+    <title>書摘-網站這樣賣才有說服力</title>
+    <url>/tw/web-planning/</url>
+    <content><![CDATA[<p><img src="https://oberonlai.blog/wp-content/uploads/2016/01/getImage.jpeg" alt="getImage"></p>
+<h2 id="電子商務網站是線上的銷售員"><a href="#電子商務網站是線上的銷售員" class="headerlink" title="電子商務網站是線上的銷售員"></a>電子商務網站是線上的銷售員</h2><p>網路行銷：企業為了達到行銷目的在網路上展開的行銷活動 網路行銷漏斗：流量、諮詢、線索、訂單 企業做不好網路行銷的原因</p>
+<span id="more"></span>
+<p>1.有網站沒流量-競爭對手多，很難被找到 2.有流量沒諮詢-流量品質差、網站沒說服力  </p>
+<h2 id="網站說服力的基本知識"><a href="#網站說服力的基本知識" class="headerlink" title="網站說服力的基本知識"></a>網站說服力的基本知識</h2><p>人的決策過程：需求確認 &gt; 方案蒐集 &gt; 方案評估 &gt; 克服決策壓力 &gt; 方案執行 人的決策過程是五個步驟的迴圈 決策壓力越大，越難進入下一個步驟迴圈 如何說服他人做出決策： 1.保持和決策者同步，不要輕易省略或跳躍某個步驟， 說服的第一步是幫助他確認需求 說服的第二步是幫助他人蒐集方案 說服的第三步是幫助他人對方案進行評估 說服的第四步是幫助他人克服決策壓力 2.說服不是將個人意識強加他人，人們需要自己做出決定 在進入下一階段前，必須透過提問的方式確認，不可以主觀地認為已經進入下一階段 3.公正的評估方案，誠懇地提供說明更容易說服目標  </p>
+<h2 id="影響網站說服力的要素"><a href="#影響網站說服力的要素" class="headerlink" title="影響網站說服力的要素"></a>影響網站說服力的要素</h2><p>說服力在網站的表現上為三大能力，分別是<strong>理解力、可信度、行動力</strong>  </p>
+<h3 id="理解力：讓訪客可以快速理解"><a href="#理解力：讓訪客可以快速理解" class="headerlink" title="理解力：讓訪客可以快速理解"></a>理解力：讓訪客可以快速理解</h3><p>具有說服力的網站可以快速地將以下資訊提供給對方：</p>
+<ol>
+<li> 我是誰</li>
+<li> 我賣什麼產品跟服務</li>
+<li> 我的產品跟服務能幫你解決什麼問題</li>
+<li> 為什麼要選擇我而不是其它人</li>
+<li> 為什麼我們現在就要合作</li>
+</ol>
+<p>電子商務網站要盡可能用最快的時間能讓用戶理解以上的事情，所以直白、簡單為準則 前三點可以透過 logo 跟 slogan 清楚的表達出來 對於一個有說服力的網站來說，在標頭區就能將以上資訊快速傳遞給訪客 標頭區就應該將你產品的優勢或特色表現出來  </p>
+<h3 id="可信度：讓訪客相信你說的是真實的"><a href="#可信度：讓訪客相信你說的是真實的" class="headerlink" title="可信度：讓訪客相信你說的是真實的"></a>可信度：讓訪客相信你說的是真實的</h3><p>如何建立可信度：</p>
+<ol>
+<li> 成功案例展示</li>
+<li> 客戶的評價</li>
+<li> 內容公開透明呈現</li>
+<li> 公開實績</li>
+<li> 第三方機構獲獎認證</li>
+</ol>
+<p> </p>
+<h3 id="行動力：讓訪客理解並信任我們後，還要有行動訴求"><a href="#行動力：讓訪客理解並信任我們後，還要有行動訴求" class="headerlink" title="行動力：讓訪客理解並信任我們後，還要有行動訴求"></a>行動力：讓訪客理解並信任我們後，還要有行動訴求</h3><p>主動提供合作意願給訪客 行動提示主要表現形式有按鈕、電話號碼、線上表單等等 網站說服力 = 理解力+可信度+行動力  </p>
+<h2 id="電子商務網站的經營準則"><a href="#電子商務網站的經營準則" class="headerlink" title="電子商務網站的經營準則"></a>電子商務網站的經營準則</h2><p>1.清析的轉換目標 - 定位網站的目標 如何專注網站目標 問自己：這些對完成網站目標有幫助嗎？是必須的嗎？這句話或圖形是否能增加訪客對網站的理解和信任？是否能促使顧客採取我們所期望的行動？   2.明確的目標族群 - 定位網站的目標訪客 為了增加網站的說服力，網站應該是為了滿足特定的目標使用者而設計，而不是為所有顧客   3.高度的相關資訊 - 給訪客想要的資訊 訪客是以快速瀏覽的方式看你的網頁，找尋自己需要的關鍵字，確定找到關鍵字覺得有用，才會開始細看 如果資訊不相關，說服力再怎麼強也是白搭   4.簡潔的解決方案 - 給顧客簡單易行的方案 銷售產品或服務本質上是在銷售解決方案 優秀的業務員善於尋找客戶的問題，讓客戶意識到問題後，就可以很容易的把產品包裝成解決方案進行銷售   5.清晰的公開實績 - 增加網站可信度 說服力的核心問題是信任 隨時保持行銷意識，蒐集可增加網站信任的素材   6.明確的承諾保障 - 解決顧客決策壓力 企劃網站請思考：</p>
+<ol>
+<li> 能給客戶的承諾和保障是什麼？</li>
+<li> 這個承諾能打消客戶的疑慮嗎？</li>
+<li> 這個承諾的成本和收益那個大？</li>
+<li> 怎麼為目標客戶準備一個明確的承諾？</li>
+</ol>
+<p>  7.有力的行動提示 - 主動提示客戶採取行動  </p>
+<h2 id="電子商務網站的版面設計準則"><a href="#電子商務網站的版面設計準則" class="headerlink" title="電子商務網站的版面設計準則"></a>電子商務網站的版面設計準則</h2><p>好的購買環境會激發顧客的購買熱情 舒爽的頁面配置 舒爽的色彩搭配 愉悅的互動體驗 如客戶能閱讀越多網站上的內容，成交的機會就越大  </p>
+<h3 id="什麼時候網站外觀會成為購買的主要理由"><a href="#什麼時候網站外觀會成為購買的主要理由" class="headerlink" title="什麼時候網站外觀會成為購買的主要理由"></a>什麼時候網站外觀會成為購買的主要理由</h3><ol>
+<li> 決策者對要購買的產品缺乏專業能力判斷時，網站製作的細節會讓人聯想公司產品的用心程度</li>
+<li> 網站內容大家都差不多的時候</li>
+</ol>
+<p>  通常取得客戶的聯絡方式比取得完整的資料來得更為重要（除非是要做 CRM），因此盡可能減少表單的欄位不讓訪客造成填寫的負擔 客戶的詳細資料可以再取得聯繫後再逐步獲得，線上表單唯一的目的就是盡可能取得正確的聯繫方式</p>
+]]></content>
+      <categories>
+        <category>網站企劃</category>
+      </categories>
+  </entry>
+  <entry>
     <title>一些堪用的 Vue Components 套件</title>
     <url>/tw/vue-js-examples/</url>
     <content><![CDATA[<p><img src="https://i0.wp.com/oberonlai.blog/wp-content/uploads/2019/02/screely-1550626306459.jpg?fit=1024,651&ssl=1"></p>
@@ -2431,53 +2478,6 @@ export default &#123;
 ]]></content>
       <categories>
         <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>書摘-網站這樣賣才有說服力</title>
-    <url>/tw/web-planning/</url>
-    <content><![CDATA[<p><img src="https://oberonlai.blog/wp-content/uploads/2016/01/getImage.jpeg" alt="getImage"></p>
-<h2 id="電子商務網站是線上的銷售員"><a href="#電子商務網站是線上的銷售員" class="headerlink" title="電子商務網站是線上的銷售員"></a>電子商務網站是線上的銷售員</h2><p>網路行銷：企業為了達到行銷目的在網路上展開的行銷活動 網路行銷漏斗：流量、諮詢、線索、訂單 企業做不好網路行銷的原因</p>
-<span id="more"></span>
-<p>1.有網站沒流量-競爭對手多，很難被找到 2.有流量沒諮詢-流量品質差、網站沒說服力  </p>
-<h2 id="網站說服力的基本知識"><a href="#網站說服力的基本知識" class="headerlink" title="網站說服力的基本知識"></a>網站說服力的基本知識</h2><p>人的決策過程：需求確認 &gt; 方案蒐集 &gt; 方案評估 &gt; 克服決策壓力 &gt; 方案執行 人的決策過程是五個步驟的迴圈 決策壓力越大，越難進入下一個步驟迴圈 如何說服他人做出決策： 1.保持和決策者同步，不要輕易省略或跳躍某個步驟， 說服的第一步是幫助他確認需求 說服的第二步是幫助他人蒐集方案 說服的第三步是幫助他人對方案進行評估 說服的第四步是幫助他人克服決策壓力 2.說服不是將個人意識強加他人，人們需要自己做出決定 在進入下一階段前，必須透過提問的方式確認，不可以主觀地認為已經進入下一階段 3.公正的評估方案，誠懇地提供說明更容易說服目標  </p>
-<h2 id="影響網站說服力的要素"><a href="#影響網站說服力的要素" class="headerlink" title="影響網站說服力的要素"></a>影響網站說服力的要素</h2><p>說服力在網站的表現上為三大能力，分別是<strong>理解力、可信度、行動力</strong>  </p>
-<h3 id="理解力：讓訪客可以快速理解"><a href="#理解力：讓訪客可以快速理解" class="headerlink" title="理解力：讓訪客可以快速理解"></a>理解力：讓訪客可以快速理解</h3><p>具有說服力的網站可以快速地將以下資訊提供給對方：</p>
-<ol>
-<li> 我是誰</li>
-<li> 我賣什麼產品跟服務</li>
-<li> 我的產品跟服務能幫你解決什麼問題</li>
-<li> 為什麼要選擇我而不是其它人</li>
-<li> 為什麼我們現在就要合作</li>
-</ol>
-<p>電子商務網站要盡可能用最快的時間能讓用戶理解以上的事情，所以直白、簡單為準則 前三點可以透過 logo 跟 slogan 清楚的表達出來 對於一個有說服力的網站來說，在標頭區就能將以上資訊快速傳遞給訪客 標頭區就應該將你產品的優勢或特色表現出來  </p>
-<h3 id="可信度：讓訪客相信你說的是真實的"><a href="#可信度：讓訪客相信你說的是真實的" class="headerlink" title="可信度：讓訪客相信你說的是真實的"></a>可信度：讓訪客相信你說的是真實的</h3><p>如何建立可信度：</p>
-<ol>
-<li> 成功案例展示</li>
-<li> 客戶的評價</li>
-<li> 內容公開透明呈現</li>
-<li> 公開實績</li>
-<li> 第三方機構獲獎認證</li>
-</ol>
-<p> </p>
-<h3 id="行動力：讓訪客理解並信任我們後，還要有行動訴求"><a href="#行動力：讓訪客理解並信任我們後，還要有行動訴求" class="headerlink" title="行動力：讓訪客理解並信任我們後，還要有行動訴求"></a>行動力：讓訪客理解並信任我們後，還要有行動訴求</h3><p>主動提供合作意願給訪客 行動提示主要表現形式有按鈕、電話號碼、線上表單等等 網站說服力 = 理解力+可信度+行動力  </p>
-<h2 id="電子商務網站的經營準則"><a href="#電子商務網站的經營準則" class="headerlink" title="電子商務網站的經營準則"></a>電子商務網站的經營準則</h2><p>1.清析的轉換目標 - 定位網站的目標 如何專注網站目標 問自己：這些對完成網站目標有幫助嗎？是必須的嗎？這句話或圖形是否能增加訪客對網站的理解和信任？是否能促使顧客採取我們所期望的行動？   2.明確的目標族群 - 定位網站的目標訪客 為了增加網站的說服力，網站應該是為了滿足特定的目標使用者而設計，而不是為所有顧客   3.高度的相關資訊 - 給訪客想要的資訊 訪客是以快速瀏覽的方式看你的網頁，找尋自己需要的關鍵字，確定找到關鍵字覺得有用，才會開始細看 如果資訊不相關，說服力再怎麼強也是白搭   4.簡潔的解決方案 - 給顧客簡單易行的方案 銷售產品或服務本質上是在銷售解決方案 優秀的業務員善於尋找客戶的問題，讓客戶意識到問題後，就可以很容易的把產品包裝成解決方案進行銷售   5.清晰的公開實績 - 增加網站可信度 說服力的核心問題是信任 隨時保持行銷意識，蒐集可增加網站信任的素材   6.明確的承諾保障 - 解決顧客決策壓力 企劃網站請思考：</p>
-<ol>
-<li> 能給客戶的承諾和保障是什麼？</li>
-<li> 這個承諾能打消客戶的疑慮嗎？</li>
-<li> 這個承諾的成本和收益那個大？</li>
-<li> 怎麼為目標客戶準備一個明確的承諾？</li>
-</ol>
-<p>  7.有力的行動提示 - 主動提示客戶採取行動  </p>
-<h2 id="電子商務網站的版面設計準則"><a href="#電子商務網站的版面設計準則" class="headerlink" title="電子商務網站的版面設計準則"></a>電子商務網站的版面設計準則</h2><p>好的購買環境會激發顧客的購買熱情 舒爽的頁面配置 舒爽的色彩搭配 愉悅的互動體驗 如客戶能閱讀越多網站上的內容，成交的機會就越大  </p>
-<h3 id="什麼時候網站外觀會成為購買的主要理由"><a href="#什麼時候網站外觀會成為購買的主要理由" class="headerlink" title="什麼時候網站外觀會成為購買的主要理由"></a>什麼時候網站外觀會成為購買的主要理由</h3><ol>
-<li> 決策者對要購買的產品缺乏專業能力判斷時，網站製作的細節會讓人聯想公司產品的用心程度</li>
-<li> 網站內容大家都差不多的時候</li>
-</ol>
-<p>  通常取得客戶的聯絡方式比取得完整的資料來得更為重要（除非是要做 CRM），因此盡可能減少表單的欄位不讓訪客造成填寫的負擔 客戶的詳細資料可以再取得聯繫後再逐步獲得，線上表單唯一的目的就是盡可能取得正確的聯繫方式</p>
-]]></content>
-      <categories>
-        <category>網站企劃</category>
       </categories>
   </entry>
   <entry>
@@ -2819,7 +2819,7 @@ export default &#123;
 <h3 id="STEP2-下載-Eagle-三十天試用版"><a href="#STEP2-下載-Eagle-三十天試用版" class="headerlink" title="STEP2 / 下載 Eagle 三十天試用版"></a>STEP2 / 下載 Eagle 三十天試用版</h3><p>  在等到資料夾同步的時候，可以前往 <a href="https://tw.eagle.cool/macOS">Eagle 官方網站</a>，它會判斷你的作業系統提供適合的安裝版本供下載。   啟用後可以發現 Eagle 的介面很簡潔，三欄式的結構依序為分類目錄、圖像本體以及圖像資訊，它可以直接拖曳圖檔到畫面中央即可加入，或是從 Pinterest 中進行匯入，如果你現在是用 Pinterest 收藏的朋友可無痛移轉。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-5.png">   Eagle 本身內建資源庫功能，而這資源庫是去抓取本機目錄，一個讓 Eagle 可以辨識的資料夾，所以只要這個資料夾存放於雲端硬碟中，所有的收藏就能即時同步，而我們的 WordPress 資源庫就是要使用這個功能來實現。   等 Dropbox 的檔案同步後，從上方選單點選資源庫 &gt; 載入其它資源庫，選擇 Dropbox 中的 WordPress.library，就可以成功載入 WordPress 資源了。接下來你就可以逛逛裡面有啥好物，或是加入自己的 WordPress 收藏，當然你也可以新增自己的分類資料夾，整理屬於自己的清單。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-6.png">  </p>
 <h3 id="STEP3-Eagle-瀏覽器外掛"><a href="#STEP3-Eagle-瀏覽器外掛" class="headerlink" title="STEP3 / Eagle 瀏覽器外掛"></a>STEP3 / Eagle 瀏覽器外掛</h3><p>  除了本機檔案加入、從 Pinterest 匯入，也可以安裝 Eagle 所提供的瀏覽器外掛來截取網頁畫面，Chrome 跟 Safari 都有，可<a href="https://tw.eagle.cool/extensions">前往此處</a>下載。有了瀏覽器外掛後就可以更方便的來收集網頁上的資料。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-7.png">  </p>
 <h2 id="資源庫共享的未來"><a href="#資源庫共享的未來" class="headerlink" title="資源庫共享的未來"></a>資源庫共享的未來</h2><p>  Eagle 當然不僅能收藏 WordPress 外掛，任何你能想到的數位檔案都能用它來整理分類，像是企業標誌、海報、素材、電影番號封面、合約書、食譜、結婚照等等，再搭配雲端同步功能，想像未來如果有一個資源庫管理平台，讓所有願意分享的朋友上傳他們的 Library，就會十分精彩了，當然，前提是硬碟要有 10TB。   另外假使能再搭配手機 APP 收集生活中的事物，以及使用平版電腦做簡報，效果也會非常好，這段是純粹寫給開發團隊的許願項目。   大家有機會可以試試這款軟體，相信會有很不一樣的收藏體驗，一試成主顧的話佛心價是 29 塊美金，而且可以授權兩台電腦，所以再去勸敗另一位朋友請他幫你攤一半的錢就更划算了，大量團購還有再打折，台灣團隊設計製造開發，有問題還可以跟創辦人線上一對一中文諮詢打屁聊天交友(?)，這麼優的軟體不推不行～   註：想同步 WordPress 資源庫的朋友請提供您的 Dropbox 申請帳號於留言中，並留下:</p>
-<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-x6d-121-100-114-x6f-x70-98-x6f-120-101-x6d-97-x69-108-x40-97-98-99-46-x63-x6f-109-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-x6d-121-100-114-x6f-x70-98-x6f-120-101-x6d-97-x69-108-x40-97-98-99-46-x63-x6f-109-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#x6d;&#121;&#100;&#114;&#x6f;&#x70;&#98;&#x6f;&#120;&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#97;&#98;&#99;&#46;&#x63;&#x6f;&#109; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#x6d;&#121;&#100;&#114;&#x6f;&#x70;&#98;&#x6f;&#120;&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#97;&#98;&#99;&#46;&#x63;&#x6f;&#109;">&#x6d;&#121;&#100;&#114;&#x6f;&#x70;&#98;&#x6f;&#120;&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#97;&#98;&#99;&#46;&#x63;&#x6f;&#109;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
+<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-100-114-111-x70-x62-111-x78-101-109-97-105-x6c-x40-97-98-x63-x2e-99-x6f-x6d-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-x6d-x79-100-114-111-x70-x62-111-x78-101-109-97-105-x6c-x40-97-98-x63-x2e-99-x6f-x6d-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#x6d;&#x79;&#100;&#114;&#111;&#x70;&#x62;&#111;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#x2e;&#99;&#x6f;&#x6d; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#x6d;&#x79;&#100;&#114;&#111;&#x70;&#x62;&#111;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#x2e;&#99;&#x6f;&#x6d;">&#x6d;&#x79;&#100;&#114;&#111;&#x70;&#x62;&#111;&#x78;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#x63;&#x2e;&#99;&#x6f;&#x6d;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -2909,7 +2909,7 @@ export default &#123;
   <entry>
     <title>WordPress 修改系統寄件人以及發信信箱</title>
     <url>/tw/wordpress-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%B5%B1%E5%AF%84%E4%BB%B6%E4%BA%BA%E4%BB%A5%E5%8F%8A%E7%99%BC%E4%BF%A1%E4%BF%A1%E7%AE%B1/</url>
-    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#119;&#x6f;&#x72;&#100;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#100;&#x6f;&#109;&#97;&#x69;&#x6e;&#46;&#x63;&#111;&#109;">&#119;&#x6f;&#x72;&#100;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#100;&#x6f;&#109;&#97;&#x69;&#x6e;&#46;&#x63;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#111;&#114;&#100;&#112;&#114;&#101;&#x73;&#115;&#64;&#x64;&#111;&#x6d;&#x61;&#105;&#110;&#x2e;&#x63;&#111;&#109;">&#x77;&#111;&#114;&#100;&#112;&#114;&#101;&#x73;&#115;&#64;&#x64;&#111;&#x6d;&#x61;&#105;&#110;&#x2e;&#x63;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
@@ -4017,17 +4017,6 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>使用 Talkwalker Alerts 來取得 WordPress 第一手資訊</title>
-    <url>/tw/%E4%BD%BF%E7%94%A8-talkwalker-alerts-%E4%BE%86%E5%8F%96%E5%BE%97-wordpress-%E7%AC%AC%E4%B8%80%E6%89%8B%E8%B3%87%E8%A8%8A/</url>
-    <content><![CDATA[<p>長期使用 Google Alerts 發現，有些關鍵字的資訊量少得可憐，不知是演算法的關係還是關鍵字設定有誤，像是 WordPress 平均三五天才有一則通知，而且常常還是 .com 的網站，對於需要每天吸收相關資訊的小編來說這個量嚴重不足。幸好前幾天發現 Talkwalker Alerts 這個服務，它除了會去爬新聞以外，還會爬部落格、推特、論壇的相關內容，實際試用下來，資訊量比 Google Alerts 多了十倍，對於需要追蹤特定資訊的朋友可以試試這服務。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1556952731078392” display=”yes” title=”5L2/55SoIFRhbGt3YWxrZXIgQWxlcnRzIOS+huWPluW+lyBXb3JkUHJlc3Mg56ys5LiA5omL6LOH6KiK” body=”6ZW35pyf5L2/55SoIEdvb2dsZSBBbGVydHMg55m854++77yM5pyJ5Lqb6Zec6Y215a2X55qE6LOH6KiK6YeP5bCR5b6X5Y+v5oaQ77yM5LiN55+l5piv5ryU566X5rOV55qE6Zec5L+C6YKE5piv6Zec6Y215a2X6Kit5a6a5pyJ6Kqk77yM5YOP5pivIFdvcmRQcmVzcyDlubPlnYfkuInkupTlpKnmiY3mnInkuIDliYfpgJrnn6XvvIzogIzkuJTluLjluLjpgoTmmK8gLmNvbSDnmoTntrLnq5nvvIzlsI3mlrzpnIDopoHmr4/lpKnlkLjmlLbnm7jpl5zos4foqIrnmoTlsI/nt6jkvoboqqrpgJnlgIvph4/lmrTph43kuI3otrPjgILlubjlpb3liY3lub7lpKnnmbznj74gVGFsa3dhbGtlciBBbGVydHMg6YCZ5YCL5pyN5YuZ77yM5a6D6Zmk5LqG5pyD5Y6754is5paw6IGe5Lul5aSW77yM6YKE5pyD54is6YOo6JC95qC844CB5o6o54m544CB6KuW5aOH55qE55u46Zec5YWn5a6577yM5a+m6Zqb6Kmm55So5LiL5L6G77yM6LOH6KiK6YeP5q+UIEdvb2dsZSBBbGVydHMg5aSa5LqG5Y2B5YCN77yM5bCN5pa86ZyA6KaB6L+96Lmk54m55a6a6LOH6KiK55qE5pyL5Y+L5Y+v5Lul6Kmm6Kmm6YCZ5pyN5YuZ44CC” pid=”3293”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
     <title>使用 WP Enqueue 來管理載入資源</title>
     <url>/tw/%E4%BD%BF%E7%94%A8-wp-enqueue-%E4%BE%86%E7%AE%A1%E7%90%86%E8%BC%89%E5%85%A5%E8%B3%87%E6%BA%90/</url>
     <content><![CDATA[<p>  WordPress 提供很多 API 來管理網站的資源，WP Enqueue 就是其中最常用的一種。以往在寫網頁的時候，當要引入 javascript 或是 css 檔案時，習慣會用 HTML 標籤 script src 或 link stylesheet，但有些檔案並非在每一頁都會用到，只把需要用到的資源載入是能有效增加頁面速度的方法。而 WP Enqueue 就是使用 php 的方式來管理，先使用 wp_register_script 來註冊即將要載入的檔案，再使用 wp_enqueue_script 來進行載入，這樣就可以再下判斷條件來決定何時要載入資源，wp_register_script 還有許多參數可以使用，像是增加版本號、載入順序、在 head 或 foot 載入等等，能更彈性管理網站資源。</p>
@@ -4039,10 +4028,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>優秀 Landing Page 蒐集</title>
-    <url>/tw/%E5%84%AA%E7%A7%80-landing-page-%E8%92%90%E9%9B%86/</url>
-    <content><![CDATA[<p>在煩惱怎麼設計 Landing Page 嗎？這網站蒐錄許多真實線上公司的著陸頁，除了可以使用色系篩選外，還提供直版的預覽模式，看看這些漂亮的 Landing Page 是如何使用設計來優化轉換率～</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1461574623949537” display=”yes” title=”5YSq56eAIExhbmRpbmcgUGFnZSDokpDpm4Y=” body=”5Zyo54Wp5oOx5oCO6bq86Kit6KiIIExhbmRpbmcgUGFnZSDll47vvJ/pgJnntrLnq5nokpDpjIToqLHlpJrnnJ/lr6bnt5rkuIrlhazlj7jnmoTokZfpmbjpoIHvvIzpmaTkuoblj6/ku6Xkvb/nlKjoibLns7vnr6npgbjlpJbvvIzpgoTmj5Dkvpvnm7TniYjnmoTpoJDopr3mqKHlvI/vvIznnIvnnIvpgJnkupvmvILkuq7nmoQgTGFuZGluZyBQYWdlIOaYr+WmguS9leS9v+eUqOioreioiOS+huWEquWMlui9ieaPm+eOh++9ng==” pid=”3088”]</p>
+    <title>使用 Talkwalker Alerts 來取得 WordPress 第一手資訊</title>
+    <url>/tw/%E4%BD%BF%E7%94%A8-talkwalker-alerts-%E4%BE%86%E5%8F%96%E5%BE%97-wordpress-%E7%AC%AC%E4%B8%80%E6%89%8B%E8%B3%87%E8%A8%8A/</url>
+    <content><![CDATA[<p>長期使用 Google Alerts 發現，有些關鍵字的資訊量少得可憐，不知是演算法的關係還是關鍵字設定有誤，像是 WordPress 平均三五天才有一則通知，而且常常還是 .com 的網站，對於需要每天吸收相關資訊的小編來說這個量嚴重不足。幸好前幾天發現 Talkwalker Alerts 這個服務，它除了會去爬新聞以外，還會爬部落格、推特、論壇的相關內容，實際試用下來，資訊量比 Google Alerts 多了十倍，對於需要追蹤特定資訊的朋友可以試試這服務。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1556952731078392” display=”yes” title=”5L2/55SoIFRhbGt3YWxrZXIgQWxlcnRzIOS+huWPluW+lyBXb3JkUHJlc3Mg56ys5LiA5omL6LOH6KiK” body=”6ZW35pyf5L2/55SoIEdvb2dsZSBBbGVydHMg55m854++77yM5pyJ5Lqb6Zec6Y215a2X55qE6LOH6KiK6YeP5bCR5b6X5Y+v5oaQ77yM5LiN55+l5piv5ryU566X5rOV55qE6Zec5L+C6YKE5piv6Zec6Y215a2X6Kit5a6a5pyJ6Kqk77yM5YOP5pivIFdvcmRQcmVzcyDlubPlnYfkuInkupTlpKnmiY3mnInkuIDliYfpgJrnn6XvvIzogIzkuJTluLjluLjpgoTmmK8gLmNvbSDnmoTntrLnq5nvvIzlsI3mlrzpnIDopoHmr4/lpKnlkLjmlLbnm7jpl5zos4foqIrnmoTlsI/nt6jkvoboqqrpgJnlgIvph4/lmrTph43kuI3otrPjgILlubjlpb3liY3lub7lpKnnmbznj74gVGFsa3dhbGtlciBBbGVydHMg6YCZ5YCL5pyN5YuZ77yM5a6D6Zmk5LqG5pyD5Y6754is5paw6IGe5Lul5aSW77yM6YKE5pyD54is6YOo6JC95qC844CB5o6o54m544CB6KuW5aOH55qE55u46Zec5YWn5a6577yM5a+m6Zqb6Kmm55So5LiL5L6G77yM6LOH6KiK6YeP5q+UIEdvb2dsZSBBbGVydHMg5aSa5LqG5Y2B5YCN77yM5bCN5pa86ZyA6KaB6L+96Lmk54m55a6a6LOH6KiK55qE5pyL5Y+L5Y+v5Lul6Kmm6Kmm6YCZ5pyN5YuZ44CC” pid=”3293”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4060,11 +4050,10 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>免費電子報版型加編輯器</title>
-    <url>/tw/%E5%85%8D%E8%B2%BB%E9%9B%BB%E5%AD%90%E5%A0%B1%E7%89%88%E5%9E%8B%E5%8A%A0%E7%B7%A8%E8%BC%AF%E5%99%A8/</url>
-    <content><![CDATA[<p>  增加電子報的信任感，設計過的版型以及符合企業形象的色彩計劃是絕對必要的，與網站一樣給人良好的第一印象才是決定能否展開溝通的第一步。Email Monster 提供超過三十套各類型的電子郵件版型，如果找不到適合的，也可以從既有版型開始修改，視覺化編輯器不需寫到任何一行程式碼，非常適合行銷人員使用。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1435198753253791” display=”yes” title=”5YWN6LK76Zu75a2Q5aCx54mI5Z6L5Yqg57eo6Lyv5Zmo” body=”5aKe5Yqg6Zu75a2Q5aCx55qE5L+h5Lu75oSf77yM6Kit6KiI6YGO55qE54mI5Z6L5Lul5Y+K56ym5ZCI5LyB5qWt5b2i6LGh55qE6Imy5b2p6KiI5YqD5piv57WV5bCN5b+F6KaB55qE77yM6IiH57ay56uZ5LiA5qij57Wm5Lq66Imv5aW955qE56ys5LiA5Y2w6LGh5omN5piv5rG65a6a6IO95ZCm5bGV6ZaL5rqd6YCa55qE56ys5LiA5q2l44CCRW1haWwgTW9uc3RlciDmj5DkvpvotoXpgY7kuInljYHlpZflkITpoZ7lnovnmoTpm7vlrZDpg7Xku7bniYjlnovvvIzlpoLmnpzmib7kuI3liLDpganlkIjnmoTvvIzkuZ/lj6/ku6Xlvp7ml6LmnInniYjlnovplovlp4vkv67mlLnvvIzoppboprrljJbnt6jovK/lmajkuI3pnIDlr6vliLDku7vkvZXkuIDooYznqIvlvI/norzvvIzpnZ7luLjpganlkIjooYzpirfkurrlk6Hkvb/nlKjjgII=” pid=”3020”]</p>
+    <title>優秀 Landing Page 蒐集</title>
+    <url>/tw/%E5%84%AA%E7%A7%80-landing-page-%E8%92%90%E9%9B%86/</url>
+    <content><![CDATA[<p>在煩惱怎麼設計 Landing Page 嗎？這網站蒐錄許多真實線上公司的著陸頁，除了可以使用色系篩選外，還提供直版的預覽模式，看看這些漂亮的 Landing Page 是如何使用設計來優化轉換率～</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1461574623949537” display=”yes” title=”5YSq56eAIExhbmRpbmcgUGFnZSDokpDpm4Y=” body=”5Zyo54Wp5oOx5oCO6bq86Kit6KiIIExhbmRpbmcgUGFnZSDll47vvJ/pgJnntrLnq5nokpDpjIToqLHlpJrnnJ/lr6bnt5rkuIrlhazlj7jnmoTokZfpmbjpoIHvvIzpmaTkuoblj6/ku6Xkvb/nlKjoibLns7vnr6npgbjlpJbvvIzpgoTmj5Dkvpvnm7TniYjnmoTpoJDopr3mqKHlvI/vvIznnIvnnIvpgJnkupvmvILkuq7nmoQgTGFuZGluZyBQYWdlIOaYr+WmguS9leS9v+eUqOioreioiOS+huWEquWMlui9ieaPm+eOh++9ng==” pid=”3088”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4082,11 +4071,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>可線上編輯照片的圖庫網站</title>
-    <url>/tw/%E5%8F%AF%E7%B7%9A%E4%B8%8A%E7%B7%A8%E8%BC%AF%E7%85%A7%E7%89%87%E7%9A%84%E5%9C%96%E5%BA%AB%E7%B6%B2%E7%AB%99/</url>
-    <content><![CDATA[<p>  在免費圖庫已經多到滿出來的年代，付費圖庫只能想辦法提供更多的附加價值來吸引客戶買單，於是 iStock 這家圖庫公司推出了線上圖片編輯工具，直接在線上裁切、加濾鏡、文字，甚至還可以上傳 LOGO，等到設計完成後再付費下載這張圖片，省去後製處理的時間。</p>
+    <title>免費電子報版型加編輯器</title>
+    <url>/tw/%E5%85%8D%E8%B2%BB%E9%9B%BB%E5%AD%90%E5%A0%B1%E7%89%88%E5%9E%8B%E5%8A%A0%E7%B7%A8%E8%BC%AF%E5%99%A8/</url>
+    <content><![CDATA[<p>  增加電子報的信任感，設計過的版型以及符合企業形象的色彩計劃是絕對必要的，與網站一樣給人良好的第一印象才是決定能否展開溝通的第一步。Email Monster 提供超過三十套各類型的電子郵件版型，如果找不到適合的，也可以從既有版型開始修改，視覺化編輯器不需寫到任何一行程式碼，非常適合行銷人員使用。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1449177188522614” display=”yes” title=”5Y+v57ea5LiK57eo6Lyv54Wn54mH55qE5ZyW5bqr57ay56uZ” body=”5Zyo5YWN6LK75ZyW5bqr5bey57aT5aSa5Yiw5ru/5Ye65L6G55qE5bm05Luj77yM5LuY6LK75ZyW5bqr5Y+q6IO95oOz6L6m5rOV5o+Q5L6b5pu05aSa55qE6ZmE5Yqg5YO55YC85L6G5ZC45byV5a6i5oi26LK35Zau77yM5pa85pivIGlTdG9jayDpgJnlrrblnJbluqvlhazlj7jmjqjlh7rkuobnt5rkuIrlnJbniYfnt6jovK/lt6XlhbfvvIznm7TmjqXlnKjnt5rkuIroo4HliIfjgIHliqDmv77pj6HjgIHmloflrZfvvIznlJroh7PpgoTlj6/ku6XkuIrlgrMgTE9HT++8jOetieWIsOioreioiOWujOaIkOW+jOWGjeS7mOiyu+S4i+i8iemAmeW8teWclueJh++8jOecgeWOu+W+jOijveiZleeQhueahOaZgumWk+OAgg==” pid=”3058”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1435198753253791” display=”yes” title=”5YWN6LK76Zu75a2Q5aCx54mI5Z6L5Yqg57eo6Lyv5Zmo” body=”5aKe5Yqg6Zu75a2Q5aCx55qE5L+h5Lu75oSf77yM6Kit6KiI6YGO55qE54mI5Z6L5Lul5Y+K56ym5ZCI5LyB5qWt5b2i6LGh55qE6Imy5b2p6KiI5YqD5piv57WV5bCN5b+F6KaB55qE77yM6IiH57ay56uZ5LiA5qij57Wm5Lq66Imv5aW955qE56ys5LiA5Y2w6LGh5omN5piv5rG65a6a6IO95ZCm5bGV6ZaL5rqd6YCa55qE56ys5LiA5q2l44CCRW1haWwgTW9uc3RlciDmj5DkvpvotoXpgY7kuInljYHlpZflkITpoZ7lnovnmoTpm7vlrZDpg7Xku7bniYjlnovvvIzlpoLmnpzmib7kuI3liLDpganlkIjnmoTvvIzkuZ/lj6/ku6Xlvp7ml6LmnInniYjlnovplovlp4vkv67mlLnvvIzoppboprrljJbnt6jovK/lmajkuI3pnIDlr6vliLDku7vkvZXkuIDooYznqIvlvI/norzvvIzpnZ7luLjpganlkIjooYzpirfkurrlk6Hkvb/nlKjjgII=” pid=”3020”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4119,10 +4108,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>在分享連結中加入自己的品牌 LOGO</title>
-    <url>/tw/%E5%9C%A8%E5%88%86%E4%BA%AB%E9%80%A3%E7%B5%90%E4%B8%AD%E5%8A%A0%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84%E5%93%81%E7%89%8C-logo/</url>
-    <content><![CDATA[<p>每天大家都在轉傳文章，點進去看完後應該也很少會記得是從誰的 FB 或是網站連過去的，Replug 這個服務很妙，它可以在你分享的網頁中，左下角自動加入自己的品牌 LOGO 跟 Call to action，然後連結到自定網址，它的後台還可以查看這個分享連結的瀏覽次數以及按鈕點擊轉換，對於常常分享文章的品牌經營者又多了一個可以曝光的管道。</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1472099676230365” display=”yes” title=”5Zyo5YiG5Lqr6YCj57WQ5Lit5Yqg5YWl6Ieq5bex55qE5ZOB54mMIExPR08=” body=”5q+P5aSp5aSn5a626YO95Zyo6L2J5YKz5paH56ug77yM6bue6YCy5Y6755yL5a6M5b6M5oeJ6Kmy5Lmf5b6I5bCR5pyD6KiY5b6X5piv5b6e6Kqw55qEIEZCIOaIluaYr+e2suermemAo+mBjuWOu+eahO+8jFJlcGx1ZyDpgJnlgIvmnI3li5nlvojlppnvvIzlroPlj6/ku6XlnKjkvaDliIbkuqvnmoTntrLpoIHkuK3vvIzlt6bkuIvop5Loh6rli5XliqDlhaXoh6rlt7HnmoTlk4HniYwgTE9HTyDot58gQ2FsbCB0byBhY3Rpb27vvIznhLblvozpgKPntZDliLDoh6rlrprntrLlnYDvvIzlroPnmoTlvozlj7DpgoTlj6/ku6Xmn6XnnIvpgJnlgIvliIbkuqvpgKPntZDnmoTngI/opr3mrKHmlbjku6Xlj4rmjInpiJXpu57mk4rovYnmj5vvvIzlsI3mlrzluLjluLjliIbkuqvmlofnq6DnmoTlk4HniYzntpPnh5/ogIXlj4jlpJrkuobkuIDlgIvlj6/ku6Xmm53lhYnnmoTnrqHpgZPjgII=” pid=”3105”]</p>
+    <title>可線上編輯照片的圖庫網站</title>
+    <url>/tw/%E5%8F%AF%E7%B7%9A%E4%B8%8A%E7%B7%A8%E8%BC%AF%E7%85%A7%E7%89%87%E7%9A%84%E5%9C%96%E5%BA%AB%E7%B6%B2%E7%AB%99/</url>
+    <content><![CDATA[<p>  在免費圖庫已經多到滿出來的年代，付費圖庫只能想辦法提供更多的附加價值來吸引客戶買單，於是 iStock 這家圖庫公司推出了線上圖片編輯工具，直接在線上裁切、加濾鏡、文字，甚至還可以上傳 LOGO，等到設計完成後再付費下載這張圖片，省去後製處理的時間。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1449177188522614” display=”yes” title=”5Y+v57ea5LiK57eo6Lyv54Wn54mH55qE5ZyW5bqr57ay56uZ” body=”5Zyo5YWN6LK75ZyW5bqr5bey57aT5aSa5Yiw5ru/5Ye65L6G55qE5bm05Luj77yM5LuY6LK75ZyW5bqr5Y+q6IO95oOz6L6m5rOV5o+Q5L6b5pu05aSa55qE6ZmE5Yqg5YO55YC85L6G5ZC45byV5a6i5oi26LK35Zau77yM5pa85pivIGlTdG9jayDpgJnlrrblnJbluqvlhazlj7jmjqjlh7rkuobnt5rkuIrlnJbniYfnt6jovK/lt6XlhbfvvIznm7TmjqXlnKjnt5rkuIroo4HliIfjgIHliqDmv77pj6HjgIHmloflrZfvvIznlJroh7PpgoTlj6/ku6XkuIrlgrMgTE9HT++8jOetieWIsOioreioiOWujOaIkOW+jOWGjeS7mOiyu+S4i+i8iemAmeW8teWclueJh++8jOecgeWOu+W+jOijveiZleeQhueahOaZgumWk+OAgg==” pid=”3058”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4143,11 +4133,10 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>增加 WooCommerce 結帳完成後的回購率</title>
-    <url>/tw/%E5%A2%9E%E5%8A%A0-woocommerce-%E7%B5%90%E5%B8%B3%E5%AE%8C%E6%88%90%E5%BE%8C%E7%9A%84%E5%9B%9E%E8%B3%BC%E7%8E%87/</url>
-    <content><![CDATA[<p>  WooCommerce Thank You Page plugin 是一支可以客製結帳完成後感謝頁面的付費外掛，它提供了一些功能讓客戶買完東西後，還有再次回來網站消費的誘因。像是個人化的問候語、推薦相關商品、下次購買能使用的折價券、顯示該客戶曾經瀏覽過的商品、將客戶導引到最暢銷的商品頁或是促銷活動，以及進行客戶意見調查等等的功能，讓客戶消費完之後還能感受到後續的服務，是能帶給客戶有不一樣消費體驗的重要環節。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1460734554033544” display=”yes” title=”5aKe5YqgIFdvb0NvbW1lcmNlIOe1kOW4s+WujOaIkOW+jOeahOWbnuizvOeOhw==” body=”V29vQ29tbWVyY2UgVGhhbmsgWW91IFBhZ2UgcGx1Z2luIOaYr+S4gOaUr+WPr+S7peWuouijvee1kOW4s+WujOaIkOW+jOaEn+isnemggemdoueahOS7mOiyu+WkluaOm++8jOWug+aPkOS+m+S6huS4gOS6m+WKn+iDveiuk+WuouaItuiyt+WujOadseilv+W+jO+8jOmChOacieWGjeasoeWbnuS+hue2suermea2iOiyu+eahOiqmOWboOOAguWDj+aYr+WAi+S6uuWMlueahOWVj+WAmeiqnuOAgeaOqOiWpuebuOmXnOWVhuWTgeOAgeS4i+asoeizvOiyt+iDveS9v+eUqOeahOaKmOWDueWIuOOAgemhr+ekuuipsuWuouaItuabvue2k+eAj+imvemBjueahOWVhuWTgeOAgeWwh+WuouaItuWwjuW8leWIsOacgOaaoumKt+eahOWVhuWTgemggeaIluaYr+S/g+mKt+a0u+WLle+8jOS7peWPiumAsuihjOWuouaItuaEj+imi+iqv+afpeetieetieeahOWKn+iDve+8jOiuk+WuouaItua2iOiyu+WujOS5i+W+jOmChOiDveaEn+WPl+WIsOW+jOe6jOeahOacjeWLme+8jOaYr+iDveW4tue1puWuouaItuacieS4jeS4gOaoo+a2iOiyu+mrlOmpl+eahOmHjeimgeeSsOevgOOAgg==” pid=”3085”]</p>
+    <title>在分享連結中加入自己的品牌 LOGO</title>
+    <url>/tw/%E5%9C%A8%E5%88%86%E4%BA%AB%E9%80%A3%E7%B5%90%E4%B8%AD%E5%8A%A0%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84%E5%93%81%E7%89%8C-logo/</url>
+    <content><![CDATA[<p>每天大家都在轉傳文章，點進去看完後應該也很少會記得是從誰的 FB 或是網站連過去的，Replug 這個服務很妙，它可以在你分享的網頁中，左下角自動加入自己的品牌 LOGO 跟 Call to action，然後連結到自定網址，它的後台還可以查看這個分享連結的瀏覽次數以及按鈕點擊轉換，對於常常分享文章的品牌經營者又多了一個可以曝光的管道。</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1472099676230365” display=”yes” title=”5Zyo5YiG5Lqr6YCj57WQ5Lit5Yqg5YWl6Ieq5bex55qE5ZOB54mMIExPR08=” body=”5q+P5aSp5aSn5a626YO95Zyo6L2J5YKz5paH56ug77yM6bue6YCy5Y6755yL5a6M5b6M5oeJ6Kmy5Lmf5b6I5bCR5pyD6KiY5b6X5piv5b6e6Kqw55qEIEZCIOaIluaYr+e2suermemAo+mBjuWOu+eahO+8jFJlcGx1ZyDpgJnlgIvmnI3li5nlvojlppnvvIzlroPlj6/ku6XlnKjkvaDliIbkuqvnmoTntrLpoIHkuK3vvIzlt6bkuIvop5Loh6rli5XliqDlhaXoh6rlt7HnmoTlk4HniYwgTE9HTyDot58gQ2FsbCB0byBhY3Rpb27vvIznhLblvozpgKPntZDliLDoh6rlrprntrLlnYDvvIzlroPnmoTlvozlj7DpgoTlj6/ku6Xmn6XnnIvpgJnlgIvliIbkuqvpgKPntZDnmoTngI/opr3mrKHmlbjku6Xlj4rmjInpiJXpu57mk4rovYnmj5vvvIzlsI3mlrzluLjluLjliIbkuqvmlofnq6DnmoTlk4HniYzntpPnh5/ogIXlj4jlpJrkuobkuIDlgIvlj6/ku6Xmm53lhYnnmoTnrqHpgZPjgII=” pid=”3105”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4165,10 +4154,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>如何使用 WooCommerce 提供個人化專屬功能</title>
-    <url>/tw/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-woocommerce-%E6%8F%90%E4%BE%9B%E5%80%8B%E4%BA%BA%E5%8C%96%E5%B0%88%E5%B1%AC%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<p>購物網站提供個人化的專屬訊息更能有效能提升購買率，本文分享了四種方法並提供相對應的外掛或是程式修改方法，包含根據購買清單提供個人化的商品推薦、個人化的顯示訊息、根據客戶行為來給予折價券、販售個人化商品等，更進階的還可以透過瀏覽、銷售數據來提供折扣，但要小心過於個人化的功能要避免讓客戶覺得隱私受到侵犯，尊重客戶的意願才是服務的第一優先。</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1491795330927466” display=”yes” title=”5aaC5L2V5L2/55SoIFdvb0NvbW1lcmNlIOaPkOS+m+WAi+S6uuWMluWwiOWxrOWKn+iDvQ==” body=”6LO854mp57ay56uZ5o+Q5L6b5YCL5Lq65YyW55qE5bCI5bGs6KiK5oGv5pu06IO95pyJ5pWI6IO95o+Q5Y2H6LO86LK3546H77yM5pys5paH5YiG5Lqr5LqG5Zub56iu5pa55rOV5Lim5o+Q5L6b55u45bCN5oeJ55qE5aSW5o6b5oiW5piv56iL5byP5L+u5pS55pa55rOV77yM5YyF5ZCr5qC55pOa6LO86LK35riF5Zau5o+Q5L6b5YCL5Lq65YyW55qE5ZWG5ZOB5o6o6Jam44CB5YCL5Lq65YyW55qE6aGv56S66KiK5oGv44CB5qC55pOa5a6i5oi26KGM54K65L6G57Wm5LqI5oqY5YO55Yi444CB6LKp5ZSu5YCL5Lq65YyW5ZWG5ZOB562J77yM5pu06YCy6ZqO55qE6YKE5Y+v5Lul6YCP6YGO54CP6Ka944CB6Yq35ZSu5pW45pOa5L6G5o+Q5L6b5oqY5omj77yM5L2G6KaB5bCP5b+D6YGO5pa85YCL5Lq65YyW55qE5Yqf6IO96KaB6YG/5YWN6K6T5a6i5oi26Ka65b6X6Zqx56eB5Y+X5Yiw5L6154qv77yM5bCK6YeN5a6i5oi255qE5oSP6aGY5omN5piv5pyN5YuZ55qE56ys5LiA5YSq5YWI44CC” pid=”3145”]</p>
+    <title>增加 WooCommerce 結帳完成後的回購率</title>
+    <url>/tw/%E5%A2%9E%E5%8A%A0-woocommerce-%E7%B5%90%E5%B8%B3%E5%AE%8C%E6%88%90%E5%BE%8C%E7%9A%84%E5%9B%9E%E8%B3%BC%E7%8E%87/</url>
+    <content><![CDATA[<p>  WooCommerce Thank You Page plugin 是一支可以客製結帳完成後感謝頁面的付費外掛，它提供了一些功能讓客戶買完東西後，還有再次回來網站消費的誘因。像是個人化的問候語、推薦相關商品、下次購買能使用的折價券、顯示該客戶曾經瀏覽過的商品、將客戶導引到最暢銷的商品頁或是促銷活動，以及進行客戶意見調查等等的功能，讓客戶消費完之後還能感受到後續的服務，是能帶給客戶有不一樣消費體驗的重要環節。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1460734554033544” display=”yes” title=”5aKe5YqgIFdvb0NvbW1lcmNlIOe1kOW4s+WujOaIkOW+jOeahOWbnuizvOeOhw==” body=”V29vQ29tbWVyY2UgVGhhbmsgWW91IFBhZ2UgcGx1Z2luIOaYr+S4gOaUr+WPr+S7peWuouijvee1kOW4s+WujOaIkOW+jOaEn+isnemggemdoueahOS7mOiyu+WkluaOm++8jOWug+aPkOS+m+S6huS4gOS6m+WKn+iDveiuk+WuouaItuiyt+WujOadseilv+W+jO+8jOmChOacieWGjeasoeWbnuS+hue2suermea2iOiyu+eahOiqmOWboOOAguWDj+aYr+WAi+S6uuWMlueahOWVj+WAmeiqnuOAgeaOqOiWpuebuOmXnOWVhuWTgeOAgeS4i+asoeizvOiyt+iDveS9v+eUqOeahOaKmOWDueWIuOOAgemhr+ekuuipsuWuouaItuabvue2k+eAj+imvemBjueahOWVhuWTgeOAgeWwh+WuouaItuWwjuW8leWIsOacgOaaoumKt+eahOWVhuWTgemggeaIluaYr+S/g+mKt+a0u+WLle+8jOS7peWPiumAsuihjOWuouaItuaEj+imi+iqv+afpeetieetieeahOWKn+iDve+8jOiuk+WuouaItua2iOiyu+WujOS5i+W+jOmChOiDveaEn+WPl+WIsOW+jOe6jOeahOacjeWLme+8jOaYr+iDveW4tue1puWuouaItuacieS4jeS4gOaoo+a2iOiyu+mrlOmpl+eahOmHjeimgeeSsOevgOOAgg==” pid=”3085”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4180,6 +4170,16 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
     <content><![CDATA[<p>  如果你的網站是內容型網站，每天都有固定訪客會來造訪，放置天氣小工具可以增加額外的資訊服務，或是你的產品跟天氣有關，可以根據天氣來推送不同的內容，像是購物網站在天氣不好時可以增加相關產品的曝光，進而提升銷售量，這都是天氣資訊可以延伸應用的做法。</p>
 <span id="more"></span>
 <p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1473901532716846” display=”yes” title=”5aSp5rCj6aCQ5aCx5aSW5o6b” body=”5aaC5p6c5L2g55qE57ay56uZ5piv5YWn5a655Z6L57ay56uZ77yM5q+P5aSp6YO95pyJ5Zu65a6a6Kiq5a6i5pyD5L6G6YCg6Kiq77yM5pS+572u5aSp5rCj5bCP5bel5YW35Y+v5Lul5aKe5Yqg6aGN5aSW55qE6LOH6KiK5pyN5YuZ77yM5oiW5piv5L2g55qE55Si5ZOB6Lef5aSp5rCj5pyJ6Zec77yM5Y+v5Lul5qC55pOa5aSp5rCj5L6G5o6o6YCB5LiN5ZCM55qE5YWn5a6577yM5YOP5piv6LO854mp57ay56uZ5Zyo5aSp5rCj5LiN5aW95pmC5Y+v5Lul5aKe5Yqg55u46Zec55Si5ZOB55qE5pud5YWJ77yM6YCy6ICM5o+Q5Y2H6Yq35ZSu6YeP77yM6YCZ6YO95piv5aSp5rCj6LOH6KiK5Y+v5Lul5bu25Ly45oeJ55So55qE5YGa5rOV44CC” pid=”3107”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何使用 WooCommerce 提供個人化專屬功能</title>
+    <url>/tw/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-woocommerce-%E6%8F%90%E4%BE%9B%E5%80%8B%E4%BA%BA%E5%8C%96%E5%B0%88%E5%B1%AC%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<p>購物網站提供個人化的專屬訊息更能有效能提升購買率，本文分享了四種方法並提供相對應的外掛或是程式修改方法，包含根據購買清單提供個人化的商品推薦、個人化的顯示訊息、根據客戶行為來給予折價券、販售個人化商品等，更進階的還可以透過瀏覽、銷售數據來提供折扣，但要小心過於個人化的功能要避免讓客戶覺得隱私受到侵犯，尊重客戶的意願才是服務的第一優先。</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1491795330927466” display=”yes” title=”5aaC5L2V5L2/55SoIFdvb0NvbW1lcmNlIOaPkOS+m+WAi+S6uuWMluWwiOWxrOWKn+iDvQ==” body=”6LO854mp57ay56uZ5o+Q5L6b5YCL5Lq65YyW55qE5bCI5bGs6KiK5oGv5pu06IO95pyJ5pWI6IO95o+Q5Y2H6LO86LK3546H77yM5pys5paH5YiG5Lqr5LqG5Zub56iu5pa55rOV5Lim5o+Q5L6b55u45bCN5oeJ55qE5aSW5o6b5oiW5piv56iL5byP5L+u5pS55pa55rOV77yM5YyF5ZCr5qC55pOa6LO86LK35riF5Zau5o+Q5L6b5YCL5Lq65YyW55qE5ZWG5ZOB5o6o6Jam44CB5YCL5Lq65YyW55qE6aGv56S66KiK5oGv44CB5qC55pOa5a6i5oi26KGM54K65L6G57Wm5LqI5oqY5YO55Yi444CB6LKp5ZSu5YCL5Lq65YyW5ZWG5ZOB562J77yM5pu06YCy6ZqO55qE6YKE5Y+v5Lul6YCP6YGO54CP6Ka944CB6Yq35ZSu5pW45pOa5L6G5o+Q5L6b5oqY5omj77yM5L2G6KaB5bCP5b+D6YGO5pa85YCL5Lq65YyW55qE5Yqf6IO96KaB6YG/5YWN6K6T5a6i5oi26Ka65b6X6Zqx56eB5Y+X5Yiw5L6154qv77yM5bCK6YeN5a6i5oi255qE5oSP6aGY5omN5piv5pyN5YuZ55qE56ys5LiA5YSq5YWI44CC” pid=”3145”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4229,17 +4229,6 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>如何在 WordPress 網站舉辦線上競賽？</title>
-    <url>/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E7%B6%B2%E7%AB%99%E8%88%89%E8%BE%A6%E7%B7%9A%E4%B8%8A%E7%AB%B6%E8%B3%BD%EF%BC%9F/</url>
-    <content><![CDATA[<p>  在網路行銷中舉辦線上競賽是能迅速得到最多關注的方式之一，要開發一個徵稿活動除了比賽規則、主題、視覺設計外，最麻煩的莫過於投票機制的開發，除了要被防作弊、灌水外，還要有適合運作團隊的管理機制，本文分享了幾款不同的活動外掛，正在規劃線上活動的朋友可以參考看看！</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1452478944859105” display=”yes” title=”5aaC5L2V5ZyoIFdvcmRQcmVzcyDntrLnq5noiInovqbnt5rkuIrnq7bos73vvJ8=” body=”5Zyo57ay6Lev6KGM6Yq35Lit6IiJ6L6m57ea5LiK56u26LO95piv6IO96L+F6YCf5b6X5Yiw5pyA5aSa6Zec5rOo55qE5pa55byP5LmL5LiA77yM6KaB6ZaL55m85LiA5YCL5b6156i/5rS75YuV6Zmk5LqG5q+U6LO96KaP5YmH44CB5Li76aGM44CB6KaW6Ka66Kit6KiI5aSW77yM5pyA6bq754Wp55qE6I6r6YGO5pa85oqV56Wo5qmf5Yi255qE6ZaL55m877yM6Zmk5LqG6KaB6KKr6Ziy5L2c5byK44CB54GM5rC05aSW77yM6YKE6KaB5pyJ6YGp5ZCI6YGL5L2c5ZyY6ZqK55qE566h55CG5qmf5Yi277yM5pys5paH5YiG5Lqr5LqG5bm+5qy+5LiN5ZCM55qE5rS75YuV5aSW5o6b77yM5q2j5Zyo6KaP5YqD57ea5LiK5rS75YuV55qE5pyL5Y+L5Y+v5Lul5Y+D6ICD55yL55yL77yB” pid=”3061”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
     <title>如何完全客製 WordPress 登入頁面</title>
     <url>/tw/%E5%A6%82%E4%BD%95%E5%AE%8C%E5%85%A8%E5%AE%A2%E8%A3%BD-wordpress-%E7%99%BB%E5%85%A5%E9%A0%81%E9%9D%A2/</url>
     <content><![CDATA[<p>有些網站需要開放後台給企業內部的同仁進行上稿，或是提供給一般使用者進入後台做某些互動，這時與網站形象一致的登入頁面就能顯得更為專業，也能增加網站的信賴感，今天分享的外掛 Login Designer 就是專門設計給不熟程式的朋友來客製化 WordPress 的登入頁面，它除了可以替換掉原本 WordPress 的 Logo 外，還可以更換版面樣式以及設定所有欄位的間距以及顏色，是一套非常方便的外掛。</p>
@@ -4251,11 +4240,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>如何客製 WordPress 後台？</title>
-    <url>/tw/%E5%A6%82%E4%BD%95%E5%AE%A2%E8%A3%BD-wordpress-%E5%BE%8C%E5%8F%B0%EF%BC%9F/</url>
-    <content><![CDATA[<p>  為了讓不同用途的後台使用者可以有更好的使用體驗，通常我們會把 WordPress 做整理，像是關閉不需顯示的選單、整理後台首頁的區塊、加入自訂訊息等等，除此之外，這篇文章還分享了如何更換品牌 Logo、增加快速連結，甚至是安裝後台用的佈景主題，雖然後台的使用者相對前台少，但好用的介面還是能提升網站更新速度以及操作人員的使用體驗。</p>
+    <title>如何在 WordPress 網站舉辦線上競賽？</title>
+    <url>/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E7%B6%B2%E7%AB%99%E8%88%89%E8%BE%A6%E7%B7%9A%E4%B8%8A%E7%AB%B6%E8%B3%BD%EF%BC%9F/</url>
+    <content><![CDATA[<p>  在網路行銷中舉辦線上競賽是能迅速得到最多關注的方式之一，要開發一個徵稿活動除了比賽規則、主題、視覺設計外，最麻煩的莫過於投票機制的開發，除了要被防作弊、灌水外，還要有適合運作團隊的管理機制，本文分享了幾款不同的活動外掛，正在規劃線上活動的朋友可以參考看看！</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1453309291442737” display=”yes” title=”5aaC5L2V5a6i6KO9IFdvcmRQcmVzcyDlvozlj7DvvJ8=” body=”54K65LqG6K6T5LiN5ZCM55So6YCU55qE5b6M5Y+w5L2/55So6ICF5Y+v5Lul5pyJ5pu05aW955qE5L2/55So6auU6amX77yM6YCa5bi45oiR5YCR5pyD5oqKIFdvcmRQcmVzcyDlgZrmlbTnkIbvvIzlg4/mmK/pl5zplonkuI3pnIDpoa/npLrnmoTpgbjllq7jgIHmlbTnkIblvozlj7DpppbpoIHnmoTljYDloYrjgIHliqDlhaXoh6roqILoqIrmga/nrYnnrYnvvIzpmaTmraTkuYvlpJbvvIzpgJnnr4fmlofnq6DpgoTliIbkuqvkuoblpoLkvZXmm7Tmj5vlk4HniYwgTG9nb+OAgeWinuWKoOW/q+mAn+mAo+e1kO+8jOeUmuiHs+aYr+WuieijneW+jOWPsOeUqOeahOS9iOaZr+S4u+mhjO+8jOmblueEtuW+jOWPsOeahOS9v+eUqOiAheebuOWwjeWJjeWPsOWwke+8jOS9huWlveeUqOeahOS7i+mdoumChOaYr+iDveaPkOWNh+e2suermeabtOaWsOmAn+W6puS7peWPiuaTjeS9nOS6uuWToeeahOS9v+eUqOmrlOmpl+OAgg==” pid=”3064”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1452478944859105” display=”yes” title=”5aaC5L2V5ZyoIFdvcmRQcmVzcyDntrLnq5noiInovqbnt5rkuIrnq7bos73vvJ8=” body=”5Zyo57ay6Lev6KGM6Yq35Lit6IiJ6L6m57ea5LiK56u26LO95piv6IO96L+F6YCf5b6X5Yiw5pyA5aSa6Zec5rOo55qE5pa55byP5LmL5LiA77yM6KaB6ZaL55m85LiA5YCL5b6156i/5rS75YuV6Zmk5LqG5q+U6LO96KaP5YmH44CB5Li76aGM44CB6KaW6Ka66Kit6KiI5aSW77yM5pyA6bq754Wp55qE6I6r6YGO5pa85oqV56Wo5qmf5Yi255qE6ZaL55m877yM6Zmk5LqG6KaB6KKr6Ziy5L2c5byK44CB54GM5rC05aSW77yM6YKE6KaB5pyJ6YGp5ZCI6YGL5L2c5ZyY6ZqK55qE566h55CG5qmf5Yi277yM5pys5paH5YiG5Lqr5LqG5bm+5qy+5LiN5ZCM55qE5rS75YuV5aSW5o6b77yM5q2j5Zyo6KaP5YqD57ea5LiK5rS75YuV55qE5pyL5Y+L5Y+v5Lul5Y+D6ICD55yL55yL77yB” pid=”3061”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4267,6 +4256,17 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
     <content><![CDATA[<p>相信大家可能都有在一些比較大型的媒體網站上看過這功能：頁面上方顯示進度條，會隨著頁面捲動的比例增加進度條的進度，藉此來提示讀者文章的閱讀進度。Post Reading Progress 這支外掛可以很方便的達成此功能，它除了可以設定進度條的位置、高度外，還可以調整成符合網站色系的配色工具，想幫自己部落格增加這功能的朋友可以試一試這支外掛。</p>
 <span id="more"></span>
 <p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1602082999898698” display=”yes” title=”5aaC5L2V5bmrIFdvcmRQcmVzcyDmlofnq6Dlop7liqDplrHoroDpgLLluqbmop3vvJ8=” body=”55u45L+h5aSn5a625Y+v6IO96YO95pyJ5Zyo5LiA5Lqb5q+U6LyD5aSn5Z6L55qE5aqS6auU57ay56uZ5LiK55yL6YGO6YCZ5Yqf6IO977ya6aCB6Z2i5LiK5pa56aGv56S66YCy5bqm5qKd77yM5pyD6Zqo6JGX6aCB6Z2i5o2y5YuV55qE5q+U5L6L5aKe5Yqg6YCy5bqm5qKd55qE6YCy5bqm77yM6JeJ5q2k5L6G5o+Q56S66K6A6ICF5paH56ug55qE6Zax6K6A6YCy5bqm44CCUG9zdCBSZWFkaW5nIFByb2dyZXNzIOmAmeaUr+WkluaOm+WPr+S7peW+iOaWueS+v+eahOmBlOaIkOatpOWKn+iDve+8jOWug+mZpOS6huWPr+S7peioreWumumAsuW6puaineeahOS9jee9ruOAgemrmOW6puWklu+8jOmChOWPr+S7peiqv+aVtOaIkOespuWQiOe2suermeiJsuezu+eahOmFjeiJsuW3peWFt++8jOaDs+W5q+iHquW3semDqOiQveagvOWinuWKoOmAmeWKn+iDveeahOaci+WPi+WPr+S7peippuS4gOippumAmeaUr+WkluaOm+OAgg==” pid=”3362”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何客製 WordPress 後台？</title>
+    <url>/tw/%E5%A6%82%E4%BD%95%E5%AE%A2%E8%A3%BD-wordpress-%E5%BE%8C%E5%8F%B0%EF%BC%9F/</url>
+    <content><![CDATA[<p>  為了讓不同用途的後台使用者可以有更好的使用體驗，通常我們會把 WordPress 做整理，像是關閉不需顯示的選單、整理後台首頁的區塊、加入自訂訊息等等，除此之外，這篇文章還分享了如何更換品牌 Logo、增加快速連結，甚至是安裝後台用的佈景主題，雖然後台的使用者相對前台少，但好用的介面還是能提升網站更新速度以及操作人員的使用體驗。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1453309291442737” display=”yes” title=”5aaC5L2V5a6i6KO9IFdvcmRQcmVzcyDlvozlj7DvvJ8=” body=”54K65LqG6K6T5LiN5ZCM55So6YCU55qE5b6M5Y+w5L2/55So6ICF5Y+v5Lul5pyJ5pu05aW955qE5L2/55So6auU6amX77yM6YCa5bi45oiR5YCR5pyD5oqKIFdvcmRQcmVzcyDlgZrmlbTnkIbvvIzlg4/mmK/pl5zplonkuI3pnIDpoa/npLrnmoTpgbjllq7jgIHmlbTnkIblvozlj7DpppbpoIHnmoTljYDloYrjgIHliqDlhaXoh6roqILoqIrmga/nrYnnrYnvvIzpmaTmraTkuYvlpJbvvIzpgJnnr4fmlofnq6DpgoTliIbkuqvkuoblpoLkvZXmm7Tmj5vlk4HniYwgTG9nb+OAgeWinuWKoOW/q+mAn+mAo+e1kO+8jOeUmuiHs+aYr+WuieijneW+jOWPsOeUqOeahOS9iOaZr+S4u+mhjO+8jOmblueEtuW+jOWPsOeahOS9v+eUqOiAheebuOWwjeWJjeWPsOWwke+8jOS9huWlveeUqOeahOS7i+mdoumChOaYr+iDveaPkOWNh+e2suermeabtOaWsOmAn+W6puS7peWPiuaTjeS9nOS6uuWToeeahOS9v+eUqOmrlOmpl+OAgg==” pid=”3064”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4476,22 +4476,22 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>快速修改 WordPress function.php</title>
-    <url>/tw/%E5%BF%AB%E9%80%9F%E4%BF%AE%E6%94%B9-wordpress-function-php/</url>
-    <content><![CDATA[<p>  有經營一陣子 WordPress 網站的朋友一定知道，如果要修改某些特定功能，在 Google 上都會找到一些解答說要把程式寫在 Theme 的 function.php 中，為了避免更新被蓋過你加入的程式，通常需要建立子主題來做修改，但如果遇到某些情況不允許建立子主題，或是想做更即時的修改，就可以安裝這 Cusomt Code 這支外掛，它可以直接在後台寫入程式，還可以增加標題與描述來更系統化的整理，方便其它管理者啟用或停用該功能。</p>
+    <title>從知名大站學習 UI 設計細節</title>
+    <url>/tw/%E5%BE%9E%E7%9F%A5%E5%90%8D%E5%A4%A7%E7%AB%99%E5%AD%B8%E7%BF%92-ui-%E8%A8%AD%E8%A8%88%E7%B4%B0%E7%AF%80/</url>
+    <content><![CDATA[<p>  想一次看到知名網站導覽系統是怎麼設計的嗎？或是首頁文案、圖像該如何搭配才能吸引使用者點擊？Good Web Deisgn 蒐集了知名網站的介面設計，在規劃網站時可以參考其背後的設計思維，進而運用到現行的專案中，當然不同國情會有不同的文化，但做為發想的起點是很不錯的參考！</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1454064788033854” display=”yes” title=”5b+r6YCf5L+u5pS5IFdvcmRQcmVzcyBmdW5jdGlvbi5waHA=” body=”5pyJ57aT54ef5LiA6Zmj5a2QIFdvcmRQcmVzcyDntrLnq5nnmoTmnIvlj4vkuIDlrprnn6XpgZPvvIzlpoLmnpzopoHkv67mlLnmn5Dkupvnibnlrprlip/og73vvIzlnKggR29vZ2xlIOS4iumDveacg+aJvuWIsOS4gOS6m+ino+etlOiqquimgeaKiueoi+W8j+Wvq+WcqCBUaGVtZSDnmoQgZnVuY3Rpb24ucGhwIOS4re+8jOeCuuS6humBv+WFjeabtOaWsOiiq+iTi+mBjuS9oOWKoOWFpeeahOeoi+W8j++8jOmAmuW4uOmcgOimgeW7uueri+WtkOS4u+mhjOS+huWBmuS/ruaUue+8jOS9huWmguaenOmBh+WIsOafkOS6m+aDheazgeS4jeWFgeioseW7uueri+WtkOS4u+mhjO+8jOaIluaYr+aDs+WBmuabtOWNs+aZgueahOS/ruaUue+8jOWwseWPr+S7peWuieijnemAmSBDdXNvbXQgQ29kZSDpgJnmlK/lpJbmjpvvvIzlroPlj6/ku6Xnm7TmjqXlnKjlvozlj7Dlr6vlhaXnqIvlvI/vvIzpgoTlj6/ku6Xlop7liqDmqJnpoYzoiIfmj4/ov7Dkvobmm7Tns7vntbHljJbnmoTmlbTnkIbvvIzmlrnkvr/lhbblroPnrqHnkIbogIXllZ/nlKjmiJblgZznlKjoqbLlip/og73jgII=” pid=”3068”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1454827291290937” display=”yes” title=”5b6e55+l5ZCN5aSn56uZ5a2457+SIFVJIOioreioiOe0sOevgA==” body=”5oOz5LiA5qyh55yL5Yiw55+l5ZCN57ay56uZ5bCO6Ka957O757Wx5piv5oCO6bq86Kit6KiI55qE5ZeO77yf5oiW5piv6aaW6aCB5paH5qGI44CB5ZyW5YOP6Kmy5aaC5L2V5pCt6YWN5omN6IO95ZC45byV5L2/55So6ICF6bue5pOK77yfR29vZCBXZWIgRGVpc2duIOiSkOmbhuS6huefpeWQjee2suermeeahOS7i+mdouioreioiO+8jOWcqOimj+WKg+e2suermeaZguWPr+S7peWPg+iAg+WFtuiDjOW+jOeahOioreioiOaAnee2re+8jOmAsuiAjOmBi+eUqOWIsOePvuihjOeahOWwiOahiOS4re+8jOeVtueEtuS4jeWQjOWci+aDheacg+acieS4jeWQjOeahOaWh+WMlu+8jOS9huWBmueCuueZvOaDs+eahOi1t+m7nuaYr+W+iOS4jemMr+eahOWPg+iAg++8gQ==” pid=”3071”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
       </categories>
   </entry>
   <entry>
-    <title>從知名大站學習 UI 設計細節</title>
-    <url>/tw/%E5%BE%9E%E7%9F%A5%E5%90%8D%E5%A4%A7%E7%AB%99%E5%AD%B8%E7%BF%92-ui-%E8%A8%AD%E8%A8%88%E7%B4%B0%E7%AF%80/</url>
-    <content><![CDATA[<p>  想一次看到知名網站導覽系統是怎麼設計的嗎？或是首頁文案、圖像該如何搭配才能吸引使用者點擊？Good Web Deisgn 蒐集了知名網站的介面設計，在規劃網站時可以參考其背後的設計思維，進而運用到現行的專案中，當然不同國情會有不同的文化，但做為發想的起點是很不錯的參考！</p>
+    <title>快速修改 WordPress function.php</title>
+    <url>/tw/%E5%BF%AB%E9%80%9F%E4%BF%AE%E6%94%B9-wordpress-function-php/</url>
+    <content><![CDATA[<p>  有經營一陣子 WordPress 網站的朋友一定知道，如果要修改某些特定功能，在 Google 上都會找到一些解答說要把程式寫在 Theme 的 function.php 中，為了避免更新被蓋過你加入的程式，通常需要建立子主題來做修改，但如果遇到某些情況不允許建立子主題，或是想做更即時的修改，就可以安裝這 Cusomt Code 這支外掛，它可以直接在後台寫入程式，還可以增加標題與描述來更系統化的整理，方便其它管理者啟用或停用該功能。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1454827291290937” display=”yes” title=”5b6e55+l5ZCN5aSn56uZ5a2457+SIFVJIOioreioiOe0sOevgA==” body=”5oOz5LiA5qyh55yL5Yiw55+l5ZCN57ay56uZ5bCO6Ka957O757Wx5piv5oCO6bq86Kit6KiI55qE5ZeO77yf5oiW5piv6aaW6aCB5paH5qGI44CB5ZyW5YOP6Kmy5aaC5L2V5pCt6YWN5omN6IO95ZC45byV5L2/55So6ICF6bue5pOK77yfR29vZCBXZWIgRGVpc2duIOiSkOmbhuS6huefpeWQjee2suermeeahOS7i+mdouioreioiO+8jOWcqOimj+WKg+e2suermeaZguWPr+S7peWPg+iAg+WFtuiDjOW+jOeahOioreioiOaAnee2re+8jOmAsuiAjOmBi+eUqOWIsOePvuihjOeahOWwiOahiOS4re+8jOeVtueEtuS4jeWQjOWci+aDheacg+acieS4jeWQjOeahOaWh+WMlu+8jOS9huWBmueCuueZvOaDs+eahOi1t+m7nuaYr+W+iOS4jemMr+eahOWPg+iAg++8gQ==” pid=”3071”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1454064788033854” display=”yes” title=”5b+r6YCf5L+u5pS5IFdvcmRQcmVzcyBmdW5jdGlvbi5waHA=” body=”5pyJ57aT54ef5LiA6Zmj5a2QIFdvcmRQcmVzcyDntrLnq5nnmoTmnIvlj4vkuIDlrprnn6XpgZPvvIzlpoLmnpzopoHkv67mlLnmn5Dkupvnibnlrprlip/og73vvIzlnKggR29vZ2xlIOS4iumDveacg+aJvuWIsOS4gOS6m+ino+etlOiqquimgeaKiueoi+W8j+Wvq+WcqCBUaGVtZSDnmoQgZnVuY3Rpb24ucGhwIOS4re+8jOeCuuS6humBv+WFjeabtOaWsOiiq+iTi+mBjuS9oOWKoOWFpeeahOeoi+W8j++8jOmAmuW4uOmcgOimgeW7uueri+WtkOS4u+mhjOS+huWBmuS/ruaUue+8jOS9huWmguaenOmBh+WIsOafkOS6m+aDheazgeS4jeWFgeioseW7uueri+WtkOS4u+mhjO+8jOaIluaYr+aDs+WBmuabtOWNs+aZgueahOS/ruaUue+8jOWwseWPr+S7peWuieijnemAmSBDdXNvbXQgQ29kZSDpgJnmlK/lpJbmjpvvvIzlroPlj6/ku6Xnm7TmjqXlnKjlvozlj7Dlr6vlhaXnqIvlvI/vvIzpgoTlj6/ku6Xlop7liqDmqJnpoYzoiIfmj4/ov7Dkvobmm7Tns7vntbHljJbnmoTmlbTnkIbvvIzmlrnkvr/lhbblroPnrqHnkIbogIXllZ/nlKjmiJblgZznlKjoqbLlip/og73jgII=” pid=”3068”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
