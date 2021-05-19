@@ -1824,6 +1824,13 @@
 
   
   <url>
+    <loc>https://oberonlai.blog/tw/tags/github/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://oberonlai.blog/tw/tags/themeforest/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
@@ -1831,7 +1838,14 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/tags/github/</loc>
+    <loc>https://oberonlai.blog/tw/tags/wordpress-theme/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/tags/wordpress%E4%B8%BB%E9%A1%8C/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1860,20 +1874,6 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/tags/%E5%B7%A5%E4%BD%9C%E6%99%82%E6%95%B8/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/wordpress-theme/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/wordpress%E4%B8%BB%E9%A1%8C/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2246,7 +2246,7 @@
 
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/uncategorized/</loc>
+    <loc>https://oberonlai.blog/tw/categories/PHP/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2260,41 +2260,6 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/%E7%B6%B2%E7%AB%99%E4%BC%81%E5%8A%83/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/categories/HTML5/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/categories/%E7%94%A8%E6%88%B6%E9%AB%94%E9%A9%97/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/categories/PHP/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/categories/Host/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://oberonlai.blog/tw/categories/JavaScript/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
@@ -2302,7 +2267,7 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/TCP-IP/</loc>
+    <loc>https://oberonlai.blog/tw/categories/Host/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2317,6 +2282,27 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/saas/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/%E7%B6%B2%E7%AB%99%E4%BC%81%E5%8A%83/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/uncategorized/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/TCP-IP/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2344,7 +2330,7 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://oberonlai.blog/tw/categories/HTML5/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2352,6 +2338,13 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/%E7%B4%A0%E6%9D%90/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2372,13 +2365,6 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/F2E/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://oberonlai.blog/tw/categories/Marketing/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
@@ -2387,6 +2373,13 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/SEO/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/%E7%94%A8%E6%88%B6%E9%AB%94%E9%A9%97/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2415,6 +2408,13 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/%E9%A0%AD%E7%97%9B%E7%9A%84%E6%9C%83%E8%A8%88/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/F2E/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
