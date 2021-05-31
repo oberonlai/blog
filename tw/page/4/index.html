@@ -623,7 +623,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#119;&#111;&#x72;&#100;&#x70;&#x72;&#x65;&#115;&#x73;&#64;&#x64;&#x6f;&#109;&#97;&#105;&#x6e;&#x2e;&#99;&#x6f;&#109;">&#119;&#111;&#x72;&#100;&#x70;&#x72;&#x65;&#115;&#x73;&#64;&#x64;&#x6f;&#109;&#97;&#105;&#x6e;&#x2e;&#99;&#x6f;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#x6f;&#x72;&#x64;&#112;&#114;&#101;&#x73;&#115;&#64;&#x64;&#111;&#109;&#97;&#x69;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#x6f;&#x72;&#x64;&#112;&#114;&#101;&#x73;&#115;&#64;&#x64;&#111;&#109;&#97;&#x69;&#x6e;&#x2e;&#99;&#x6f;&#x6d;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
