@@ -2722,6 +2722,17 @@ export default &#123;
 <p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-16.jpg"></p>
 <p>新增 LINE 登入後可透過右方的設定項來進行設定，可調整的範圍有按鈕文案、尺寸以及登入後的頁面跳轉，以便更彈性的根據銷售頁面的文案內容來調整登入按鈕：</p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-login-plugin/wordpress-line-login-plugin-18.jpg"></p>
+<p>如果是在會員已登入的狀態下，頁面會不顯示該按鈕。</p>
+<h3 id="4-使用短代碼自訂-LINE-登入按鈕"><a href="#4-使用短代碼自訂-LINE-登入按鈕" class="headerlink" title="4. 使用短代碼自訂 LINE 登入按鈕"></a>4. 使用短代碼自訂 LINE 登入按鈕</h3><p>如果網站使用其他的頁面編輯器，像是 Elementor、Divi，也可以用短代碼 ( Shortcode ) 來放便置入 LINE 的登入按鈕，寫法為：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token punctuation">[</span>linelogin text<span class="token operator">=</span><span class="token string double-quoted-string">"快速登入"</span> size<span class="token operator">=</span><span class="token string double-quoted-string">"m"</span> lgmode<span class="token operator">=</span><span class="token string double-quoted-string">"true"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>段代碼名稱為 linelogin，設定參數說明如下：</p>
+<ul>
+<li>text - 按鈕的文字名稱</li>
+<li>size - 按鈕的尺寸，可選參數有 l、m、s 三種尺寸</li>
+<li>lgmode - 跳轉的模式，設定 true 時會跳轉回原頁面，設定網址時會跳轉至該網頁</li>
+</ul>
+<p>如果是在會員已登入的狀態下，頁面會不顯示該按鈕。</p>
 <h2 id="外掛基本設定"><a href="#外掛基本設定" class="headerlink" title="外掛基本設定"></a>外掛基本設定</h2><p>LINE 的開發者帳號非常容易申請，只要有 LINE 帳號即可，申請的步驟很單純，只要提供相關的資訊即可建立完成。</p>
 <h3 id="前往-LINE-開發者帳號並新增-Channel"><a href="#前往-LINE-開發者帳號並新增-Channel" class="headerlink" title="前往 LINE 開發者帳號並新增 Channel"></a>前往 LINE 開發者帳號並新增 Channel</h3><p>一共有四個步驟，關鍵是要取得最後產出的 Channel ID 與 Channel secret，這兩個資訊需要填入到本外掛的設定選項中，以下就各步驟進行說明：</p>
 <h4 id="STEP1-使用個人-LINE-帳號登入"><a href="#STEP1-使用個人-LINE-帳號登入" class="headerlink" title="STEP1. 使用個人 LINE 帳號登入"></a><strong>STEP1. 使用個人 LINE 帳號登入</strong></h4><p>先前往 <a href="https://developers.line.biz/">https://developers.line.biz</a> 點擊右上角的 Log in 按鈕</p>
