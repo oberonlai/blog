@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="自從有了網路之後，許多原本需要付費的東西，慢慢轉變成免費的給大家用好像也不是什麼稀奇的事了，從 Google 的一堆服務開始，到最近更新的 Mac 作業系統 Mavericks OS，以前需要花好幾萬的文書套裝軟體，現在一毛都不用。   而提供給工程師架設網站的工具也是如此，從以前學生時代學的貴鬆鬆軟體如： frontpage、dreamweaver，到現在免費下載的 Sublime Text ，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress部落格是中小企業架公司網站的解決方案？">
+<meta property="og:url" content="https://oberonlai.blog/tw/wordrpess-for-business/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="自從有了網路之後，許多原本需要付費的東西，慢慢轉變成免費的給大家用好像也不是什麼稀奇的事了，從 Google 的一堆服務開始，到最近更新的 Mac 作業系統 Mavericks OS，以前需要花好幾萬的文書套裝軟體，現在一毛都不用。   而提供給工程師架設網站的工具也是如此，從以前學生時代學的貴鬆鬆軟體如： frontpage、dreamweaver，到現在免費下載的 Sublime Text ，">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-1.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-2.jpg">
+<meta property="article:published_time" content="2013-11-15T11:03:30.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.271Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="wordpress theme">
+<meta property="article:tag" content="wordpress主題">
+<meta property="article:tag" content="wordpress blog">
+<meta property="article:tag" content="wordpress教學">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-1.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/wordrpess-for-business/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>WordPress部落格是中小企業架公司網站的解決方案？ | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordrpess-for-business/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WordPress部落格是中小企業架公司網站的解決方案？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2013-11-15 19:03:30" itemprop="dateCreated datePublished" datetime="2013-11-15T19:03:30+08:00">2013-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/wordrpess-for-business/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="wordrpess-for-business/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>自從有了網路之後，許多原本需要付費的東西，慢慢轉變成免費的給大家用好像也不是什麼稀奇的事了，從 Google 的一堆服務開始，到最近更新的 Mac 作業系統 Mavericks OS，以前需要花好幾萬的文書套裝軟體，現在一毛都不用。   而提供給工程師架設網站的工具也是如此，從以前學生時代學的貴鬆鬆軟體如： frontpage、dreamweaver，到現在免費下載的 <a target="_blank" rel="noopener" href="http://www.sublimetext.com/2">Sublime Text</a> ，甚至最近國外還推出線上寫程式工具 <a target="_blank" rel="noopener" href="https://codio.com/">codio</a>，對於工程師而言到那都能工作了(唉～)。   既然有提供給工程師架站的工具，那有沒有給一般沒有資訊人員的中小企業架設網站的軟體呢？還是拜網路所賜，有了開源軟體 (Open Source Software)的誕生。  </p>
+<h2 id="什麼是開源軟體？"><a href="#什麼是開源軟體？" class="headerlink" title="什麼是開源軟體？"></a>什麼是開源軟體？</h2><p>  根據維基百科的定義，</p>
+<blockquote>
+<p>開源軟體（英語：open source software，英文縮寫：OSS，中文也稱：開放原始碼軟體）是一種原始碼可以任意取用的電腦軟體，這種軟體的版權持有人在軟體協定的規定之下保留一部分權利並允許使用者學習、修改、增進提高這款軟體的品質。</p>
+</blockquote>
+<p>也就是說任何人都可以免費的使用它，進而修改成符合特定目的需要的版本。   其中在建置網站的工具中，以 <a target="_blank" rel="noopener" href="http://tw.wordpress.org/">Wordpress</a>、<a target="_blank" rel="noopener" href="http://www.joomla.org.tw/">Joomla</a>、<a target="_blank" rel="noopener" href="http://drupaltaiwan.org/">Drupal</a>、<a target="_blank" rel="noopener" href="http://xoops.tnc.edu.tw/">Xoops</a> 等軟體較為出名，   下圖是從 Google 趨勢中節截取這四套開源軟體的搜尋走勢圖：</p>
+<span id="more"></span>
+<p>全球 <a href="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-1.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-1.jpg" alt="wordpress-for-business-img-1"></a>   台灣 <a href="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-2.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/11/wordpress-for-business-img-2.jpg" alt="wordpress-for-business-img-2"></a>     每套開源架站軟體都有其特性與適合的使用對象，但在我們不太熟悉的情況下，選擇多一點人用的軟體感覺上比較安心，至少出了狀況找的到人求救，因此本篇將以 wordpress 為主角，來說明中小企業該如何使用它來滿足架站需求。  </p>
+<h2 id="但…wordpress-不是部落格系統嗎？"><a href="#但…wordpress-不是部落格系統嗎？" class="headerlink" title="但…wordpress 不是部落格系統嗎？"></a>但…wordpress 不是部落格系統嗎？</h2><p>  是， wordpress 本身最早期就是專門拿來自行架設部落格的工具，但隨著在開放源始碼的環境下，許多人協助進行改良系統的完整性，再加上現有 <a target="_blank" rel="noopener" href="http://wordpress.org/plugins/">27,977</a> 套可以擴充的工具，所以不管是企業形象網站、企業資源網站、教育訓練網站、產品展示網站、電子商務網站、社群網站、團購網站、活動報名網站、多國語言網站等，只要是想的到的，都有相對應的工具可以立刻使用。   再加上先前提過的， wordpress 本身是開放源始碼，如果找不到現成的功能也沒關係，它彈性的架構可以很自由的為它加入新的功能，這樣強大的工具已經不是任何一家 IT 企業能夠擁有它，透過開發者的力量，它隨時都在求新求變。   從他們的更新紀錄來看，平均每一～兩個月就會有新版本產生，其社群共獻者的活耀度由此可見，更多關於 wordpress 的介紹，可以參考他們的網站—&gt;<a target="_blank" rel="noopener" href="http://tw.wordpress.org/">http://tw.wordpress.org/</a>  </p>
+<h2 id="所以-wordpress-適合所有的中小企業做為架站工具囉？"><a href="#所以-wordpress-適合所有的中小企業做為架站工具囉？" class="headerlink" title="所以 wordpress 適合所有的中小企業做為架站工具囉？"></a>所以 wordpress 適合所有的中小企業做為架站工具囉？</h2><p>  應該是說，中小企業有沒有準備好要用網路來拓展事業版圖的決心，或是對於經營網路形象有沒有一幅清楚的藍圖，甚至是分析投入成本與效益價值的評估，這些問題跟是不是用 wordpress 軟體架站並無太大關係，如果有規劃、有目標， wordpress 絕對能成為中小企業發展上的一大助力。   以下項目可協助判斷在用 wordpress 架站前，檢視企業內部的狀況，進而決定該如何使用 wordpress 完成企業預期目標。  </p>
+<h3 id="lt-一-gt-是否了解網路經營的模式、公司網站扮演的角色？"><a href="#lt-一-gt-是否了解網路經營的模式、公司網站扮演的角色？" class="headerlink" title="&lt;一&gt;是否了解網路經營的模式、公司網站扮演的角色？"></a>&lt;一&gt;是否了解網路經營的模式、公司網站扮演的角色？</h3><p>以前最常聽見的問題就是公司花了大筆預算蓋好了網站，但最後卻變成蚊子館乏人問津，這類型的問題起因於網站建置的目的不明確，常常是為了要有而蓋，事實上一間企業的獲利流程，可以將其放大檢視，觀察在那一個環節之中發生什麼問題，是否能用電子化的方式來解決。   最常見的就是 B2B 產業，傳統的作法就是在網站上放表單，要讓表單有詢問訂單進來，就是要讓網站被找的到，無論是在實體或虛擬通路，都能將流量導入站內，再透過清楚的資訊呈現、真人線上客服、使用者介面引導等方式，協助需求者完成他們的目標；   有了這些方向，在 wordpress 上就可以去尋找這方面的工具，像線上客服系統，這篇文章就介紹了很多 <a target="_blank" rel="noopener" href="http://www.smashingapps.com/2013/05/31/13-best-wordpress-chat-plugins.html" title="Permanent Link to 13 Best WordPress Chat Plugins">13 Best WordPress Chat Plugins</a>，而表單功能的工具也很多，可參考這篇 <a target="_blank" rel="noopener" href="http://www.tripwiremagazine.com/2013/06/wordpress-form-plugin-collection.html">25+ Highly Useful WordPress Form Plugin Collection</a>   另外要讓別人容易找的到，就需要設定關鍵字，可以使用這個工具 <a target="_blank" rel="noopener" href="http://wordpress.org/plugins/wordpress-seo/">WordPress SEO by Yoast</a> ，幫每頁內容都設上標題、頁面描述，這對於潛在客戶在搜尋上會有很大的幫助，但前提是要先能了解潛在客戶會如何搜尋我們的產品，這就是另外一門專業的<a target="_blank" rel="noopener" href="http://goo.gl/Q7Oizl">搜尋引擎最佳化</a>領域了。  </p>
+<h3 id="lt-二-gt-是否了解網站空間、主機等相關硬體需求？"><a href="#lt-二-gt-是否了解網站空間、主機等相關硬體需求？" class="headerlink" title="&lt;二&gt;是否了解網站空間、主機等相關硬體需求？"></a>&lt;二&gt;是否了解網站空間、主機等相關硬體需求？</h3><p>簡單來說，網站就是由一堆檔案和資料所組成，然後放在一台電腦裡面 24 小時不關機，讓其它人可以透過特定的網址連到這些資料，所以顯而易見的，除了 wordpress 的網站檔案外，我們還需要一台足夠容量、足夠效能、足夠運作網站的電腦來存放我們的資料。   所以市面上就有許許多多的廠商提供這一類的服務，讓我們能用最節省成本的方式來租用這樣的電腦置放網站檔案，如果要使用 wordpress 架站的話，建議要選擇 linux 的作業系統(免授權金)，以及能使用 PHP 與 Mysql 的系統環境，在選購上要特別注意，在 <a target="_blank" rel="noopener" href="http://tw.wordpress.org/">wordpress</a> 的官方網站上有相關的系統需求。  </p>
+<h3 id="lt-三-gt-是否了解建置網站所需投入成本？"><a href="#lt-三-gt-是否了解建置網站所需投入成本？" class="headerlink" title="&lt;三&gt;是否了解建置網站所需投入成本？"></a>&lt;三&gt;是否了解建置網站所需投入成本？</h3><p>基本上只要有心，投入夠多的時間學習，任何人都能使用 wordpress 架出一套有模有樣的網站，因為不僅<a target="_blank" rel="noopener" href="http://wordpress.org/plugins/">擴充工具多</a>、後臺更新便利，以及還有精美的<a target="_blank" rel="noopener" href="http://wordpress.org/themes/">免費佈景主題</a>可以下載使用，最重要的是，台灣網友的熱情分享，Google 搜尋 wordpress 教學就有<a target="_blank" rel="noopener" href="http://goo.gl/2n2vjS">這麼多答案</a>，   或是加入 <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/wordpresstw/">Facebook wordpress taiwan 正體中文粉絲團</a> ，只要問題一 po 上去，過不了十分鐘就立刻會有人幫忙回答，台灣人的人情味，在網路上更是發揚光大^^   所以有心想自學 wordpress 架站，管道非常便利，不然請人<a href="https://oberonlai.blog/contact/">直接面對面授課</a>，也是一種更快的方法。   但真實的情況是，可能沒有這麼多的時間，對於中小企業而言，公司的經營才是重點，架站的專業技術，就交給專人執行，但有企業主可能會覺得，既然 wordpress 是免費軟體，請人幫忙架站應該也是會比較便宜才是…   真正的事實是：非但不會比較省錢，而且有可能還會比一般行情高。對於開發者而言，程式的寫法都有其固定模式，使用 wordpress 的擴充功能，由於都是國外開發者居多，對於接手的工程師來說，勢必要先了解其邏輯，才有可能進行新增或修改，這要花費的時間會比從無到有自己寫一個功能出來還多的多。   另一方面，也因為民情文化的不同，許多國外的佈景主題或是擴充功能往往會需要加以調整，尤其是美術設計的部份，因為英文筆畫單純，用小字可以呈現精緻的效果，但換成中文後美感盡失，這些都是需要專業的視覺設計師進行處理。   wordpress 的最大好處就是可以加快視覺設計跟網站功能的呈現，這非常有利於在溝通上進行想法的確認，透過更實際的畫面來進行討論，以避免設計上的落差。  </p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>  wordpress 無論在全球還是台灣，都有相當多的資源可以取得，但也因為民情不同，許多現成的功能都還需要進行客製化才能真正符合需求，了解網站的目的再使用 wordpress 架站，更能有效加強網站功能而不會迷失於茫茫的大海之中。   在國外 wordpress 發展非常成熟，已經有販售 wordpress 主題的商業模式在運作中，不同於免費的佈景主題，設計師與工程師更貼心的站在使用者立場，開發許多便利的操作功能，並且針對不同產業進行設計，希望台灣未來也能發展出這樣的商業模式，讓網站設計這產業更能向上提升，給企業主與開發者一個雙贏的環境！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/wordpress-theme/" rel="tag"><i class="fa fa-tag"></i> wordpress theme</a>
+              <a href="/tw/tags/wordpress%E4%B8%BB%E9%A1%8C/" rel="tag"><i class="fa fa-tag"></i> wordpress主題</a>
+              <a href="/tw/tags/wordpress-blog/" rel="tag"><i class="fa fa-tag"></i> wordpress blog</a>
+              <a href="/tw/tags/wordpress%E6%95%99%E5%AD%B8/" rel="tag"><i class="fa fa-tag"></i> wordpress教學</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/submit-for-review/" rel="prev" title="Wordpress文章發表按鈕變成送交審查">
+      <i class="fa fa-chevron-left"></i> Wordpress文章發表按鈕變成送交審查
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/how-to-buy-wordpress-theme/" rel="next" title="WordPress主題選購指南">
+      WordPress主題選購指南 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">565k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:33</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/wordrpess-for-business/";
+    this.page.identifier = "wordrpess-for-business/";
+    this.page.title = "WordPress部落格是中小企業架公司網站的解決方案？";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

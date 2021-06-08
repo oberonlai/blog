@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前陣子逛 FB 時看到 Udemy 上面這堂原價 7800 的課程 “How to write technical IT requirements to get what you need” 正在限時免費，剛好銜接看板方法不足的需求說明這塊，講師 Anca Onuta 是位非常有經驗的專案經理以及 Scrum Master，課程中同時以三種軟體產品：網站、Mobile App 以及聊天機器人為範">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拯救人生的軟體需求規格書">
+<meta property="og:url" content="https://oberonlai.blog/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="前陣子逛 FB 時看到 Udemy 上面這堂原價 7800 的課程 “How to write technical IT requirements to get what you need” 正在限時免費，剛好銜接看板方法不足的需求說明這塊，講師 Anca Onuta 是位非常有經驗的專案經理以及 Scrum Master，課程中同時以三種軟體產品：網站、Mobile App 以及聊天機器人為範">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/116c20fe-5701-4fcf-af8a-8ef2a42978ee-23192-000014e67f8466a1_file.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.00.48.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.09.08.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.28.35.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.30.57.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.33.42.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.37.13.jpg">
+<meta property="article:published_time" content="2019-02-04T05:37:27.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.687Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2019/02/116c20fe-5701-4fcf-af8a-8ef2a42978ee-23192-000014e67f8466a1_file.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>拯救人生的軟體需求規格書 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          拯救人生的軟體需求規格書
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-02-04 13:37:27" itemprop="dateCreated datePublished" datetime="2019-02-04T13:37:27+08:00">2019-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">專案即生活</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="拯救人生的軟體需求規格書/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/116c20fe-5701-4fcf-af8a-8ef2a42978ee-23192-000014e67f8466a1_file.jpg"></p>
+<p>前陣子逛 FB 時看到 Udemy 上面這堂原價 7800 的課程 “How to write technical IT requirements to get what you need” 正在限時免費，剛好銜接看板方法不足的需求說明這塊，講師 Anca Onuta 是位非常有經驗的專案經理以及 Scrum Master，課程中同時以三種軟體產品：網站、Mobile App 以及聊天機器人為範例來說明需求文件該如何撰寫。</p>
+<p>滿喜歡講師以邊口述邊打字的方式來進行授課，這樣的模式比較容易進入情境，聽不懂英文的的部分也還有重點可以看，雖然 Udemy 有自動字幕的功能，卻因為講師的口音而常常翻譯錯誤，邊聽邊看講師打下的筆記還比較容易理解些。</p>
+<p>課堂中也有作業練習，講師也都會幫忙解決疑難雜症，或是想要開發的產品類型並未出現在課程之中，只要跟講師反應她都會再新增相關的範例，只能說現在線上課程好競爭，而 Udemy 更是常常有這種限免或是跳樓大拍賣的優惠，我自己就買了一堆根本沒時間看，只能乖乖找時間補上了～</p>
+<p>推薦大家這個粉絲團–&gt;<a target="_blank" rel="noopener" href="https://www.facebook.com/softdevtools/">https://www.facebook.com/softdevtools/</a>，這邊常常都會有一堆免費課程的訊息，把他加到 FB 的搶先看就能隨時掌握最新的優惠課程資訊。</p>
+<p>“How to write technical IT requirements to get what you need” 這堂課程主要分為八大單元，從介紹需求文件類型開始，到如何組織文件內容、工具介紹以及在撰寫文件時需要注意的問題都非常詳盡，以下就各單元做重點摘錄：</p>
+<h2 id="一、需求文件類型"><a href="#一、需求文件類型" class="headerlink" title="一、需求文件類型"></a>一、需求文件類型</h2><p><strong>商業需求文件：</strong><br>描述整個商業計畫、商業目標、所需資源、商業模式等等商營營運各面相的文件，通常是企業經營階層需要的文件，如果是要自己新創事業也會需要。</p>
+<p><strong>產品需求文件：</strong><br>描述特定產品的產品計畫、產品目標、產品規格，產品可能有很多個，每個產品都有自己的產品需求文件。</p>
+<p><strong>軟體需求文件：</strong><br>描述產品內軟體的規格、功能、特色，也就是本課程主要介紹的需求文件。</p>
+<p><strong>用戶需求文件：</strong><br>描述產品使用者的目標、使用行為，以設計出更友善的系統操作介面。</p>
+<p>在介紹這些不同文件類型的時，講師有提到 Functionality 以及 Feature 這兩個容易令人搞混的名詞， Functionality 指的是介面背後的行為以及使用流程，是以比較宏觀角度來描述功能，而 Feature 指的是介面的互動方式，像是點擊按鈕改變字體大小，比較偏細部的具體操作步驟。</p>
+<p>另外一個重點是，只有在軟體開發的領域時「產品需求文件」會等於「軟體需求文件」因為軟體即為產品本身。</p>
+<h2 id="二、將想法具體化成可執行項目的方法-草稿階段"><a href="#二、將想法具體化成可執行項目的方法-草稿階段" class="headerlink" title="二、將想法具體化成可執行項目的方法-草稿階段"></a>二、將想法具體化成可執行項目的方法-草稿階段</h2><ol>
+<li> High Level Vision - 把想法寫下來，並說明這些想法想要達成的目標</li>
+<li> Scope - 透過哪些功能或內容來達成目標</li>
+<li> User Journey - 描述每一個功能的使用步驟以及互動狀態，越細越好，包含顯示欄位、操作流程</li>
+</ol>
+<p>下圖為講師示範以網站專案為範例的需求文件範本：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.00.48.jpg" alt="螢幕快照 2019-02-04 下午12.00.48.jpg"></p>
+<p>High Level Vision 是希望可以更容易接觸到客戶、讓客戶找到並瞭解公司的服務項目、並直接與客戶取得聯繫，Scope 則是根據以上目標來列出網站可以放的內容，像是產品或服務列表、團對介紹、顧客回饋、訓練課程以及研討會等等，</p>
+<p>然後再逐一發展每個內容裡面的細項，像是團隊介紹裡面可以放團隊成員列表、大頭照、成員簡介，服務列表放入每個服務的名稱與說明，條列完成後，則是根據每個內容去定義的使用歷程，也就是 User Journey。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.09.08.jpg" alt="螢幕快照 2019-02-04 下午12.09.08.jpg"></p>
+<p>以訓練課程為例，其內容有免費預覽、付費觀賞、線上 QA 等內容，在 User Jourey 的部分則是去思考不同的使用者進入該區塊之後會有的操作，像是以新用戶來說，會先看到訓練課程列表 -&gt; 預覽課程 -&gt; 選擇他想上的課程 -&gt; 付費 -&gt; 取得付費課程 -&gt; 提供小禮物 -&gt; 感謝頁面或是其他課程推薦，而舊用戶也有相對應的操作流程，逐一把它列出。</p>
+<p>在草稿階段，我自己做網站企劃的實務經驗，通常是先去爬數家競品網站以及同類型非競品網站後，畫下每個站的網站架構，以及紀錄特定行為的操作步驟流程，像是加入會員、購買商品等等，然後把這些蒐集好的資料做分類，最後把它匯集成客戶網站需求文件的草稿，客戶有了草稿後，再協助他們訂出 High Level Vison、 Scope 以及 User Journey，不然客戶常常也不知道做網站的目的是什麼，裡面要放什麼內容。</p>
+<h2 id="三、整理需求文件的工具"><a href="#三、整理需求文件的工具" class="headerlink" title="三、整理需求文件的工具"></a>三、整理需求文件的工具</h2><ol>
+<li> 心智圖：這也是我最常用的發想工具，有時候還直接拿心智圖去跟客戶做討論，因為很方便可以看到全貌，也可以專注在細節，我是用 Xmind，講師分享的是 Coggle。</li>
+<li> 試算表：用 excel 或是 google 文件的試算表來整理草稿，方便的地方是可以進行排序，快速的找到要先進行開發的內容。</li>
+<li> Word 文件：比較正式的需求文件，可以提交給客戶當交付物。</li>
+</ol>
+<p>使用試算表的整理要點如下：</p>
+<ul>
+<li>  依照草稿區分 scope 裡面的頁面 / 內容 / 描述 / 顯示資訊 / 使用者歷程 / 技術需求 / 驗收標準 / <strong>優先順序</strong> / 重要性 等等的欄位</li>
+<li>  依照草稿提到的內容來動態決定欄位，並整理成精準的文字</li>
+<li>  可以視覺化的顯示還有哪邊的內容有缺少</li>
+<li>  加入優先等級與重要性欄位，就可以使用排序功能優先顯示要開發的項目</li>
+</ul>
+<p>下圖為講師的 excel 需求文件範例</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.28.35.jpg" alt="螢幕快照 2019-02-04 下午12.28.35.jpg"></p>
+<p>先把 Scope 貼上，就成為 Page/Seciton 的項目，然後每個 Scope 裡面的內容，放在第二欄的 Content/Functionalities，其他欄位可以視需要新增刪減，</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.30.57.jpg" alt="螢幕快照 2019-02-04 下午12.30.57.jpg"></p>
+<p>最後面三個欄位在開發上非常重要，驗收標準、優先度以及重要性，用 Excel 最大好處就是可以進行排序。  </p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.33.42.jpg" alt="螢幕快照 2019-02-04 下午12.33.42.jpg"></p>
+<p>由於我有 Word 恐懼症，每次都會被他的排版給搞瘋，但如果是比較有規模且制度完善的公司，提交一份 Word 文件應該還是免不了的。整理邏輯跟 Excel 雷同，只是把欄位換成標題，然後把每個內容細項變成是清單目錄。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/e89ea2e5b995e5bfabe785a7-2019-02-04-e4b88be58d8812.37.13.jpg" alt="螢幕快照 2019-02-04 下午12.37.13.jpg"></p>
+<p>心智圖的整理方式較為直覺且不必擔心太多格式排版的問題。</p>
+<h2 id="四、需求文件的基本框架"><a href="#四、需求文件的基本框架" class="headerlink" title="四、需求文件的基本框架"></a>四、需求文件的基本框架</h2><p><strong>1. Description 描述功能的用途、內容</strong><br>列出 Pages 項目裡面應有的內容，以及進一步說明這些內容的欄位、互動功能會如何實現。</p>
+<p><strong>2. Action 功能操作的細節 ( User  Journey )</strong><br>需要使用者操作的步驟，像是輸入的資料欄位、資料驗證方式、發送電子郵件、如何取得登入授權。</p>
+<p><strong>3.Deliverable 該功能預期的產出物、交付物</strong><br>完成這個 Page 應該會有哪些產出，像是加入會員的表單、註冊會員的頁面、忘記密碼功能等等。</p>
+<p>**4.Acceptance Criteria 確認完成的標準<br>**如何說明這個 Page 或功能已經完成，像是會員可以成功登入、註冊帳號、可以使用忘記密碼功能收到密碼重設的連結。</p>
+<p>課程提到的文件基本框架的部分我覺得是比較彈性的，可能依照 Scope 裡面 page 或 functionality 的不同而會有不一樣的欄位，但基本上離不開這四大範疇，第三與第四點實務上常忽略的地方，所以每次請客戶驗收時總是會發現自己漏掉頁面，或是工程師開發好的功能卻不是客戶需要的，這就是在前置溝通時期沒有對於完成標準有一致性的認知而造成的誤會，最後的結局總是只能苦命的打掉重做，所以好的需求文件規格書真的可以拯救人生啊。</p>
+<h2 id="五、需求文件的技術說明"><a href="#五、需求文件的技術說明" class="headerlink" title="五、需求文件的技術說明"></a>五、需求文件的技術說明</h2><p>描述開發這個產品需要的所有所以技術細節：</p>
+<ol>
+<li> 程式語言相關：像是使用什麼語言、程式面的特殊需求、可以擴充、方便移轉、需要支援哪些裝置等等</li>
+<li> 主機相關：主機規格、機房位置、備份機制、部署流程</li>
+<li> 第三方整合相關：需使用到的第三方 SDK 或是 API 介接</li>
+<li> 管理者相關：管理者權限、管理層級、可使用功能</li>
+</ol>
+<p>這部分就是把想得到的技術細節寫下來，但常常會發生邊做邊產生新的技術應用，就要更新這份需求文件，常保這份文件保持在最新狀態是非常重要的。</p>
+<h2 id="六、法律要求"><a href="#六、法律要求" class="headerlink" title="六、法律要求"></a>六、法律要求</h2><p>這是最容易被忽略但也最關鍵的部分，如果網站花了大筆時間人力開發，最後卻因為法律問題而導致必須下架，這會是非常嚴重的損失，所以一開始先了解相關的法律規定以及必須揭露的資訊，甚至是需要讓使用者同意的規範，這些都要在寫需求文件階段時一併考量進去。</p>
+<h2 id="七、撰寫需求文件的要點"><a href="#七、撰寫需求文件的要點" class="headerlink" title="七、撰寫需求文件的要點"></a>七、撰寫需求文件的要點</h2><p>整理需求通常會從草稿開始，然後整理成可以讓別人看得懂的文件，再透過溝通討論逐步發展出細節，有了細節後繪製 wireframe -&gt; User Flow -&gt; Prototype，可以更方便團隊成員理解產品的內容，但有一點要注意，在還沒有草稿階段時直接進入 wireframe 的繪製很容易會迷失方向，會拘泥在細節上而忘了整體目標，所以較好的作法還是先把 High Level Vision、Scope、User Journey 整理出來，wireframe 當成是輔助溝通的工具為佳。</p>
+<p>此外，在整理正式文件的過程中，必須仔細選擇用字遣詞，確保團隊成員可以正確理解，減少假設性的問題，並寫下具體的說明跟解釋，搭配圖片的使用以及有系統的格式整理，在第一次發出這份文件時不要讓他們自己看，而是可以召開會議口頭解釋文件內的所有內容，確保團隊成員都能正確的理解進而減少誤會的產生。</p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我自己是有一份常用的規格清單文件，上完這堂課程之後，可以加入新的欄位來加強文件的完整性以及實用性，也學習到怎麼使用 Excel 來整理並排序，如果未來要開發自己的產品，也是非常實用喔喔喔。</p>
+<blockquote>
+<p>最近把實務上整理軟體規格書的經驗另外寫成了一篇「<a href="https://oberonlai.blog/tw/how-to-write-the-effective-specification/">企劃人員如何撰寫有效的軟體需求規格文件</a>」，如果有了規格不知道該如何進行報價，可以參考另一篇「<a href="https://oberonlai.blog/tw/how-do-i-make-a-quotation/">我的接案報價學</a>」</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/wordpress-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%B5%B1%E5%AF%84%E4%BB%B6%E4%BA%BA%E4%BB%A5%E5%8F%8A%E7%99%BC%E4%BF%A1%E4%BF%A1%E7%AE%B1/" rel="prev" title="WordPress 修改系統寄件人以及發信信箱">
+      <i class="fa fa-chevron-left"></i> WordPress 修改系統寄件人以及發信信箱
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/facebook/" rel="next" title="Facebook">
+      Facebook <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">565k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:33</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/";
+    this.page.identifier = "拯救人生的軟體需求規格書/";
+    this.page.title = "拯救人生的軟體需求規格書";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

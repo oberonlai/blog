@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第一次完整學習 HTML 是在剛入行的時候，算一算也有十幾個年頭了，這些日子以來，對於 HTML5 只有著片段的知識，每當卡關去爬 Stackoverflow 時，才會驚訝的發現原來還有這些新東西可以用，所以在圖書館看到這本時，應該是老天爺叫我要好好的來重新認識 HTML 了。 看完幾個章節以後，有一種在看說明書的感覺。就像電器用品一樣，不用看說明書就可以用得順手，然後哪天在整理東西時發現冷氣">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從新學習HTML5 (一) 概觀">
+<meta property="og:url" content="https://oberonlai.blog/tw/html5-intro/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="第一次完整學習 HTML 是在剛入行的時候，算一算也有十幾個年頭了，這些日子以來，對於 HTML5 只有著片段的知識，每當卡關去爬 Stackoverflow 時，才會驚訝的發現原來還有這些新東西可以用，所以在圖書館看到這本時，應該是老天爺叫我要好好的來重新認識 HTML 了。 看完幾個章節以後，有一種在看說明書的感覺。就像電器用品一樣，不用看說明書就可以用得順手，然後哪天在整理東西時發現冷氣">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/03/IMG_7996.jpg">
+<meta property="og:image" content="https://i1.wp.com/oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-11-at-21.54.26.jpg?ssl=1">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-09-at-21.55.24.png">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-09-at-21.55.55.png">
+<meta property="article:published_time" content="2019-03-11T14:04:24.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.702Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/03/IMG_7996.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/html5-intro/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>從新學習HTML5 (一) 概觀 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/html5-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從新學習HTML5 (一) 概觀
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-03-11 22:04:24" itemprop="dateCreated datePublished" datetime="2019-03-11T22:04:24+08:00">2019-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/html5-intro/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="html5-intro/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>6 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/03/IMG_7996.jpg"></p>
+<p><img src="https://i1.wp.com/oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-11-at-21.54.26.jpg?ssl=1"></p>
+<p>第一次完整學習 HTML 是在剛入行的時候，算一算也有十幾個年頭了，這些日子以來，對於 HTML5 只有著片段的知識，每當卡關去爬 Stackoverflow 時，才會驚訝的發現原來還有這些新東西可以用，所以在圖書館看到這本時，應該是老天爺叫我要好好的來重新認識 HTML 了。</p>
+<p>看完幾個章節以後，有一種在看說明書的感覺。就像電器用品一樣，不用看說明書就可以用得順手，然後哪天在整理東西時發現冷氣機的說明書，隨手翻了一下，才驚喜的發現原來家裡的冷氣除了會冷以外，還有除濕、暖氣、烘乾、洗衣、脫水、無線分享器、播音樂等各種功能(?)，而且有些還真的非常實用，在看這本 HTML5 的時候就是這種感覺，每翻一頁處處都是驚喜，許多新功能立馬能在工作上派上用場，滿滿的意外收穫～</p>
+<p>但這本書實在太厚了，根本就是整個 W3C 文件的濃縮版，涵蓋的面向非常完整，從 HTML5 的歷史介紹、介面設計、通訊功能、影像資料處理，到本地資料儲存機制應有盡有，而且不是草草帶過，書裡介紹完整屬性並搭配實作範例，真的是 HTML5 參考書不為過。</p>
+<p>怕自己沒辦法一次整理完這麼龐大的資料量，只好分篇來紀錄，本文以 HTML5 的入門概觀為主，重點摘要整理如下：</p>
+<h2 id="HTML5-的歷史"><a href="#HTML5-的歷史" class="headerlink" title="HTML5 的歷史"></a>HTML5 的歷史</h2><p>記得學生時代用 Dreamweaver 設計網頁時，在檢視原始碼的模式下，有時候都會看到最上面有類似這一段的開頭：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Strict&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;08&#x2F;xhtml&#x2F;xhtml1-strict.dtd&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>落落長的內容裡面寫著 XHTML ，心想這應該就是 HTML 的標準形式吧，在還是 DW 的年代，完全不知道怎麼寫 HTML，只會用現成的介面來產出網頁。直到後來才知道，原來還有一種叫 XHTML 的東西準備要來取代 HTML…</p>
+<p>HTML 最早是在西元 1990 年由網際網路發明人 Tim Berners-Lee 所制定的，並組成了 W3C (World Wide Web Consortium) 來維護 HTML，到了西元 1999 年進化到第四版，也就是 HTML5 的前身 HTML4.01，但由於 HTML4 本身架構以及語法的問題，遲遲無法進行改良，因此 W3C 決定以 XML 語言基礎，打掉重練 HTML 並開發 XHTML。</p>
+<p>直到 2003 年有新技術出現，原有的 HTML4 可以升級了並進行擴充了，於是由 Apple、Mozilla、Opera 組成的 WHATWG 來制定下一版的 HTML，但 W3C 也已經花了不少時間在著手 XHTML 的開發，所以情勢即將變成各玩各的規範，苦的就是瀏覽器廠商以及廣大的網站開發者。</p>
+<p>幸好在 2007 年，W3C 也加入了 WHATWG，一起參與下一代 HTML 的開發，雖然 W3C 並未放棄 XHTML 的計畫，但至少 HTML 可以繼續的被使用下去。到了 2010 年 HTML5 訂出草稿，最後在西元 2014 年 10/28 發表，雖然當時還是 Flash 橫著走的年代，直到 <a target="_blank" rel="noopener" href="https://chinese.engadget.com/2010/04/29/steve-jobs-publishes-some-thoughts-on-flash-many-many-thou/">Steven Jobs 力推 HTML5 並抵制 Flash</a>，HTML5 才逐漸發揚光大，成為現今主流的網頁技術。</p>
+<p>這幾年各家瀏覽器對於 HTML5 的支援越來越完整，有興趣的朋友可以到 <a target="_blank" rel="noopener" href="https://html5test.com/">https://html5test.com</a> 看看自己使用的瀏覽器的支援程度，個人覺得有點意外的是，macOS Safari 的支援度有點低，當年最早在制定 H5 的公司不就是 Apple 嗎？反倒是 Chrome 的支援度較完整。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-09-at-21.55.24.png"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2019/03/CleanShot-2019-03-09-at-21.55.55.png"></p>
+<h2 id="HTML5-的主要內容"><a href="#HTML5-的主要內容" class="headerlink" title="HTML5 的主要內容"></a>HTML5 的主要內容</h2><p>廣義來說，HTML5 主要包含以下七大項的新增內容，當使用到其中一項內容時，我們便可以說該網頁是使用 HTML5 技術所開發的：</p>
+<h4 id="ㄧ-語意標籤-semantic"><a href="#ㄧ-語意標籤-semantic" class="headerlink" title="(ㄧ) 語意標籤 semantic"></a>(ㄧ) 語意標籤 semantic</h4><p>使用更具有意義的 HTML 標籤，讓搜尋引擎或是爬蟲機器人可以更方便與快速的了解網頁的內容，也讓開發人員有更ㄧ致的準則來使用適合內容的標籤。像是頁首使用 <header>、主要區塊使用 <section>、側邊欄使用 <aside> 等等。</p>
+<h4 id="二-離線儲存-offline-amp-storage"><a href="#二-離線儲存-offline-amp-storage" class="headerlink" title="(二) 離線儲存 offline&amp;storage"></a>(二) 離線儲存 offline&amp;storage</h4><p>透過快取技術、本地儲存與 Index DB，讓裝置在沒有網路的環境下，依舊可以瀏覽網站的內容，這對於裝置行動化的趨勢來說，是非常實用的功能。</p>
+<h4 id="三-裝置存取-Device"><a href="#三-裝置存取-Device" class="headerlink" title="(三) 裝置存取 Device"></a>(三) 裝置存取 Device</h4><p>隨著手機出貨量超越桌上型個人電腦，手持裝置變成是瀏覽網站最主要的來源，HTML5 可以取得使用裝置硬體的權限，讓網站可以像原生 APP 一樣，做到許多原本無法做到的功能，像是透過瀏覽器啟用相機、取得手機地理位址等等，大大加強了網站的應用性。</p>
+<h4 id="四-連結性-Connectivity"><a href="#四-連結性-Connectivity" class="headerlink" title="(四) 連結性 Connectivity"></a>(四) 連結性 Connectivity</h4><p>HTML5 讓網站之間傳輸資料更即時，非常適合做即時通訊或手機推播等功能。</p>
+<h4 id="五-效能與整合性-Perfermence-amp-Integrate"><a href="#五-效能與整合性-Perfermence-amp-Integrate" class="headerlink" title="(五) 效能與整合性 Perfermence&amp;Integrate"></a>(五) 效能與整合性 Perfermence&amp;Integrate</h4><p>整合 XMLHttpRequest 2 非同步載入技術，以及 Web Workers 支援網頁多工執行的特性，讓動態網頁從伺服器端請求資料更即時，使用體驗也更好。</p>
+<h4 id="六-2-3D-圖形與特效-2-3D-Graphic-amp-Effects"><a href="#六-2-3D-圖形與特效-2-3D-Graphic-amp-Effects" class="headerlink" title="(六) 2/3D 圖形與特效 2/3D Graphic&amp;Effects"></a>(六) 2/3D 圖形與特效 2/3D Graphic&amp;Effects</h4><p>以前 Flash 之所以能稱霸網路，就是因為透過 Action Script 可以開發出各種 2D 或 3D 的視覺動態呈現，為了補足這一塊，HTML5 開發了 Canvas、SVG、WebGL 讓設計人員可以在不需要安裝任何瀏覽器外掛的情況下，製作出具有高水準的影像或動畫。</p>
+<h4 id="七-多媒體-multimedia"><a href="#七-多媒體-multimedia" class="headerlink" title="(七) 多媒體 multimedia"></a>(七) 多媒體 multimedia</h4><p>Flash 最麻煩且最棘手的地方，就是在於他需要安裝瀏覽器套件才能使用，播放影音也不例外，所以 HTML5 直接內建影音播放功能，不需要任何的套件安裝就可以讓用戶可以看到內容。</p>
+<h2 id="HTML-基礎知識"><a href="#HTML-基礎知識" class="headerlink" title="HTML 基礎知識"></a>HTML 基礎知識</h2><h4 id="一-文件物件模型-Document-Object-Model-Tree"><a href="#一-文件物件模型-Document-Object-Model-Tree" class="headerlink" title="(一) 文件物件模型 Document Object Model Tree"></a>(一) 文件物件模型 Document Object Model Tree</h4><p>網頁內容是由 DOM Tree 的節點組成，每個 html 的標籤都會轉換成一個物件，以巢狀的方式紀錄每個標籤的父子關係，參考下圖的對應關係，左邊是 HTML 的標籤內容，右邊是轉換後的文件物件模型。  </p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;網頁&lt;&#x2F;title&gt;
+  &lt;&#x2F;head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;文章標題&lt;&#x2F;h1&gt;
+  &lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">DOCTYPE
+html
+├── head
+│   └── title
+├── body
+│   └── h1
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="二-HTML-根元素"><a href="#二-HTML-根元素" class="headerlink" title="(二) HTML 根元素"></a>(二) HTML 根元素</h4><p>HTML 跟元素是整份文件最上層的節點，擁有兩個屬性，一個是 manifest，專門設定來讀取網站快取清單的路徑，範例如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;html manifest&#x3D;&quot;cache.manifest&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第二個是 lang，用來設定網頁所使用的語系：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;html lang&#x3D;&quot;zh-tw&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="三-head-元素"><a href="#三-head-元素" class="headerlink" title="(三) head 元素"></a>(三) head 元素</h4><p>head 元素主要放網頁描述資料的區塊，也就是中介資料，常用的有以下幾種：</p>
+<title> 網頁的標題，js 使用來取得網頁標題 document.title
+
+<base> 設定網站的基準網址，讓需要取得路徑的地方寫相對路徑即可，範例如下：
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;base href&#x3D;&#39;https:&#x2F;&#x2F;abc.com&#39;&gt;
+&lt;a href&#x3D;&#39;about.html&#39;&gt;Link&lt;&#x2F;a&gt;
+&#x2F;&#x2F; 點擊 Link 網址是 https:&#x2F;&#x2F;abc.com&#x2F;about.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<style> 放置 CSS 樣式的標籤
+
+<link> 引入媒體檔案的標籤，通常放在外部的 CSS 檔或使用它來引入
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;style.css&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<script> 引入外部 JavaScript 檔案的標籤，HTML 5 新增加了兩種讀取模式：
+
+預設：DOM 跑到就執行，會等 js 載完才會繼續往下跑  
+async：DOM 跑到就執行，不等 js 載完繼續往下跑  
+defer：DOM 跑到不執行，等 DOM 全部載完 js 最後才執行  
+
+<noscript> 不支援 JavaScript 情況下所顯示的文字
+
+<meta> 設定頁面的描述資料，使用 http-equiv 可設定 http 回應標頭狀態，主要分為三種：
+
+content-type 編碼宣告
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;meta http-equiv&#x3D;&quot;content-type&quot; content&#x3D;&quot;text&#x2F;html&quot; charest&#x3D;&quot;UTF-8&quot;&gt; 
+
+&#x2F;&#x2F; H5 中可直接由 charset 取代
+&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+default-style 預設樣式 - 指定預設要讀取哪一個 CSS 檔
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;meta http-equiv&#x3D;&quot;Default-Style&quot; content&#x3D;&quot;Blue Style&quot; &#x2F;&gt;
+&lt;link rel&#x3D;&quot;alternate stylesheet&quot; href&#x3D;&quot;&#x2F;css&#x2F;green.css&quot; type&#x3D;&quot;text&#x2F;css&quot; title&#x3D;&quot;Green&quot; &#x2F;&gt;  
+&lt;link rel&#x3D;&quot;alternate stylesheet&quot; href&#x3D;&quot;&#x2F;css&#x2F;blue.css&quot; type&#x3D;&quot;text&#x2F;css&quot; title&#x3D;&quot;Blue&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+refresh 重整頁面
+
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 隔 30 秒後跳轉到 redirect.html
+&lt;meta http-equiv&#x3D;&quot;fresh&quot; content&#x3D;&quot;30;URL&#x3D;redirect.html&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+## 實用新增標籤
+
+前面提到 HTML5 新增的內容包含語意標籤、影音功能等等，因此也新增了不少新標籤來定義這些內容，這邊以三個面向進行分類，並挑選實用的標籤來進行說明：
+
+#### (一) 影音相關
+
+<video> 播放影片使用的標籤，可放入多個 source 來源，當瀏覽器不支援該影片格式時，可以向下相容
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;video width&#x3D;&quot;400&quot; controls&gt;
+  &lt;source src&#x3D;&quot;mov_bbb.mp4&quot; type&#x3D;&quot;video&#x2F;mp4&quot;&gt;
+  &lt;source src&#x3D;&quot;mov_bbb.ogg&quot; type&#x3D;&quot;video&#x2F;ogg&quot;&gt;
+  你的瀏覽器不支援 HTML5 播放器
+&lt;&#x2F;video&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<audio> 播放音檔使用的標籤
+
+#### (二) 文本相關
+
+<mark> 文字重點強調
+
+<progress> 顯示進度條
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;progress value&#x3D;&quot;22&quot; max&#x3D;&quot;100&quot;&gt;&lt;&#x2F;progress&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<meter> 顯示水平量表
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;meter value&#x3D;&quot;3&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;10&quot;&gt;十分之三&lt;&#x2F;meter&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<time> 顯示時間
+
+<wbr> 讓過長的文字在指定的地方斷行
+
+#### (三) 介面相關
+
+<details><summary> 內建的 accordion 功能
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;details&gt;
+  &lt;summary&gt;標題&lt;&#x2F;summary&gt;
+  展開內容
+&lt;&#x2F;details&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<datalist> 讓 input text 可以依照使用者搜尋文字跳出相關建議詞
+
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; input 的建議字使用 id 為 keyword 的 datalist 裡面的內容
+&lt;input list&#x3D;&quot;keyword&quot; &#x2F;&gt;
+
+&#x2F;&#x2F; 定義相關字詞
+&lt;datalist id&#x3D;&quot;keyword&quot;&gt;
+  &lt;option value&#x3D;&quot;Google&quot;&gt;
+  &lt;option value&#x3D;&quot;Yahoo&quot;&gt;
+  &lt;option value&#x3D;&quot;Bing&quot;&gt;
+&lt;&#x2F;datalist&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+## 新增全域屬性
+
+除了新的標籤以外，也有許多新的屬性可以使用，有了這些屬性，可以讓標籤更靈活的運用，此外還能擴充更多自訂屬性：
+
+contenteditable：可以讓任何標籤變成可輸入文字的 input text 狀態
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;p id&#x3D;&quot;msg&quot; contenteditable&gt;輸入內容&lt;&#x2F;p&gt;
+document.getElementById(&#39;msg&#39;).innerHTML); &#x2F;&#x2F; 取得輸入內容文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+data-\*：自訂資料屬性，讓標籤可以擴充自己定義的屬性
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;div id&#x3D;&quot;products&quot; data-price&#x3D;450 data-name&#x3D;&quot;books&quot; data-name-en&#x3D;&quot;books-en&quot;&gt;&lt;&#x2F;div&gt;
+document.getElementById(&quot;products&quot;).dataset.price &#x2F;&#x2F; 450
+document.getElementById(&quot;products&quot;).dataset.name &#x2F;&#x2F; books
+document.getElementById(&quot;products&quot;).dataset.nameEn &#x2F;&#x2F; books-en 用駝峰寫法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+draggable/dropzone：標記可拖曳/置放標籤
+
+hidden：隱藏標籤
+
+spellcheck：拼字檢查
+
+## 小結
+
+整理完 HTML5 的由來以及新增的功能之後，接來深入介紹 HTML5 在介面設計上新增的標籤以及 CSS3 的各項功能。
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/plesk-find-huge-file-or-folder/" rel="prev" title="Plesk 下找出大容量資料夾或檔案">
+      <i class="fa fa-chevron-left"></i> Plesk 下找出大容量資料夾或檔案
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/html5-form/" rel="next" title="從新學習HTML5 (二) 表單">
+      從新學習HTML5 (二) 表單 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">565k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:33</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/html5-intro/";
+    this.page.identifier = "html5-intro/";
+    this.page.title = "從新學習HTML5 (一) 概觀";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
