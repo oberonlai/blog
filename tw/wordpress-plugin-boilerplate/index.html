@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-boilerplate/wordpress-plugin-boilerplate-02.jpg">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-boilerplate/wordpress-plugin-boilerplate-05.jpg">
 <meta property="article:published_time" content="2021-06-15T10:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-23T02:49:12.930Z">
+<meta property="article:modified_time" content="2021-06-23T02:53:37.745Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="composer">
 <meta property="article:tag" content="boilerplate">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-06-23 10:49:12" itemprop="dateModified" datetime="2021-06-23T10:49:12+08:00">2021-06-23</time>
+                <time title="修改時間：2021-06-23 10:53:37" itemprop="dateModified" datetime="2021-06-23T10:53:37+08:00">2021-06-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,6 +302,7 @@
 <p>第一篇文章主要紀錄了我在組織外掛結構的過程，並透過不斷的打掉重練來找到自己最舒服的方式，讓我們開始吧～</p>
 <span id="more"></span>
 
+<p>雖然不知道出來混為何一定要還，但還是手癢開始把這一年多來改寫外掛的日常紀錄一下XD，從開始入坑 Composer 到學著寫下第一行單元測試，再到外掛的自管更新以及自動化部署，寫到一半發現餅華太大，只好拆成多篇來寫 &gt; &lt; 第一篇介紹目前我慣用的 Starter Plugin ( 好像沒這種說法XD ) 與工作流程，以及隨著時間演進的組織方法，所以萬一明天點開來看發現跟今天看到的內容不一樣還請見諒，文章也是需要重構的XD 文中如有不足之處還煩請大大指點迷津了 🙏</p>
 <h2 id="WordPress-外掛架構"><a href="#WordPress-外掛架構" class="headerlink" title="WordPress 外掛架構"></a>WordPress 外掛架構</h2><p>以佈景主題來說，有很多公司推出初始佈景主題 ( Starter Theme ) 可以入門，相較之下外掛就少很多，原因可能是外掛的組織方式太自由了，基本上我可以把所有的程式碼全都塞進到帶有標頭的 PHP 檔案即可，不需要拆分任何檔案與資料夾，但如果是做功能複雜或是大型外掛的擴充，這樣做會被未來的自己罵到臭頭XD</p>
 <p>剛開始實作的時候我是採用「 <a target="_blank" rel="noopener" href="https://wppb.me/">WordPress Plugin Boilerplate Generator</a>」，不管要做的功能是大還是小，我覺得遵循這套架構可以讓檔案很有邏輯與系統，它的特色是在於把前後台的資料夾切分開來，然後透過一層又一層的類別來做載入。</p>
 <pre class="line-numbers language-none"><code class="language-none">── LICENSE.txt
@@ -815,7 +816,7 @@ Generating autoload files<span aria-hidden="true" class="line-numbers-rows"><spa
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">8:43</span>
+    <span title="所需總閱讀時間">8:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

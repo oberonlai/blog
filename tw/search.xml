@@ -2772,7 +2772,8 @@ export default &#123;
 <h3 id="Q-一定要有-LINE-的開發者帳號才能使用本外掛嗎？"><a href="#Q-一定要有-LINE-的開發者帳號才能使用本外掛嗎？" class="headerlink" title="Q: 一定要有 LINE 的開發者帳號才能使用本外掛嗎？"></a>Q: 一定要有 LINE 的開發者帳號才能使用本外掛嗎？</h3><p>LINE 開者帳號是用來申請 LINE Channel 用的，因此建議要申請才能取得該 Channel 的管理權限。</p>
 <h3 id="Q-一定要有-LINE-的官方帳號才能使用本外掛嗎？"><a href="#Q-一定要有-LINE-的官方帳號才能使用本外掛嗎？" class="headerlink" title="Q: 一定要有 LINE 的官方帳號才能使用本外掛嗎？"></a>Q: 一定要有 LINE 的官方帳號才能使用本外掛嗎？</h3><p>不用，只要有 LINE 的開發者帳號即可。</p>
 <h3 id="Q-請問有測試網站可以實際操作看看嗎？"><a href="#Q-請問有測試網站可以實際操作看看嗎？" class="headerlink" title="Q: 請問有測試網站可以實際操作看看嗎？"></a>Q: 請問有測試網站可以實際操作看看嗎？</h3><p>可前往該網址進行設定測試：<a href="https://demo.lineforwp.com/line-login-test/">https://demo.lineforwp.com/line-login-test/</a></p>
-<h2 id="取得-WordPress-LINE-登入外掛"><a href="#取得-WordPress-LINE-登入外掛" class="headerlink" title="取得 WordPress LINE 登入外掛"></a>取得 WordPress LINE 登入外掛</h2><p>需要 WordPress LINE 登入外掛嗎？請<a href="mailto:m615926@gmail.com">與我聯絡</a>～</p>
+<h2 id="取得-WordPress-LINE-登入外掛"><a href="#取得-WordPress-LINE-登入外掛" class="headerlink" title="取得 WordPress LINE 登入外掛"></a>取得 WordPress LINE 登入外掛</h2><p>需要 WordPress LINE 登入外掛嗎？<a href="https://lineforwp.com/product/wordpress-line-login/">購買連結</a></p>
+<p>有任何問題歡迎 <a href="mailto:m615926@gmail.com">與我聯絡</a>～</p>
 <p>&nbsp;</p>
 ]]></content>
       <categories>
@@ -5931,6 +5932,7 @@ add\_filter('show\_admin\_bar','\_\_return\_false');
 <p>第一篇文章主要紀錄了我在組織外掛結構的過程，並透過不斷的打掉重練來找到自己最舒服的方式，讓我們開始吧～</p>
 <span id="more"></span>
 
+<p>雖然不知道出來混為何一定要還，但還是手癢開始把這一年多來改寫外掛的日常紀錄一下XD，從開始入坑 Composer 到學著寫下第一行單元測試，再到外掛的自管更新以及自動化部署，寫到一半發現餅華太大，只好拆成多篇來寫 &gt; &lt; 第一篇介紹目前我慣用的 Starter Plugin ( 好像沒這種說法XD ) 與工作流程，以及隨著時間演進的組織方法，所以萬一明天點開來看發現跟今天看到的內容不一樣還請見諒，文章也是需要重構的XD 文中如有不足之處還煩請大大指點迷津了 🙏</p>
 <h2 id="WordPress-外掛架構"><a href="#WordPress-外掛架構" class="headerlink" title="WordPress 外掛架構"></a>WordPress 外掛架構</h2><p>以佈景主題來說，有很多公司推出初始佈景主題 ( Starter Theme ) 可以入門，相較之下外掛就少很多，原因可能是外掛的組織方式太自由了，基本上我可以把所有的程式碼全都塞進到帶有標頭的 PHP 檔案即可，不需要拆分任何檔案與資料夾，但如果是做功能複雜或是大型外掛的擴充，這樣做會被未來的自己罵到臭頭XD</p>
 <p>剛開始實作的時候我是採用「 <a href="https://wppb.me/">WordPress Plugin Boilerplate Generator</a>」，不管要做的功能是大還是小，我覺得遵循這套架構可以讓檔案很有邏輯與系統，它的特色是在於把前後台的資料夾切分開來，然後透過一層又一層的類別來做載入。</p>
 <pre class="line-numbers language-none"><code class="language-none">── LICENSE.txt
