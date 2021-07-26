@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-and-composer/wordpress-and-composer-10.jpg">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-and-composer/wordpress-and-composer-12.jpg">
 <meta property="article:published_time" content="2021-07-26T04:30:00.000Z">
-<meta property="article:modified_time" content="2021-07-26T04:53:56.660Z">
+<meta property="article:modified_time" content="2021-07-26T04:57:33.458Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="composer">
 <meta property="article:tag" content="phpunit">
@@ -244,7 +244,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-07-26 12:30:00 / 修改時間：12:53:56" itemprop="dateCreated datePublished" datetime="2021-07-26T12:30:00+08:00">2021-07-26</time>
+              <time title="創建時間：2021-07-26 12:30:00 / 修改時間：12:57:33" itemprop="dateCreated datePublished" datetime="2021-07-26T12:30:00+08:00">2021-07-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,10 +294,11 @@
 
       
         <h3 id="WordPress-外掛開發系列文目錄"><a href="#WordPress-外掛開發系列文目錄" class="headerlink" title="WordPress 外掛開發系列文目錄"></a>WordPress 外掛開發系列文目錄</h3><p><a href="https://oberonlai.blog/tw/wordpress-plugin-boilerplate">一、WordPress 外掛架構 - 紀錄曾經使用過的架構以及目前作法</a><br><a href="https://oberonlai.blog/tw/wordpress-and-composer">二、WordPress 開發實用 Composer 套件 - 介紹在寫外掛的時候可以加速開發的套件</a><br>三、載入佈景主題範本 - 如何在外掛裡面使用範本檔修改前端介面並整合前端開發流程<br>四、整合 PHPUnit 單元測試 - 避免改東牆壞西牆的問題再次發生<br>五、自動化部署 - 讓 WordPress 搭上 DevOps 的列車🚄<br>六、WordPress 外掛更新 - 自行管理未上架 wordpress.org 的外掛版本維護</p>
-<hr>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>WP 最強大的部分就是有用不完的外掛，PHP 當然也有！上 Packagist 或 Github 打 WordPress 關鍵字就能找到非常多適用於 WP 開發的套件，以下就幾套我已經拿來實戰的套件做介紹：</p>
 <h2 id="posttypes"><a href="#posttypes" class="headerlink" title="posttypes"></a>posttypes</h2><p>做外掛最常見的需求就是要新增 custom post type、custom taxonomy，或是修改既有 post type 的顯示名稱以及功能修改，WP 原生的方法事實上不難使用，只要呼叫 register_post_type() 掛在 init 就能處理，</p>
 <p>但隨著專案的複雜度提高，類似的程式碼就需要被重複很多遍，再加上還需要處理後台 column 的顯示欄位，新增一個 post type 就會讓程式碼落落長，萬一有兩個或更多個，管理起來就會麻煩許多。</p>
+<span id="more"></span>
+
 <p>爬了一下 Github 後，發現由 Joe Grainger 寫的 PostTypes 這個套件，完完全全可以解決我的問題，因為他都幫我們把功能封裝好了，只要 new PostType(‘CPT’) 就可以新增，完全不用再寫 Hook，並透過該物件來實作 Post Type 的各項參數設定：</p>
 <p>先來秒安裝一下：</p>
 <pre class="line-numbers language-none"><code class="language-none">$ composer require jjgrainger&#x2F;posttypes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
