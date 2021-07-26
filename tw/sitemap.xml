@@ -2216,34 +2216,6 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/tags/csv/</loc>
-    <lastmod>2021-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/ftp/</loc>
-    <lastmod>2021-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/WooCoomerce%E8%A8%82%E5%96%AE/</loc>
-    <lastmod>2021-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/%E5%A0%B1%E8%A1%A8%E5%8C%AF%E5%87%BA/</loc>
-    <lastmod>2021-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://oberonlai.blog/tw/tags/customPostType/</loc>
     <lastmod>2021-07-26</lastmod>
     <changefreq>daily</changefreq>
@@ -2287,6 +2259,34 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/tags/packagist/</loc>
+    <lastmod>2021-07-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/tags/csv/</loc>
+    <lastmod>2021-07-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/tags/ftp/</loc>
+    <lastmod>2021-07-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/tags/WooCoomerce%E8%A8%82%E5%96%AE/</loc>
+    <lastmod>2021-07-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/tags/%E5%A0%B1%E8%A1%A8%E5%8C%AF%E5%87%BA/</loc>
     <lastmod>2021-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2400,13 +2400,6 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/categories/PHP/</loc>
-    <lastmod>2021-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://oberonlai.blog/tw/categories/Host/</loc>
     <lastmod>2021-07-26</lastmod>
     <changefreq>daily</changefreq>
@@ -2415,6 +2408,13 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/JavaScript/</loc>
+    <lastmod>2021-07-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://oberonlai.blog/tw/categories/PHP/</loc>
     <lastmod>2021-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
