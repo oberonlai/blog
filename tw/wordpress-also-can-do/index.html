@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="很多人認識 wordpress，可能都是從部落格工具開始，尤其是無名小站結束之後，更多的部落客在尋找可以安心存放他們珍貴文章的服務，有心長期經營者，很快就體會到架設自己的部落格才是長久之道，再加上許多早期投入 wordpress 經營部落格的先進與後起之秀無私分享，讓 wordpress 社群非常活躍，如果你從未學過程式想架設 wordpress 部落格，相關的中文教學資料早已多到滿坑滿谷，就算碰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="除了部落格，wordpress還可以怎麼玩？">
+<meta property="og:url" content="https://oberonlai.blog/tw/wordpress-also-can-do/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="很多人認識 wordpress，可能都是從部落格工具開始，尤其是無名小站結束之後，更多的部落客在尋找可以安心存放他們珍貴文章的服務，有心長期經營者，很快就體會到架設自己的部落格才是長久之道，再加上許多早期投入 wordpress 經營部落格的先進與後起之秀無私分享，讓 wordpress 社群非常活躍，如果你從未學過程式想架設 wordpress 部落格，相關的中文教學資料早已多到滿坑滿谷，就算碰">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img1.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img2.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img4.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img5.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img7.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img8.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img10.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img11.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img12.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img13.jpg">
+<meta property="article:published_time" content="2013-12-16T11:52:19.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.207Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="themeforest">
+<meta property="article:tag" content="wordpress theme">
+<meta property="article:tag" content="wordpress blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img1.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/wordpress-also-can-do/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>除了部落格，wordpress還可以怎麼玩？ | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-also-can-do/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          除了部落格，wordpress還可以怎麼玩？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2013-12-16 19:52:19" itemprop="dateCreated datePublished" datetime="2013-12-16T19:52:19+08:00">2013-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/wordpress-also-can-do/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="wordpress-also-can-do/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>很多人認識 wordpress，可能都是從部落格工具開始，尤其是無名小站結束之後，更多的部落客在尋找可以安心存放他們珍貴文章的服務，有心長期經營者，很快就體會到架設自己的部落格才是長久之道，再加上許多早期投入 wordpress 經營部落格的先進與後起之秀無私分享，讓 wordpress 社群非常活躍，如果你從未學過程式想架設 wordpress 部落格，相關的中文教學資料早已多到滿坑滿谷，就算碰到困難也絕對找的到熱心的專家詢問，只要能抱持著學習的心，前方的路是很寬廣的。   wordpress 是開源軟體(<a href="https://oberonlai.blog/wordpress/wordrpess-for-business/">這是什麼？</a>)，再加上有眾多的使用族群，不斷的進化是 wordpress 的核心價值，而身為部落客，大家都有自己的主題、擅長的領域，要如何運用工具來讓自己的專長發揮的更淋漓盡致，wordpress 提供給我們更多的可能性，讓我們暫時放下部落客的身份，看看 wordpress 在不同產業中能幫助到什麼樣的人。  </p>
+<h2 id="如果你-妳-是攝影師-設計師"><a href="#如果你-妳-是攝影師-設計師" class="headerlink" title="如果你(妳)是攝影師 / 設計師"></a>如果你(妳)是攝影師 / 設計師</h2><p>  你(妳)非常在意每份作品的細節、了解視覺傳達的威力、知道如何設計出有效溝通的作品，那麼 wordpress 就是非常適合作為作品集或是攝影集的工具，因為有許多設計師投入 wordpress 的製作，以高水準的視覺設計品質是吸引許多人願意使用的關鍵。   再加上國外的 wordpress 社群已發展成市集的模式(市集介紹可參考<a href="https://oberonlai.blog/wordpress/how-to-buy-wordpress-theme/">這篇</a>)，許多公司無不設計出最吸引人的視覺呈現來說服眼睛最挑的設計師購買，在良性的競爭下，許多作品還得到網頁設計界獎項的肯定，對於攝影師 / 設計師而言，要架設高水準視覺品質的作品集網站，要準備好的就是自己的作品。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img1.jpg" alt="wordpress-also-can-do-img1"></p>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="http://themeforest.net/item/astro-showcasephotography-wordpress-theme/6364365?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=Pirenko&ref=oberonlai" title="worpdress themeforest astro">http://www.pirenko.com/astro/</a>   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img2.jpg" alt="wordpress-also-can-do-img2"> 目前在 Themeforest 上商品數量最龐大的就是 Portfolio 與 Photography。  </p>
+<h2 id="如果你-妳-是出版者-媒體工作者"><a href="#如果你-妳-是出版者-媒體工作者" class="headerlink" title="如果你(妳)是出版者 / 媒體工作者"></a>如果你(妳)是出版者 / 媒體工作者</h2><p>  對於以新聞或是文章為主的網站類型，藉由 wordpress 本身是部落格的特性，能更有效的呈現。除了後臺管理介面是以文章為主外，更有草稿、歷史版本、文章分類、文章標籤等等的各類功能外，wordpress 在 SEO 或社群連結上都有很好的擴充性，這對媒體經營者而言是非常方便的發表工具，許多國內外知名媒體都是採用 wordpress 作為架站平臺。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img4.jpg" alt="wordpress-also-can-do-img4"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/report-news-magazine-theme-for-wordpress/6175953?WT.ac=solid_search_thumb&WT.seg_1=solid_search_thumb&WT.z_author=Equiet&ref=oberonlai" title="wordpress themeforest report">http://report.equiet.sk/?eqfw-customizer-theme_color=111111</a>  </p>
+<h2 id="如果你-妳-是-B2B-B2C-企業經營者"><a href="#如果你-妳-是-B2B-B2C-企業經營者" class="headerlink" title="如果你(妳)是 B2B / B2C 企業經營者"></a>如果你(妳)是 B2B / B2C 企業經營者</h2><p>  wordpress 最大優勢，就是全球有數千萬的開發者為它設計擴充外掛(plugin)，許多網站常用到的功能，像聯絡表單、產品展示、型錄下載、影片上傳等，都能透過外掛工具來實現，甚至還有零售業最常用到的購物車系統，從商品上架、結帳系統、訂單管理、庫存管理都一應俱全，甚至台灣的金流商也有開發相關的模組來做線上刷卡的程式串接，其普及率日漸上升。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img5.jpg" alt="wordpress-also-can-do-img5"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/room-09-shop-multipurpose-ecommerce-theme/4638247?ref=oberonlai" title="wordpress themeforest room09">http://demo.yithemes.com/room09/home/home-v/</a>  </p>
+<h2 id="如果你-妳-是管理者-專案經理"><a href="#如果你-妳-是管理者-專案經理" class="headerlink" title="如果你(妳)是管理者 / 專案經理"></a>如果你(妳)是管理者 / 專案經理</h2><p>  現在有許多的雲端系統都在做線上專案管理的服務，wordpress 的開發者也看到這樣的需求，於是設計出專案管理用的 wordpress 佈景主題，從開起專案、時程設定、任務分配、人員管理，專案管理中的基本功能都包含其中。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img7.jpg" alt="wordpress-also-can-do-img7"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/projectpress-project-management-for-wordpress/3847539?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=icaruscreativeorg&ref=oberonlai" title="wordpress themeforest projectpress">http://icaruscreative.org/pressthemes/projectpress/</a>   如果需要讓團隊成員有共同的即時溝通平臺，並能把溝通過程留存為紀錄，甚至還能即時搜尋，wordpress 開發者也都考慮到了。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img8.jpg" alt="wordpress-also-can-do-img8"> <a target="_blank" rel="noopener" href="http://demo.herothemes.com/teamtalk/">http://demo.herothemes.com/teamtalk/</a>   如果是要發展成部門或公司內部的開放式知識庫，人人都可以新增內容，就像維基百科一樣，沒錯，也有開發者想到了。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img10.jpg" alt="wordpress-also-can-do-img10"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/wikeasi-/3884898?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=woothemes&ref=oberonlai" title="wordpress themeforest wiki">http://demo.woothemes.com/?name=wikeasi</a>  </p>
+<h2 id="如果你-妳-是講師-活動策劃者"><a href="#如果你-妳-是講師-活動策劃者" class="headerlink" title="如果你(妳)是講師 / 活動策劃者"></a>如果你(妳)是講師 / 活動策劃者</h2><p>  透過網路來宣傳活動訊息是非常有效的做法，因此一個好的活動網站將能幫助策劃者吸引更多聽眾的參與，並進一步了解他們的需求，讓下次的活動設計更有話題性。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img11.jpg" alt="wordpress-also-can-do-img11"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/foocamp-conference-wordpress-theme/4429812?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=ait&ref=oberonlai" title="wordpress themeforest foocamp">http://preview.ait-themes.com/foocamp/wp1/</a>  </p>
+<h2 id="如果你-妳-是創業者"><a href="#如果你-妳-是創業者" class="headerlink" title="如果你(妳)是創業者"></a>如果你(妳)是創業者</h2><p>  針對整合社群，wordpress 提供另一種功能名為 <a target="_blank" rel="noopener" href="http://buddypress.org/">buddypress</a>，簡單說就是能把 wordpress 變成像 Facebook 一樣，這對於想要走社群媒合的創業者而言，就能很快開發出一套網站的雛型來測試市場溫度，像是關於男女交友的龐大市場，國外也有開發者設計出相應的主題。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img12.jpg" alt="wordpress-also-can-do-img12"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/sweet-date-more-than-a-wordpress-dating-theme/4994573?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=SeventhQueen&ref=oberonlai" title="wordpress themeforest date">http://seventhqueen.com/demo/sweetdatewp/</a>   此外還有近期很紅以 <a target="_blank" rel="noopener" href="http://www.kickstarter.com/">kickstarter</a> 為首的群眾募資平臺，wordpress 也可以做。   <img src="https://oberonlai.blog/wp-content/uploads/2013/12/wordpress-also-can-do-img13.jpg" alt="wordpress-also-can-do-img13"> <a target="_blank" rel="noopener" href="http://themeforest.net/item/funder-crowdfunding-wordpress-theme/5689109?WT.ac=solid_search_item&WT.seg_1=solid_search_item&WT.z_author=uouapps&ref=oberonlai" title="wordpress themeforest funder">http://uouapps.com/wp/funder/?download=chorus-of-canada</a>  </p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>  wordpress 的開放性造就了許多不同於原本部落格功能的各類型網站，本文中提到的各種網站類型可能還有其它更適合的工具可以運用，或是舉的範例並不能完全滿足使用者的需求，但還是希望可以讓大家可以看到 wordpress 很不一樣的面貌，只使用一種工具不可能滿足所有的使用情境，如何結合各種工具的特性並運用得當才是設計師與開發者的價值所在。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/themeforest/" rel="tag"><i class="fa fa-tag"></i> themeforest</a>
+              <a href="/tw/tags/wordpress-theme/" rel="tag"><i class="fa fa-tag"></i> wordpress theme</a>
+              <a href="/tw/tags/wordpress-blog/" rel="tag"><i class="fa fa-tag"></i> wordpress blog</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/how-to-install-themeforest-theme/" rel="prev" title="WordPress主題購買後如何安裝成像展示的一樣？">
+      <i class="fa fa-chevron-left"></i> WordPress主題購買後如何安裝成像展示的一樣？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/wordpress-move/" rel="next" title="Wordpress 搬家注意事項">
+      Wordpress 搬家注意事項 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/wordpress-also-can-do/";
+    this.page.identifier = "wordpress-also-can-do/";
+    this.page.title = "除了部落格，wordpress還可以怎麼玩？";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

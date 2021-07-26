@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="有使用過客製化後臺更新網站的朋友可能會知道，一般後臺會顯示修改前臺內容的控制欄位，譬如說更新公司資訊時，會有欄位可以輸入標題、內容、上架日期、更新時間、維護人等等，如果今天要多增加一個顯示圖片的內容，那就必須再請工程師另外再新增一個欄位來插入圖片。   會遇到什麼問題？Wordpress 本身是部落格系統，所以針對文章標題、分類、作者、日期等項目均有內建欄位，對於沒有複雜內容的需求還可以勉強使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wordpress Custom Field Suite 新增欄位外掛介紹">
+<meta property="og:url" content="https://oberonlai.blog/tw/wordpress-custom-field-suite-plugin/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="有使用過客製化後臺更新網站的朋友可能會知道，一般後臺會顯示修改前臺內容的控制欄位，譬如說更新公司資訊時，會有欄位可以輸入標題、內容、上架日期、更新時間、維護人等等，如果今天要多增加一個顯示圖片的內容，那就必須再請工程師另外再新增一個欄位來插入圖片。   會遇到什麼問題？Wordpress 本身是部落格系統，所以針對文章標題、分類、作者、日期等項目均有內建欄位，對於沒有複雜內容的需求還可以勉強使用">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-16-1024x620.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-1-1024x511.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-2-1024x580.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-3-1024x621.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-4-1024x607.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-5-1024x540.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-6-1024x596.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-7-1024x763.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-8-1024x606.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-9-1024x524.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-101-1024x578.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-11-1024x465.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-12-1024x632.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-13-1024x673.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-14-1024x416.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-15-1024x798.jpg">
+<meta property="article:published_time" content="2015-07-12T07:14:01.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.230Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-16-1024x620.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/wordpress-custom-field-suite-plugin/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Wordpress Custom Field Suite 新增欄位外掛介紹 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-custom-field-suite-plugin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Wordpress Custom Field Suite 新增欄位外掛介紹
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2015-07-12 15:14:01" itemprop="dateCreated datePublished" datetime="2015-07-12T15:14:01+08:00">2015-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/wordpress-custom-field-suite-plugin/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="wordpress-custom-field-suite-plugin/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="http://www.prowebdesign.ro/flat-ui-dashboard-free-psd-by-prowebdesign/"><img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-16-1024x620.jpg" alt="custom-field-suite-16"></a> 有使用過客製化後臺更新網站的朋友可能會知道，一般後臺會顯示修改前臺內容的控制欄位，譬如說更新公司資訊時，會有欄位可以輸入標題、內容、上架日期、更新時間、維護人等等，如果今天要多增加一個顯示圖片的內容，那就必須再請工程師另外再新增一個欄位來插入圖片。  </p>
+<h2 id="會遇到什麼問題？"><a href="#會遇到什麼問題？" class="headerlink" title="會遇到什麼問題？"></a>會遇到什麼問題？</h2><p>Wordpress 本身是部落格系統，所以針對文章標題、分類、作者、日期等項目均有內建欄位，對於沒有複雜內容的需求還可以勉強使用，但如果今天我們的公司資訊有「文章上架日期」與「活動日期」兩種日期欄位，Wordpress 內建的控制項就會不夠了。</p>
+<span id="more"></span>
+<p>  小弟我以前的做法很直接，就是在文字編輯器裡面多打一行叫作活動日期，這樣的做法會有三個壞處：</p>
+<ol>
+<li> 維護不方便：活動日期假設統一放在內容最下方，如果這篇文章有八萬個字，維護人員會要花費額外的時間搜尋活動日期內容寫在什麼地方。</li>
+<li> 易造成版面失控：維護人員使用文字編輯器修改內容時，很容易因為編輯器本身的問題而造成版面走位，雖然現在有非常方便的「<a href="https://oberonlai.blog/wordpress-for-business-website-tool/">WordPress Visual Composer 視覺化編輯器</a>」，但如果只是需要多一個日期欄位，應該還不需要用到牛刀，話說 Visual Composer 也越來越龐大了…</li>
+<li> 無法針對資料加以利用：如果是用編輯器製作活動日期的欄位，在資料庫裡面它會被紀錄為文章的內容，這代表著如果今天我們想以活動日期來做文章排序，或是只撈出某個日期之後的活動，很抱歉，因為活動日期不是一個單獨的欄位，所以沒辦法針對它進行篩選或排序。</li>
+</ol>
+<p> </p>
+<h2 id="Wordpress-的解決方案"><a href="#Wordpress-的解決方案" class="headerlink" title="Wordpress 的解決方案"></a>Wordpress 的解決方案</h2><p>當然，Wordpress 早就想到這個問題，並且提供了許多函式來處理這種狀況，最主要的就是 add_meta_box，引用台灣 Wordpress 界大神等級 Audi Lu 的文章來解釋如何運用 php 來新增自定欄位：<a target="_blank" rel="noopener" href="http://www.mrmu.com.tw/2011/03/30/wp-dev-meta-box-custom-fields/">http://www.mrmu.com.tw/2011/03/30/wp-dev-meta-box-custom-fields/</a>  </p>
+<blockquote>
+<p>文章一開始提到的「英文選單標題」的例子，很適合當成範例說明，我們就來看看怎麼應用Meta Box吧，要試試看的話，首先打開您佈景中的functions.php，加入以下程式： <?php /\* 小範例：建立英文選單標題 \*/ add\_action(‘admin\_init’, ‘admin\_init\_fn’); // 指定後台初始化時要執行我們自訂的函式admin\_init\_fn function admin\_init\_fn() { // 使用add\_meta\_box來增加一個「自訂區塊」，在callback的參數位置，放上我們自訂的函式 EnTitleCB\_fn add\_meta\_box(‘EnTitle’, ‘英文標題’, ‘EnTitleCB\_fn’, ‘page’, ‘normal’, ‘high’, null); } // 當WP要畫出自訂區塊時，就會執行add\_meta\_box指定的這個callback函式 function EnTitleCB\_fn() { // 需要取得目前編輯的post資訊，如id global $post; // 把我們自訂的Post Meta從資料庫取出，待會放進欄位 // 看你需要多少欄位，就要執行幾次get\_post\_meta()來取值 $entitle\_cnt = get\_post\_meta( $post->ID, ‘EnTitle’, true ); ?> <th scope="row">主選單英文標題：</th> <td> &lt;!– 開始畫出UI，看你需要多少欄位，就畫多少input出來 –&gt; <label for="EnTitle"> <input id="EnTitle" type="text" size="75" name="EnTitle" value="<?php echo $entitle\_cnt;?>" /> <br /><em>說明：設定分頁出現在選單時的英文翻譯。</em> </label> </td> </tr> <?php } ?></p>
+</blockquote>
+<p>  上面的 code 寫完後還只是新增輸入欄位的介面而已，真正要能存進資料庫還要另外再寫程式碼，這篇文章寫得非常清楚，有興趣的朋友可以自行研究，而本文要介紹的是更快速的方法：使用外掛。  </p>
+<h2 id="就是它，Custom-Field-Suite"><a href="#就是它，Custom-Field-Suite" class="headerlink" title="就是它，Custom Field Suite"></a>就是它，Custom Field Suite</h2><p>  <a target="_blank" rel="noopener" href="https://wordpress.org/plugins/custom-field-suite/"><img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-1-1024x511.jpg" alt="custom-field-suite-1"></a>   這一套外掛已經是我每個專案中必備的工具之一，原因是它可以非常方便的加入自訂欄位，而且還可以選擇十三種不同的欄位介面，像是日期選擇器、顏色選擇器、加入超連結等等，   除此之外，它還可以針對不同的自定義文章類型（custom post type）、管理者權限、頁面模版來顯示特定的欄位，譬如說新增的活動日期這個欄位，如果只想讓網站管理員看到就好，這支外掛也可針對這樣的需求進行設定。   使用的方法也非常簡單，只要先在後臺設定好欄位，然後加一段 php 的語法即可取得這個欄位的值，以下就上述所提到新增活動日期的例子進行簡單的說明。  </p>
+<h2 id="如何使用-Custom-Field-Suite"><a href="#如何使用-Custom-Field-Suite" class="headerlink" title="如何使用 Custom Field Suite"></a>如何使用 Custom Field Suite</h2><p> </p>
+<h3 id="一、新增欄位群組"><a href="#一、新增欄位群組" class="headerlink" title="一、新增欄位群組"></a>一、新增欄位群組</h3><p>Custom Field Suite 是以群組為概念，也就是說一個群組裡面可以有無數個控制項，因此在規劃群組的時候盡量以功能來命名，而非網頁的內容，這樣才能方便重覆使用。   安裝好外掛後點選新增，即會出現下面的畫面。先輸入欄位群組的名稱，再點選增加欄位。   <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-2-1024x580.jpg" alt="custom-field-suite-2">  </p>
+<h3 id="二、編輯欄位"><a href="#二、編輯欄位" class="headerlink" title="二、編輯欄位"></a>二、編輯欄位</h3><p>點選增加欄位後會出現以下的控制項，依序輸入欄位名稱與變數名稱，欄位名稱可任意輸入中英文，而變數名稱英數限定，因為這是稍後要給程式辨識的名稱，最後再從欄位類型的下拉選單選擇需要什麼類型的欄位，因為這個範例中我們的資料是活動日期，所以選擇日期即可。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-3-1024x621.jpg" alt="custom-field-suite-3">  </p>
+<h3 id="三、選擇該顯示於何種內容"><a href="#三、選擇該顯示於何種內容" class="headerlink" title="三、選擇該顯示於何種內容"></a>三、選擇該顯示於何種內容</h3><p>設定好欄位後，再來選擇要把這個欄位群組決定顯示在那些頁面設定中，它可以針對圖中的方式進行設定，以這個例子中活動日期是屬於公司資訊的欄位，而假設公司資訊我們是用文章做的，然後只限定管理員才看的到這個欄位，可依照下圖進行設定。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-4-1024x607.jpg" alt="custom-field-suite-4">  </p>
+<h3 id="四、設定順序與位置"><a href="#四、設定順序與位置" class="headerlink" title="四、設定順序與位置"></a>四、設定順序與位置</h3><p>在其它設定中，可以決定欄位群組的順序與位置，還可以隱藏 Wordpress 內建的文字編輯器，如果要完全使用我們自行新增的欄位，這功能就非常好用，因為 Custom Field Suite 也有提供文字編輯器，這樣我們就可以指定特定的區塊才使用編輯器，而不會整頁的內容都被內建編輯器所控制。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-5-1024x540.jpg" alt="custom-field-suite-5">   完成上述設定後，可以再自行新增其它欄位，完成後點選發表即可。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-6-1024x596.jpg" alt="custom-field-suite-6">   接下來去文章編輯的頁面，就可以看到多了一個活動日期的欄位。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-7-1024x763.jpg" alt="custom-field-suite-7">  </p>
+<h3 id="五、將程式碼加入檔案中"><a href="#五、將程式碼加入檔案中" class="headerlink" title="五、將程式碼加入檔案中"></a>五、將程式碼加入檔案中</h3><p>最後，用你熟悉的網頁編輯器，打開 single.php，找到想要顯示活動日期的位置，把這段程式碼寫入即可：</p>
+<blockquote>
+<p>&lt;php echo CFS()-&gt;get(‘my-date’); ?&gt;</p>
+</blockquote>
+<p>  記住，get 裡面的字串就是當初增加欄位的變數名稱，這名稱一定要符合，不然不會出現任何的結果。更多欄位的輸出方式可以參考這篇官方文件—&gt;<a target="_blank" rel="noopener" href="http://customfieldsuite.com/projects/cfs/documentation/">http://customfieldsuite.com/projects/cfs/documentation/</a>  </p>
+<h2 id="Custom-Field-Suite-的進階用法"><a href="#Custom-Field-Suite-的進階用法" class="headerlink" title="Custom Field Suite 的進階用法"></a>Custom Field Suite 的進階用法</h2><p>Custom Field Suite 除了提供基本的文字欄位、下拉選單、日期選擇器等等十幾種好用的方便欄位外，還提供進階又實用的功能來做較複雜的需求，以下就我專案中常用的兩種功能進行介紹。  </p>
+<h3 id="一、相關文章"><a href="#一、相關文章" class="headerlink" title="一、相關文章"></a>一、相關文章</h3><p>如果要製作相關文章或是其它推薦閱讀時，Wordpress 最常見的邏輯就是採用相同分類或是含有相同標籤的來顯示，但如果是要讓一篇文章顯示頁面的內容，就必須要手動加連結，如果只有一兩篇就還好，但萬一超過一定數量的話，維護起來便會造成麻煩。   Custom Field Suite 有提供顯示相關文章的欄位，它可以設定要顯示那種類型的內容。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-8-1024x606.jpg" alt="custom-field-suite-8">   新增設定完成後，在文章編輯的欄位上提供非常方便的介面做內容關連，除了可以使用關鍵字搜尋現有內容外，還可以用拖曳的方式來進行編排，這樣可以減低作業錯誤的機率。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-9-1024x524.jpg" alt="custom-field-suite-9">   後臺設定好之後，可以使用下列的語法把相關的文章顯示出來。</p>
+<blockquote>
+<?php $values = CFS()->get('my-related'); foreach ($values as $post\_id) { $the\_post = get\_post($post\_id); echo $the\_post\->post\_title; } ?>
+</blockquote>
+<p> </p>
+<h3 id="二、設定輪播廣告"><a href="#二、設定輪播廣告" class="headerlink" title="二、設定輪播廣告"></a>二、設定輪播廣告</h3><p>當我們使用一些 jQuery 的 Slider 插件或自己寫的效果來整合至 Wordpress 的時候，如何讓維護人員方便更新這些輪播廣告就變得非常重要，運氣好的時候某些 jQuery Slider 會出 Wordpress 外掛，但大多時候是沒有的，所以除非我們一開始就直接採用有設計 Wordpress 外掛的 jQuery Slider，不然整合上會是個麻煩的問題。   好佳在 Custom Field Suite 提供了一種循環的功能，簡單說就是可以在欄位底下設定子欄位，然後重複這些父欄位，最後透過 php 把它呈現出來。   實際範例如下，假設我們的輪播廣告需要的欄位有上傳圖片、圖說、點擊連結，第一步我們新增一個欄位叫輪播廣告。   <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-101-1024x578.jpg" alt="custom-field-suite-10">   接著依序新增子欄位：上傳圖片、圖說、點擊連結，然後用拖曳的方式把這三個欄位移到輪播廣告下，移動成功後它們會呈現縮排的效果。因為輪播廣告通常只會出現在首頁，所以此欄位可以設定成只顯示在特定的文章或頁面即可。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-11-1024x465.jpg" alt="custom-field-suite-11"> <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-12-1024x632.jpg" alt="custom-field-suite-12"> <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-13-1024x673.jpg" alt="custom-field-suite-13"> <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-14-1024x416.jpg" alt="custom-field-suite-14">   在前往文章的編輯頁面查看，會多了如圖示的區塊，每點擊一次新增就會出現輪播廣告所需要的欄位，即可完成新增。 <img src="https://oberonlai.blog/wp-content/uploads/2015/07/custom-field-suite-15-1024x798.jpg" alt="custom-field-suite-15">   最後在需要顯示輪播廣告的地方，插入以下程式碼，在此以 <a target="_blank" rel="noopener" href="http://www.woothemes.com/flexslider/">Flexslider</a> 做為範例：</p>
+<blockquote>
+<ul class="flexslider"> <php $fields = CFS()->get('my-loop'); foreach ($fields as $field) { echo "<li><a href='".$field\['my-link'\]."'><img src='".$field\['my-banner'\]."' /><br/>".$field\['my-desp'\]."</a></li>" } ?> </ul>
+</blockquote>
+<p>這樣就可以把輪播廣告跟 Wordpress 後臺做整合了。  </p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>Custom Field Suite 提供了許多方便實用的自訂欄位功能，讓不熟悉語法的朋友也可以做出功能非常完整的客製化後臺，另外也提供了相關文章、輪播廣告的整合，更可以針對內容、使用者、文章分類來顯示自訂欄位，作者也非常勤勞的在更新，是一支非常優質又免費的外掛。  </p>
+<h2 id="附記"><a href="#附記" class="headerlink" title="附記"></a>附記</h2><p>該外掛的中文語系檔小弟已提交給作者，在作者尚未正式加入前，可從下方連結進行下載，解壓縮後放到 wp-content/plugin/custom-field-suite/languages 裡面即可，使用上有任何問題歡迎交流！ <a href="https://oberonlai.blog/wp-content/uploads/2015/07/Wordpress-custom-field-suite-zh-TW.zip">中文化下載</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/dont-make-me-think/" rel="prev" title="Don't Make Me Think 書摘">
+      <i class="fa fa-chevron-left"></i> Don't Make Me Think 書摘
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/install-wordpress-in-7-minutes/" rel="next" title="買網址租主機外加安裝Wordpress只要7分鐘又18秒24">
+      買網址租主機外加安裝Wordpress只要7分鐘又18秒24 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/wordpress-custom-field-suite-plugin/";
+    this.page.identifier = "wordpress-custom-field-suite-plugin/";
+    this.page.title = "Wordpress Custom Field Suite 新增欄位外掛介紹";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

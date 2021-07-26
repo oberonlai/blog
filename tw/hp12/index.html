@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今晚參與了網站企劃輕鬆聚的第12次活動-網站流量分析的活動，因為今天下班有點晚，再加上下雨天，稍微小小遲到了十分鐘，到現場時繳了報名費後，發現主持人是平常在攝影的Scaler，剛剛回到家後才知道網站企劃輕鬆聚的創辦人Richard，今晚因身體不適高掛免戰牌，希望他能早日康復。 今晚的主題，是我期待非常久的網站流量分析，之所以會期待，是因為之前在工作的時候，一直很想要把這樣的機制引入到公司網站的經">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HP12-網站流量分析活動參後感">
+<meta property="og:url" content="https://oberonlai.blog/tw/hp12/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="今晚參與了網站企劃輕鬆聚的第12次活動-網站流量分析的活動，因為今天下班有點晚，再加上下雨天，稍微小小遲到了十分鐘，到現場時繳了報名費後，發現主持人是平常在攝影的Scaler，剛剛回到家後才知道網站企劃輕鬆聚的創辦人Richard，今晚因身體不適高掛免戰牌，希望他能早日康復。 今晚的主題，是我期待非常久的網站流量分析，之所以會期待，是因為之前在工作的時候，一直很想要把這樣的機制引入到公司網站的經">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2010/10/gaff.gif">
+<meta property="article:published_time" content="2010-10-27T09:21:07.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.164Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2010/10/gaff.gif">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/hp12/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>HP12-網站流量分析活動參後感 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/hp12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HP12-網站流量分析活動參後感
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2010-10-27 17:21:07" itemprop="dateCreated datePublished" datetime="2010-10-27T17:21:07+08:00">2010-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/hp12/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hp12/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://oberonlai.blog/wp-content/uploads/2010/10/gaff.gif" alt="網站流量分析"> 今晚參與了<a target="_blank" rel="noopener" href="http://www.hpx-party.com/hpx-events/hp12">網站企劃輕鬆聚的第12次活動-網站流量分析</a>的活動，因為今天下班有點晚，再加上下雨天，稍微小小遲到了十分鐘，到現場時繳了報名費後，發現主持人是平常在攝影的Scaler，剛剛回到家後才知道網站企劃輕鬆聚的創辦人<a target="_blank" rel="noopener" href="http://www.facebook.com/frichard">Richard</a>，今晚因身體不適高掛免戰牌，希望他能早日康復。 今晚的主題，是我期待非常久的網站流量分析，之所以會期待，是因為之前在工作的時候，一直很想要把這樣的機制引入到公司網站的經營之中，藉此來驗證網站的實際使用情形，那時學習的管道，就是拜讀連啟佑先生所著一書「[網站績效分析與管理](<a target="_blank" rel="noopener" href="http://www.books.com.tw/exep/prod/booksfile.php?item=0010329981">http://www.books.com.tw/exep/prod/booksfile.php?item=0010329981</a> target=)」， 那時邊看書邊摸索，從理解名詞，到如何呈現資料讓其他部門了解，都花了許多功夫在研究，尤其是在網路技術的問題上，碰到了許多瓶頸，因而向Richard進行求救，他也完全不吝嗇的給我許多直接的實務建議，因此從獨自的封閉學習，到今日有專門的聚會分享這個主題，當然要把握到機會，好好的給他偷學個夠， 這次一共邀請了<a target="_blank" rel="noopener" href="http://www.hpx-party.com/hpx-events/hp12">五位講者</a>，每位在實務上都有豐富的經驗，第一位的Jenny以B2B的角度來看待網站流量分析這門學問，讓我認識了MarCom這個專有名詞(Market and Communication)，業務範圍包含了各類行銷活動，包含B2B產業最常舉辦的參展，以及開記者會或是發新聞稿， 在網站的經營上，從曝光-&gt;訪客造訪-&gt;點擊率-&gt;詢問率-&gt;索取樣品-&gt;訂單，整個流程就像是一個漏斗，篩選到最關鍵的成交，都需檢視其成效，她加入公司的初期，正面臨網站改版的階段，透過了解公司產品以及各別部門溝通，重新規劃網站主題，並且放棄使用SEO效果差的flash網頁，透過量化的數據來呈現網站改版後的成果，讓老闆了解，並爭取更多的行銷資源。 Phoebe是我參加網站企劃讀書會的夥伴之一，她的經驗往往讓我大開眼界，因處於旅遊網站公司，所有的網站規劃都由她一人所負責，她一直在強調一個重點，就是先做了研究想清楚看清楚後，再執行的成果，往往會比趕著上架發現不敷使用再重做，來得省成本及時間， 從Google Analytics的流量來源中，她們發現產品頁的曝光率不足，因而產生了強調關鍵字的策略，最後從分析結果中得知流量的成長，發現問題→產生目的→研究策略→具體執行→檢視成效→發現問題，這是一個循環的過程，每個網站都可以透過這樣的步驟來調整修改，改善網站的瀏覽品質。 Laurence的分享生動逗趣，他以自己工作中實際會使用到GA的狀況，來做一說明。他強調GA的時間觀點非常重要，很多數據是要透過比較來了解其重要性，而且盡量使用四週當做時間維度，避開六日的低流量， 他以日前世界杯足球賽爆紅的的奶機妹為引子，從當初的創造名詞，到新聞媒體的大量報導，造成爆衝的網站流量，一切是因為掌握話題的創造，他解釋，因為他們是以新聞為內容的網站，範圍過廣，不像一般的專業網站有固定的關鍵字，因而他們決定以創造關鍵字來增加曝光， 除此之外，網站流量來源以社群顯得較為強勢，希望主打搜尋引擎的他們，便可透過這樣的資料來加強關鍵字的優化，而地區性的流量爆漲不是他們的重點，如果是搜尋引擎的流量成長，才是他們關注的焦點，不同類型的網站會有不一樣的關鍵指標。 透過推薦網站連結，會發現到常連到自己家的網站，通常都是屬於同性質的網站，甚至還會發現山寨網站；另外為了增加回應，從GA中得知plurk的來源居多，他們便使用plurk API，把plurk上的留言替代成網站中的回應內容，實際上去看後發現有點慢XD， 如果要用網站活動分析，一定要把頁面中的相同連結，設為不同的網址，不然GA會把所有一樣按鈕的點擊百分比，計算成一樣的比率。此外除了相當令人懷疑的Alexa以外，還有<a target="_blank" rel="noopener" href="http://www.google.com/trends">Google Trends</a>、<a target="_blank" rel="noopener" href="http://www.quantcast.com/">quantcast</a>等服務來觀察其它網站之流量概況。 接續的Hotrank也是令我大開眼界，原來國內也有如此專業的網站分析軟體開發公司，仔細回想，在很多台灣的網站中，可以看到有掛Hotrank的icon，他們是以網路媒體的角度為切入點，來進行流量統計，相較於GA的報表以及可自行設定參數，Hotrank提供較直接的資料來讓客戶了解網站流量結果，不用再自行設定。 而網頁停留時間一般的統計軟體是採用頁面差的時間，而且此數據應著重在停留的總時數，而不是平均值；網站統計最危險的就是陷入數據的迷思，好的分析是要依照業主的需求來做規劃，有些業主只求曝光度而不求轉換率就是最好的例子。 最後非常專業的小黑，從了解為何需要流量統計開始，原因是為得知網站使用情況、網站使用品質、轉換率及使用者習慣為出發點，關鍵績效指標應該是有時間性的相對百分比數據，譬如像是在上一個月中網站的瀏覽率提高了20%，帶來了30%的新訪客成長。 而GA可以下參數_setVar來區分使用者是訪客、會員還是客戶，再從自定報表中來檢視每種流量來源的轉換率，達到追縱的目標；此外，還可以使用<a target="_blank" rel="noopener" href="http://www.google.com/support/analytics/bin/answer.py?hl=en&answer=55578">URL Builder</a>，來針對無法辨識來源的情況下(MSN、PTT、yahoo關鍵字廣告)，來進行追縱。 透過這工具的使用，我們可以來測驗不同版本的廣告頁面所收到的成效，放置_UTM不同參數的連結，讓GA可以判別連結的來源，藉此達到廣告投放的追縱。 今晚因各位分享者實在太有料，讓整場時間稍微延後一點點，但無損於內容的精彩度，而今日所學到的觀念及工具，可立即應用在工作上，我想這是今晚最大的收穫，而透過各位的分享，未來如果在流量分析上碰到問題，看來有更多的高手可以求救了!</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%B5%81%E7%A8%8B%E4%B8%80%EF%BC%9A%E7%A0%94%E7%A9%B6/" rel="prev" title="資訊架構設計流程一：研究">
+      <i class="fa fa-chevron-left"></i> 資訊架構設計流程一：研究
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/%E6%84%9B%E3%80%82%E9%80%9A%E7%94%A8%E8%A8%AD%E8%A8%88/" rel="next" title="愛。通用設計">
+      愛。通用設計 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/hp12/";
+    this.page.identifier = "hp12/";
+    this.page.title = "HP12-網站流量分析活動參後感";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

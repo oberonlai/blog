@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="好久沒在拜六的早上去上課，而且還有十二堂，上的是跟自己的專業沒有直接關係、但卻是在軟體開發職涯中想逃也逃不了的議題：用戶體驗設計。   在每個專案時間都爆趕、資源超級有限的情況下，跟業主提到使用者研究以及用戶體驗設計，十個裡面有八個都說好好好這一定要做，真正在執行上都還是以業主的主觀想法為最終依據，久而久之，專注在完成被交辦的項目已成為首要任務，自然而然也與最後實際使用的用戶漸行漸遠。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="走進用戶體驗的世界 - 用戶體驗創新流程">
+<meta property="og:url" content="https://oberonlai.blog/tw/user-experience-course-innovation/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="好久沒在拜六的早上去上課，而且還有十二堂，上的是跟自己的專業沒有直接關係、但卻是在軟體開發職涯中想逃也逃不了的議題：用戶體驗設計。   在每個專案時間都爆趕、資源超級有限的情況下，跟業主提到使用者研究以及用戶體驗設計，十個裡面有八個都說好好好這一定要做，真正在執行上都還是以業主的主觀想法為最終依據，久而久之，專注在完成被交辦的項目已成為首要任務，自然而然也與最後實際使用的用戶漸行漸遠。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2017/04/IMG_0927-1024x768.jpg">
+<meta property="article:published_time" content="2017-04-09T11:26:29.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.245Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2017/04/IMG_0927-1024x768.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/user-experience-course-innovation/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>走進用戶體驗的世界 - 用戶體驗創新流程 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/user-experience-course-innovation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          走進用戶體驗的世界 - 用戶體驗創新流程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2017-04-09 19:26:29" itemprop="dateCreated datePublished" datetime="2017-04-09T19:26:29+08:00">2017-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E7%94%A8%E6%88%B6%E9%AB%94%E9%A9%97/" itemprop="url" rel="index"><span itemprop="name">用戶體驗</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/user-experience-course-innovation/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="user-experience-course-innovation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://oberonlai.blog/wp-content/uploads/2017/04/IMG_0927-1024x768.jpg">   好久沒在拜六的早上去上課，而且還有十二堂，上的是跟自己的專業沒有直接關係、但卻是在軟體開發職涯中想逃也逃不了的議題：用戶體驗設計。   在每個專案時間都爆趕、資源超級有限的情況下，跟業主提到使用者研究以及用戶體驗設計，十個裡面有八個都說好好好這一定要做，真正在執行上都還是以業主的主觀想法為最終依據，久而久之，專注在完成被交辦的項目已成為首要任務，自然而然也與最後實際使用的用戶漸行漸遠。   回顧自己的軟體開發歷程，從平面設計、自由接案者，到現在的前端工程師，對於用戶體驗也僅止於書中的概念，對於能實際應用在專案上的機會可說是少之又少，恰巧某天看到這個用戶體驗的系列課程，從做用戶研究到體驗設計，都請到產學界的知名大大來進行授課，於是下定決心掏出荷包來好好重新面對這個課題，雖然還是不抱持著能現學現用，但至少讓自己能重新審視目前所在的位置，藉此能開啟新的視野或是發現新的機會。   第一堂課為台灣使用者經驗設計協會的理事唐玄輝教授，主要把這一系列十二堂的課程做一個總覽，首先從關於要「如何創新」這件事情切入，除了人的需求與科技技術外，還要能達成商業上的永續性，再好的創新沒有商業模式終究無法持久，這三者的交會點才是真正的創新。  </p>
+<h2 id="一、創新需要的材料"><a href="#一、創新需要的材料" class="headerlink" title="一、創新需要的材料"></a>一、創新需要的材料</h2><p>創新這件事真的非常非常困難，除了需求、技術、商業模式外，每個環節也都要真正導入創新這個元素，製造生產、組織行為、人機互動也都要能做到創新，不然就很容易陷入傳統組織的思維。   設計思維是打造創新產業的利器，透過用戶研究、問題定義、創意發想、原型製作、原型測試、取得回饋、修正原型來重覆循環以找到真正能解決使用者問題的產品。不管從事什麼職業，只要能運用設計思考的方法，就是真正的設計師，設計思考，就是不斷的嘗試找到最好的方案。   跨領域人才合作也是創新的必備條件，創新就跟攀登喜馬拉雅山一樣，因為非常困難，所以一定要結合不同的人專長。團隊通常有兩種人，一種是怪物通才，另一種是 T 型人，在專業的垂直領域上鑽研很深，又有能與他人協同工作的水平能力，關鍵在於要保持對於其它領域的興趣。  </p>
+<h2 id="二、產品製造-gt-用戶體驗-gt-服務設計間的層次提升"><a href="#二、產品製造-gt-用戶體驗-gt-服務設計間的層次提升" class="headerlink" title="二、產品製造 &gt; 用戶體驗 &gt; 服務設計間的層次提升"></a>二、產品製造 &gt; 用戶體驗 &gt; 服務設計間的層次提升</h2><p>在現在的產品設計層次中，唐教授用了 Nokia、Blackberry、Apple 來做比喻，Nokia 無疑是二十世紀最好的手機「產品」，但當競爭者變多時，企業必須除了功能外，提供更多的體驗給用戶，Blackberry 的實體鍵盤與安全性就成了商業人士不同的「用戶體驗」，但 Apple 的體驗卻更超出了產品體驗，而是在產品發表會、零售店、使用產品前中後，各個環節都顧慮到用戶的感受而發展出的「服務設計」。   用戶體驗與服務設計的差異點在於「體驗」的環節，後者不僅是使用產品時的體驗，而是去思考到消費者與產品接觸的每個歷程，以及產品使用前中後的情境，與產品相關的利害關系人也要一併考量。   唐教授舉 IDEO 公司的一個釣具品牌案例，該品牌想推廣兒童釣魚，但遲遲無法打進這個市場，IDEO 研究消費者對於釣具的使用歷程，發現關鍵出在販售釣具場域的情境改變，以往都由專業小賣店販售釣具，老闆對於釣魚知識十分了解，但大賣場興起後，小賣店倒的倒收的收，於是能服務釣具客戶的，不是賣場的工讀生，就是對釣具不熟悉的店員，結果不懂釣魚的家長，為了在小孩面前表現出當家長的尊嚴，索性放棄選購比較需要專業知識的釣魚活動，轉而購買籃球或是其它較為方便使用的運動器材，有了這個洞見之後，該釣具品牌推出兒童專用的釣具，不需任何專業知識也能輕易使用的產品。   另一個案例是無線熨斗，為了解決燙衣服被電線卡住的問題，廠商開始研發可以用在熨斗上面的電池，但當時的電池技術不發達，所以開發出來的電池又大又重，而且使用一下就會開始變燙，因而最後打算放棄這個構想，但在此時該企業做了使用者研究，發現到一個關鍵的因素，就是平常人們在燙衣服的時候，平均每燙三十秒會休息十秒，有了這個洞見，廠商就不需要開發高電量的電池，只要置放架附有充電器，每充十秒就可以使用三十秒的電池就能解決這個問題。  </p>
+<h2 id="三、如何瞭解使用者"><a href="#三、如何瞭解使用者" class="headerlink" title="三、如何瞭解使用者"></a>三、如何瞭解使用者</h2><p>關鍵句：「我們如何可以幫助使用者做什麼事情」，問對問題是解決問題的根本，譬如家用物聯網的研究問題定義：我們如何可以幫助使用者解決生活節奏失序的問題。通常使用 Persona 來描述人的需求，研究分成設計初期的研究、社會的趨勢研究、個人與產品的關係、現有產品的競品分析。   熟年的健康產品目前還並非是非常競爭的市場，熟年是指 45 歲到需要人照顧之前這段期間，這個階段的人常常沒意識到自己的身體已經不如年輕時，去滿是年輕肌肉猛男的健身房感覺又被羞辱，針對這樣的族群可以發掘新的創新產品。  </p>
+<h2 id="四、情境發想"><a href="#四、情境發想" class="headerlink" title="四、情境發想"></a>四、情境發想</h2><p>大部份的創新都是從情境著手的，從情境中去發想現有的用戶可能會遇到的問題。所有的科技研發要有清楚的使用情境： 1.康寧科技玻璃，最後成為 iPhone 的材料。 2.Philippe Starck 的外星人榨汁機怎麼弄就是不會進杯子、腳墊容易壞，它是增進關係用的產品，主要功能並非是榨果汁機。 3.高價不實用的產品不一定是自用的，而是送禮文化的一種體現。 4.wii 從個人遊戲變成家中人人都能玩，全家市場 科技驅動創新、市場驅動創新、設計驅動創新，三種創新都必需要和情境有關才能被拿來商業應用。  </p>
+<h2 id="五、回憶錄大富翁案例分享"><a href="#五、回憶錄大富翁案例分享" class="headerlink" title="五、回憶錄大富翁案例分享"></a>五、回憶錄大富翁案例分享</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pTezuG-03ek">https://www.youtube.com/watch?v=pTezuG-03ek</a>   今天第一次看到這個產品，覺得實在是非常有意義，透過觸控介面與遊戲機制，讓長者們回憶自己年輕的記憶，也藉此訓練大腦的運用以避免失智症的發生。   聽老師在分享這產品的開發過程實在是十分精彩，從最初期的草稿、紙上操作，到結合四台 iPad、到換成一大臺的觸控螢幕，搭配給職能訓練師的管理介面，以及延伸到實體活動、刊物出版，請長者的子女們一起參加，在在實踐了設計思考與服務設計的理念，看著每個介面細節的調整以及對於使用者意見的琢磨，感受的出來這個產品真的是開發者投入百分百參與其中，也重新燃起自己對於熟齡產業的熱情。   雖然最後尚未找到成熟的商業模式，但相信這樣的服務設計流程，已經為未來有志投入熟齡產業的朋友立下一個典範。  </p>
+<h2 id="個人心得"><a href="#個人心得" class="headerlink" title="個人心得"></a>個人心得</h2><p>1.唐老師把十二堂系列課程做了非常好的破題，也點出了服務設計的趨勢以及應用產業的未來，非常期待接下來的實務課程，能學到關於更多服務設計的實作方法，當然也更希望能引進自己的工作流程之中，做出產品的差異化服務。 2.椅子有夠好坐，坐了兩小時屁股完全不會痛。 3.現場沒有提供無線網路有點困擾，用手機分享到沒電，下堂要記得帶充電線。  </p>
+<p><strong><a target="_blank" rel="noopener" href="//www.slideshare.net/drhhtang/ss-74727172" title="用戶體驗基礎課程">用戶體驗基礎課程</a></strong> from <strong><a target="_blank" rel="noopener" href="//www.slideshare.net/drhhtang">Chinese Consumer Center</a></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/wordpress-starter-theme/" rel="prev" title="WordPress Starter 佈景主題，好的開始是成功的一半！">
+      <i class="fa fa-chevron-left"></i> WordPress Starter 佈景主題，好的開始是成功的一半！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/wordpress-plugin-library/" rel="next" title="WordPress 外掛的最終歸宿 - Eagle 圖片管理工具">
+      WordPress 外掛的最終歸宿 - Eagle 圖片管理工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/user-experience-course-innovation/";
+    this.page.identifier = "user-experience-course-innovation/";
+    this.page.title = "走進用戶體驗的世界 - 用戶體驗創新流程";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

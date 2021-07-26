@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="這兩天被問到這個題目，喜歡 WordPress 的地方很多，但討厭的地方努力想了好久，整理如下： 最喜愛 WordPress 的地方在於背後默默貢獻的每個人，也就是整個社群，每次參加聚會總是可以得到大家無私的分享以及交流，也因為 ＷordPress 認識了許多朋友，出了社會要能交到真心的朋友是很不容易的事情，透過 WordPress 讓我們彼此聯繫在一起。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="喜歡&amp;討厭 WordPress 的地方">
+<meta property="og:url" content="https://oberonlai.blog/tw/%E5%96%9C%E6%AD%A1%E8%A8%8E%E5%8E%AD-wordpress-%E7%9A%84%E5%9C%B0%E6%96%B9/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="這兩天被問到這個題目，喜歡 WordPress 的地方很多，但討厭的地方努力想了好久，整理如下： 最喜愛 WordPress 的地方在於背後默默貢獻的每個人，也就是整個社群，每次參加聚會總是可以得到大家無私的分享以及交流，也因為 ＷordPress 認識了許多朋友，出了社會要能交到真心的朋友是很不容易的事情，透過 WordPress 讓我們彼此聯繫在一起。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.04.37.jpg?fit=1024,662&ssl=1">
+<meta property="og:image" content="https://i0.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.05.23.jpg?fit=1024,594&ssl=1">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.06.02.jpg">
+<meta property="og:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.06.46.jpg?fit=1024,707&ssl=1">
+<meta property="og:image" content="https://i1.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.08.29.jpg?fit=1024,637&ssl=1">
+<meta property="og:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.09.31.jpg?fit=1024,710&ssl=1">
+<meta property="article:published_time" content="2020-03-12T11:12:14.000Z">
+<meta property="article:modified_time" content="2021-05-01T13:11:12.757Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.04.37.jpg?fit=1024,662&ssl=1">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/%E5%96%9C%E6%AD%A1%E8%A8%8E%E5%8E%AD-wordpress-%E7%9A%84%E5%9C%B0%E6%96%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>喜歡&討厭 WordPress 的地方 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E5%96%9C%E6%AD%A1%E8%A8%8E%E5%8E%AD-wordpress-%E7%9A%84%E5%9C%B0%E6%96%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          喜歡&討厭 WordPress 的地方
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-03-12 19:12:14" itemprop="dateCreated datePublished" datetime="2020-03-12T19:12:14+08:00">2020-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 21:11:12" itemprop="dateModified" datetime="2021-05-01T21:11:12+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/%E5%96%9C%E6%AD%A1%E8%A8%8E%E5%8E%AD-wordpress-%E7%9A%84%E5%9C%B0%E6%96%B9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="喜歡討厭-wordpress-的地方/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這兩天被問到這個題目，喜歡 WordPress 的地方很多，但討厭的地方努力想了好久，整理如下：</p>
+<p>最喜愛 WordPress 的地方在於背後默默貢獻的每個人，也就是整個社群，每次參加聚會總是可以得到大家無私的分享以及交流，也因為 ＷordPress 認識了許多朋友，出了社會要能交到真心的朋友是很不容易的事情，透過 WordPress 讓我們彼此聯繫在一起。</p>
+<span id="more"></span>
+<p>對於 WordPress 是沒有到討厭的地步，但如果能夠對開發者更友善一點就更好了，因為常常查文件查得很混亂，像是 <a target="_blank" rel="noopener" href="http://developer.wordpress.org/">developer.wordpress.org</a> 裡面 function 的條列方式，必須要一層一層點進去看，而且有 49 個分頁，又是照字母分類，</p>
+<p>如果可以依照用途分類會比較容易發掘不曾用過的 Function，或是提供查詢過的紀錄、加入蒐藏功能，應該能省下不少查文件的時間，因爲現在大部分都還是必須要透過 Google 來查。</p>
+<p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.04.37.jpg?fit=1024,662&ssl=1"></p>
+<p>版面設計的部分可以參考其他框架的文件展示，有固定的左側欄使用 Accordiong 來顯示所有的內容 → <a target="_blank" rel="noopener" href="https://laravel.com/docs/7.x">https://laravel.com/docs/7.x</a>，這樣在瀏覽上會有個概觀，也才能知道自己要從哪個部分開始閱讀起。</p>
+<p><img src="https://i0.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.05.23.jpg?fit=1024,594&ssl=1"></p>
+<p>另外是 Function Name，像是 get_categories()、wp_list_categories()、get_category() 在使用上很難直覺就區分三者之間的差別，只能透過不停的嘗試錯誤才能慢慢記憶起來，但一陣子沒用的話很容易就忘記，只好再花時間回去查。</p>
+<p>最後就是 Function 提供的範例不夠，雖然有每個參數的定義與用法，但有時後就是會懶得看，想先從範例來確認這隻 Function 是不是我需要的，等到確定後再去看參數所代表的意思。很好的參考範本就是 w3cschools 的 Try it Yourself，可以讓我實際更換參數並立即看到執行結果，然後先給範例下面才開始解釋 → <a target="_blank" rel="noopener" href="https://www.w3schools.com/php/php_oop_classes_objects.asp">https://www.w3schools.com/php/php_oop_classes_objects.asp</a></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.06.02.jpg"></p>
+<p>如果以站在使用者的角度，我覺得 Showcase, Themes 跟 Plugins 的呈現方式都還有很多可以改進的地方，現在的版面跟架構比較站在公司的立場來整理，而並非以使用者的目的性來進行分類：把第一個區塊放 Block-Enabled Plugins 就很明顯的是在主推 Block Editor，</p>
+<p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.06.46.jpg?fit=1024,707&ssl=1"></p>
+<p>但對從來沒用過 Block Editor 的 User 應該會直接跳過這個區塊，滑到頁尾可能就會跳出了，用 Google 找可能比較快，這一點 Envato 就做得很好，根據工具的實際用途來進行分類，這部分是我覺得 <a target="_blank" rel="noopener" href="http://wordpress.org/">wordpress.org</a> 可以改善的地方。</p>
+<p><img src="https://i1.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.08.29.jpg?fit=1024,637&ssl=1"></p>
+<p>但產品本身好，才能造就這麼龐大的生態圈，身為開發者也只能暫時忍受一下這些小小的不便了，畢竟 Automatic 現在應該都全部集中火力在 Block Editor 上面，而且新版越改越好，尤其是右邊的 Block Template 讓我高潮了，覺得又是一個可以好好發揮的地方。</p>
+<p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2020/03/CleanShot-2020-03-12-at-19.09.31.jpg?fit=1024,710&ssl=1"></p>
+<p>不知道大家對於 WordPress 有沒有覺得其他還可以改善的地方？有的話在下面留言分享吧！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/%E8%A6%AA%E6%84%9B%E7%9A%84%EF%BD%9E%E6%88%91%E6%8A%8A-iphone-%E8%AE%8A%E6%88%90%E4%B8%80%E9%A0%81%E4%BA%86%EF%BC%81/" rel="prev" title="親愛的～我把 iPhone 變一頁了！">
+      <i class="fa fa-chevron-left"></i> 親愛的～我把 iPhone 變一頁了！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/building-web-apps-with-wordpress/" rel="next" title="【 書摘 】Building Web Apps with WordPress">
+      【 書摘 】Building Web Apps with WordPress <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/%E5%96%9C%E6%AD%A1%E8%A8%8E%E5%8E%AD-wordpress-%E7%9A%84%E5%9C%B0%E6%96%B9/";
+    this.page.identifier = "喜歡討厭-wordpress-的地方/";
+    this.page.title = "喜歡&討厭 WordPress 的地方";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

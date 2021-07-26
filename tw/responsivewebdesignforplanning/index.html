@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言  網站的物種演進   距離本人上一篇文章已相隔許久，這陣子輸入的多卻輸出的少，很多知識沒經過整理就像媽媽的嘮叨一樣，左耳進右耳出；另一方面，太久沒寫文章都快忘了寫作的樂趣，而這樂趣的來源，就是希望能夠幫助到真正有需要的朋友，所以我強迫自己每週一定要生一篇文章出來，鼓勵自己往這目標邁進。   為何會想寫響應式網頁設計這個主題，因為發現雖然相關技術很多，但很少有一套系統化的整理，也因為該技術不斷">
+<meta property="og:type" content="article">
+<meta property="og:title" content="響應式網頁設計開發實戰 - 企劃面">
+<meta property="og:url" content="https://oberonlai.blog/tw/responsivewebdesignforplanning/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="前言  網站的物種演進   距離本人上一篇文章已相隔許久，這陣子輸入的多卻輸出的少，很多知識沒經過整理就像媽媽的嘮叨一樣，左耳進右耳出；另一方面，太久沒寫文章都快忘了寫作的樂趣，而這樂趣的來源，就是希望能夠幫助到真正有需要的朋友，所以我強迫自己每週一定要生一篇文章出來，鼓勵自己往這目標邁進。   為何會想寫響應式網頁設計這個主題，因為發現雖然相關技術很多，但很少有一套系統化的整理，也因為該技術不斷">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2013/08/02.jpg">
+<meta property="article:published_time" content="2013-08-11T15:59:05.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.155Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/responsivewebdesignforplanning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>響應式網頁設計開發實戰 - 企劃面 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/responsivewebdesignforplanning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          響應式網頁設計開發實戰 - 企劃面
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2013-08-11 23:59:05" itemprop="dateCreated datePublished" datetime="2013-08-11T23:59:05+08:00">2013-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E7%B6%B2%E7%AB%99%E4%BC%81%E5%8A%83/" itemprop="url" rel="index"><span itemprop="name">網站企劃</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/responsivewebdesignforplanning/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="responsivewebdesignforplanning/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg" alt="6020288_m_m"> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg"></a> 網站的物種演進</p>
+<p>  距離本人上一篇文章已相隔許久，這陣子輸入的多卻輸出的少，很多知識沒經過整理就像媽媽的嘮叨一樣，左耳進右耳出；另一方面，太久沒寫文章都快忘了寫作的樂趣，而這樂趣的來源，就是希望能夠幫助到真正有需要的朋友，所以我強迫自己每週一定要生一篇文章出來，鼓勵自己往這目標邁進。   為何會想寫響應式網頁設計這個主題，因為發現雖然相關技術很多，但很少有一套系統化的整理，也因為該技術不斷的在演進，還沒有一套標準的設計流程，基於這個出發點，我把曾經規劃的設計經驗，寫出來與大家分享，當然一定會有許多不足的地方，或是其它更好的做法，但我希望自己只是一個起點，能幫助到想學習的朋友，也獲其它先進的寶貴經驗，而這也是我寫這系列文章的主要目的。   關於響應式網頁設計，我想分成三個主題來說明，分別是企劃、視覺設計與前端技術來討論。</p>
+<span id="more"></span>
+<p> </p>
+<h3 id="lt-一-gt-何謂響應式網頁設計"><a href="#lt-一-gt-何謂響應式網頁設計" class="headerlink" title="&lt;一&gt;何謂響應式網頁設計"></a>&lt;一&gt;何謂響應式網頁設計</h3><p>響應式網頁設計英文全名為Responsive Web Design，借用維基百科的解釋：「響應式網頁設計是一種網頁設計的技術做法，該設計可使網站在多種瀏覽裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上閱讀和導航，同時減少縮放、平移和捲動。」但就我自己的觀察，這項技術只反應出版面呈現的變化，卻少了適應裝置的特性與使用體驗。   響應式網頁設計不該只是以調整畫面為終極目標，它應該是一套整體的設計觀念融入在網站的開發流程之中，更活的彈性版面、更豐富的互動模式，甚至是在不同裝置上有著不同的使用目的，或是不同平臺的行銷訴求，這些都必須在開發前就要有完整的深入規劃，才能徹底發揮它的威力。  </p>
+<h3 id="lt-二-gt-誰需要響應式網站"><a href="#lt-二-gt-誰需要響應式網站" class="headerlink" title="&lt;二&gt;誰需要響應式網站"></a>&lt;二&gt;誰需要響應式網站</h3><p>那些類型的網站會需要響應式的做法，可以根據以下條件來做評估： 1.網站性能：在台灣4G網路發展停滯與3G使用人口爆炸的環境下，手機上網的速度還無法與家中有線寬頻來相比，所以行動裝置上的內容不宜太過複雜，盡可能減輕手機瀏覽器的載入負擔。如果知道自己公司的網站常常有人用行動裝置來瀏覽，那就有必要實際檢測使用3G網路的網站性能，如果過慢的話可能就要考慮設計手機版網頁，或是採用響應式網站的規劃概念，來重新檢視網站的架構與程式的撰寫方式，來加快網站的載入速度，這部份在談技術面時會提到更多。 2.使用情境：如果你的網站在電腦上與在行動裝置上的使用目的不同，也可以透過響應式網站來處理不同的使用行為，譬如旅遊類型的網站在電腦版中是所有地區的資訊，但在手機上可能就只需要根據所在位置提供週邊景點資料。 3.內容排序：行動訴求（Call To Action）在電腦版是位於重要的明顯位置，但如用小尺寸螢幕可能會被擠到下方或是第一眼可視範圍之外，在該種情況下就能使用響應式技術來做內容調整。 4.時間成本：如果你對於在行動裝置上有明確的行銷策略藍圖，但卻沒有足夠的預算來針對所有裝置設計不同的網站，那麼響應式技術就會是很好的解決方案。 5.品牌形象：在競爭的產業之中，能提供越多的服務越能讓消費者產生記憶點，亦是創造與消費者之間的共通話題，在手機應用程式開發門檻較高的情況下，使用響應式技術較易切入，也能初步獲得行動市場的需求，以做為未來開發行動應用程式的參考依據。  </p>
+<h3 id="lt-三-gt-如何規劃響應式網站"><a href="#lt-三-gt-如何規劃響應式網站" class="headerlink" title="&lt;三&gt;如何規劃響應式網站"></a>&lt;三&gt;如何規劃響應式網站</h3><p>現行的響應式網站多是從技術的角度切入，把電腦版網站轉成小版面，對工程師而言，光要能在裝置上正確顯示，就已經一個頭兩個大，能否真正滿足使用者需求還有待商確。建議可以從以下角度進行思考 1.目標使用者是誰 2.現行網站有那些內容 3.如何簡化現行網站內容 4.關鍵的行動訴求或訊息是什麼 5.次要的訊息是什麼 6.內容的層級 將上述問題釐清後，接下來就要逐一檢視頁面內容，相關格式可參考「<a target="_blank" rel="noopener" href="http://goo.gl/fIZ0VN">內容清單</a>」，當我們知道有那些頁面後，就可以針對它們進行「<a target="_blank" rel="noopener" href="http://goo.gl/fXQjNr">頁面摘要</a>」，頁面摘要紀錄了每一頁的結構和關鍵訊息，用來幫助在不同的解析度下如何決定頁面順序的參考依據。 其次要來決定支援的平臺與設備，平臺目前以iOS與Android為大宗，設備可以從各家手機品牌的銷售量下手，當然最好的方法是查看現行網站的行動裝置瀏覽數據，來決定要支援的範圍；最後則是考量到裝置的使用體驗，是否要設計不同的手勢來瀏覽內容，或是使用裝置內建的功能來加強互動，像是GPS或是水平儀等功能。  </p>
+<h3 id="lt-四-gt-響應式網站的線框圖與互動原型"><a href="#lt-四-gt-響應式網站的線框圖與互動原型" class="headerlink" title="&lt;四&gt;響應式網站的線框圖與互動原型"></a>&lt;四&gt;響應式網站的線框圖與互動原型</h3><p>有了企劃的表格後，就可以透過線框圖來決定區塊配置。我試過最好的方法，就是離開電腦，拿起美工刀跟一堆紙，把草稿畫在裁切好手機大小的白紙上，或是到<a target="_blank" rel="noopener" href="http://interfacesketch.tumblr.com/">這個網站</a>去列印目前主流裝置的尺寸，要那種機型幾吋螢幕都可以，然後放在手機保護套裡面，實際進行功能測試，以及檢視內容的編排是否容易達成頁面目標。   <a href="https://oberonlai.blog/wp-content/uploads/2013/08/02.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/02.jpg" alt="02"></a>   與規劃電腦版網站不同的地方是，要注意按鈕的尺寸並實際進行測試，另外也要一併思考裝置的互動方式，而不僅止於滑鼠事件而已，關於響應式線框圖的繪製工具，我尙未找到最好的解決辦法，所以還是選擇最常用的photoshop來繪製灰色區塊來示意版面配置，快速完成後輸出成圖檔放在手機上檢視，來確認區塊的比例還有按鈕的大小是否恰當，使用它的好處是在做視覺設計的時候就能沿用這份線框圖來掌握正確的尺寸，避免做出過小的按鈕或錯誤的版面比例。至於互動原型的部份我直接採用Fire App來快速打造，這部份在之後會討論到。  </p>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>基本上在企劃的過程中，雖然與規劃一般網站差不多，但要能更週全的考慮到行動裝置的使用者會想以什麼方式來瀏覽我們的網站，把自己投射在使用情境中或是找朋友測試都是不錯的方法，下一篇將會針對視覺設計的部份來做探討，這部份是我覺得與一般網站設計差距最大的地方。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/html2wordpress-3/" rel="prev" title="寫給網頁設計師-如何整合html頁面至Wordpress（三）">
+      <i class="fa fa-chevron-left"></i> 寫給網頁設計師-如何整合html頁面至Wordpress（三）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/statementdog/" rel="next" title="HPX Life 網路 X 投資 如何在成熟產業中創業 / 財報狗 參後感">
+      HPX Life 網路 X 投資 如何在成熟產業中創業 / 財報狗 參後感 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/responsivewebdesignforplanning/";
+    this.page.identifier = "responsivewebdesignforplanning/";
+    this.page.title = "響應式網頁設計開發實戰 - 企劃面";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

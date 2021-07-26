@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="很久沒有用 Trello 了，因為最近的專案一直找不太到適合的軟體來統整各方面的需求，於是就想說回頭用看看 Trello 來進行整理，基本的 Todo、In Process、Done 這幾個欄位也大概知道要怎麼用，但隨著進行的項目越來越多，Todo、In Process 越拖越長，卻不見 Done 的增加，開始懷疑是不是自己能力不足所以工作都消化不完 Orz… 直到上拜天去圖書館尋寶，找到這本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原來我以為的看板根本不是看板...">
+<meta property="og:url" content="https://oberonlai.blog/tw/scrum-kanban/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="很久沒有用 Trello 了，因為最近的專案一直找不太到適合的軟體來統整各方面的需求，於是就想說回頭用看看 Trello 來進行整理，基本的 Todo、In Process、Done 這幾個欄位也大概知道要怎麼用，但隨著進行的項目越來越多，Todo、In Process 越拖越長，卻不見 Done 的增加，開始懷疑是不是自己能力不足所以工作都消化不完 Orz… 直到上拜天去圖書館尋寶，找到這本">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/3fcaf236-ee60-4696-b695-f9da5fde112b-2628-0000035174261442_file.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/ora1.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/ora2.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/ora3.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/ora4.jpg">
+<meta property="article:published_time" content="2019-01-19T05:35:04.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:12:39.681Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="Kanban">
+<meta property="article:tag" content="Scrum">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2019/01/3fcaf236-ee60-4696-b695-f9da5fde112b-2628-0000035174261442_file.jpg">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/scrum-kanban/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>原來我以為的看板根本不是看板... | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/scrum-kanban/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          原來我以為的看板根本不是看板...
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-01-19 13:35:04" itemprop="dateCreated datePublished" datetime="2019-01-19T13:35:04+08:00">2019-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">專案即生活</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/scrum-kanban/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="scrum-kanban/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://oberonlai.blog/wp-content/uploads/2019/01/3fcaf236-ee60-4696-b695-f9da5fde112b-2628-0000035174261442_file.jpg"> 很久沒有用 Trello 了，因為最近的專案一直找不太到適合的軟體來統整各方面的需求，於是就想說回頭用看看 Trello 來進行整理，基本的 Todo、In Process、Done 這幾個欄位也大概知道要怎麼用，但隨著進行的項目越來越多，Todo、In Process 越拖越長，卻不見 Done 的增加，開始懷疑是不是自己能力不足所以工作都消化不完 Orz… 直到上拜天去圖書館尋寶，找到這本 Ruddy 大大的大作「精實開發與看板方法」，才驚覺自己完全根本不知道什麼叫「看板」，還以為 Trello 就是看板，還以為只要會拖動卡片就是看板，真是搞笑了啊啊啊～ 本書分為八個章節，從基本介紹到看板設計，再到團隊與個人如何運用看板方法，最後還提到如何以系統思考來預測專案很難預知的各種變數，最有感覺的地方是看板一日遊的解說，非常契合自己以往在團隊中的開發經驗，以下就書中精華進行重點式摘要：</p>
+<h1 id="精實軟體開發七大原則："><a href="#精實軟體開發七大原則：" class="headerlink" title="精實軟體開發七大原則："></a>精實軟體開發七大原則：</h1><p>1、消除浪費 Eliminate waste：製造浪費的最大兇手是 Bug，只要保持程式碼的簡單可以避免 Bug，但現在軟體開發的環境越來越複雜，保持簡單不是一件容易的事，所以要可以真正的去了解程式碼，一知半解最容易造成 Bug。時程的預估都只是瞎猜，只有當專案開始時才能慢慢的掌握開發時間。 如何判斷浪費發生：</p>
+<p>一、半成品 Work In Process (WIP) 太多，控制在越小越好。</p>
+<p>二、額外過程：對專案不會產生價值的業務， 像是過多的行政文件整理。</p>
+<p>三、多餘功能：減少非必要的程式撰寫，新功能意味著新 bug 的可能。</p>
+<p>四、任務調換：多工 is evil，思路被打斷要重新進入很浪費時間。</p>
+<p>五、等待：等客戶的回應是必然的等待。OS: 這種等待真的是非常討厭，最近非常有感，一個問卷的評分方式請客戶提供結果等上了兩個禮拜，重點是還跟初期的規劃邏輯完全不同，一來一往就消耗超多時間。</p>
+<p>六、移動：簡單說就是卡關了要花多少時間去解。OS: 平常要做好給自己看的文件，尤其是開發環境的配置，卡在環境配置真的滿累人的。</p>
+<p>七、缺陷：就是 Bug，能越早找到越好。OS: 要開始練習寫測試案例了，不然都只是自己盲目的瞎測，給夥伴測試時也才有測試方向。</p>
+<p>2、增強學習 Amplify learning：卡關時能學到的東西最多，別一知半解的找到答案後貼上就沒事了，多了解一下是怎麼解決的，然後整理成文件，另外在有盈餘時間時進行重構是最高效的學習方式。 測試是最好的回饋，回饋要及時，寫完一段後就要進行測試，透過寫單元測試來核對程式碼的邏輯，最重要的是可以及早給客戶展示收集回饋，進而調整接下來的開發方向。 3、盡量延遲決策 Decide as late as possible：狀況還沒搞清楚的情況下就做決策，容易白做工而造成浪費，所以決策能拖就拖，拖到不做決策的成本高於做決策時， 就該做出決策了。 4、盡快交付 Deliver as fast as possible：別等到全部做完才給驗收，會讓驗收時間不夠， 進而影響到修改時間，及早交付以才能分清楚接下來工作項目的輕重緩急，看是要先修改客戶在意的項目，還是繼續開發其他功能。 5、授權團隊 Empower the team：在適當的規範下，讓團隊自己做出決策。 6、嵌入完整性 Build integrity in：接受需求變更是常態，透過持續的客戶回饋設計出理想中的系統，並保持架構的靈活。 7、著眼整體 See the whole：設定團隊開發目標避免拘泥於細節。</p>
+<h1 id="什麼是看板方法？"><a href="#什麼是看板方法？" class="headerlink" title="什麼是看板方法？"></a>什麼是看板方法？</h1><p>看板方法是半成品的約束系統，白話說就是要限制目前手頭正在做的工作數量，要等手上做的東西完成後，才能去拿新的工作來做，透過限制半成品的數量來找到最有效率的開發準則。 看板方法的實行步驟：整理現行工作流程 &gt; 把流程視覺化放進看板 &gt; 限制每個流程的半成品數量 &gt; 管理工作流程 &gt; 讓規則明確 &gt; 落實回饋循環 &gt; 由協助改善 經實驗演進 設計看板牆的三個基本元素：</p>
+<ol>
+<li> 範圍(整個工作的流程)</li>
+<li> 工作項目粒度(大工作還是小工作)</li>
+<li> 工作項目狀態(已完成 or 未完成)</li>
+</ol>
+<p>看板核心要素：</p>
+<ol>
+<li> 要有 WIP 限制</li>
+<li> 採用拉動系統，東西處理完後才能做新東西</li>
+<li> 有設定緩衝區</li>
+<li> 完成的項目先別刪，可以留著檢討完後再一次刪除</li>
+<li> 專案還沒開始時被要求估算時間，回答請再多給我一點時間進行評估</li>
+</ol>
+<h1 id="如何使用個人看板？"><a href="#如何使用個人看板？" class="headerlink" title="如何使用個人看板？"></a>如何使用個人看板？</h1><p>先把手邊的工作進行視覺化，依照待進行工作、準備中、今日工作、等待中、正在進行的工作、完成的這幾個項目來進行分類，個人專案看板的部分包含：衝刺工作項目、預備(分析及文件製作)、開發進行中、開發已完成、測試、發佈，原本我使用 Trello 來進行設計，但發現他沒有辦法跨看板來進行統整。 書中提到要可以有總覽的檢視介面來查看所有專案的狀態，試了幾套線上的服務，發現到 <a target="_blank" rel="noopener" href="https://ora.pm/">Ora</a> 這套服務功能比較齊全，且介面是我比較過最美的，但可惜的是他沒支援 WIP 的設定，看在他介面這麼優的前提下，只好自己想辦法弄了～ <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora1.jpg" alt="Ora1.jpg"> 上圖是我自己的個人看板，主要紀錄專案以外的事，中間上方可以快速切換看板，看板欄位的標題顏色都可以自己設定，會設成黑黃純粹是個人喜好XD。 第二欄準備中後面有個括弧 2，指的就是我給自己設定的 WIP，也就是說在準備中的工作事項不能超過兩個，有空位的時候才能從待進行工作拉入新的工作事項。同理，正在進行的工作的 WIP 也是設為 1，我的個人事務在一個衝刺時間內只做一項。 Ora 特別的地方在於說他的 List 有分為四種狀態：分別是 Frozen、Open、Review、Closed/Compledte，前兩者主要是控制這個 List 內的工作事項在 My Tasks 中是否可見，切換成 My Tasks 可以看到已被拉入 Open 的工作事項： <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora2.jpg" alt="Ora2.jpg"> 我在 MyLife 中把「看板方法讀書心得」拉入了準備中的這個 List，而這 List 的狀態是 Open，所以「看板方法讀書心得」的工作事項就會出現在 My Tasks 的 Inbox 裡面，最後我再從 Inbox 移動到要哪一天進行，這樣就能分配我今天、明天甚至是後天要做什麼。 專案的部分概念相同，理論上會有一個產品待辦項目，來紀錄這個專案需要開發的所有功能，把產品待辦項目拆解後就會進入衝刺工作項目，也就是在設定好的一個工作週期要來進行的任務，當中專案負責人會依據客戶需求來決定衝刺工作項目的開發順序， <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora3.jpg" alt="Ora3.jpg"> 同樣的，在預備跟開發-進行中的 List 後面也都有 (2) 的提示，代表這兩個階段只能接兩個工作事項，到了開發完成後後面還有一個 List 是測試，測試的內容就是要根據預備階段時整理好的測試案例來進行功能測試，沒問題後就可以 Demo 給客戶驗收。 驗收的結果有可能是需要修改，這時候就專案經理就要詢問客戶的意見，看是要先修改這個剛完成的項目還是繼續開發其他功能，藉此來決定接下來是哪個工作事項要進入預備階段。 <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora4.jpg" alt="Ora4.jpg"> Ora 還有許多功能，像是有開啟計時的話就會有上圖的報告，它也可以設定 Sprint Points，就可以在 Spring Review 那邊看到數據，但我還不太了解 Sprint 的理論與應用方法，日後再行補上。 可惜的是，Ora 沒有提供 WIP 的設定，所以也就沒有書中提到最重要的「累積流程圖 CFD」，這圖可以看出專案有沒有失控，尤其是接了太多根本做不完的需求，或是從中發現 WIP 的設定是否恰當，但以個人的專案來說，這套工具算是還夠用。 在預備階段的文件製作，作者提到需要製作系統文件以及測試案例的資料，看了很久一直不知道到底該怎麼撰寫，結果在書末的附錄就有完整的示範，然後又在 Google 的時候直接發現作者 Ruddy 大大的<a target="_blank" rel="noopener" href="https://ruddyblog.wordpress.com/2016/07/16/%E9%9C%80%E6%B1%82%E8%AE%8A%E5%8C%96%E5%A4%AA%E9%81%8E%E9%A0%BB%E7%B9%81/">這篇文章</a>，裡面提到一個工具叫做 <a target="_blank" rel="noopener" href="https://www.featuremap.co/">FeatureMap</a> 可以非常容易的做出 User Story Mapping 的展開圖，實在是非常方便，這次的專案就打算用它來練習撰寫測試案例。</p>
+<h1 id="個人心得"><a href="#個人心得" class="headerlink" title="個人心得"></a>個人心得</h1><p>看完這本書之後，告訴自己希望可以做到以下這些事：</p>
+<ol>
+<li> 找到答案複製貼上，不明白為何這樣寫，也許會造成其他問題也不知道， 還是要搞懂，然後把不需要的 code 拿掉</li>
+<li> 每個功能的流程要搞清楚，梳理出文件來確保沒有遺漏的狀態</li>
+<li> 常用的功能流程就差不多，沒做過的功能要特別注意</li>
+<li> 要學會寫文件交接給自己</li>
+<li> 從新檢視自己寫的東西進行重構，才能學到越多</li>
+<li> 做完一個工作事項再拉一個進來，就能看到目前累積的工作量</li>
+<li> 需要做決策時用七大原則來檢視目前的狀況</li>
+<li> 從既有流程進行小規模改善</li>
+<li> 功能一寫完就進行測試，別等到全部做完後再回來修改， 這樣可以提升交付程式的品質</li>
+<li> 工作事項要完成的前提是要經過測試</li>
+</ol>
+<p>感謝 Ruddy 大大的這本好書，接下來就是要進攻自動化測試喔喔喔～ 附上老師的部落格，裡面超有料—&gt;<a target="_blank" rel="noopener" href="https://ruddyblog.wordpress.com/">https://ruddyblog.wordpress.com</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/Kanban/" rel="tag"><i class="fa fa-tag"></i> Kanban</a>
+              <a href="/tw/tags/Scrum/" rel="tag"><i class="fa fa-tag"></i> Scrum</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/git-change-remote-url/" rel="prev" title="Git 修改遠端 remote url">
+      <i class="fa fa-chevron-left"></i> Git 修改遠端 remote url
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tw/git-essentials/" rel="next" title="人生也有 Git 就好了...">
+      人生也有 Git 就好了... <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">593k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">8:59</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/scrum-kanban/";
+    this.page.identifier = "scrum-kanban/";
+    this.page.title = "原來我以為的看板根本不是看板...";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
