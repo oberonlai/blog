@@ -443,14 +443,6 @@ if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
       </categories>
   </entry>
   <entry>
-    <title>Facebook</title>
-    <url>/tw/facebook/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>uncategorized</category>
-      </categories>
-  </entry>
-  <entry>
     <title>FB Messenger 直接取代線上即時客服</title>
     <url>/tw/fb-messenger-%E7%9B%B4%E6%8E%A5%E5%8F%96%E4%BB%A3%E7%B7%9A%E4%B8%8A%E5%8D%B3%E6%99%82%E5%AE%A2%E6%9C%8D/</url>
     <content><![CDATA[<p>近日 Facebook 釋出了可以直接在自己網站上進行聊天的小工具，只要兩個步驟就可以快速加入，而且完全免費！</p>
@@ -458,6 +450,14 @@ if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
 ]]></content>
       <categories>
         <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Facebook</title>
+    <url>/tw/facebook/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>uncategorized</category>
       </categories>
   </entry>
   <entry>
@@ -568,6 +568,17 @@ git push --set-upstream origin master<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
+    <title>Git History 動畫</title>
+    <url>/tw/git-history-%E5%8B%95%E7%95%AB/</url>
+    <content><![CDATA[<p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/02/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7-2019-02-09-%E4%B8%8A%E5%8D%8810.17.33.jpg?fit=1024,563&ssl=1"></p>
+<p>非常有趣的一個服務 -&gt; <a href="https://githistory.xyz/">https://githistory.xyz</a>，可以使用 Timeline 的方式看到一個檔案的 commit 紀錄，拿來做教學示範應該是滿實用的，使用方法也很簡單，進到 github repo 的檔案裡面，把網址裡面的 github.com 換成 githistory.xyz 就可以了喔喔喔～</p>
+<p>例如 <a href="https://github.com/m615926/wp_local/blob/master/docker-compose.yml">https://github.com/m615926/wp_local/blob/master/docker-compose.yml</a> 換成<a href="https://githistory.xyz/m615926/wp_local/blob/master/docker-compose.yml">https://githistory.xyz/m615926/wp_local/blob/master/docker-compose.yml</a></p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
     <title>人生也有 Git 就好了...</title>
     <url>/tw/git-essentials/</url>
     <content><![CDATA[<p><img src="https://oberonlai.blog/wp-content/uploads/2019/01/img_7899.jpg"></p>
@@ -610,17 +621,6 @@ git push --set-upstream origin master<span aria-hidden="true" class="line-number
 <p><img src="https://oberonlai.blog/wp-content/uploads/2019/01/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7-2019-01-24-%E4%B8%8B%E5%8D%8811.11.19.jpg"></p>
 <p>我現在都是用 Visual Studio Code 作為主力開發編輯器，強大的功能、豐富的外掛生態以及還能維持很不錯的效能，真的是微軟這幾年最偉大的發明之一也不為過～</p>
 <h2 id="個人感想"><a href="#個人感想" class="headerlink" title="個人感想"></a>個人感想</h2><p>依照這態勢 Git 應該還是會繼續紅下去，更不用說微軟把 Github 原本需要付費的 private repo 功能給完全開放，讓我從 bitbucket 跳槽回 Github，不知道還要亂打什麼感想，十一點半了來洗洗睡了…</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Git History 動畫</title>
-    <url>/tw/git-history-%E5%8B%95%E7%95%AB/</url>
-    <content><![CDATA[<p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/02/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7-2019-02-09-%E4%B8%8A%E5%8D%8810.17.33.jpg?fit=1024,563&ssl=1"></p>
-<p>非常有趣的一個服務 -&gt; <a href="https://githistory.xyz/">https://githistory.xyz</a>，可以使用 Timeline 的方式看到一個檔案的 commit 紀錄，拿來做教學示範應該是滿實用的，使用方法也很簡單，進到 github repo 的檔案裡面，把網址裡面的 github.com 換成 githistory.xyz 就可以了喔喔喔～</p>
-<p>例如 <a href="https://github.com/m615926/wp_local/blob/master/docker-compose.yml">https://github.com/m615926/wp_local/blob/master/docker-compose.yml</a> 換成<a href="https://githistory.xyz/m615926/wp_local/blob/master/docker-compose.yml">https://githistory.xyz/m615926/wp_local/blob/master/docker-compose.yml</a></p>
 ]]></content>
       <categories>
         <category>Git</category>
@@ -1451,6 +1451,17 @@ spellcheck：拼字檢查
       </categories>
   </entry>
   <entry>
+    <title>LINE 的分享功能可以在電腦上運作啦！</title>
+    <url>/tw/line-%E7%9A%84%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD%E5%8F%AF%E4%BB%A5%E5%9C%A8%E9%9B%BB%E8%85%A6%E4%B8%8A%E9%81%8B%E4%BD%9C%E5%95%A6%EF%BC%81/</url>
+    <content><![CDATA[<p>  來幫 WordPress 文章加入 LINE 的社群外掛吧，把程式碼複製後即貼即用！</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1492704347503231” display=”yes” title=”TElORSDnmoTliIbkuqvlip/og73lj6/ku6XlnKjpm7vohabkuIrpgYvkvZzllabvvIE=” body=”5L6G5bmrIFdvcmRQcmVzcyDmlofnq6DliqDlhaUgTElORSDnmoTnpL7nvqTlpJbmjpvlkKfvvIzmiornqIvlvI/norzopIfoo73lvozljbPosrzljbPnlKjvvIE=” pid=”3148”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Laravel mix 加入 svg sprite 並設計成 vue component</title>
     <url>/tw/laravel-mix-svg-sprite-for-vue/</url>
     <content><![CDATA[<p>Svg Sprite 可以非常方便的合併多張向量圖，讓 request 能少一些，之前純 Vue 的環境下是採用 svg-sprite-loader，無奈丟進 Laravel 裡面不理我，只好找別的解決方案。</p>
@@ -1542,31 +1553,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
       </tags>
   </entry>
   <entry>
-    <title>LINE 的分享功能可以在電腦上運作啦！</title>
-    <url>/tw/line-%E7%9A%84%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD%E5%8F%AF%E4%BB%A5%E5%9C%A8%E9%9B%BB%E8%85%A6%E4%B8%8A%E9%81%8B%E4%BD%9C%E5%95%A6%EF%BC%81/</url>
-    <content><![CDATA[<p>  來幫 WordPress 文章加入 LINE 的社群外掛吧，把程式碼複製後即貼即用！</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1492704347503231” display=”yes” title=”TElORSDnmoTliIbkuqvlip/og73lj6/ku6XlnKjpm7vohabkuIrpgYvkvZzllabvvIE=” body=”5L6G5bmrIFdvcmRQcmVzcyDmlofnq6DliqDlhaUgTElORSDnmoTnpL7nvqTlpJbmjpvlkKfvvIzmiornqIvlvI/norzopIfoo73lvozljbPosrzljbPnlKjvvIE=” pid=”3148”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Luckymary 美妝保養品 網站設計</title>
-    <url>/tw/luckymary/</url>
-    <content><![CDATA[<ul>
-<li>  專案名稱 : Luckymary 美妝保養品 網站設計</li>
-<li>  設計項目：網站企劃、關鍵字規劃、網頁設計、購物車系統、會員系統</li>
-<li>  設計理念 : 本產品消費族群集中在熟齡女性階層，品牌理念為希望能帶給熟齡女性美麗與自信，因而在視覺的呈現上，以光影線條的運用，建構產品印象，並搭配保養品成份的詳細說明，為該產品賦予專業與信任感，進而獲得消費者認同；全站搭配購物車功能，協助消費者即時進行線上購物。</li>
-</ul>
-<p>網站首頁-運用產品形象圖，確立網站屬性與主題，並傳達品牌形象訴求 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm01.jpg" title="網站首頁-運用產品形象圖，確立網站屬性與主題，並傳達品牌形象訴求"> 網站內頁-透過醫師形象，加強產品專業度與信任感 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm02.jpg" title="網站內頁-透過醫師形象，加強產品專業度與信任感"> 網站內頁-運用代言人結合產品形象 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm03.jpg" title="網站內頁-運用代言人結合產品形象"> 互動功能-透過互動小測驗協助消費者做膚質調查，並導引至適合之產品介紹頁面 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm04.jpg" title="互動功能-透過互動小測驗協助消費者做膚質調查，並導引至適合之產品介紹頁面"> 網站連結 : <a href="http://www.luckymary.com.tw/">http://www.luckymary.com.tw</a></p>
-]]></content>
-      <categories>
-        <category>uncategorized</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Media with FTP 外掛開發</title>
     <url>/tw/media-with-ftp/</url>
     <content><![CDATA[<p>第一次練習開發 WordPress 外掛，心得紀錄如下：</p>
@@ -1622,6 +1608,34 @@ $ git push origin &lt;branch name&gt;<span aria-hidden="true" class="line-number
 ]]></content>
       <categories>
         <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Luckymary 美妝保養品 網站設計</title>
+    <url>/tw/luckymary/</url>
+    <content><![CDATA[<ul>
+<li>  專案名稱 : Luckymary 美妝保養品 網站設計</li>
+<li>  設計項目：網站企劃、關鍵字規劃、網頁設計、購物車系統、會員系統</li>
+<li>  設計理念 : 本產品消費族群集中在熟齡女性階層，品牌理念為希望能帶給熟齡女性美麗與自信，因而在視覺的呈現上，以光影線條的運用，建構產品印象，並搭配保養品成份的詳細說明，為該產品賦予專業與信任感，進而獲得消費者認同；全站搭配購物車功能，協助消費者即時進行線上購物。</li>
+</ul>
+<p>網站首頁-運用產品形象圖，確立網站屬性與主題，並傳達品牌形象訴求 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm01.jpg" title="網站首頁-運用產品形象圖，確立網站屬性與主題，並傳達品牌形象訴求"> 網站內頁-透過醫師形象，加強產品專業度與信任感 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm02.jpg" title="網站內頁-透過醫師形象，加強產品專業度與信任感"> 網站內頁-運用代言人結合產品形象 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm03.jpg" title="網站內頁-運用代言人結合產品形象"> 互動功能-透過互動小測驗協助消費者做膚質調查，並導引至適合之產品介紹頁面 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/lm04.jpg" title="互動功能-透過互動小測驗協助消費者做膚質調查，並導引至適合之產品介紹頁面"> 網站連結 : <a href="http://www.luckymary.com.tw/">http://www.luckymary.com.tw</a></p>
+]]></content>
+      <categories>
+        <category>uncategorized</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>娜普菈股份有限公司 網站管理系統建置</title>
+    <url>/tw/napla/</url>
+    <content><![CDATA[<ul>
+<li>  專案名稱 : 娜普菈股份有限公司 網站管理系統建置</li>
+<li>  設計項目 : 版面重製、導覽系統重製、網站管理系統建置</li>
+<li>  設計理念 : 深耕於日本超過五十年之專業美髮產品品牌，來台跨國經營，提供多樣化產品資訊予美髮沙龍通路，加強與通路間之聯繫管道。</li>
+</ul>
+<p>網站首頁 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np01.jpg" title="網站首頁"> 網站內頁 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np02.jpg" title="網站內頁"> 網站內頁2 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np05.jpg" title="網站內頁2"> 網站管理系統 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np03.jpg" title="公司作品列表"> 網站連結 : <a href="http://www.napla.com.tw/">http://www.napla.com.tw/</a></p>
+]]></content>
+      <categories>
+        <category>uncategorized</category>
       </categories>
   </entry>
   <entry>
@@ -1756,20 +1770,6 @@ export default &#123;
 ]]></content>
       <categories>
         <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>娜普菈股份有限公司 網站管理系統建置</title>
-    <url>/tw/napla/</url>
-    <content><![CDATA[<ul>
-<li>  專案名稱 : 娜普菈股份有限公司 網站管理系統建置</li>
-<li>  設計項目 : 版面重製、導覽系統重製、網站管理系統建置</li>
-<li>  設計理念 : 深耕於日本超過五十年之專業美髮產品品牌，來台跨國經營，提供多樣化產品資訊予美髮沙龍通路，加強與通路間之聯繫管道。</li>
-</ul>
-<p>網站首頁 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np01.jpg" title="網站首頁"> 網站內頁 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np02.jpg" title="網站內頁"> 網站內頁2 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np05.jpg" title="網站內頁2"> 網站管理系統 <img src="https://oberonlai.blog/wp-content/uploads/2012/05/np03.jpg" title="公司作品列表"> 網站連結 : <a href="http://www.napla.com.tw/">http://www.napla.com.tw/</a></p>
-]]></content>
-      <categories>
-        <category>uncategorized</category>
       </categories>
   </entry>
   <entry>
@@ -2542,22 +2542,22 @@ export default &#123;
       </categories>
   </entry>
   <entry>
-    <title>WooCommerce 結帳欄位客製教學</title>
-    <url>/tw/woocommerce-%E7%B5%90%E5%B8%B3%E6%AC%84%E4%BD%8D%E5%AE%A2%E8%A3%BD%E6%95%99%E5%AD%B8/</url>
-    <content><![CDATA[<p>  WooCommerce 是目前最多人使用的 WordPress 購物車模組，國內的金流商也都有針對它開發金流外掛，如果想搭配部落格或形象網站來販售商品，WooCommerce 會是一個很不錯的選擇。   但 WooCommerce 是由國外團隊所開發的，所以在一些細節上會跟我們台灣國內的使用習慣有些許落差，因此我們從過往的開發經驗中，整理出來一些最常被問到的問題，並且說明如何自己動手修改程式碼來進行客製！如果你有文中沒有提到的問題，也非常歡迎留言給我們，不會太複雜的話我們可以幫忙撰寫後再分享出來給其它有一樣需求的朋友！</p>
+    <title>WooCommerce 自動化結帳測試服務</title>
+    <url>/tw/woocommerce-%E8%87%AA%E5%8B%95%E5%8C%96%E7%B5%90%E5%B8%B3%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99/</url>
+    <content><![CDATA[<p>購物網站的使用流程相對於一般形象網站較為繁瑣，因此在開發上要盡可能各環節都能測試到才能避免發生錯誤，但使用人工測試可能會花去不少時間，這時候就可以用 Robot Ninja 這套服務來進行自動化測試，它的測試項目包含商品頁面瀏覽、加入購物車、結帳、付款等基本購物環節，並可以模擬真實的付款來完成訂單，還能設定排程來進行自動測試，是一套非常方便的測試服務。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1397930506980616” display=”yes” title=”V29vQ29tbWVyY2Ug57WQ5biz5qyE5L2N5a6i6KO95pWZ5a24” body=”V29vQ29tbWVyY2Ug5piv55uu5YmN5pyA5aSa5Lq65L2/55So55qEIFdvcmRQcmVzcyDos7znianou4rmqKHntYTvvIzlnIvlhafnmoTph5HmtYHllYbkuZ/pg73mnInph53lsI3lroPplovnmbzph5HmtYHlpJbmjpvvvIzlpoLmnpzmg7PmkK3phY3pg6jokL3moLzmiJblvaLosaHntrLnq5nkvobosqnllK7llYblk4HvvIxXb29Db21tZXJjZSDmnIPmmK/kuIDlgIvlvojkuI3pjK/nmoTpgbjmk4fjgILkvYYgV29vQ29tbWVyY2Ug5piv55Sx5ZyL5aSW5ZyY6ZqK5omA6ZaL55m855qE77yM5omA5Lul5Zyo5LiA5Lqb57Sw56+A5LiK5pyD6Lef5oiR5YCR5Y+w54Gj5ZyL5YWn55qE5L2/55So57+S5oWj5pyJ5Lqb6Kix6JC95beu77yM5Zug5q2k5oiR5YCR5b6e6YGO5b6A55qE6ZaL55m857aT6amX5Lit77yM5pW055CG5Ye65L6G5LiA5Lqb5pyA5bi46KKr5ZWP5Yiw55qE5ZWP6aGM77yM5Lim5LiU6Kqq5piO5aaC5L2V6Ieq5bex5YuV5omL5L+u5pS556iL5byP56K85L6G6YCy6KGM5a6i6KO977yB5aaC5p6c5L2g5pyJ5paH5Lit5rKS5pyJ5o+Q5Yiw55qE5ZWP6aGM77yM5Lmf6Z2e5bi45q2h6L+O55WZ6KiA57Wm5oiR5YCR77yM5LiN5pyD5aSq6KSH6Zuc55qE6Kmx5oiR5YCR5Y+v5Lul5bmr5b+Z5pKw5a+r5b6M5YaN5YiG5Lqr5Ye65L6G57Wm5YW25a6D5pyJ5LiA5qij6ZyA5rGC55qE5pyL5Y+L77yB” pid=”2922”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1554222981351367” display=”yes” title=”V29vQ29tbWVyY2Ug6Ieq5YuV5YyW57WQ5biz5ris6Kmm5pyN5YuZ” body=”6LO854mp57ay56uZ55qE5L2/55So5rWB56iL55u45bCN5pa85LiA6Iis5b2i6LGh57ay56uZ6LyD54K657mB55Gj77yM5Zug5q2k5Zyo6ZaL55m85LiK6KaB55uh5Y+v6IO95ZCE55Kw56+A6YO96IO95ris6Kmm5Yiw5omN6IO96YG/5YWN55m855Sf6Yyv6Kqk77yM5L2G5L2/55So5Lq65bel5ris6Kmm5Y+v6IO95pyD6Iqx5Y675LiN5bCR5pmC6ZaT77yM6YCZ5pmC5YCZ5bCx5Y+v5Lul55SoIFJvYm90IE5pbmphIOmAmeWll+acjeWLmeS+humAsuihjOiHquWLleWMlua4rOippu+8jOWug+eahOa4rOippumgheebruWMheWQq+WVhuWTgemggemdoueAj+imveOAgeWKoOWFpeizvOeJqei7iuOAgee1kOW4s+OAgeS7mOasvuetieWfuuacrOizvOeJqeeSsOevgO+8jOS4puWPr+S7peaooeaTrOecn+WvpueahOS7mOasvuS+huWujOaIkOioguWWru+8jOmChOiDveioreWumuaOkueoi+S+humAsuihjOiHquWLlea4rOippu+8jOaYr+S4gOWll+mdnuW4uOaWueS+v+eahOa4rOippuacjeWLmeOAgg==” pid=”3291”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
       </categories>
   </entry>
   <entry>
-    <title>WooCommerce 自動化結帳測試服務</title>
-    <url>/tw/woocommerce-%E8%87%AA%E5%8B%95%E5%8C%96%E7%B5%90%E5%B8%B3%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99/</url>
-    <content><![CDATA[<p>購物網站的使用流程相對於一般形象網站較為繁瑣，因此在開發上要盡可能各環節都能測試到才能避免發生錯誤，但使用人工測試可能會花去不少時間，這時候就可以用 Robot Ninja 這套服務來進行自動化測試，它的測試項目包含商品頁面瀏覽、加入購物車、結帳、付款等基本購物環節，並可以模擬真實的付款來完成訂單，還能設定排程來進行自動測試，是一套非常方便的測試服務。</p>
+    <title>WooCommerce 結帳欄位客製教學</title>
+    <url>/tw/woocommerce-%E7%B5%90%E5%B8%B3%E6%AC%84%E4%BD%8D%E5%AE%A2%E8%A3%BD%E6%95%99%E5%AD%B8/</url>
+    <content><![CDATA[<p>  WooCommerce 是目前最多人使用的 WordPress 購物車模組，國內的金流商也都有針對它開發金流外掛，如果想搭配部落格或形象網站來販售商品，WooCommerce 會是一個很不錯的選擇。   但 WooCommerce 是由國外團隊所開發的，所以在一些細節上會跟我們台灣國內的使用習慣有些許落差，因此我們從過往的開發經驗中，整理出來一些最常被問到的問題，並且說明如何自己動手修改程式碼來進行客製！如果你有文中沒有提到的問題，也非常歡迎留言給我們，不會太複雜的話我們可以幫忙撰寫後再分享出來給其它有一樣需求的朋友！</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1554222981351367” display=”yes” title=”V29vQ29tbWVyY2Ug6Ieq5YuV5YyW57WQ5biz5ris6Kmm5pyN5YuZ” body=”6LO854mp57ay56uZ55qE5L2/55So5rWB56iL55u45bCN5pa85LiA6Iis5b2i6LGh57ay56uZ6LyD54K657mB55Gj77yM5Zug5q2k5Zyo6ZaL55m85LiK6KaB55uh5Y+v6IO95ZCE55Kw56+A6YO96IO95ris6Kmm5Yiw5omN6IO96YG/5YWN55m855Sf6Yyv6Kqk77yM5L2G5L2/55So5Lq65bel5ris6Kmm5Y+v6IO95pyD6Iqx5Y675LiN5bCR5pmC6ZaT77yM6YCZ5pmC5YCZ5bCx5Y+v5Lul55SoIFJvYm90IE5pbmphIOmAmeWll+acjeWLmeS+humAsuihjOiHquWLleWMlua4rOippu+8jOWug+eahOa4rOippumgheebruWMheWQq+WVhuWTgemggemdoueAj+imveOAgeWKoOWFpeizvOeJqei7iuOAgee1kOW4s+OAgeS7mOasvuetieWfuuacrOizvOeJqeeSsOevgO+8jOS4puWPr+S7peaooeaTrOecn+WvpueahOS7mOasvuS+huWujOaIkOioguWWru+8jOmChOiDveioreWumuaOkueoi+S+humAsuihjOiHquWLlea4rOippu+8jOaYr+S4gOWll+mdnuW4uOaWueS+v+eahOa4rOippuacjeWLmeOAgg==” pid=”3291”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1397930506980616” display=”yes” title=”V29vQ29tbWVyY2Ug57WQ5biz5qyE5L2N5a6i6KO95pWZ5a24” body=”V29vQ29tbWVyY2Ug5piv55uu5YmN5pyA5aSa5Lq65L2/55So55qEIFdvcmRQcmVzcyDos7znianou4rmqKHntYTvvIzlnIvlhafnmoTph5HmtYHllYbkuZ/pg73mnInph53lsI3lroPplovnmbzph5HmtYHlpJbmjpvvvIzlpoLmnpzmg7PmkK3phY3pg6jokL3moLzmiJblvaLosaHntrLnq5nkvobosqnllK7llYblk4HvvIxXb29Db21tZXJjZSDmnIPmmK/kuIDlgIvlvojkuI3pjK/nmoTpgbjmk4fjgILkvYYgV29vQ29tbWVyY2Ug5piv55Sx5ZyL5aSW5ZyY6ZqK5omA6ZaL55m855qE77yM5omA5Lul5Zyo5LiA5Lqb57Sw56+A5LiK5pyD6Lef5oiR5YCR5Y+w54Gj5ZyL5YWn55qE5L2/55So57+S5oWj5pyJ5Lqb6Kix6JC95beu77yM5Zug5q2k5oiR5YCR5b6e6YGO5b6A55qE6ZaL55m857aT6amX5Lit77yM5pW055CG5Ye65L6G5LiA5Lqb5pyA5bi46KKr5ZWP5Yiw55qE5ZWP6aGM77yM5Lim5LiU6Kqq5piO5aaC5L2V6Ieq5bex5YuV5omL5L+u5pS556iL5byP56K85L6G6YCy6KGM5a6i6KO977yB5aaC5p6c5L2g5pyJ5paH5Lit5rKS5pyJ5o+Q5Yiw55qE5ZWP6aGM77yM5Lmf6Z2e5bi45q2h6L+O55WZ6KiA57Wm5oiR5YCR77yM5LiN5pyD5aSq6KSH6Zuc55qE6Kmx5oiR5YCR5Y+v5Lul5bmr5b+Z5pKw5a+r5b6M5YaN5YiG5Lqr5Ye65L6G57Wm5YW25a6D5pyJ5LiA5qij6ZyA5rGC55qE5pyL5Y+L77yB” pid=”2922”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -2893,7 +2893,7 @@ export default &#123;
 <h3 id="STEP2-下載-Eagle-三十天試用版"><a href="#STEP2-下載-Eagle-三十天試用版" class="headerlink" title="STEP2 / 下載 Eagle 三十天試用版"></a>STEP2 / 下載 Eagle 三十天試用版</h3><p>  在等到資料夾同步的時候，可以前往 <a href="https://tw.eagle.cool/macOS">Eagle 官方網站</a>，它會判斷你的作業系統提供適合的安裝版本供下載。   啟用後可以發現 Eagle 的介面很簡潔，三欄式的結構依序為分類目錄、圖像本體以及圖像資訊，它可以直接拖曳圖檔到畫面中央即可加入，或是從 Pinterest 中進行匯入，如果你現在是用 Pinterest 收藏的朋友可無痛移轉。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-5.png">   Eagle 本身內建資源庫功能，而這資源庫是去抓取本機目錄，一個讓 Eagle 可以辨識的資料夾，所以只要這個資料夾存放於雲端硬碟中，所有的收藏就能即時同步，而我們的 WordPress 資源庫就是要使用這個功能來實現。   等 Dropbox 的檔案同步後，從上方選單點選資源庫 &gt; 載入其它資源庫，選擇 Dropbox 中的 WordPress.library，就可以成功載入 WordPress 資源了。接下來你就可以逛逛裡面有啥好物，或是加入自己的 WordPress 收藏，當然你也可以新增自己的分類資料夾，整理屬於自己的清單。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-6.png">  </p>
 <h3 id="STEP3-Eagle-瀏覽器外掛"><a href="#STEP3-Eagle-瀏覽器外掛" class="headerlink" title="STEP3 / Eagle 瀏覽器外掛"></a>STEP3 / Eagle 瀏覽器外掛</h3><p>  除了本機檔案加入、從 Pinterest 匯入，也可以安裝 Eagle 所提供的瀏覽器外掛來截取網頁畫面，Chrome 跟 Safari 都有，可<a href="https://tw.eagle.cool/extensions">前往此處</a>下載。有了瀏覽器外掛後就可以更方便的來收集網頁上的資料。   <img src="https://oberonlai.blog/wp-content/uploads/2017/04/wordpress-plugin-library-7.png">  </p>
 <h2 id="資源庫共享的未來"><a href="#資源庫共享的未來" class="headerlink" title="資源庫共享的未來"></a>資源庫共享的未來</h2><p>  Eagle 當然不僅能收藏 WordPress 外掛，任何你能想到的數位檔案都能用它來整理分類，像是企業標誌、海報、素材、電影番號封面、合約書、食譜、結婚照等等，再搭配雲端同步功能，想像未來如果有一個資源庫管理平台，讓所有願意分享的朋友上傳他們的 Library，就會十分精彩了，當然，前提是硬碟要有 10TB。   另外假使能再搭配手機 APP 收集生活中的事物，以及使用平版電腦做簡報，效果也會非常好，這段是純粹寫給開發團隊的許願項目。   大家有機會可以試試這款軟體，相信會有很不一樣的收藏體驗，一試成主顧的話佛心價是 29 塊美金，而且可以授權兩台電腦，所以再去勸敗另一位朋友請他幫你攤一半的錢就更划算了，大量團購還有再打折，台灣團隊設計製造開發，有問題還可以跟創辦人線上一對一中文諮詢打屁聊天交友(?)，這麼優的軟體不推不行～   註：想同步 WordPress 資源庫的朋友請提供您的 Dropbox 申請帳號於留言中，並留下:</p>
-<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-109-x79-100-x72-x6f-112-98-x6f-120-101-109-97-105-x6c-x40-97-98-99-x2e-x63-111-x6d-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-109-x79-100-x72-x6f-112-98-x6f-120-101-109-97-105-x6c-x40-97-98-99-x2e-x63-111-x6d-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#109;&#x79;&#100;&#x72;&#x6f;&#112;&#98;&#x6f;&#120;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#99;&#x2e;&#x63;&#111;&#x6d; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#109;&#x79;&#100;&#x72;&#x6f;&#112;&#98;&#x6f;&#120;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#99;&#x2e;&#x63;&#111;&#x6d;">&#109;&#x79;&#100;&#x72;&#x6f;&#112;&#98;&#x6f;&#120;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#97;&#98;&#99;&#x2e;&#x63;&#111;&#x6d;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
+<h4 id="「Eagle-圖片整理好棒棒，請加我-Email-109-121-x64-x72-x6f-x70-98-x6f-120-x65-x6d-97-x69-108-x40-x61-x62-99-x2e-x63-x6f-109-」"><a href="#「Eagle-圖片整理好棒棒，請加我-Email-109-121-x64-x72-x6f-x70-98-x6f-120-x65-x6d-97-x69-108-x40-x61-x62-99-x2e-x63-x6f-109-」" class="headerlink" title="「Eagle 圖片整理好棒棒，請加我 Email: &#109;&#121;&#x64;&#x72;&#x6f;&#x70;&#98;&#x6f;&#120;&#x65;&#x6d;&#97;&#x69;&#108;&#x40;&#x61;&#x62;&#99;&#x2e;&#x63;&#x6f;&#109; 」"></a>「Eagle 圖片整理好棒棒，請加我 Email: <a href="mailto:&#109;&#121;&#x64;&#x72;&#x6f;&#x70;&#98;&#x6f;&#120;&#x65;&#x6d;&#97;&#x69;&#108;&#x40;&#x61;&#x62;&#99;&#x2e;&#x63;&#x6f;&#109;">&#109;&#121;&#x64;&#x72;&#x6f;&#x70;&#98;&#x6f;&#120;&#x65;&#x6d;&#97;&#x69;&#108;&#x40;&#x61;&#x62;&#99;&#x2e;&#x63;&#x6f;&#109;</a> 」</h4><p>  <a href="https://tw.eagle.cool/store">前往購買</a></p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -3037,7 +3037,7 @@ export default &#123;
   <entry>
     <title>WordPress 修改系統寄件人以及發信信箱</title>
     <url>/tw/wordpress-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%B5%B1%E5%AF%84%E4%BB%B6%E4%BA%BA%E4%BB%A5%E5%8F%8A%E7%99%BC%E4%BF%A1%E4%BF%A1%E7%AE%B1/</url>
-    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#111;&#x72;&#x64;&#x70;&#114;&#x65;&#115;&#115;&#x40;&#x64;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;">&#x77;&#111;&#x72;&#x64;&#x70;&#114;&#x65;&#115;&#115;&#x40;&#x64;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+    <content><![CDATA[<p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#119;&#111;&#x72;&#x64;&#112;&#114;&#101;&#x73;&#115;&#x40;&#x64;&#x6f;&#109;&#x61;&#x69;&#x6e;&#x2e;&#99;&#111;&#109;">&#119;&#111;&#x72;&#x64;&#112;&#114;&#101;&#x73;&#115;&#x40;&#x64;&#x6f;&#109;&#x61;&#x69;&#x6e;&#x2e;&#99;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
@@ -4145,17 +4145,6 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>使用 WP Enqueue 來管理載入資源</title>
-    <url>/tw/%E4%BD%BF%E7%94%A8-wp-enqueue-%E4%BE%86%E7%AE%A1%E7%90%86%E8%BC%89%E5%85%A5%E8%B3%87%E6%BA%90/</url>
-    <content><![CDATA[<p>  WordPress 提供很多 API 來管理網站的資源，WP Enqueue 就是其中最常用的一種。以往在寫網頁的時候，當要引入 javascript 或是 css 檔案時，習慣會用 HTML 標籤 script src 或 link stylesheet，但有些檔案並非在每一頁都會用到，只把需要用到的資源載入是能有效增加頁面速度的方法。而 WP Enqueue 就是使用 php 的方式來管理，先使用 wp_register_script 來註冊即將要載入的檔案，再使用 wp_enqueue_script 來進行載入，這樣就可以再下判斷條件來決定何時要載入資源，wp_register_script 還有許多參數可以使用，像是增加版本號、載入順序、在 head 或 foot 載入等等，能更彈性管理網站資源。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1483116688461997” display=”yes” title=”5L2/55SoIFdQIEVucXVldWUg5L6G566h55CG6LyJ5YWl6LOH5rqQ” body=”V29yZFByZXNzIOaPkOS+m+W+iOWkmiBBUEkg5L6G566h55CG57ay56uZ55qE6LOH5rqQ77yMV1AgRW5xdWV1ZSDlsLHmmK/lhbbkuK3mnIDluLjnlKjnmoTkuIDnqK7jgILku6XlvoDlnKjlr6vntrLpoIHnmoTmmYLlgJnvvIznlbbopoHlvJXlhaUgamF2YXNjcmlwdCDmiJbmmK8gY3NzIOaqlOahiOaZgu+8jOe/kuaFo+acg+eUqCBIVE1MIOaomeexpCBzY3JpcHQgc3JjIOaIliBsaW5rIHN0eWxlc2hlZXTvvIzkvYbmnInkupvmqpTmoYjkuKbpnZ7lnKjmr4/kuIDpoIHpg73mnIPnlKjliLDvvIzlj6rmiorpnIDopoHnlKjliLDnmoTos4fmupDovInlhaXmmK/og73mnInmlYjlop7liqDpoIHpnaLpgJ/luqbnmoTmlrnms5XjgILogIwgV1AgRW5xdWV1ZSDlsLHmmK/kvb/nlKggcGhwIOeahOaWueW8j+S+hueuoeeQhu+8jOWFiOS9v+eUqCB3cF9yZWdpc3Rlcl9zY3JpcHQg5L6G6Ki75YaK5Y2z5bCH6KaB6LyJ5YWl55qE5qqU5qGI77yM5YaN5L2/55SoIHdwX2VucXVldWVfc2NyaXB0IOS+humAsuihjOi8ieWFpe+8jOmAmeaoo+WwseWPr+S7peWGjeS4i+WIpOaWt+aineS7tuS+huaxuuWumuS9leaZguimgei8ieWFpeizh+a6kO+8jHdwX3JlZ2lzdGVyX3NjcmlwdCDpgoTmnInoqLHlpJrlj4Pmlbjlj6/ku6Xkvb/nlKjvvIzlg4/mmK/lop7liqDniYjmnKzomZ/jgIHovInlhaXpoIbluo/jgIHlnKggaGVhZCDmiJYgZm9vdCDovInlhaXnrYnnrYnvvIzog73mm7TlvYjmgKfnrqHnkIbntrLnq5nos4fmupDjgII=” pid=”3127”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
     <title>使用 Talkwalker Alerts 來取得 WordPress 第一手資訊</title>
     <url>/tw/%E4%BD%BF%E7%94%A8-talkwalker-alerts-%E4%BE%86%E5%8F%96%E5%BE%97-wordpress-%E7%AC%AC%E4%B8%80%E6%89%8B%E8%B3%87%E8%A8%8A/</url>
     <content><![CDATA[<p>長期使用 Google Alerts 發現，有些關鍵字的資訊量少得可憐，不知是演算法的關係還是關鍵字設定有誤，像是 WordPress 平均三五天才有一則通知，而且常常還是 .com 的網站，對於需要每天吸收相關資訊的小編來說這個量嚴重不足。幸好前幾天發現 Talkwalker Alerts 這個服務，它除了會去爬新聞以外，還會爬部落格、推特、論壇的相關內容，實際試用下來，資訊量比 Google Alerts 多了十倍，對於需要追蹤特定資訊的朋友可以試試這服務。</p>
@@ -4167,11 +4156,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>免費線上 LOGO 設計工具</title>
-    <url>/tw/%E5%85%8D%E8%B2%BB%E7%B7%9A%E4%B8%8A-logo-%E8%A8%AD%E8%A8%88%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>超過三千個以上的 LOGO 範本可以使用，還有線上編輯器能進行 LOGO layout 的編排與調整，還有附帶十款的中文字型可以選擇，編輯器可自訂 LOGO 尺寸，需要用在輸出用的大圖也不成問題！</p>
+    <title>使用 WP Enqueue 來管理載入資源</title>
+    <url>/tw/%E4%BD%BF%E7%94%A8-wp-enqueue-%E4%BE%86%E7%AE%A1%E7%90%86%E8%BC%89%E5%85%A5%E8%B3%87%E6%BA%90/</url>
+    <content><![CDATA[<p>  WordPress 提供很多 API 來管理網站的資源，WP Enqueue 就是其中最常用的一種。以往在寫網頁的時候，當要引入 javascript 或是 css 檔案時，習慣會用 HTML 標籤 script src 或 link stylesheet，但有些檔案並非在每一頁都會用到，只把需要用到的資源載入是能有效增加頁面速度的方法。而 WP Enqueue 就是使用 php 的方式來管理，先使用 wp_register_script 來註冊即將要載入的檔案，再使用 wp_enqueue_script 來進行載入，這樣就可以再下判斷條件來決定何時要載入資源，wp_register_script 還有許多參數可以使用，像是增加版本號、載入順序、在 head 或 foot 載入等等，能更彈性管理網站資源。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1536730383100627” display=”yes” title=”5YWN6LK757ea5LiKIExPR08g6Kit6KiI5bel5YW3” body=”6LaF6YGO5LiJ5Y2D5YCL5Lul5LiK55qEIExPR08g56+E5pys5Y+v5Lul5L2/55So77yM6YKE5pyJ57ea5LiK57eo6Lyv5Zmo6IO96YCy6KGMIExPR08gbGF5b3V0IOeahOe3qOaOkuiIh+iqv+aVtO+8jOmChOaciemZhOW4tuWNgeasvueahOS4reaWh+Wtl+Wei+WPr+S7pemBuOaTh++8jOe3qOi8r+WZqOWPr+iHquiogiBMT0dPIOWwuuWvuO+8jOmcgOimgeeUqOWcqOi8uOWHuueUqOeahOWkp+WcluS5n+S4jeaIkOWVj+mhjO+8gQ==” pid=”3259”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1483116688461997” display=”yes” title=”5L2/55SoIFdQIEVucXVldWUg5L6G566h55CG6LyJ5YWl6LOH5rqQ” body=”V29yZFByZXNzIOaPkOS+m+W+iOWkmiBBUEkg5L6G566h55CG57ay56uZ55qE6LOH5rqQ77yMV1AgRW5xdWV1ZSDlsLHmmK/lhbbkuK3mnIDluLjnlKjnmoTkuIDnqK7jgILku6XlvoDlnKjlr6vntrLpoIHnmoTmmYLlgJnvvIznlbbopoHlvJXlhaUgamF2YXNjcmlwdCDmiJbmmK8gY3NzIOaqlOahiOaZgu+8jOe/kuaFo+acg+eUqCBIVE1MIOaomeexpCBzY3JpcHQgc3JjIOaIliBsaW5rIHN0eWxlc2hlZXTvvIzkvYbmnInkupvmqpTmoYjkuKbpnZ7lnKjmr4/kuIDpoIHpg73mnIPnlKjliLDvvIzlj6rmiorpnIDopoHnlKjliLDnmoTos4fmupDovInlhaXmmK/og73mnInmlYjlop7liqDpoIHpnaLpgJ/luqbnmoTmlrnms5XjgILogIwgV1AgRW5xdWV1ZSDlsLHmmK/kvb/nlKggcGhwIOeahOaWueW8j+S+hueuoeeQhu+8jOWFiOS9v+eUqCB3cF9yZWdpc3Rlcl9zY3JpcHQg5L6G6Ki75YaK5Y2z5bCH6KaB6LyJ5YWl55qE5qqU5qGI77yM5YaN5L2/55SoIHdwX2VucXVldWVfc2NyaXB0IOS+humAsuihjOi8ieWFpe+8jOmAmeaoo+WwseWPr+S7peWGjeS4i+WIpOaWt+aineS7tuS+huaxuuWumuS9leaZguimgei8ieWFpeizh+a6kO+8jHdwX3JlZ2lzdGVyX3NjcmlwdCDpgoTmnInoqLHlpJrlj4Pmlbjlj6/ku6Xkvb/nlKjvvIzlg4/mmK/lop7liqDniYjmnKzomZ/jgIHovInlhaXpoIbluo/jgIHlnKggaGVhZCDmiJYgZm9vdCDovInlhaXnrYnnrYnvvIzog73mm7TlvYjmgKfnrqHnkIbntrLnq5nos4fmupDjgII=” pid=”3127”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4182,6 +4171,17 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
     <url>/tw/%E5%84%AA%E7%A7%80-landing-page-%E8%92%90%E9%9B%86/</url>
     <content><![CDATA[<p>在煩惱怎麼設計 Landing Page 嗎？這網站蒐錄許多真實線上公司的著陸頁，除了可以使用色系篩選外，還提供直版的預覽模式，看看這些漂亮的 Landing Page 是如何使用設計來優化轉換率～</p>
 <p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1461574623949537” display=”yes” title=”5YSq56eAIExhbmRpbmcgUGFnZSDokpDpm4Y=” body=”5Zyo54Wp5oOx5oCO6bq86Kit6KiIIExhbmRpbmcgUGFnZSDll47vvJ/pgJnntrLnq5nokpDpjIToqLHlpJrnnJ/lr6bnt5rkuIrlhazlj7jnmoTokZfpmbjpoIHvvIzpmaTkuoblj6/ku6Xkvb/nlKjoibLns7vnr6npgbjlpJbvvIzpgoTmj5Dkvpvnm7TniYjnmoTpoJDopr3mqKHlvI/vvIznnIvnnIvpgJnkupvmvILkuq7nmoQgTGFuZGluZyBQYWdlIOaYr+WmguS9leS9v+eUqOioreioiOS+huWEquWMlui9ieaPm+eOh++9ng==” pid=”3088”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>免費線上 LOGO 設計工具</title>
+    <url>/tw/%E5%85%8D%E8%B2%BB%E7%B7%9A%E4%B8%8A-logo-%E8%A8%AD%E8%A8%88%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>超過三千個以上的 LOGO 範本可以使用，還有線上編輯器能進行 LOGO layout 的編排與調整，還有附帶十款的中文字型可以選擇，編輯器可自訂 LOGO 尺寸，需要用在輸出用的大圖也不成問題！</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1536730383100627” display=”yes” title=”5YWN6LK757ea5LiKIExPR08g6Kit6KiI5bel5YW3” body=”6LaF6YGO5LiJ5Y2D5YCL5Lul5LiK55qEIExPR08g56+E5pys5Y+v5Lul5L2/55So77yM6YKE5pyJ57ea5LiK57eo6Lyv5Zmo6IO96YCy6KGMIExPR08gbGF5b3V0IOeahOe3qOaOkuiIh+iqv+aVtO+8jOmChOaciemZhOW4tuWNgeasvueahOS4reaWh+Wtl+Wei+WPr+S7pemBuOaTh++8jOe3qOi8r+WZqOWPr+iHquiogiBMT0dPIOWwuuWvuO+8jOmcgOimgeeUqOWcqOi8uOWHuueUqOeahOWkp+WcluS5n+S4jeaIkOWVj+mhjO+8gQ==” pid=”3259”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4293,6 +4293,17 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
+    <title>天氣預報外掛</title>
+    <url>/tw/%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1%E5%A4%96%E6%8E%9B/</url>
+    <content><![CDATA[<p>  如果你的網站是內容型網站，每天都有固定訪客會來造訪，放置天氣小工具可以增加額外的資訊服務，或是你的產品跟天氣有關，可以根據天氣來推送不同的內容，像是購物網站在天氣不好時可以增加相關產品的曝光，進而提升銷售量，這都是天氣資訊可以延伸應用的做法。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1473901532716846” display=”yes” title=”5aSp5rCj6aCQ5aCx5aSW5o6b” body=”5aaC5p6c5L2g55qE57ay56uZ5piv5YWn5a655Z6L57ay56uZ77yM5q+P5aSp6YO95pyJ5Zu65a6a6Kiq5a6i5pyD5L6G6YCg6Kiq77yM5pS+572u5aSp5rCj5bCP5bel5YW35Y+v5Lul5aKe5Yqg6aGN5aSW55qE6LOH6KiK5pyN5YuZ77yM5oiW5piv5L2g55qE55Si5ZOB6Lef5aSp5rCj5pyJ6Zec77yM5Y+v5Lul5qC55pOa5aSp5rCj5L6G5o6o6YCB5LiN5ZCM55qE5YWn5a6577yM5YOP5piv6LO854mp57ay56uZ5Zyo5aSp5rCj5LiN5aW95pmC5Y+v5Lul5aKe5Yqg55u46Zec55Si5ZOB55qE5pud5YWJ77yM6YCy6ICM5o+Q5Y2H6Yq35ZSu6YeP77yM6YCZ6YO95piv5aSp5rCj6LOH6KiK5Y+v5Lul5bu25Ly45oeJ55So55qE5YGa5rOV44CC” pid=”3107”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
     <title>如何使用 WooCommerce 提供個人化專屬功能</title>
     <url>/tw/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-woocommerce-%E6%8F%90%E4%BE%9B%E5%80%8B%E4%BA%BA%E5%8C%96%E5%B0%88%E5%B1%AC%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<p>購物網站提供個人化的專屬訊息更能有效能提升購買率，本文分享了四種方法並提供相對應的外掛或是程式修改方法，包含根據購買清單提供個人化的商品推薦、個人化的顯示訊息、根據客戶行為來給予折價券、販售個人化商品等，更進階的還可以透過瀏覽、銷售數據來提供折扣，但要小心過於個人化的功能要避免讓客戶覺得隱私受到侵犯，尊重客戶的意願才是服務的第一優先。</p>
@@ -4303,11 +4314,10 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>天氣預報外掛</title>
-    <url>/tw/%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1%E5%A4%96%E6%8E%9B/</url>
-    <content><![CDATA[<p>  如果你的網站是內容型網站，每天都有固定訪客會來造訪，放置天氣小工具可以增加額外的資訊服務，或是你的產品跟天氣有關，可以根據天氣來推送不同的內容，像是購物網站在天氣不好時可以增加相關產品的曝光，進而提升銷售量，這都是天氣資訊可以延伸應用的做法。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1473901532716846” display=”yes” title=”5aSp5rCj6aCQ5aCx5aSW5o6b” body=”5aaC5p6c5L2g55qE57ay56uZ5piv5YWn5a655Z6L57ay56uZ77yM5q+P5aSp6YO95pyJ5Zu65a6a6Kiq5a6i5pyD5L6G6YCg6Kiq77yM5pS+572u5aSp5rCj5bCP5bel5YW35Y+v5Lul5aKe5Yqg6aGN5aSW55qE6LOH6KiK5pyN5YuZ77yM5oiW5piv5L2g55qE55Si5ZOB6Lef5aSp5rCj5pyJ6Zec77yM5Y+v5Lul5qC55pOa5aSp5rCj5L6G5o6o6YCB5LiN5ZCM55qE5YWn5a6577yM5YOP5piv6LO854mp57ay56uZ5Zyo5aSp5rCj5LiN5aW95pmC5Y+v5Lul5aKe5Yqg55u46Zec55Si5ZOB55qE5pud5YWJ77yM6YCy6ICM5o+Q5Y2H6Yq35ZSu6YeP77yM6YCZ6YO95piv5aSp5rCj6LOH6KiK5Y+v5Lul5bu25Ly45oeJ55So55qE5YGa5rOV44CC” pid=”3107”]</p>
+    <title>如何使用 WordPress 打造知識庫</title>
+    <url>/tw/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-wordpress-%E6%89%93%E9%80%A0%E7%9F%A5%E8%AD%98%E5%BA%AB/</url>
+    <content><![CDATA[<p>如果公司內部有客服部門，想必每天都為了客人一樣的問題被重覆詢問，這時有線上知識庫的話，就可以請客人先去查看看有沒有他需要的資訊，以降低客服人員的時間成本。使用 WordPress 有很多方式可以設計一套知識庫，可以用建立文章的方式來彙整客人常用的問題，然後搭配站內搜尋外掛來提供更完整的搜尋體驗，或是直接使用文內所介紹的外掛，把專門做知識庫的內容與文章分隔開來。</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1441339095973090” display=”yes” title=”5aaC5L2V5L2/55SoIFdvcmRQcmVzcyDmiZPpgKDnn6XorZjluqs=” body=”5aaC5p6c5YWs5Y+45YWn6YOo5pyJ5a6i5pyN6YOo6ZaA77yM5oOz5b+F5q+P5aSp6YO954K65LqG5a6i5Lq65LiA5qij55qE5ZWP6aGM6KKr6YeN6KaG6Kmi5ZWP77yM6YCZ5pmC5pyJ57ea5LiK55+l6K2Y5bqr55qE6Kmx77yM5bCx5Y+v5Lul6KuL5a6i5Lq65YWI5Y675p+l55yL55yL5pyJ5rKS5pyJ5LuW6ZyA6KaB55qE6LOH6KiK77yM5Lul6ZmN5L2O5a6i5pyN5Lq65ZOh55qE5pmC6ZaT5oiQ5pys44CC5L2/55SoIFdvcmRQcmVzcyDmnInlvojlpJrmlrnlvI/lj6/ku6XoqK3oqIjkuIDlpZfnn6XorZjluqvvvIzlj6/ku6XnlKjlu7rnq4vmlofnq6DnmoTmlrnlvI/kvoblvZnmlbTlrqLkurrluLjnlKjnmoTllY/poYzvvIznhLblvozmkK3phY3nq5nlhafmkJzlsIvlpJbmjpvkvobmj5Dkvpvmm7TlrozmlbTnmoTmkJzlsIvpq5TpqZfvvIzmiJbmmK/nm7TmjqXkvb/nlKjmloflhafmiYDku4vntLnnmoTlpJbmjpvvvIzmiorlsIjploDlgZrnn6XorZjluqvnmoTlhaflrrnoiIfmlofnq6DliIbpmpTplovkvobjgII=” pid=”3038”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4325,10 +4335,11 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
       </categories>
   </entry>
   <entry>
-    <title>如何使用 WordPress 打造知識庫</title>
-    <url>/tw/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-wordpress-%E6%89%93%E9%80%A0%E7%9F%A5%E8%AD%98%E5%BA%AB/</url>
-    <content><![CDATA[<p>如果公司內部有客服部門，想必每天都為了客人一樣的問題被重覆詢問，這時有線上知識庫的話，就可以請客人先去查看看有沒有他需要的資訊，以降低客服人員的時間成本。使用 WordPress 有很多方式可以設計一套知識庫，可以用建立文章的方式來彙整客人常用的問題，然後搭配站內搜尋外掛來提供更完整的搜尋體驗，或是直接使用文內所介紹的外掛，把專門做知識庫的內容與文章分隔開來。</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1441339095973090” display=”yes” title=”5aaC5L2V5L2/55SoIFdvcmRQcmVzcyDmiZPpgKDnn6XorZjluqs=” body=”5aaC5p6c5YWs5Y+45YWn6YOo5pyJ5a6i5pyN6YOo6ZaA77yM5oOz5b+F5q+P5aSp6YO954K65LqG5a6i5Lq65LiA5qij55qE5ZWP6aGM6KKr6YeN6KaG6Kmi5ZWP77yM6YCZ5pmC5pyJ57ea5LiK55+l6K2Y5bqr55qE6Kmx77yM5bCx5Y+v5Lul6KuL5a6i5Lq65YWI5Y675p+l55yL55yL5pyJ5rKS5pyJ5LuW6ZyA6KaB55qE6LOH6KiK77yM5Lul6ZmN5L2O5a6i5pyN5Lq65ZOh55qE5pmC6ZaT5oiQ5pys44CC5L2/55SoIFdvcmRQcmVzcyDmnInlvojlpJrmlrnlvI/lj6/ku6XoqK3oqIjkuIDlpZfnn6XorZjluqvvvIzlj6/ku6XnlKjlu7rnq4vmlofnq6DnmoTmlrnlvI/kvoblvZnmlbTlrqLkurrluLjnlKjnmoTllY/poYzvvIznhLblvozmkK3phY3nq5nlhafmkJzlsIvlpJbmjpvkvobmj5Dkvpvmm7TlrozmlbTnmoTmkJzlsIvpq5TpqZfvvIzmiJbmmK/nm7TmjqXkvb/nlKjmloflhafmiYDku4vntLnnmoTlpJbmjpvvvIzmiorlsIjploDlgZrnn6XorZjluqvnmoTlhaflrrnoiIfmlofnq6DliIbpmpTplovkvobjgII=” pid=”3038”]</p>
+    <title>如何在 WordPress 中快速又方便的製作表格</title>
+    <url>/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E4%B8%AD%E5%BF%AB%E9%80%9F%E5%8F%88%E6%96%B9%E4%BE%BF%E7%9A%84%E8%A3%BD%E4%BD%9C%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<p>表格這類的資料形式，在文書軟體上做起來非常容易，但如果是要呈現在網頁上的話，是完全不同的兩件事，如果又不熟 HTML 的話，更是可以三秒就讓表格爆炸，幸好有 TablePress 這套表格外掛，它有視覺化的介面可以設計表格，雖然跟在 Excel 上用起來還是不太一樣，但它可以把設計好的 .csv 或 .xlsx 進行匯入，完成後的表格還有排序以及搜尋功能，非常適合需要用表格呈現大量資料的內容。</p>
+<span id="more"></span>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1557869674320031” display=”yes” title=”5aaC5L2V5ZyoIFdvcmRQcmVzcyDkuK3lv6vpgJ/lj4jmlrnkvr/nmoToo73kvZzooajmoLw=” body=”6KGo5qC86YCZ6aGe55qE6LOH5paZ5b2i5byP77yM5Zyo5paH5pu46Luf6auU5LiK5YGa6LW35L6G6Z2e5bi45a655piT77yM5L2G5aaC5p6c5piv6KaB5ZGI54++5Zyo57ay6aCB5LiK55qE6Kmx77yM5piv5a6M5YWo5LiN5ZCM55qE5YWp5Lu25LqL77yM5aaC5p6c5Y+I5LiN54afIEhUTUwg55qE6Kmx77yM5pu05piv5Y+v5Lul5LiJ56eS5bCx6K6T6KGo5qC854iG54K477yM5bm45aW95pyJIFRhYmxlUHJlc3Mg6YCZ5aWX6KGo5qC85aSW5o6b77yM5a6D5pyJ6KaW6Ka65YyW55qE5LuL6Z2i5Y+v5Lul6Kit6KiI6KGo5qC877yM6ZuW54S26Lef5ZyoIEV4Y2VsIOS4iueUqOi1t+S+humChOaYr+S4jeWkquS4gOaoo++8jOS9huWug+WPr+S7peaKiuioreioiOWlveeahCAuY3N2IOaIliAueGxzeCDpgLLooYzljK/lhaXvvIzlrozmiJDlvoznmoTooajmoLzpgoTmnInmjpLluo/ku6Xlj4rmkJzlsIvlip/og73vvIzpnZ7luLjpganlkIjpnIDopoHnlKjooajmoLzlkYjnj77lpKfph4/os4fmlpnnmoTlhaflrrnjgII=” pid=”3295”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4340,17 +4351,6 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
     <content><![CDATA[<p>在一般情況下，網站通常只有註冊、加入會員的機制，很少看到能退出會員、刪除帳號的功能，在尊重會員隱私以及提供更友善的使用體驗下，加入刪除帳號的功能是個不錯的選擇，也可以在刪除前做問卷調查，蒐集會員流失的原因進而改善，這比留著一堆沒有互動的殭屍會員來得更有意義。這篇文章介紹了兩支外掛來做這功能，需要整理會員名單的朋友可以參考看看～</p>
 <span id="more"></span>
 <p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1595873013853030” display=”yes” title=”5aaC5L2V5ZyoIFdvcmRQcmVzcyDntrLnq5nkuK3mj5DkvpvmnIPlk6HliKrpmaTluLPomZ/nmoTlip/og70=” body=”5Zyo5LiA6Iis5oOF5rOB5LiL77yM57ay56uZ6YCa5bi45Y+q5pyJ6Ki75YaK44CB5Yqg5YWl5pyD5ZOh55qE5qmf5Yi277yM5b6I5bCR55yL5Yiw6IO96YCA5Ye65pyD5ZOh44CB5Yiq6Zmk5biz6Jmf55qE5Yqf6IO977yM5Zyo5bCK6YeN5pyD5ZOh6Zqx56eB5Lul5Y+K5o+Q5L6b5pu05Y+L5ZaE55qE5L2/55So6auU6amX5LiL77yM5Yqg5YWl5Yiq6Zmk5biz6Jmf55qE5Yqf6IO95piv5YCL5LiN6Yyv55qE6YG45pOH77yM5Lmf5Y+v5Lul5Zyo5Yiq6Zmk5YmN5YGa5ZWP5Y236Kq/5p+l77yM6JKQ6ZuG5pyD5ZOh5rWB5aSx55qE5Y6f5Zug6YCy6ICM5pS55ZaE77yM6YCZ5q+U55WZ6JGX5LiA5aCG5rKS5pyJ5LqS5YuV55qE5q6t5bGN5pyD5ZOh5L6G5b6X5pu05pyJ5oSP576p44CC6YCZ56+H5paH56ug5LuL57S55LqG5YWp5pSv5aSW5o6b5L6G5YGa6YCZ5Yqf6IO977yM6ZyA6KaB5pW055CG5pyD5ZOh5ZCN5Zau55qE5pyL5Y+L5Y+v5Lul5Y+D6ICD55yL55yL772e” pid=”3356”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>如何在 WordPress 中快速又方便的製作表格</title>
-    <url>/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E4%B8%AD%E5%BF%AB%E9%80%9F%E5%8F%88%E6%96%B9%E4%BE%BF%E7%9A%84%E8%A3%BD%E4%BD%9C%E8%A1%A8%E6%A0%BC/</url>
-    <content><![CDATA[<p>表格這類的資料形式，在文書軟體上做起來非常容易，但如果是要呈現在網頁上的話，是完全不同的兩件事，如果又不熟 HTML 的話，更是可以三秒就讓表格爆炸，幸好有 TablePress 這套表格外掛，它有視覺化的介面可以設計表格，雖然跟在 Excel 上用起來還是不太一樣，但它可以把設計好的 .csv 或 .xlsx 進行匯入，完成後的表格還有排序以及搜尋功能，非常適合需要用表格呈現大量資料的內容。</p>
-<span id="more"></span>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1557869674320031” display=”yes” title=”5aaC5L2V5ZyoIFdvcmRQcmVzcyDkuK3lv6vpgJ/lj4jmlrnkvr/nmoToo73kvZzooajmoLw=” body=”6KGo5qC86YCZ6aGe55qE6LOH5paZ5b2i5byP77yM5Zyo5paH5pu46Luf6auU5LiK5YGa6LW35L6G6Z2e5bi45a655piT77yM5L2G5aaC5p6c5piv6KaB5ZGI54++5Zyo57ay6aCB5LiK55qE6Kmx77yM5piv5a6M5YWo5LiN5ZCM55qE5YWp5Lu25LqL77yM5aaC5p6c5Y+I5LiN54afIEhUTUwg55qE6Kmx77yM5pu05piv5Y+v5Lul5LiJ56eS5bCx6K6T6KGo5qC854iG54K477yM5bm45aW95pyJIFRhYmxlUHJlc3Mg6YCZ5aWX6KGo5qC85aSW5o6b77yM5a6D5pyJ6KaW6Ka65YyW55qE5LuL6Z2i5Y+v5Lul6Kit6KiI6KGo5qC877yM6ZuW54S26Lef5ZyoIEV4Y2VsIOS4iueUqOi1t+S+humChOaYr+S4jeWkquS4gOaoo++8jOS9huWug+WPr+S7peaKiuioreioiOWlveeahCAuY3N2IOaIliAueGxzeCDpgLLooYzljK/lhaXvvIzlrozmiJDlvoznmoTooajmoLzpgoTmnInmjpLluo/ku6Xlj4rmkJzlsIvlip/og73vvIzpnZ7luLjpganlkIjpnIDopoHnlKjooajmoLzlkYjnj77lpKfph4/os4fmlpnnmoTlhaflrrnjgII=” pid=”3295”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4839,17 +4839,6 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>管理網站所安裝的 APP</title>
-    <url>/tw/%E7%AE%A1%E7%90%86%E7%B6%B2%E7%AB%99%E6%89%80%E5%AE%89%E8%A3%9D%E7%9A%84-app/</url>
-    <content><![CDATA[<p>  近幾年出現了許多服務可以把現成的網站功能透過 js 程式碼「安裝」到你的網站裡面，有點類似 WordPress 外掛的概念，但這類的服務提供了後台更多報表分析，像是使用的狀況、點擊、瀏覽數等等，尤其是對行銷人員非常重要的頁面追縱分析工具，但當時間一久，有安裝的服務變多了，在管理上就會得麻煩，或是臨時找不工程師卻需要使用服務時，不確定自己有沒有把程式碼裝對，這時透過 Gumshoe 這套服務來管理就非常省事。它蒐集了許多常見的網站工具，並整合多種類型的網站，只要安裝好一次他們的程式碼，接下來就可以透過他們的後台進行工具安裝，也可以使用他們開發的 Chrome 瀏覽器外掛來把各種程式碼自動安裝到網站之中，可大幅減少安裝時的障礙以及方便日後如要停用某些工具的狀況。</p>
-<span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1484226628351003” display=”yes” title=”566h55CG57ay56uZ5omA5a6J6KOd55qEIEFQUA==” body=”6L+R5bm+5bm05Ye654++5LqG6Kix5aSa5pyN5YuZ5Y+v5Lul5oqK54++5oiQ55qE57ay56uZ5Yqf6IO96YCP6YGOIGpzIOeoi+W8j+eivOOAjOWuieijneOAjeWIsOS9oOeahOe2suermeijoemdou+8jOaciem7numhnuS8vCBXb3JkUHJlc3Mg5aSW5o6b55qE5qaC5b+177yM5L2G6YCZ6aGe55qE5pyN5YuZ5o+Q5L6b5LqG5b6M5Y+w5pu05aSa5aCx6KGo5YiG5p6Q77yM5YOP5piv5L2/55So55qE54uA5rOB44CB6bue5pOK44CB54CP6Ka95pW4562J562J77yM5bCk5YW25piv5bCN6KGM6Yq35Lq65ZOh6Z2e5bi46YeN6KaB55qE6aCB6Z2i6L+957ix5YiG5p6Q5bel5YW377yM5L2G55W25pmC6ZaT5LiA5LmF77yM5pyJ5a6J6KOd55qE5pyN5YuZ6K6K5aSa5LqG77yM5Zyo566h55CG5LiK5bCx5pyD5b6X6bq754Wp77yM5oiW5piv6Ieo5pmC5om+5LiN5bel56iL5bir5Y276ZyA6KaB5L2/55So5pyN5YuZ5pmC77yM5LiN56K65a6a6Ieq5bex5pyJ5rKS5pyJ5oqK56iL5byP56K86KOd5bCN77yM6YCZ5pmC6YCP6YGOIEd1bXNob2Ug6YCZ5aWX5pyN5YuZ5L6G566h55CG5bCx6Z2e5bi455yB5LqL44CC5a6D6JKQ6ZuG5LqG6Kix5aSa5bi46KaL55qE57ay56uZ5bel5YW377yM5Lim5pW05ZCI5aSa56iu6aGe5Z6L55qE57ay56uZ77yM5Y+q6KaB5a6J6KOd5aW95LiA5qyh5LuW5YCR55qE56iL5byP56K877yM5o6l5LiL5L6G5bCx5Y+v5Lul6YCP6YGO5LuW5YCR55qE5b6M5Y+w6YCy6KGM5bel5YW35a6J6KOd77yM5Lmf5Y+v5Lul5L2/55So5LuW5YCR6ZaL55m855qEIENocm9tZSDngI/opr3lmajlpJbmjpvkvobmiorlkITnqK7nqIvlvI/norzoh6rli5Xlronoo53liLDntrLnq5nkuYvkuK3vvIzlj6/lpKfluYXmuJvlsJHlronoo53mmYLnmoTpmpznpJnku6Xlj4rmlrnkvr/ml6XlvozlpoLopoHlgZznlKjmn5Dkupvlt6XlhbfnmoTni4Dms4HjgII=” pid=”3131”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
     <title>網址與 LOGO 一站搞定</title>
     <url>/tw/%E7%B6%B2%E5%9D%80%E8%88%87-logo-%E4%B8%80%E7%AB%99%E6%90%9E%E5%AE%9A/</url>
     <content><![CDATA[<p>  要開始一個新網站最困難的就是網址發想與網站名稱，BrandPa 這個服務就是為了解決這個問題，輸入關鍵字就可以找到適合的網址以及完成度很高的 LOGO 設計，也可以透過產業別來進行搜尋，而且數量不少，費用部份則直接包含網域以及設計費一次買斷。</p>
@@ -4861,11 +4850,11 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>網站測速三合一工具</title>
-    <url>/tw/%E7%B6%B2%E7%AB%99%E6%B8%AC%E9%80%9F%E4%B8%89%E5%90%88%E4%B8%80%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>  Varvy 這工具除了可以測試 Google 的 Page Speed 外，還可以針對 SEO 與行動裝置做分析，它把測試結果做視覺化的呈現，並且針對每個項目提供具體的修改說明，也同時介紹了許多網站優化的相關知識，可以說是 Page Speed Insight 的加強版。</p>
+    <title>管理網站所安裝的 APP</title>
+    <url>/tw/%E7%AE%A1%E7%90%86%E7%B6%B2%E7%AB%99%E6%89%80%E5%AE%89%E8%A3%9D%E7%9A%84-app/</url>
+    <content><![CDATA[<p>  近幾年出現了許多服務可以把現成的網站功能透過 js 程式碼「安裝」到你的網站裡面，有點類似 WordPress 外掛的概念，但這類的服務提供了後台更多報表分析，像是使用的狀況、點擊、瀏覽數等等，尤其是對行銷人員非常重要的頁面追縱分析工具，但當時間一久，有安裝的服務變多了，在管理上就會得麻煩，或是臨時找不工程師卻需要使用服務時，不確定自己有沒有把程式碼裝對，這時透過 Gumshoe 這套服務來管理就非常省事。它蒐集了許多常見的網站工具，並整合多種類型的網站，只要安裝好一次他們的程式碼，接下來就可以透過他們的後台進行工具安裝，也可以使用他們開發的 Chrome 瀏覽器外掛來把各種程式碼自動安裝到網站之中，可大幅減少安裝時的障礙以及方便日後如要停用某些工具的狀況。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1416852018421798” display=”yes” title=”57ay56uZ5ris6YCf5LiJ5ZCI5LiA5bel5YW3” body=”VmFydnkg6YCZ5bel5YW36Zmk5LqG5Y+v5Lul5ris6KmmIEdvb2dsZSDnmoQgUGFnZSBTcGVlZCDlpJbvvIzpgoTlj6/ku6Xph53lsI0gU0VPIOiIh+ihjOWLleijnee9ruWBmuWIhuaekO+8jOWug+aKiua4rOippue1kOaenOWBmuimluimuuWMlueahOWRiOePvu+8jOS4puS4lOmHneWwjeavj+WAi+mgheebruaPkOS+m+WFt+mrlOeahOS/ruaUueiqquaYju+8jOS5n+WQjOaZguS7i+e0ueS6huioseWkmue2suermeWEquWMlueahOebuOmXnOefpeitmO+8jOWPr+S7peiqquaYryBQYWdlIFNwZWVkIEluc2lnaHQg55qE5Yqg5by354mI44CC” pid=”2969”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1484226628351003” display=”yes” title=”566h55CG57ay56uZ5omA5a6J6KOd55qEIEFQUA==” body=”6L+R5bm+5bm05Ye654++5LqG6Kix5aSa5pyN5YuZ5Y+v5Lul5oqK54++5oiQ55qE57ay56uZ5Yqf6IO96YCP6YGOIGpzIOeoi+W8j+eivOOAjOWuieijneOAjeWIsOS9oOeahOe2suermeijoemdou+8jOaciem7numhnuS8vCBXb3JkUHJlc3Mg5aSW5o6b55qE5qaC5b+177yM5L2G6YCZ6aGe55qE5pyN5YuZ5o+Q5L6b5LqG5b6M5Y+w5pu05aSa5aCx6KGo5YiG5p6Q77yM5YOP5piv5L2/55So55qE54uA5rOB44CB6bue5pOK44CB54CP6Ka95pW4562J562J77yM5bCk5YW25piv5bCN6KGM6Yq35Lq65ZOh6Z2e5bi46YeN6KaB55qE6aCB6Z2i6L+957ix5YiG5p6Q5bel5YW377yM5L2G55W25pmC6ZaT5LiA5LmF77yM5pyJ5a6J6KOd55qE5pyN5YuZ6K6K5aSa5LqG77yM5Zyo566h55CG5LiK5bCx5pyD5b6X6bq754Wp77yM5oiW5piv6Ieo5pmC5om+5LiN5bel56iL5bir5Y276ZyA6KaB5L2/55So5pyN5YuZ5pmC77yM5LiN56K65a6a6Ieq5bex5pyJ5rKS5pyJ5oqK56iL5byP56K86KOd5bCN77yM6YCZ5pmC6YCP6YGOIEd1bXNob2Ug6YCZ5aWX5pyN5YuZ5L6G566h55CG5bCx6Z2e5bi455yB5LqL44CC5a6D6JKQ6ZuG5LqG6Kix5aSa5bi46KaL55qE57ay56uZ5bel5YW377yM5Lim5pW05ZCI5aSa56iu6aGe5Z6L55qE57ay56uZ77yM5Y+q6KaB5a6J6KOd5aW95LiA5qyh5LuW5YCR55qE56iL5byP56K877yM5o6l5LiL5L6G5bCx5Y+v5Lul6YCP6YGO5LuW5YCR55qE5b6M5Y+w6YCy6KGM5bel5YW35a6J6KOd77yM5Lmf5Y+v5Lul5L2/55So5LuW5YCR6ZaL55m855qEIENocm9tZSDngI/opr3lmajlpJbmjpvkvobmiorlkITnqK7nqIvlvI/norzoh6rli5Xlronoo53liLDntrLnq5nkuYvkuK3vvIzlj6/lpKfluYXmuJvlsJHlronoo53mmYLnmoTpmpznpJnku6Xlj4rmlrnkvr/ml6XlvozlpoLopoHlgZznlKjmn5Dkupvlt6XlhbfnmoTni4Dms4HjgII=” pid=”3131”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -4877,6 +4866,17 @@ function resizeWidth(pMatchMedia)&#123;
     <content><![CDATA[<p>網站的載入速度，非常大一部份是站內所使用的媒體，尤其是圖片，看過許多網站直接把做成 DM、平面文宣物的高解析度 300 DPI 的圖檔直接上傳網站，這會嚴重拖累網站的載入速度，所以通常我們在提升網站載入速度的評估中，第一件事就是先請站主檢查網站內的圖片是否過大。   今天分享的這個服務就是專門針對網站圖片來進行優化，輸入網址後，它會自動分析出該頁面中所有圖片的載入時間、容量，以及建議每個圖檔要用什麼格式最能有效減少尺寸，讓我們在上傳圖檔前就能先進行優化。</p>
 <span id="more"></span>
 <p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1387324738041193” display=”yes” title=”57ay56uZ55qE6LyJ5YWl6YCf5bqm77yM6Z2e5bi45aSn5LiA6YOo5Lu95piv56uZ5YWn5omA5L2/55So55qE5aqS6auU77yM5bCk5YW25piv5ZyW54mH77yM55yL6YGO6Kix5aSa57ay56uZ55u05o6l5oqK5YGa5oiQIERN44CB5bmz6Z2i5paH5a6j54mp55qE6auY6Kej5p6Q5bqmIDMwMCBEUEkg55qE5ZyW5qqU55u05o6l5LiK5YKz57ay56uZ77yM6YCZ5pyD5Zq06YeN5ouW57Sv57ay56uZ55qE6LyJ5YWl6YCf5bqm77yM5omA5Lul6YCa5bi45oiR5YCR5Zyo5o+Q5Y2H57ay56uZ6LyJ5YWl6YCf5bqm55qE6KmV5Lyw5Lit77yM56ys5LiA5Lu25LqL5bCx5piv5YWI6KuL56uZ5Li75qqi5p+l57ay56uZ5YWn55qE5ZyW54mH5piv5ZCm6YGO5aSn44CC” body=”5LuK5aSp5YiG5Lqr55qE6YCZ5YCL5pyN5YuZ5bCx5piv5bCI6ZaA6Yed5bCN57ay56uZ5ZyW54mH5L6G6YCy6KGM5YSq5YyW77yM6Ly45YWl57ay5Z2A5b6M77yM5a6D5pyD6Ieq5YuV5YiG5p6Q5Ye66Kmy6aCB6Z2i5Lit5omA5pyJ5ZyW54mH55qE6LyJ5YWl5pmC6ZaT44CB5a656YeP77yM5Lul5Y+K5bu66K2w5q+P5YCL5ZyW5qqU6KaB55So5LuA6bq85qC85byP5pyA6IO95pyJ5pWI5rib5bCR5bC65a+477yM6K6T5oiR5YCR5Zyo5LiK5YKz5ZyW5qqU5YmN5bCx6IO95YWI6YCy6KGM5YSq5YyW44CC” pid=”2890”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>網站測速三合一工具</title>
+    <url>/tw/%E7%B6%B2%E7%AB%99%E6%B8%AC%E9%80%9F%E4%B8%89%E5%90%88%E4%B8%80%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>  Varvy 這工具除了可以測試 Google 的 Page Speed 外，還可以針對 SEO 與行動裝置做分析，它把測試結果做視覺化的呈現，並且針對每個項目提供具體的修改說明，也同時介紹了許多網站優化的相關知識，可以說是 Page Speed Insight 的加強版。</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1416852018421798” display=”yes” title=”57ay56uZ5ris6YCf5LiJ5ZCI5LiA5bel5YW3” body=”VmFydnkg6YCZ5bel5YW36Zmk5LqG5Y+v5Lul5ris6KmmIEdvb2dsZSDnmoQgUGFnZSBTcGVlZCDlpJbvvIzpgoTlj6/ku6Xph53lsI0gU0VPIOiIh+ihjOWLleijnee9ruWBmuWIhuaekO+8jOWug+aKiua4rOippue1kOaenOWBmuimluimuuWMlueahOWRiOePvu+8jOS4puS4lOmHneWwjeavj+WAi+mgheebruaPkOS+m+WFt+mrlOeahOS/ruaUueiqquaYju+8jOS5n+WQjOaZguS7i+e0ueS6huioseWkmue2suermeWEquWMlueahOebuOmXnOefpeitmO+8jOWPr+S7peiqquaYryBQYWdlIFNwZWVkIEluc2lnaHQg55qE5Yqg5by354mI44CC” pid=”2969”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -5006,17 +5006,6 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>讓你的網站也有跟 FB 貼文一樣的表情符號回饋</title>
-    <url>/tw/%E8%AE%93%E4%BD%A0%E7%9A%84%E7%B6%B2%E7%AB%99%E4%B9%9F%E6%9C%89%E8%B7%9F-fb-%E8%B2%BC%E6%96%87%E4%B8%80%E6%A8%A3%E7%9A%84%E8%A1%A8%E6%83%85%E7%AC%A6%E8%99%9F%E5%9B%9E%E9%A5%8B/</url>
-    <content><![CDATA[<p>從去年開始，FB 貼文除了可以點「讚」，還可以選擇其它四種心情，也有越來越多的粉絲團利用這功能舉辦活動，但 Facebook 提供嵌入到網站的 Like 小工具，還是只能點讚，如果你希望也有其它表情符號可以點的話可以參考 Emojics 這個服務，簡單來說它就是提供一種回饋機制，讓網站本身除了「讚」以外還有其它心情可以選擇，這服務還提供後台數據可以進行分析，只是目前並無與 Facebook 數據連動。</p>
-<span id="more"></span>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1587186854721646” display=”yes” title=”6K6T5L2g55qE57ay56uZ5Lmf5pyJ6LefIEZCIOiyvOaWh+S4gOaoo+eahOihqOaDheespuiZn+Wbnumliw==” body=”5b6e5Y675bm06ZaL5aeL77yMRkIg6LK85paH6Zmk5LqG5Y+v5Lul6bue44CM6K6a44CN77yM6YKE5Y+v5Lul6YG45pOH5YW25a6D5Zub56iu5b+D5oOF77yM5Lmf5pyJ6LaK5L6G6LaK5aSa55qE57KJ57Wy5ZyY5Yip55So6YCZ5Yqf6IO96IiJ6L6m5rS75YuV77yM5L2GIEZhY2Vib29rIOaPkOS+m+W1jOWFpeWIsOe2suermeeahCBMaWtlIOWwj+W3peWFt++8jOmChOaYr+WPquiDvem7nuiumu+8jOWmguaenOS9oOW4jOacm+S5n+acieWFtuWug+ihqOaDheespuiZn+WPr+S7pem7nueahOipseWPr+S7peWPg+iAgyBFbW9qaWNzIOmAmeWAi+acjeWLme+8jOewoeWWruS+huiqquWug+WwseaYr+aPkOS+m+S4gOeoruWbnumli+apn+WItu+8jOiuk+e2suermeacrOi6q+mZpOS6huOAjOiumuOAjeS7peWklumChOacieWFtuWug+W/g+aDheWPr+S7pemBuOaTh++8jOmAmeacjeWLmemChOaPkOS+m+W+jOWPsOaVuOaTmuWPr+S7pemAsuihjOWIhuaekO+8jOWPquaYr+ebruWJjeS4pueEoeiIhyBGYWNlYm9vayDmlbjmk5rpgKPli5XjgII=” pid=”3349”]</p>
-]]></content>
-      <categories>
-        <category>WordPress</category>
-      </categories>
-  </entry>
-  <entry>
     <title>親愛的～我把 iPhone 變一頁了！</title>
     <url>/tw/%E8%A6%AA%E6%84%9B%E7%9A%84%EF%BD%9E%E6%88%91%E6%8A%8A-iphone-%E8%AE%8A%E6%88%90%E4%B8%80%E9%A0%81%E4%BA%86%EF%BC%81/</url>
     <content><![CDATA[<p>很難想像一個月前的我，從客廳走到廁所去刷牙需要花十分鐘的時間，不是我家有三百坪，而是因為途中邊走邊回 Line，擠牙膏前還要再打一下，邊刷時還不停的查看對方有沒有回，現在想想覺得自己是有事嗎？</p>
@@ -5072,21 +5061,14 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>資訊架構設計流程一：研究</title>
-    <url>/tw/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%B5%81%E7%A8%8B%E4%B8%80%EF%BC%9A%E7%A0%94%E7%A9%B6/</url>
-    <content><![CDATA[<p>資訊架構設計流程概觀：研究&gt;策略&gt;設計&gt;實作&gt;管理。這些看似完美無缺的架構當中，對於有經驗的網站企劃者而言，彷彿只會出現在夢裡，要如何落實在工作過程中，必需靠的不只是理論，還有做人處事的道理。</p>
-<h3 id="理論難道真的只是理論"><a href="#理論難道真的只是理論" class="headerlink" title="理論難道真的只是理論?"></a>理論難道真的只是理論?</h3><p>非常多的網站，往往都是在傖促中蘊釀出來，原因不外乎是在公司草創階段，網站的角色只是輔助工具，縱使是以電子商務為主要營收之公司，內部也缺乏專業人才，最後通常以技術導向為出發點，開始進行網站架設的專案。特別是在傳統產業，老闆的直覺架設網站需要的就是技術，因而未將網站的發展策略納入公司營運方針中，最後變成雙頭馬車，各自為陣。 談到關於網路媒體的組織共識，不得不提到這次台北市市長選舉的蘇貞昌陣營所規劃的「新媒體部門」(本人僅就組織規劃為探討重點，無任何政治色彩)</p>
+    <title>讓你的網站也有跟 FB 貼文一樣的表情符號回饋</title>
+    <url>/tw/%E8%AE%93%E4%BD%A0%E7%9A%84%E7%B6%B2%E7%AB%99%E4%B9%9F%E6%9C%89%E8%B7%9F-fb-%E8%B2%BC%E6%96%87%E4%B8%80%E6%A8%A3%E7%9A%84%E8%A1%A8%E6%83%85%E7%AC%A6%E8%99%9F%E5%9B%9E%E9%A5%8B/</url>
+    <content><![CDATA[<p>從去年開始，FB 貼文除了可以點「讚」，還可以選擇其它四種心情，也有越來越多的粉絲團利用這功能舉辦活動，但 Facebook 提供嵌入到網站的 Like 小工具，還是只能點讚，如果你希望也有其它表情符號可以點的話可以參考 Emojics 這個服務，簡單來說它就是提供一種回饋機制，讓網站本身除了「讚」以外還有其它心情可以選擇，這服務還提供後台數據可以進行分析，只是目前並無與 Facebook 數據連動。</p>
 <span id="more"></span>
-<p>在這種大範圍以及急迫性的專案中，相信應該是不可能有太多的時間來做研究，而會是以策略來做整體執行的依據，這關係到主事者的視野，坦白說這會是一場賭注，選民不見得會買單，但從設計的角度來看，蘇陣營的做法至少為台灣的選戰增添了不同的面貌，視覺傳達首次在這樣的選舉場合中被大量的利用。 回到企業的本身，對於老闆而言，情況好像也沒好到那裡去，礙於商業競爭及預算的考量，研究這檔事很少會被列為主要的工作項目，就算有也只是淺度的調查。</p>
-<h3 id="雞生蛋？蛋生雞？"><a href="#雞生蛋？蛋生雞？" class="headerlink" title="雞生蛋？蛋生雞？"></a>雞生蛋？蛋生雞？</h3><p>通常一個網站的發展策略，往往都會是照著企業主的想法來規劃。最近有兩位朋友想請我幫忙做網站，一個是單純的企業網站，一個是電子商務網站，雖然類型不同，但相同處在於老闆的主觀意識決定了整個網站的發展架構，也因此策略往往會比研究結果先形成，最後變成是由研究來佐證策略，而不是由研究結果導出經營策略。 我詢問朋友，新創網站何不問問目標對象的想法？或是有無看過類似的國內外網站？得到的答案，背後的動機都是以保護自己的創意為出發點，換作是我，我可能也會這樣做，但是如要讓人能敞開胸懷接受想法，彼此的信任就要從做人處事，以及建立客觀的研究開始， 因此順著老闆的思維脈絡來進行研究工作，會是比較實際的做法，也藉此能獲得老闆的認同，以利未來專案的運行。</p>
-<h3 id="策略性的研究"><a href="#策略性的研究" class="headerlink" title="策略性的研究"></a>策略性的研究</h3><p>可研究、要研究的東西實在太多，但絕對不能不研究的就是老闆的想法，有時會因為必須推動該推動的工作，而要擬定研究方針，這過程不僅是資料的呈現，更是要揣摩上意來進行運作，但整體而言，主要不會脫離這三大方向： <img src="https://oberonlai.blog/wp-content/uploads/2010/10/021.jpg" alt="網站企劃三原則"></p>
-<h4 id="商業情境"><a href="#商業情境" class="headerlink" title="商業情境"></a>商業情境</h4><p>站在老闆的角度來思考，這些就是公司的商業背景，舉凡像是公司產品的賣點在那？想要賣給誰？跟我們搶生意的是誰？通路怎麼鋪？成本如何控制？消費市場的風向等等，而對於網站規劃者，更是要優先了解關於公司的文化、政治及組織架構。 了解的目的在於可以先區分出組織中的利害關係人，從中尋找問題的答案；並且在初次的會議中，能夠召集所有網站架設的關係人，解釋資訊架構就如同圖書館中的書籍分類，這些分類的方式，會因為公司的商業策略、內容提供、以及目標對象有所不同， 最好的方式，可以提供各面向的實際錯誤範例，來說明缺乏良好的資訊架構所造成的危機，透過影像的說明，讓全體有共識，也藉此觀察企業內部是否有潛在的溝通問題。 取得全體共識後，可針對各別部門進行意見蒐集，這些所蒐集到的資料，可移至內容分析時進行比對。</p>
-<h4 id="內容管理"><a href="#內容管理" class="headerlink" title="內容管理"></a>內容管理</h4><p>主要是指對於網站內容的系統化管理。網站中包含許多資料，像是照片、圖片、影片或是文字等類型，而這些資料的產生來源，或是更新頻率以及存放結構，都關係到網站是否能經營良好。 內容研究的時機，在現有網站決定改版的情況下，來逐頁檢視不足之處，從下而上的觀點，發現對於網站發展目標不符合的設計，或是違反通用原則的不良設計。譬如像是過多的導覽選項，或是沒有清楚標明所在頁面等缺失。 而對於新創網站，則是要先了解未來要放上網站的內容，無論是格式或是來源，均先取得初步的認識，以利後續規劃之架構，以及技術上的評估。 要做內容分析的研究，可以先行了解組織目的，譬如這次網站改版，是想增加公司網站的行銷功能，在研究時，就可以針對現行網站的廣告類型來做蒐集，可能有分為側欄廣告、橫幅廣告、flash互動式廣告、純文字廣告、置入型廣告等等，再從這些內容中進行分析， 分析的重點在於先找出這些廣告位於網站中的那一階層、那一分類項目下，再行描述這些樣本的格式、呈現位置、方式，再將這些重點與行銷目標加以結合，找出新的方式或是可行辦法。 內容分析的重點，不外乎是重新釐清網站發展目標以突顯其特色，甚至可分析同業之網站內容，截取其優點並加以運用，都是在進行內容分析時，可以研究的方向。</p>
-<h4 id="目標對象"><a href="#目標對象" class="headerlink" title="目標對象"></a>目標對象</h4><p>一個網站可能要給許多不同身份、年齡或是性別的用戶使用，能夠越了解目標對象的使用習慣，在實際設計上會更有方向和依據。在未能與使用者直接接觸的情況下，流量分析統計以及搜尋字串分析或是很好的間接觀察方法。 流量統計可以觀察網頁瀏覽的趨勢，透過目標的設定，來檢討專案的執行成果；而搜尋字串研究，更可以從用戶的角度，來了解他們會使用什麼樣的字眼，來搜尋公司的相關訊息，也可藉此發展控制詞彙，增加搜尋時的準確度。 此外，實際進行使用者測試，是最直接的研究方法，或是以卡片排序法來進行資訊架構的發展，在網路服務高度競爭的市場上，消費者的注意力十分有限，如何在這競爭中脫穎而出，關鍵就在於企業對於用戶的了解，所發展出的功能，因此將使用者為中心的設計觀念，是現今網站架設非常注重的一環。</p>
-<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>對於網站的研究可從這三方面著手：商業情境、內容管理、目標對象。雖然對於目前的業主而言，投資研究似乎在網站的專案中，尚未被視為必備的關鍵流程，但少了這階段，未來可能需要花更多的時間和金錢來重新建置網站，而且在經營的過程中，一定會碰到許多無法解釋的現象，唯有放下成見，向用戶學習，才能走的長遠，進而達到企業願景。</p>
+<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1587186854721646” display=”yes” title=”6K6T5L2g55qE57ay56uZ5Lmf5pyJ6LefIEZCIOiyvOaWh+S4gOaoo+eahOihqOaDheespuiZn+Wbnumliw==” body=”5b6e5Y675bm06ZaL5aeL77yMRkIg6LK85paH6Zmk5LqG5Y+v5Lul6bue44CM6K6a44CN77yM6YKE5Y+v5Lul6YG45pOH5YW25a6D5Zub56iu5b+D5oOF77yM5Lmf5pyJ6LaK5L6G6LaK5aSa55qE57KJ57Wy5ZyY5Yip55So6YCZ5Yqf6IO96IiJ6L6m5rS75YuV77yM5L2GIEZhY2Vib29rIOaPkOS+m+W1jOWFpeWIsOe2suermeeahCBMaWtlIOWwj+W3peWFt++8jOmChOaYr+WPquiDvem7nuiumu+8jOWmguaenOS9oOW4jOacm+S5n+acieWFtuWug+ihqOaDheespuiZn+WPr+S7pem7nueahOipseWPr+S7peWPg+iAgyBFbW9qaWNzIOmAmeWAi+acjeWLme+8jOewoeWWruS+huiqquWug+WwseaYr+aPkOS+m+S4gOeoruWbnumli+apn+WItu+8jOiuk+e2suermeacrOi6q+mZpOS6huOAjOiumuOAjeS7peWklumChOacieWFtuWug+W/g+aDheWPr+S7pemBuOaTh++8jOmAmeacjeWLmemChOaPkOS+m+W+jOWPsOaVuOaTmuWPr+S7pemAsuihjOWIhuaekO+8jOWPquaYr+ebruWJjeS4pueEoeiIhyBGYWNlYm9vayDmlbjmk5rpgKPli5XjgII=” pid=”3349”]</p>
 ]]></content>
       <categories>
-        <category>網站企劃</category>
+        <category>WordPress</category>
       </categories>
   </entry>
   <entry>
@@ -5137,11 +5119,18 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>資訊架構設計流程二-策略</title>
-    <url>/tw/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%B5%81%E7%A8%8B%E4%BA%8C-%E7%AD%96%E7%95%A5/</url>
-    <content><![CDATA[<p>在從事網頁設計的經驗中，常常在第一次接洽時，遇到下列的問題： <strong><em>1.我們想做網站，內容沒有很多，越簡單越好。</em></strong> <strong><em>2.我們想做網站，只要和<a href="http://www.xxx.com一模一樣就好./">www.XXX.com一模一樣就好。</a></em></strong> <strong><em>3.我們想做網站，請報價</em></strong> <img src="https://oberonlai.blog/wp-content/uploads/2010/12/01.jpg" alt="長期受大雄威脅而患有被害幻想症的哆啦A夢"> 長期受大雄威脅而患有被害幻想症的哆啦A夢</p>
+    <title>資訊架構設計流程一：研究</title>
+    <url>/tw/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%B5%81%E7%A8%8B%E4%B8%80%EF%BC%9A%E7%A0%94%E7%A9%B6/</url>
+    <content><![CDATA[<p>資訊架構設計流程概觀：研究&gt;策略&gt;設計&gt;實作&gt;管理。這些看似完美無缺的架構當中，對於有經驗的網站企劃者而言，彷彿只會出現在夢裡，要如何落實在工作過程中，必需靠的不只是理論，還有做人處事的道理。</p>
+<h3 id="理論難道真的只是理論"><a href="#理論難道真的只是理論" class="headerlink" title="理論難道真的只是理論?"></a>理論難道真的只是理論?</h3><p>非常多的網站，往往都是在傖促中蘊釀出來，原因不外乎是在公司草創階段，網站的角色只是輔助工具，縱使是以電子商務為主要營收之公司，內部也缺乏專業人才，最後通常以技術導向為出發點，開始進行網站架設的專案。特別是在傳統產業，老闆的直覺架設網站需要的就是技術，因而未將網站的發展策略納入公司營運方針中，最後變成雙頭馬車，各自為陣。 談到關於網路媒體的組織共識，不得不提到這次台北市市長選舉的蘇貞昌陣營所規劃的「新媒體部門」(本人僅就組織規劃為探討重點，無任何政治色彩)</p>
 <span id="more"></span>
-<p>起初我的第一個反應常常是一頭霧水，但經過很多這樣的例子後，我開始從客戶的立場去了解提出這些問題背後的動機。如果我今天想要在家中安裝太陽能發電板，我想我問廠商的第一個問題也會是「請幫我安裝跟隔壁鄰居的一樣的太陽能版」、「安裝一片多少錢？」。 從自己的角度看待自己的專業，當然會有許多知識領域的細節，但以消費者的立場，並不需要知道汽車的運作原理，因此該如何從專業領域的範疇，銜接至客戶的需求認知，透過白話翻譯的溝通，在配合上才能有給彼此空間的機會，因此通常我會將話題往下追問，透過資訊架構設計四步驟。 <img src="https://oberonlai.blog/wp-content/uploads/2010/12/02.jpg" alt="資訊架構設計四步驟"> 資訊架構設計四步驟 通常一個網站專案到我手上時，大部份都是實作的階段，有些研究或策略部份會已發展的相當有成果，有些則不然，因此判斷自己在此專案中所扮演之角色，往往是首要之務。關於何謂研究的部份，可參考先前的文章[資訊架構設計流程一：研究](<a href="http://goo.gl/F9mjT">http://goo.gl/F9mjT</a> target=)，今天的主題是以策略為主。 在實務經驗之中，所謂真正的策略，是採用科學的研究方法，將老闆心目中的想法，發展成實際可執行之策略， <img src="https://oberonlai.blog/wp-content/uploads/2010/12/03.jpg" alt="資訊架構設計前的假設"> 資訊架構設計前的假設 但事實上，無論對於剛創業之中小企業，亦或上市上櫃大企業，對於策略的發展始終有著無法明確掌握的模糊感，這種不確定性，往往會導致老闆做出較有安全感，但卻不是長久之計之決策，因此在商業策略的發展中，鮮少有企業家能夠與這種不安定感共存，走出與一般人不同的道路。 話說回來，商業策略與網站之間有關係嗎？所謂的網站不就是是一些程式技術建構出來的虛擬世界嗎？事實上，構成網站除了程式技術外，還包含了要放那些內容的規劃，而這些內容的規劃，往往關係到企業的商業策略，而這些規劃也是依據資訊架構設計策略所發展出來的結果，更明確的說，資訊架構設計策略還是發展商業策略的好方法。 原因是，透過網路能讓老闆知道消費者的想法，進而去調整修改營運目標與方向；而網路上也常常是試水溫的絕佳管道，那些產品會賣、那些會滯銷，都可以透過資訊架構的設計，來測試老闆心中想的做法是否可行， 另一方面，當商業策略發展至一定階段，還能回過頭來搭配不同的策略性網站，假如公司想趁聖誕節做一波促銷活動，就可以規劃有時效性的活動網站，或是已採用官網與消費者溝通品牌許久，可採用著陸網頁來直接接觸買家，不同的商業策略又會有不同的網站設計角度，關於網站的類型，可以參考李查背包客之交響曲四樂章，皆有詳細說明其使用背景或情況。 <a href="http://blog.rsbag.net/?p=170">掌握網路行銷活動的節奏—序曲：網路行銷訊息的出現</a> <a href="http://blog.rsbag.net/?p=188">掌握網路行銷活動的節奏-行雲流水的快板獨奏曲：著陸網頁</a> <a href="http://blog.rsbag.net/?p=190">掌握網路行銷活動的節奏-活潑輕快的第三樂章：微型網站</a> <a href="http://blog.rsbag.net/?p=194">掌握網路行銷活動的節奏-氣勢磅礡的最後樂章：企業網站</a> 這篇文章先行淺談商業策略與資訊架構設計策略之關連，後續將針對資訊架架構策略說明其實際作用以其相關做法。</p>
+<p>在這種大範圍以及急迫性的專案中，相信應該是不可能有太多的時間來做研究，而會是以策略來做整體執行的依據，這關係到主事者的視野，坦白說這會是一場賭注，選民不見得會買單，但從設計的角度來看，蘇陣營的做法至少為台灣的選戰增添了不同的面貌，視覺傳達首次在這樣的選舉場合中被大量的利用。 回到企業的本身，對於老闆而言，情況好像也沒好到那裡去，礙於商業競爭及預算的考量，研究這檔事很少會被列為主要的工作項目，就算有也只是淺度的調查。</p>
+<h3 id="雞生蛋？蛋生雞？"><a href="#雞生蛋？蛋生雞？" class="headerlink" title="雞生蛋？蛋生雞？"></a>雞生蛋？蛋生雞？</h3><p>通常一個網站的發展策略，往往都會是照著企業主的想法來規劃。最近有兩位朋友想請我幫忙做網站，一個是單純的企業網站，一個是電子商務網站，雖然類型不同，但相同處在於老闆的主觀意識決定了整個網站的發展架構，也因此策略往往會比研究結果先形成，最後變成是由研究來佐證策略，而不是由研究結果導出經營策略。 我詢問朋友，新創網站何不問問目標對象的想法？或是有無看過類似的國內外網站？得到的答案，背後的動機都是以保護自己的創意為出發點，換作是我，我可能也會這樣做，但是如要讓人能敞開胸懷接受想法，彼此的信任就要從做人處事，以及建立客觀的研究開始， 因此順著老闆的思維脈絡來進行研究工作，會是比較實際的做法，也藉此能獲得老闆的認同，以利未來專案的運行。</p>
+<h3 id="策略性的研究"><a href="#策略性的研究" class="headerlink" title="策略性的研究"></a>策略性的研究</h3><p>可研究、要研究的東西實在太多，但絕對不能不研究的就是老闆的想法，有時會因為必須推動該推動的工作，而要擬定研究方針，這過程不僅是資料的呈現，更是要揣摩上意來進行運作，但整體而言，主要不會脫離這三大方向： <img src="https://oberonlai.blog/wp-content/uploads/2010/10/021.jpg" alt="網站企劃三原則"></p>
+<h4 id="商業情境"><a href="#商業情境" class="headerlink" title="商業情境"></a>商業情境</h4><p>站在老闆的角度來思考，這些就是公司的商業背景，舉凡像是公司產品的賣點在那？想要賣給誰？跟我們搶生意的是誰？通路怎麼鋪？成本如何控制？消費市場的風向等等，而對於網站規劃者，更是要優先了解關於公司的文化、政治及組織架構。 了解的目的在於可以先區分出組織中的利害關係人，從中尋找問題的答案；並且在初次的會議中，能夠召集所有網站架設的關係人，解釋資訊架構就如同圖書館中的書籍分類，這些分類的方式，會因為公司的商業策略、內容提供、以及目標對象有所不同， 最好的方式，可以提供各面向的實際錯誤範例，來說明缺乏良好的資訊架構所造成的危機，透過影像的說明，讓全體有共識，也藉此觀察企業內部是否有潛在的溝通問題。 取得全體共識後，可針對各別部門進行意見蒐集，這些所蒐集到的資料，可移至內容分析時進行比對。</p>
+<h4 id="內容管理"><a href="#內容管理" class="headerlink" title="內容管理"></a>內容管理</h4><p>主要是指對於網站內容的系統化管理。網站中包含許多資料，像是照片、圖片、影片或是文字等類型，而這些資料的產生來源，或是更新頻率以及存放結構，都關係到網站是否能經營良好。 內容研究的時機，在現有網站決定改版的情況下，來逐頁檢視不足之處，從下而上的觀點，發現對於網站發展目標不符合的設計，或是違反通用原則的不良設計。譬如像是過多的導覽選項，或是沒有清楚標明所在頁面等缺失。 而對於新創網站，則是要先了解未來要放上網站的內容，無論是格式或是來源，均先取得初步的認識，以利後續規劃之架構，以及技術上的評估。 要做內容分析的研究，可以先行了解組織目的，譬如這次網站改版，是想增加公司網站的行銷功能，在研究時，就可以針對現行網站的廣告類型來做蒐集，可能有分為側欄廣告、橫幅廣告、flash互動式廣告、純文字廣告、置入型廣告等等，再從這些內容中進行分析， 分析的重點在於先找出這些廣告位於網站中的那一階層、那一分類項目下，再行描述這些樣本的格式、呈現位置、方式，再將這些重點與行銷目標加以結合，找出新的方式或是可行辦法。 內容分析的重點，不外乎是重新釐清網站發展目標以突顯其特色，甚至可分析同業之網站內容，截取其優點並加以運用，都是在進行內容分析時，可以研究的方向。</p>
+<h4 id="目標對象"><a href="#目標對象" class="headerlink" title="目標對象"></a>目標對象</h4><p>一個網站可能要給許多不同身份、年齡或是性別的用戶使用，能夠越了解目標對象的使用習慣，在實際設計上會更有方向和依據。在未能與使用者直接接觸的情況下，流量分析統計以及搜尋字串分析或是很好的間接觀察方法。 流量統計可以觀察網頁瀏覽的趨勢，透過目標的設定，來檢討專案的執行成果；而搜尋字串研究，更可以從用戶的角度，來了解他們會使用什麼樣的字眼，來搜尋公司的相關訊息，也可藉此發展控制詞彙，增加搜尋時的準確度。 此外，實際進行使用者測試，是最直接的研究方法，或是以卡片排序法來進行資訊架構的發展，在網路服務高度競爭的市場上，消費者的注意力十分有限，如何在這競爭中脫穎而出，關鍵就在於企業對於用戶的了解，所發展出的功能，因此將使用者為中心的設計觀念，是現今網站架設非常注重的一環。</p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>對於網站的研究可從這三方面著手：商業情境、內容管理、目標對象。雖然對於目前的業主而言，投資研究似乎在網站的專案中，尚未被視為必備的關鍵流程，但少了這階段，未來可能需要花更多的時間和金錢來重新建置網站，而且在經營的過程中，一定會碰到許多無法解釋的現象，唯有放下成見，向用戶學習，才能走的長遠，進而達到企業願景。</p>
 ]]></content>
       <categories>
         <category>網站企劃</category>
@@ -5159,14 +5148,14 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>購買 WordPress 付費主題的其它選擇</title>
-    <url>/tw/%E8%B3%BC%E8%B2%B7-wordpress-%E4%BB%98%E8%B2%BB%E4%B8%BB%E9%A1%8C%E7%9A%84%E5%85%B6%E5%AE%83%E9%81%B8%E6%93%87/</url>
-    <content><![CDATA[<p>  WordPress 付費主題好用的地方在於有許多現成的頁面以及控制功能可以直接使用，只要匯入展示資料，再逐一把內容替換為自己需要的內容即可。但往往有太多功能的主題反而在設定上會變的太複雜，再加上如果後台的操作體驗設計不佳的話，使用付費主題會成為一場夢靨，尤其是在 Themeforest 上面購買的主題遇到困難的機率很高，建議是有用過 WordPress 一段時間以上的朋友再去購買使用付費主題，或是可以參考其它的主題商店，比較小間的主題開發商他們通常會開發自己的編輯器，所以在使用經驗上較為一致，在使用授權上也比較有彈性，提供給正準備買主題的朋友參考！</p>
+    <title>資訊架構設計流程二-策略</title>
+    <url>/tw/%E8%B3%87%E8%A8%8A%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%B5%81%E7%A8%8B%E4%BA%8C-%E7%AD%96%E7%95%A5/</url>
+    <content><![CDATA[<p>在從事網頁設計的經驗中，常常在第一次接洽時，遇到下列的問題： <strong><em>1.我們想做網站，內容沒有很多，越簡單越好。</em></strong> <strong><em>2.我們想做網站，只要和<a href="http://www.xxx.com一模一樣就好./">www.XXX.com一模一樣就好。</a></em></strong> <strong><em>3.我們想做網站，請報價</em></strong> <img src="https://oberonlai.blog/wp-content/uploads/2010/12/01.jpg" alt="長期受大雄威脅而患有被害幻想症的哆啦A夢"> 長期受大雄威脅而患有被害幻想症的哆啦A夢</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1443153259125007” display=”yes” title=”6LO86LK3IFdvcmRQcmVzcyDku5josrvkuLvpoYznmoTlhbblroPpgbjmk4c=” body=”V29yZFByZXNzIOS7mOiyu+S4u+mhjOWlveeUqOeahOWcsOaWueWcqOaWvOacieioseWkmuePvuaIkOeahOmggemdouS7peWPiuaOp+WItuWKn+iDveWPr+S7peebtOaOpeS9v+eUqO+8jOWPquimgeWMr+WFpeWxleekuuizh+aWme+8jOWGjemAkOS4gOaKiuWFp+Wuueabv+aPm+eCuuiHquW3semcgOimgeeahOWFp+WuueWNs+WPr+OAguS9huW+gOW+gOacieWkquWkmuWKn+iDveeahOS4u+mhjOWPjeiAjOWcqOioreWumuS4iuacg+iuiueahOWkquikh+mbnO+8jOWGjeWKoOS4iuWmguaenOW+jOWPsOeahOaTjeS9nOmrlOmpl+ioreioiOS4jeS9s+eahOipse+8jOS9v+eUqOS7mOiyu+S4u+mhjOacg+aIkOeCuuS4gOWgtOWkoumdqO+8jOWwpOWFtuaYr+WcqCBUaGVtZWZvcmVzdCDkuIrpnaLos7zosrfnmoTkuLvpoYzpgYfliLDlm7Dpm6PnmoTmqZ/njoflvojpq5jvvIzlu7rorbDmmK/mnInnlKjpgY4gV29yZFByZXNzIOS4gOauteaZgumWk+S7peS4iueahOaci+WPi+WGjeWOu+izvOiyt+S9v+eUqOS7mOiyu+S4u+mhjO+8jOaIluaYr+WPr+S7peWPg+iAg+WFtuWug+eahOS4u+mhjOWVhuW6l++8jOavlOi8g+Wwj+mWk+eahOS4u+mhjOmWi+eZvOWVhuS7luWAkemAmuW4uOacg+mWi+eZvOiHquW3seeahOe3qOi8r+WZqO+8jOaJgOS7peWcqOS9v+eUqOe2k+mpl+S4iui8g+eCuuS4gOiHtO+8jOWcqOS9v+eUqOaOiOasiuS4iuS5n+avlOi8g+acieW9iOaAp++8jOaPkOS+m+e1puato+a6luWCmeiyt+S4u+mhjOeahOaci+WPi+WPg+iAg++8gQ==” pid=”3043”]</p>
+<p>起初我的第一個反應常常是一頭霧水，但經過很多這樣的例子後，我開始從客戶的立場去了解提出這些問題背後的動機。如果我今天想要在家中安裝太陽能發電板，我想我問廠商的第一個問題也會是「請幫我安裝跟隔壁鄰居的一樣的太陽能版」、「安裝一片多少錢？」。 從自己的角度看待自己的專業，當然會有許多知識領域的細節，但以消費者的立場，並不需要知道汽車的運作原理，因此該如何從專業領域的範疇，銜接至客戶的需求認知，透過白話翻譯的溝通，在配合上才能有給彼此空間的機會，因此通常我會將話題往下追問，透過資訊架構設計四步驟。 <img src="https://oberonlai.blog/wp-content/uploads/2010/12/02.jpg" alt="資訊架構設計四步驟"> 資訊架構設計四步驟 通常一個網站專案到我手上時，大部份都是實作的階段，有些研究或策略部份會已發展的相當有成果，有些則不然，因此判斷自己在此專案中所扮演之角色，往往是首要之務。關於何謂研究的部份，可參考先前的文章[資訊架構設計流程一：研究](<a href="http://goo.gl/F9mjT">http://goo.gl/F9mjT</a> target=)，今天的主題是以策略為主。 在實務經驗之中，所謂真正的策略，是採用科學的研究方法，將老闆心目中的想法，發展成實際可執行之策略， <img src="https://oberonlai.blog/wp-content/uploads/2010/12/03.jpg" alt="資訊架構設計前的假設"> 資訊架構設計前的假設 但事實上，無論對於剛創業之中小企業，亦或上市上櫃大企業，對於策略的發展始終有著無法明確掌握的模糊感，這種不確定性，往往會導致老闆做出較有安全感，但卻不是長久之計之決策，因此在商業策略的發展中，鮮少有企業家能夠與這種不安定感共存，走出與一般人不同的道路。 話說回來，商業策略與網站之間有關係嗎？所謂的網站不就是是一些程式技術建構出來的虛擬世界嗎？事實上，構成網站除了程式技術外，還包含了要放那些內容的規劃，而這些內容的規劃，往往關係到企業的商業策略，而這些規劃也是依據資訊架構設計策略所發展出來的結果，更明確的說，資訊架構設計策略還是發展商業策略的好方法。 原因是，透過網路能讓老闆知道消費者的想法，進而去調整修改營運目標與方向；而網路上也常常是試水溫的絕佳管道，那些產品會賣、那些會滯銷，都可以透過資訊架構的設計，來測試老闆心中想的做法是否可行， 另一方面，當商業策略發展至一定階段，還能回過頭來搭配不同的策略性網站，假如公司想趁聖誕節做一波促銷活動，就可以規劃有時效性的活動網站，或是已採用官網與消費者溝通品牌許久，可採用著陸網頁來直接接觸買家，不同的商業策略又會有不同的網站設計角度，關於網站的類型，可以參考李查背包客之交響曲四樂章，皆有詳細說明其使用背景或情況。 <a href="http://blog.rsbag.net/?p=170">掌握網路行銷活動的節奏—序曲：網路行銷訊息的出現</a> <a href="http://blog.rsbag.net/?p=188">掌握網路行銷活動的節奏-行雲流水的快板獨奏曲：著陸網頁</a> <a href="http://blog.rsbag.net/?p=190">掌握網路行銷活動的節奏-活潑輕快的第三樂章：微型網站</a> <a href="http://blog.rsbag.net/?p=194">掌握網路行銷活動的節奏-氣勢磅礡的最後樂章：企業網站</a> 這篇文章先行淺談商業策略與資訊架構設計策略之關連，後續將針對資訊架架構策略說明其實際作用以其相關做法。</p>
 ]]></content>
       <categories>
-        <category>WordPress</category>
+        <category>網站企劃</category>
       </categories>
   </entry>
   <entry>
@@ -5181,11 +5170,11 @@ function resizeWidth(pMatchMedia)&#123;
       </categories>
   </entry>
   <entry>
-    <title>跟 iPhone X 學習產品展示技巧</title>
-    <url>/tw/%E8%B7%9F-iphone-x-%E5%AD%B8%E7%BF%92%E7%94%A2%E5%93%81%E5%B1%95%E7%A4%BA%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<p>  以前最害怕聽到客戶說他們的產品展示頁要跟 Apple 一樣有質感，先不提預算問題，也不提產品攝影跟文案，只要稍微跟他們講解每一個畫面中的動態細節，就會換來一種不可思議的表情，然後接下來就會說他們不用這麼複雜的動態效果，只要簡單大概的就好，我想他們應該也明白魔鬼在細節裡，但也明白魔鬼的可怕XD。這次 iPhone X 產品頁的動態效果與之前的相比，算是少了很多，主要還是在捲動頁面的時候，每一個元素包含主標題、次標、產品圖都會有微幅的動態，有興趣的朋友可以去查關鍵字「 視差滾動 Parllax 」，如果有在用 WordPress 視覺化編輯器像是 Divi 之類的，也能做到類似的效果，但與 Apple 完全手刻的就還是有些差距了…</p>
+    <title>購買 WordPress 付費主題的其它選擇</title>
+    <url>/tw/%E8%B3%BC%E8%B2%B7-wordpress-%E4%BB%98%E8%B2%BB%E4%B8%BB%E9%A1%8C%E7%9A%84%E5%85%B6%E5%AE%83%E9%81%B8%E6%93%87/</url>
+    <content><![CDATA[<p>  WordPress 付費主題好用的地方在於有許多現成的頁面以及控制功能可以直接使用，只要匯入展示資料，再逐一把內容替換為自己需要的內容即可。但往往有太多功能的主題反而在設定上會變的太複雜，再加上如果後台的操作體驗設計不佳的話，使用付費主題會成為一場夢靨，尤其是在 Themeforest 上面購買的主題遇到困難的機率很高，建議是有用過 WordPress 一段時間以上的朋友再去購買使用付費主題，或是可以參考其它的主題商店，比較小間的主題開發商他們通常會開發自己的編輯器，所以在使用經驗上較為一致，在使用授權上也比較有彈性，提供給正準備買主題的朋友參考！</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1442245689215764” display=”yes” title=”6LefIGlQaG9uZSBYIOWtuOe/kueUouWTgeWxleekuuaKgOW3pw==” body=”5Lul5YmN5pyA5a6z5oCV6IG95Yiw5a6i5oi26Kqq5LuW5YCR55qE55Si5ZOB5bGV56S66aCB6KaB6LefIEFwcGxlIOS4gOaoo+acieizquaEn++8jOWFiOS4jeaPkOmgkOeul+WVj+mhjO+8jOS5n+S4jeaPkOeUouWTgeaUneW9sei3n+aWh+ahiO+8jOWPquimgeeojeW+rui3n+S7luWAkeism+ino+avj+S4gOWAi+eVq+mdouS4reeahOWLleaFi+e0sOevgO+8jOWwseacg+aPm+S+huS4gOeoruS4jeWPr+aAneitsOeahOihqOaDhe+8jOeEtuW+jOaOpeS4i+S+huWwseacg+iqquS7luWAkeS4jeeUqOmAmem6vOikh+mbnOeahOWLleaFi+aViOaenO+8jOWPquimgeewoeWWruWkp+amgueahOWwseWlve+8jOaIkeaDs+S7luWAkeaHieipsuS5n+aYjueZvemtlOmsvOWcqOe0sOevgOijoe+8jOS9huS5n+aYjueZvemtlOmsvOeahOWPr+aAlVhE44CC6YCZ5qyhIGlQaG9uZSBYIOeUouWTgemggeeahOWLleaFi+aViOaenOiIh+S5i+WJjeeahOebuOavlO+8jOeul+aYr+WwkeS6huW+iOWkmu+8jOS4u+imgemChOaYr+WcqOaNsuWLlemggemdoueahOaZguWAme+8jOavj+S4gOWAi+WFg+e0oOWMheWQq+S4u+aomemhjOOAgeasoeaomeOAgeeUouWTgeWclumDveacg+acieW+ruW5heeahOWLleaFi++8jOacieiIiOi2o+eahOaci+WPi+WPr+S7peWOu+afpemXnOmNteWtl+OAjCDoppblt67mu77li5UgUGFybGxheCDjgI3vvIzlpoLmnpzmnInlnKjnlKggV29yZFByZXNzIOimluimuuWMlue3qOi8r+WZqOWDj+aYryBEaXZpIOS5i+mhnueahO+8jOS5n+iDveWBmuWIsOmhnuS8vOeahOaViOaenO+8jOS9huiIhyBBcHBsZSDlrozlhajmiYvliLvnmoTlsLHpgoTmmK/mnInkupvlt67ot53kuoYuLi4=” pid=”3040”]</p>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1443153259125007” display=”yes” title=”6LO86LK3IFdvcmRQcmVzcyDku5josrvkuLvpoYznmoTlhbblroPpgbjmk4c=” body=”V29yZFByZXNzIOS7mOiyu+S4u+mhjOWlveeUqOeahOWcsOaWueWcqOaWvOacieioseWkmuePvuaIkOeahOmggemdouS7peWPiuaOp+WItuWKn+iDveWPr+S7peebtOaOpeS9v+eUqO+8jOWPquimgeWMr+WFpeWxleekuuizh+aWme+8jOWGjemAkOS4gOaKiuWFp+Wuueabv+aPm+eCuuiHquW3semcgOimgeeahOWFp+WuueWNs+WPr+OAguS9huW+gOW+gOacieWkquWkmuWKn+iDveeahOS4u+mhjOWPjeiAjOWcqOioreWumuS4iuacg+iuiueahOWkquikh+mbnO+8jOWGjeWKoOS4iuWmguaenOW+jOWPsOeahOaTjeS9nOmrlOmpl+ioreioiOS4jeS9s+eahOipse+8jOS9v+eUqOS7mOiyu+S4u+mhjOacg+aIkOeCuuS4gOWgtOWkoumdqO+8jOWwpOWFtuaYr+WcqCBUaGVtZWZvcmVzdCDkuIrpnaLos7zosrfnmoTkuLvpoYzpgYfliLDlm7Dpm6PnmoTmqZ/njoflvojpq5jvvIzlu7rorbDmmK/mnInnlKjpgY4gV29yZFByZXNzIOS4gOauteaZgumWk+S7peS4iueahOaci+WPi+WGjeWOu+izvOiyt+S9v+eUqOS7mOiyu+S4u+mhjO+8jOaIluaYr+WPr+S7peWPg+iAg+WFtuWug+eahOS4u+mhjOWVhuW6l++8jOavlOi8g+Wwj+mWk+eahOS4u+mhjOmWi+eZvOWVhuS7luWAkemAmuW4uOacg+mWi+eZvOiHquW3seeahOe3qOi8r+WZqO+8jOaJgOS7peWcqOS9v+eUqOe2k+mpl+S4iui8g+eCuuS4gOiHtO+8jOWcqOS9v+eUqOaOiOasiuS4iuS5n+avlOi8g+acieW9iOaAp++8jOaPkOS+m+e1puato+a6luWCmeiyt+S4u+mhjOeahOaci+WPi+WPg+iAg++8gQ==” pid=”3043”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -5197,6 +5186,17 @@ function resizeWidth(pMatchMedia)&#123;
     <content><![CDATA[<p>如果要讓訪客可以定時收到網站的最新資訊或是優惠折價，最常見的做法就是提供電子報的訂閱功能讓訪客追縱，而最常見的電子報服務就是 Mailchimp，雖然它有推出 WordPress 外掛但有些項目的管理還是要離開 WordPress 後台，而且資料都還是保存在第三方的主機中，如果想要自己保管會員資料就可以使用 MailPoet 這套專為 WordPress 設計的電子報外掛，它提供了很完整的電子報功能，像是 Email 模版、視覺化編輯器、訂閱者管理，以及最重要的開信數據分析，而且如果沒有超過 2000 位訂閱者這些功能都是免費，非常適合中小型網站來使用。</p>
 <span id="more"></span>
 <p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1585978458175819” display=”yes” title=”6LaF5a6M5pW0IFdvcmRQcmVzcyDpm7vlrZDloLHlt6Xlhbc=” body=”5aaC5p6c6KaB6K6T6Kiq5a6i5Y+v5Lul5a6a5pmC5pS25Yiw57ay56uZ55qE5pyA5paw6LOH6KiK5oiW5piv5YSq5oOg5oqY5YO577yM5pyA5bi46KaL55qE5YGa5rOV5bCx5piv5o+Q5L6b6Zu75a2Q5aCx55qE6KiC6Zax5Yqf6IO96K6T6Kiq5a6i6L+957ix77yM6ICM5pyA5bi46KaL55qE6Zu75a2Q5aCx5pyN5YuZ5bCx5pivIE1haWxjaGltcO+8jOmblueEtuWug+acieaOqOWHuiBXb3JkUHJlc3Mg5aSW5o6b5L2G5pyJ5Lqb6aCF55uu55qE566h55CG6YKE5piv6KaB6Zui6ZaLIFdvcmRQcmVzcyDlvozlj7DvvIzogIzkuJTos4fmlpnpg73pgoTmmK/kv53lrZjlnKjnrKzkuInmlrnnmoTkuLvmqZ/kuK3vvIzlpoLmnpzmg7PopoHoh6rlt7Hkv53nrqHmnIPlk6Hos4fmlpnlsLHlj6/ku6Xkvb/nlKggTWFpbFBvZXQg6YCZ5aWX5bCI54K6IFdvcmRQcmVzcyDoqK3oqIjnmoTpm7vlrZDloLHlpJbmjpvvvIzlroPmj5DkvpvkuoblvojlrozmlbTnmoTpm7vlrZDloLHlip/og73vvIzlg4/mmK8gRW1haWwg5qih54mI44CB6KaW6Ka65YyW57eo6Lyv5Zmo44CB6KiC6Zax6ICF566h55CG77yM5Lul5Y+K5pyA6YeN6KaB55qE6ZaL5L+h5pW45pOa5YiG5p6Q77yM6ICM5LiU5aaC5p6c5rKS5pyJ6LaF6YGOIDIwMDAg5L2N6KiC6Zax6ICF6YCZ5Lqb5Yqf6IO96YO95piv5YWN6LK777yM6Z2e5bi46YGp5ZCI5Lit5bCP5Z6L57ay56uZ5L6G5L2/55So44CC” pid=”3347”]</p>
+]]></content>
+      <categories>
+        <category>WordPress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>跟 iPhone X 學習產品展示技巧</title>
+    <url>/tw/%E8%B7%9F-iphone-x-%E5%AD%B8%E7%BF%92%E7%94%A2%E5%93%81%E5%B1%95%E7%A4%BA%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<p>  以前最害怕聽到客戶說他們的產品展示頁要跟 Apple 一樣有質感，先不提預算問題，也不提產品攝影跟文案，只要稍微跟他們講解每一個畫面中的動態細節，就會換來一種不可思議的表情，然後接下來就會說他們不用這麼複雜的動態效果，只要簡單大概的就好，我想他們應該也明白魔鬼在細節裡，但也明白魔鬼的可怕XD。這次 iPhone X 產品頁的動態效果與之前的相比，算是少了很多，主要還是在捲動頁面的時候，每一個元素包含主標題、次標、產品圖都會有微幅的動態，有興趣的朋友可以去查關鍵字「 視差滾動 Parllax 」，如果有在用 WordPress 視覺化編輯器像是 Divi 之類的，也能做到類似的效果，但與 Apple 完全手刻的就還是有些差距了…</p>
+<span id="more"></span>
+<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1442245689215764” display=”yes” title=”6LefIGlQaG9uZSBYIOWtuOe/kueUouWTgeWxleekuuaKgOW3pw==” body=”5Lul5YmN5pyA5a6z5oCV6IG95Yiw5a6i5oi26Kqq5LuW5YCR55qE55Si5ZOB5bGV56S66aCB6KaB6LefIEFwcGxlIOS4gOaoo+acieizquaEn++8jOWFiOS4jeaPkOmgkOeul+WVj+mhjO+8jOS5n+S4jeaPkOeUouWTgeaUneW9sei3n+aWh+ahiO+8jOWPquimgeeojeW+rui3n+S7luWAkeism+ino+avj+S4gOWAi+eVq+mdouS4reeahOWLleaFi+e0sOevgO+8jOWwseacg+aPm+S+huS4gOeoruS4jeWPr+aAneitsOeahOihqOaDhe+8jOeEtuW+jOaOpeS4i+S+huWwseacg+iqquS7luWAkeS4jeeUqOmAmem6vOikh+mbnOeahOWLleaFi+aViOaenO+8jOWPquimgeewoeWWruWkp+amgueahOWwseWlve+8jOaIkeaDs+S7luWAkeaHieipsuS5n+aYjueZvemtlOmsvOWcqOe0sOevgOijoe+8jOS9huS5n+aYjueZvemtlOmsvOeahOWPr+aAlVhE44CC6YCZ5qyhIGlQaG9uZSBYIOeUouWTgemggeeahOWLleaFi+aViOaenOiIh+S5i+WJjeeahOebuOavlO+8jOeul+aYr+WwkeS6huW+iOWkmu+8jOS4u+imgemChOaYr+WcqOaNsuWLlemggemdoueahOaZguWAme+8jOavj+S4gOWAi+WFg+e0oOWMheWQq+S4u+aomemhjOOAgeasoeaomeOAgeeUouWTgeWclumDveacg+acieW+ruW5heeahOWLleaFi++8jOacieiIiOi2o+eahOaci+WPi+WPr+S7peWOu+afpemXnOmNteWtl+OAjCDoppblt67mu77li5UgUGFybGxheCDjgI3vvIzlpoLmnpzmnInlnKjnlKggV29yZFByZXNzIOimluimuuWMlue3qOi8r+WZqOWDj+aYryBEaXZpIOS5i+mhnueahO+8jOS5n+iDveWBmuWIsOmhnuS8vOeahOaViOaenO+8jOS9huiIhyBBcHBsZSDlrozlhajmiYvliLvnmoTlsLHpgoTmmK/mnInkupvlt67ot53kuoYuLi4=” pid=”3040”]</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
