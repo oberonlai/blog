@@ -204,6 +204,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/vue-js-examples/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/vue-js-examples/" class="post-title-link" itemprop="url">一些堪用的 Vue Components 套件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-02-20 09:51:29" itemprop="dateCreated datePublished" datetime="2019-02-20T09:51:29+08:00">2019-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/vue-js-examples/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="vue-js-examples/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i0.wp.com/oberonlai.blog/wp-content/uploads/2019/02/screely-1550626306459.jpg?fit=1024,651&ssl=1"></p>
+<p>Vue.js Examples 這網站有點像是以前 jQuery Plugin Library 的概念，收集了很多各種封裝好的 UI 元件，內頁還有說明使用方法，但用了幾套後發現有些會跑不起來，可能是版本的問題，我把自己有用過的整理在這篇文章中。</p>
+<h2 id="Simple-and-smooth-vue-accordion"><a href="#Simple-and-smooth-vue-accordion" class="headerlink" title="Simple and smooth vue accordion"></a><a target="_blank" rel="noopener" href="https://vuejsexamples.com/simple-and-smooth-vue-accordion/">Simple and smooth vue accordion</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/vue-faq-accordion.gif"></p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;* 安裝 *&#x2F;
+npm i vue-faq-accordion
+
+&#x2F;* 使用 *&#x2F;
+&lt;template&gt;
+  &lt;VueFaqAccordion 
+    :items&#x3D;&quot;myItems&quot;
+  &#x2F;&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+import VueFaqAccordion from &#39;vue-faq-accordion&#39;
+
+export default &#123;
+  components: &#123;
+    VueFaqAccordion
+  &#125;,
+  data () &#123;
+    return &#123;
+      myItems: [
+          &#123;
+            title: &#39;標題&#39;,
+            value: &#39;內文&#39;,
+            category: &#39;Tab-1&#39; &#x2F;&#x2F; 有輸入 category 會自動分頁籤，不需要頁籤的話就拿掉它
+          &#125;,
+          &#123;
+            title: &#39;標題2&#39;,
+            value: &#39;內文2&#39;,
+            category: &#39;Tab-2&#39;
+          &#125;,
+        ]
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>樣式的部分我是用 scss 直接去硬改，每個都下 !important 去覆寫它，它的 css 都是寫 inline，正規作法應該是要改了之後重新編譯它，但好麻煩，理論上可以用選擇器的權限去蓋過。</p>
+<h2 id="Hooper-Slideshow"><a href="#Hooper-Slideshow" class="headerlink" title="Hooper Slideshow"></a><a target="_blank" rel="noopener" href="https://baianat.github.io/hooper/">Hooper Slideshow</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/CleanShot-2019-02-20-at-09.48.22.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;* 安裝 *&#x2F;
+npm install hooper
+
+&#x2F;* 使用 *&#x2F;
+&lt;template lang&#x3D;&quot;pug&quot;&gt;
+  div
+    hooper(style&#x3D;&#39;height: calc( 750 &#x2F; 1920 *100% )&#39; :centerMode&#x3D;&#39;true&#39; :wheelControl&#x3D;&#39;false&#39;)
+      slide( v-for&#x3D;&#39;slide in slides&#39; key&#x3D;&#39;slide.id&#39; )
+        img(:src&#x3D;&#39;slide.img_url&#39;)
+    .uk-container.layout
+      h1 Search
+&lt;&#x2F;template&gt;
+&lt;script&gt;
+import &#123; Hooper, Slide &#125; from &#39;hooper&#39;
+import &#39;hooper&#x2F;dist&#x2F;hooper.css&#39;;
+export default &#123;
+  name: &#39;&#39;,
+  data () &#123;
+    return &#123;
+      slides: [
+        &#123;id: 1, img_url: &#39;..&#x2F;img&#x2F;slide1.jpg&#39;&#125;,
+        &#123;id: 2, img_url: &#39;..&#x2F;img&#x2F;slide1.jpg&#39;&#125;
+      ]
+    &#125;
+  &#125;,
+  components: &#123;
+    Hooper,
+    Slide
+  &#125;,
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果要用 v-for 迴圈去產出 slide 的話，記得要加 key，不然會噴錯。另外還可以設置 breakpoints，如果想做成 carousel ，可以下 breakpoints 來各別設定 :itemsToShow。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/modal-popup-with-vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1143,7 +1316,7 @@ export default &#123;
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#119;&#x6f;&#114;&#100;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#109;">&#119;&#x6f;&#114;&#100;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
+          <p>在預設情況下，發送系統信的寄件人名稱會是 WordPress 以及 <a href="mailto:&#x77;&#111;&#x72;&#x64;&#x70;&#114;&#x65;&#115;&#115;&#x40;&#x64;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;">&#x77;&#111;&#x72;&#x64;&#x70;&#114;&#x65;&#115;&#115;&#x40;&#x64;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;</a>，在 function.php 加入以下兩個 hook 來進行修改</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 修改發信電子郵件
 function wpb_sender_email( $original_email_address ) &#123;
   return ‘service@domain.com&#39;;
@@ -2575,113 +2748,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E6%AA%94%E6%A1%88%E4%B8%8B%E8%BC%89%E5%8A%9F%E8%83%BD%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E6%AA%94%E6%A1%88%E4%B8%8B%E8%BC%89%E5%8A%9F%E8%83%BD%EF%BC%9F/" class="post-title-link" itemprop="url">WordPress 如何製作檔案下載功能？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-26 12:36:17" itemprop="dateCreated datePublished" datetime="2018-02-26T12:36:17+08:00">2018-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/tw/wordpress-%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E6%AA%94%E6%A1%88%E4%B8%8B%E8%BC%89%E5%8A%9F%E8%83%BD%EF%BC%9F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="wordpress-如何製作檔案下載功能？/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>999</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>常碰到 B2B 類型的企業需要在網站上提供產品型錄或是規格說明書下載的功能嗎？檔案總管的功能除了要讓潛在客戶方便搜尋瀏覽，也要讓企業內部維護人員能方便管理上傳的文件，這篇文章完整說明如何先從新增文章類型開始，設計自己的檔案文件頁面與分類，再到使用 Posts Table Pro 這支付費外掛把文件列表顯示在前台，讓你可以快速完成檔案下載系統。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/wordpress-%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E6%AA%94%E6%A1%88%E4%B8%8B%E8%BC%89%E5%8A%9F%E8%83%BD%EF%BC%9F/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2752,7 +2818,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2763,7 +2829,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tw/tags/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -2813,12 +2879,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">593k</span>
+    <span title="總字數">595k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">8:59</span>
+    <span title="所需總閱讀時間">9:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
