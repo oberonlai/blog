@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tw/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tw/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tw/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/tw/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/tw/css/main.css">
+
+
+<link rel="stylesheet" href="/tw/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="沒關係，會好起來的，我們對你深信不疑！by Lee Han-chul - Super Star  韓劇「機智醫生生活」第二季的其中一集，講到醫院新來了一批實習生，原先的住院醫生也需要承擔更多照顧病人的責任，想當然爾對於很多事情都是新手的他們，犯下了很多令觀眾啼笑皆非的錯誤，但他們的教授都很有耐心的溝通與指導這些新人，並用自身的經歷來安慰實習生的挫折，最後一幕五位主角們也分享了他們在第一年所發生的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="機智接案生活 - 前言">
+<meta property="og:url" content="https://oberonlai.blog/tw/wordpress-freelance-preface/">
+<meta property="og:site_name" content="WordPress 開發日常">
+<meta property="og:description" content="沒關係，會好起來的，我們對你深信不疑！by Lee Han-chul - Super Star  韓劇「機智醫生生活」第二季的其中一集，講到醫院新來了一批實習生，原先的住院醫生也需要承擔更多照顧病人的責任，想當然爾對於很多事情都是新手的他們，犯下了很多令觀眾啼笑皆非的錯誤，但他們的教授都很有耐心的溝通與指導這些新人，並用自身的經歷來安慰實習生的挫折，最後一幕五位主角們也分享了他們在第一年所發生的">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-09-01T06:50:00.000Z">
+<meta property="article:modified_time" content="2021-09-01T06:57:05.647Z">
+<meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
+<meta property="article:tag" content="WooCommerce 金流">
+<meta property="article:tag" content="商業模式">
+<meta property="article:tag" content="WordPress 外尬">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://oberonlai.blog/tw/wordpress-freelance-preface/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>機智接案生活 - 前言 | WordPress 開發日常</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163107142-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/tw/" class="brand" rel="start" style="display: block">
+        <img class="logo-img" src="/tw/images/logo-w.svg" alt="WordPress 開發日常">
+    </a>
+      <p class="site-subtitle" itemprop="description">有任何 WordPress 客製需求歡迎與我聯絡！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-關於我">
+
+    <a href="/tw/about/" rel="section">關於我</a>
+
+  </li>
+        <li class="menu-item menu-item-合作方式">
+
+    <a href="/tw/how-can-oberon-help-you/" rel="section">合作方式</a>
+
+  </li>
+        <li class="menu-item menu-item-計價方式">
+
+    <a href="/tw/how-do-i-make-a-quotation/" rel="section">計價方式</a>
+
+  </li>
+        <li class="menu-item menu-item-學習-wordpress">
+
+    <a href="/tw/wordpress-full-stack/" rel="section">學習 WordPress</a>
+
+  </li>
+        <li class="menu-item menu-item-與我聯繫">
+
+    <a href="mailto:m615926@gmail.com" rel="noopener" target="_blank">與我聯繫</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/oberonlai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-freelance-preface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          機智接案生活 - 前言
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-01 14:50:00 / 修改時間：14:57:05" itemprop="dateCreated datePublished" datetime="2021-09-01T14:50:00+08:00">2021-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E6%8E%A5%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">接案</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/tw/wordpress-freelance-preface/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="wordpress-freelance-preface/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>沒關係，會好起來的，我們對你深信不疑！by Lee Han-chul - Super Star</p>
+</blockquote>
+<p>韓劇「機智醫生生活」第二季的其中一集，講到醫院新來了一批實習生，原先的住院醫生也需要承擔更多照顧病人的責任，想當然爾對於很多事情都是新手的他們，犯下了很多令觀眾啼笑皆非的錯誤，但他們的教授都很有耐心的溝通與指導這些新人，並用自身的經歷來安慰實習生的挫折，最後一幕五位主角們也分享了他們在第一年所發生的糗事，並且當集的練團彈了 Super Star 這一首超療癒的歌 ( 對，他們每一集的主題曲都是五位主角自己彈出來的 )。</p>
+<p>看完這集感觸很深，開始跟老婆討論彼此在職涯中犯過最蠢最不可原諒的錯誤，我犯過最可怕的一次錯誤是在整理網站主機時，當下誤以為某個站客戶已經沒有續租了，於是就順手把它砍掉，結果客戶打來說怎麼網站連不上，一查之下發現就是我誤砍的這個站。</p>
+<p>通常這種情況還好解決，因為我都有幫客戶定期備份，只要還原一下就好，結果不知道怎麼回事，這個站完全沒有備份到，不管是網站備份、主機備份、第三方異地備份，全都沒有這個站的備份檔，我心涼了一大半，最後想盡各種辦法但還是走投無路，只好去求助當初負責建置這個網站的朋友，跟他報告這件慘事，並且準備好銀子，打算請他再全部重新來過。</p>
+<p>結果跟他解釋完之後，他只是很爽快的說：「這小事，我再重新蓋一次就好，很快！」然後我要給他錢他還不肯拿，說我幫他這麼多，該是換他來幫我的時候了，當下覺得自己上輩子不知道燒了什麼好香可以交到這樣的朋友，出社會後能遇到這種情義相挺的朋友真的少之又少。</p>
+<p>大家要知道，我不是入行第一年的新手了，竟然還會發生這種低級失誤，這代表即使是老手，也是常常會犯一些錯誤，只是頻率可能比新手低很多就是了，我這朋友就像機智醫生裡面的教授一樣，專注在錯誤發生後的解決辦法以及補救措施，而非在究責找戰犯鞭一頓，事後再來討論如何避免相同的狀況，這樣才能不讓一樣的錯誤再次發生。</p>
+<p>因此這一系列文章，主要就是想跟大家分享我在十幾年的接案職涯中，犯過的各種蠢事以及踩過的雷，並且是如何學習各種面向的知識以及透過實戰驗證來改善這些問題。</p>
+<p>2019 年中，我曾經思考過轉行，每天過得沒有很開心也沒成就感，重點是存不到什麼錢，但我還是很享受寫程式創作的過程，在歷經了一年半的轉型跟實作，我發展了一套工程師的接案模式，不僅實際驗證完全可行，並且日子比以前過得舒服太多了，也有時間開始寫作、健身、打 PS4。</p>
+<p>如果在我接案第一年就有人可以告訴我這個方法，我可以省下整整十年的摸索期，整整十年的光陰啊～小孩都已經上小學了，秉持著這樣的想法，我想分享給有意離開公司出來全職接案、或是已經在接案但是賺不到什麼錢的工程師朋友，可以用一種全新的思維來思考接案這件事，重點是可以實現自己的理想生活，不管這個理想是可以多賺一點、多陪心愛的人，還是把自己的健康照顧好，能勇敢去追求自己的目標！</p>
+<p>這系列的文章主要分為兩大部分：接案實務與 WooCoomerce 金流外掛開發。</p>
+<p>首先我會先探討接案的實務面，像是為何有穩定的薪水不領要跑去接案、案源要從哪來、如何找到適合自己的客戶、專案該如何進行、如何與客戶溝通、需求該如何確認，以及報價該怎麼報、案子該怎麼結案 ( 這關最難 )，我會站在工程師的角度來解釋這些面向，並且介紹這幾年來我親身驗證過確實可行的接案模式。</p>
+<p>另外每天的工作該如何安排、時間該如何分配，這都是身為接案者必須要知道的事情，畢竟離開公司後一切都要靠自己管理了，我親身經歷過沒有做好這些事的後果，就是想要轉行了XD</p>
+<p>當案源穩定之後要如何提升收入是下一階段的目標，除了接案以外還能做哪些事來拓展事業，像是如何從個人單打獨鬥變成團體戰的方法。我早期接案都是跟朋友一起合作，後來案件都是以外掛開發居多，所以變成獨立開發，但因為有了一套接案模式，我嘗試著把這樣的模式複製出來，變成有多個夥伴可以處理多個案件，同時也把接案的池子變大，這部分我會說明這樣的合作模式是如何運作的，以及需要注意的細節。</p>
+<p>第二部分我會介紹我賴以維生的接案工具 - WordPress，在十年前開始使用 WordPress 是因為我不會寫半行 PHP，更不懂資料庫、伺服器的任何知識，而 WordPress 幫我搞定了這一切，十年過去了，WordPress 已經是全球最多人在用的內容管理系統，我很慶幸上對了車，我的後端知識全都是由 WordPress 教會我的，並且以此衍伸到其他更進階的知識。</p>
+<p>雖然現在已經有非常多更便利的建站技術，但不論使用人數、周邊生態系、社群 WordPress 都非常活躍，簡單說就是以 WordPress 接案是不會缺案子的，光是國內的案子就已經可以接到手軟，更不用說國外還有一堆，這對於想要接案的朋友來說是很好的切入點，池子越大機會一定會越多。</p>
+<p>因此我會介紹哪些知識是接 WordPress 客製開發必備的，並且透過實際的金流外掛開發來帶入這些知識，像是基本佈景主題架構、外掛架構，到資料庫操作 CRUD、RESTful API、API 串接等等，以及可以加速開發的 PHP 套件，還有很重要的單元測試、整合測試，自動化部署也是提升開發效率很重要的一環。</p>
+<p>接案最重要的是效率，但所謂的效率不是寫完一堆 dirty code 在結案前部署就好，而是把寫過的東西整理成下次可以重用的物件，基於 WordPress 的 API 之下，物件的相容性都會非常高，WordPress 不會隨意更動既有的 API，在同樣的規則下開發可以大幅提升效率。</p>
+<p>此外，WooCommerce 是 WordPress 生態系中最多人在用的購物車外掛，因為用的人多，其周邊套件也是非常豐富，但因為多為國外開發者所設計的，許多場景並不適合用於台灣的電子商務，因此整合國內的服務就會是很有接案潛力的一塊，像是串接第三方金流、物流、電子發票，或是整合企業內部的 ERP 或是 CRM 系統，案件金額都會比單純建置形象網站來得好上許多。</p>
+<p>因此我會介紹開發 WooCommerce 擴充的相關知識，包含如何客製結帳頁面、購物車頁面、會員帳號頁等等，以及透過一個實際的範例來說明如何串接台灣的金流服務。</p>
+<p>最後是我今年開始的新嘗試：把曾經開發過的功能改良成可以重複販售的外掛。接案跟開發產品雖然程式碼可能會有重疊，但是設計的方法很不一樣，接案只要滿足一個客戶的需求即可，但販售外掛會遇到各式各樣安裝不同工具的網站，寫好的外掛能否在陌生的站裡面順利運作會需要考慮到很多情境。</p>
+<p>這部分我會介紹如何確認市場是否有需求，以及如何使用一套工具來管理外掛的更新與序號機制，另外還有最重要的 WordPress 授權規範，這會關係到商業模式的設計與定價。</p>
+<p>希望這一系列文可以幫助到想要追求自己理想生活的工程師朋友，只要可以達到自己的目標，是不是用 WordPress 接案也沒有關係，重點是要能理解自己、建立好的工作習慣，這樣的接案之路絕對會讓自己舒服許多，也才能把時間花在對自己最重要的人事物上面。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/WooCommerce-%E9%87%91%E6%B5%81/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 金流</a>
+              <a href="/tw/tags/%E5%95%86%E6%A5%AD%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 商業模式</a>
+              <a href="/tw/tags/WordPress-%E5%A4%96%E5%B0%AC/" rel="tag"><i class="fa fa-tag"></i> WordPress 外尬</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tw/wordpress-line-bot-plugin/" rel="prev" title="WordPress LINE Bot 聊天機器人外掛">
+      <i class="fa fa-chevron-left"></i> WordPress LINE Bot 聊天機器人外掛
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="賴俊吾 / Oberon Lai"
+      src="/tw/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">賴俊吾 / Oberon Lai</p>
+  <div class="site-description" itemprop="description">現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tw/archives">
+          <span class="site-state-item-count">257</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tw/categories/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tw/tags/">
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/oberonlai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:m615926@gmail.com" title="E-Mail → mailto:m615926@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/oberonlai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;oberonlai" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/m615926" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;m615926" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">賴俊吾 / Oberon Lai</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="總字數">597k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">9:03</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tw/lib/anime.min.js"></script>
+  <script src="/tw/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/tw/js/utils.js"></script>
+
+
+<script src="/tw/js/schemes/muse.js"></script>
+
+
+<script src="/tw/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/tw/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://oberon-lai.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://oberonlai.blog/tw/wordpress-freelance-preface/";
+    this.page.identifier = "wordpress-freelance-preface/";
+    this.page.title = "機智接案生活 - 前言";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://oberon-lai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
