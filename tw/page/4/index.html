@@ -209,6 +209,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/html-tag/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/html-tag/" class="post-title-link" itemprop="url">從新學習HTML5 (四) 語意元素</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-04-01 22:25:54" itemprop="dateCreated datePublished" datetime="2019-04-01T22:25:54+08:00">2019-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>785</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>section - 表示文件中的特定區塊，裡面可以下 h1~h6</p>
+<p>article - 表示文件中與其他內容沒有關聯的獨立區塊，通常會放一段文字</p>
+<p>aside - 表示文件中與其他內容有輕微關係的區塊，多用於側邊欄的標籤</p>
+<p>header - 頁首或是 section 的頁首</p>
+<p>hgroup - 區塊內容的標題區域，裡面會有多個 h1~h6 標籤</p>
+<p>footer - 頁尾或是 section 的頁尾</p>
+<p>nav - 表示帶有導覽功能的區塊</p>
+<p>figure - 帶有說明的圖像元素</p>
+<p>figcaption - figure 區塊的標題</p>
+<p>與以上無相關的區塊就還是使用 div，有需要大綱編排層級的內容就用 section。</p>
+<h2 id="HTML-5-元素分類"><a href="#HTML-5-元素分類" class="headerlink" title="HTML 5 元素分類"></a>HTML 5 元素分類</h2><p>Metadata content - <head> 裡面的東西</p>
+<p>Flow content - 文件內大部分的內容皆屬此類</p>
+<p>Sectioning content - 帶有層級的大綱</p>
+<p>Heading Content - 定義 section 的標題</p>
+<p>Phrasing content - 文字內容的標籤元素</p>
+<p>Embedded content - 外部匯入的內容至目前網頁</p>
+<p>Interactive content - 支援使用者的互動的元素</p>
+<h2 id="大綱-Outline"><a href="#大綱-Outline" class="headerlink" title="大綱 Outline"></a>大綱 Outline</h2><p>瀏覽器會根據使用的 h1~h6 標籤輸出大綱來讓搜尋引擎更能理解整個網頁內容的架構，大綱就如同一本書的目錄，所以是以標題標籤來進行劃分，所以如果每個區塊有獨立的標題層級，要用 section 來進行分隔，並且都是從 h1 開始以方便辨識。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;body&gt;
+&lt;h1&gt;Title&lt;&#x2F;h1&gt;
+&lt;section&gt;
+  &lt;h1&gt;Section Title&lt;&#x2F;h1&gt;
+&lt;&#x2F;section&gt;
+&lt;section&gt;
+  &lt;h1&gt;Section Title&lt;&#x2F;h1&gt;
+&lt;&#x2F;section&gt;
+&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/html5-event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3075,93 +3186,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-category-mode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/woocommerce-category-mode/" class="post-title-link" itemprop="url">WooCommerce 如何開啟商品型錄模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-06-12 09:11:19" itemprop="dateCreated datePublished" datetime="2018-06-12T09:11:19+08:00">2018-06-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>243</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>WooCommerce 是 WordPress 最多人使用的購物車外掛，其商品管理以及購物功能也都非常完善，不管是賣實體還是數位商品都非常方便，國內各大第三方金流商也都有推出支援的外掛，可以快速整合物流或金流。但有時候我們只是想要使用他的商品管理功能而不使用結帳機制，來做為商品展示的用途，這時候就可以使用 YITH WooCommerce Catalog Mode 這款外掛，它可以讓 WooCommerce 關閉購物功能，把所有加入購物車的按鈕都隱藏不顯示，等未來需要購物功能時，再行開啟即可。 <img src="https://oberonlai.blog/wp-content/uploads/2018/06/woocommerce-category-mode-01.jpg"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/woocommerce-category-mode-02.jpg"> <img src="https://oberonlai.blog/wp-content/uploads/2018/06/woocommerce-category-mode-03.jpg"></p>
-<p><a target="_blank" rel="noopener" href="https://wordpress.org/plugins/yith-woocommerce-catalog-mode/">前往連結</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3232,7 +3256,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">264</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -3293,12 +3317,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">609k</span>
+    <span title="總字數">613k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9:14</span>
+    <span title="所需總閱讀時間">9:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
