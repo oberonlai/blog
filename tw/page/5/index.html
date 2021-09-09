@@ -209,6 +209,171 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/laravel-mix-svg-sprite-for-vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/laravel-mix-svg-sprite-for-vue/" class="post-title-link" itemprop="url">Laravel mix 加入 svg sprite 並設計成 vue component</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-01-15 16:39:32" itemprop="dateCreated datePublished" datetime="2019-01-15T16:39:32+08:00">2019-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Svg Sprite 可以非常方便的合併多張向量圖，讓 request 能少一些，之前純 Vue 的環境下是採用 svg-sprite-loader，無奈丟進 Laravel 裡面不理我，只好找別的解決方案。</p>
+<p>測試之後找到它—&gt;svg-spritemap-webpack-plugin，個人覺得他比 svg-sprite-loader 優秀，優秀的點在於它不會一開始就把 svg sprite 塞進來，只有在需要他時再呼叫就好，</p>
+<p>以下紀錄設定方法：</p>
+<p>一、先移除舊版的 svg-spritemap-webpack-plugin，再裝新的，新版本要在 laravle-mix 4.0 以上才可以用</p>
+<pre class="line-numbers language-none"><code class="language-none">npm uninstall svg-spritemap-webpack-plugin
+npm install svg-spritemap-webpack-plugin --save-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>二、在 webpack.mix.js 宣告來源以及編譯後的路徑</p>
+<pre class="line-numbers language-none"><code class="language-none">const SVGSpritemapPlugin &#x3D; require(&#39;svg-spritemap-webpack-plugin’); &#x2F;&#x2F; 引入
+const svgSourcePath &#x3D; &#39;resources&#x2F;js&#x2F;icons&#x2F;svg&#x2F;*.svg&#39;;
+const svgSpriteDestination&#x3D; &#39;&#x2F;svg&#x2F;sprite.svg’; &#x2F;&#x2F; 不用加 public<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>三、webpackConfig 加入 plugin 相關設定</p>
+<pre class="line-numbers language-none"><code class="language-none">.webpackConfig(&#123;
+    plugins: [
+        new SVGSpritemapPlugin(
+            svgSourcePath, &#123;
+                output: &#123;
+                    filename: svgSpriteDestination,
+                    svgo: true
+                &#125;,
+            &#125;
+        )
+    ]
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>四、新增 vue icon 元件，在 components 裡面新增一個資料夾 icon，裡面新增 index.vue，元件內容如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;template&gt;
+  &lt;svg :width&#x3D;&quot;width&quot; :height&#x3D;&quot;height&quot;&gt;
+    &lt;use :xlink:href&#x3D;&quot;iconName&quot;&#x2F;&gt;
+  &lt;&#x2F;svg&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &#39;Icon&#39;,
+
+  props: &#123;
+    type: &#123;
+      default: &#39;sad&#39;
+    &#125;,
+
+    width: &#123;
+      default: 50
+    &#125;,
+
+    height: &#123;
+      default: 50
+    &#125;
+  &#125;,
+
+  computed: &#123;
+    iconName () &#123;
+      return &#39;&#x2F;svg&#x2F;sprite.svg#sprite-&#39; + this.$props.type
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;script&gt;
+
+&lt;style scoped&gt;
+svg &#123;
+  fill: currentColor;
+  overflow: hidden;
+&#125;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>五、在 icons 的資料夾底下也就是 svg 檔案的地方，新增一個 index.js，內容如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">import Vue from &#39;vue&#39;
+import Icon from ‘..&#x2F;components&#x2F;icon&#39;
+Vue.component(&#39;icon&#39;, Icon)
+&#x2F;&#x2F; requires and returns all modules that match
+const requireAll &#x3D; requireContext &#x3D;&gt; requireContext.keys().map(requireContext)
+&#x2F;&#x2F; import all svg
+const req &#x3D; require.context(&#39;.&#x2F;svg&#39;, true, &#x2F;\.svg$&#x2F;)
+requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>六、在 app.js 引入 icons/index，把所有的 svg 一次引入到各個頁面，省去每次重複引入的麻煩</p>
+<pre class="line-numbers language-none"><code class="language-none">import &#39;.&#x2F;icons&#x2F;index’<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>七、在 vue 裡面就可以使用:</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;icon type&#x3D;“svgfilename” width&#x3D;‘xxx’ height&#x3D;‘xxx’&gt;&lt;&#x2F;icon&gt; 了<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-category-mode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1936,99 +2101,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%89%8D%E5%8F%B0%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%89%8D%E5%8F%B0%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/" class="post-title-link" itemprop="url">WordPress 提供會員前台註冊表單</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-05 13:07:14" itemprop="dateCreated datePublished" datetime="2018-02-05T13:07:14+08:00">2018-02-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>WordPress 在安裝完成後，就直接內建會員資料庫的機制，如果想提供註冊會員的功能，在預設情況下就必須登入網站後台，這會造成某種程度的資安風險以及使用者的體驗不佳，這時候就需要前台註冊表單來解決這個問題。User Registration 這套外掛可以很方便的使用視覺化編輯器來建構註冊表單，所有欄位都可以自行拖拉設計，不需要編寫半行程式碼，此外還有提供會員機制的相關功能，是一套當需要設計會員系統時非常完整的工具。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/wordpress-%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%89%8D%E5%8F%B0%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2099,7 +2171,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">264</span>
+          <span class="site-state-item-count">265</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2160,12 +2232,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">613k</span>
+    <span title="總字數">614k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9:17</span>
+    <span title="所需總閱讀時間">9:19</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
