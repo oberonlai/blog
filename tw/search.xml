@@ -12322,7 +12322,7 @@ return strtolower($cleared);
       </categories>
   </entry>
   <entry>
-    <title>鐵人付外掛前置作業 (ㄧ) - 串接文件</title>
+    <title>WooCommerce 金流串接實戰 (ㄧ) - 串接文件</title>
     <url>/tw/woocommerce-payment-document/</url>
     <content><![CDATA[<p>不管是哪一家軟體公司或是金物流廠商，只要他們有提供 API 介面來服務外部網站，通常一定會有串接文件可讓開發者參考，串接文件就像是 API 使用說明書，讓開發者可以知道該怎麼與手邊的系統進行整合。</p>
 <p>串接文件通常有分線上版與離線版，離線版就是會拿到一份 PDF 或 Word 檔，台灣金流業者多半是這種類型，可以直接在官網下載。另外有些廠商可能有某種商業考量，會需要申請並審核通過後才能取得他們的串接文件。</p>
@@ -12347,6 +12347,159 @@ return strtolower($cleared);
 <h3 id="金流-API-串接"><a href="#金流-API-串接" class="headerlink" title="金流 API 串接"></a>金流 API 串接</h3><p>這部分包含了串接文件中的實作，像是加密演算法、整理傳送資料與接收回傳資料，以及交易失敗的處理，通常不同付款方式的傳送與接收資料回不大相同，而且還會分即時回傳以及非同步回傳的狀態，像是信用卡結完帳就能立刻取得交易結果，但是 ATM 轉帳或是超商代碼繳費就必須等到顧客真的去付錢後金流商才會回傳資料，所以這部分我會根據不同的付款方式來進行工時預估。</p>
 <h3 id="測試與除錯"><a href="#測試與除錯" class="headerlink" title="測試與除錯"></a>測試與除錯</h3><p>主要包含寫自動化測試與人工測試交易失敗是否有出現正確的提示訊息，以及嘗試著用一些手法像是將訂單金額改為 0 元訂單看能否成功交易，最重要的是測試正式環境的運作是否一切正常，這時前置作業中的確認完成驗收標準就可以當作是測試清單，來確保交易如預期中的結果。</p>
 <p>當理解金流串接文件以及確認客戶需求後，下一篇文章我們開始來搭建 WordPress 的本機開發環境，並且運用一些自動化指令碼讓 WooCommerce 開發環境可以自動一鍵安裝完成，省去手動處理的時間。</p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+      <tags>
+        <tag>WooCommerce 金流</tag>
+        <tag>WordPress 外掛</tag>
+        <tag>WooCommerce 外掛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WooCommerce 金流串接實戰（二）- 開發環境</title>
+    <url>/tw/woocommerce-payment-local/</url>
+    <content><![CDATA[<p>在自己的電腦中建立一個 WordPress 需要的材料有 PHP、Apache or Nginx 以及 MySql，如果不想手動各別安裝，市面上也有很多現成的免費套裝軟體可以把這些環境自動建置起來，而且還可以根據自己的需要切換不同的版本，然後只要下載 WordPress、伺服器設定、資料庫連線等一系列步驟，就能在本機架設好 WordPress 網站。</p>
+<p>由於這幾年全代管 WordPress 網站主機的服務盛行，這些廠商為了增加市占率，提供給開發者免費的軟體來建置本機環境，除了已經內建基本服務外，最方便的是一鍵就能建立網站，所有的伺服器、資料庫連線設定它都已經幫我們處理好，然後當做完後點選部署，直接就能把網站上傳到他們的主機上，省去所有部署的繁瑣流程，關鍵字搜尋「local wordpress development」就能找到很多這類軟體。</p>
+<span id="more"></span>
+
+<p>這些套裝軟體的好處很多，除了上述提到的一鍵架好 WordPress 以外，還有提供網站複製、對外分享連結、WP CLI、預設安裝佈景主題、測試發信等等實用的功能，而且 Windows /  MacOS 都有支援，最重要的是完全免費，如果是想快速架設的朋友我建議可以先用這些工具來熟悉 WordPress 的操作。</p>
+<p>雖然上述軟體的優點很多，但有一個致命的缺點就是很吃硬碟空間，尤其是對我這台只有 128G 的 Mac 來說，因為這些軟體多半都是用 Docker 來配置每一個站的環境，等於每一個站就會有獨立的 PHP、Nginx、MySql，更不用說如果還要切換版本的話，每個版本都是獨立的映像檔，網站一多佔用的硬碟空間就會暴增。</p>
+<p>另外一個缺點是因為是執行在 Docker 上面，這些軟體為了避免長時間執行吃記憶體，所以只會在啟用時才把環境建置起來，這導致了每次重啟的時間會稍微久一點，以及有時候網站的效能會低落，但如果你的工作機硬碟有 1TB、RAM 有 32G，那麼這些工具可以幫你省下很多時間。</p>
+<h2 id="Laravel-Valet"><a href="#Laravel-Valet" class="headerlink" title="Laravel Valet"></a>Laravel Valet</h2><p>如果沒有，而且你的工作環境是 MacOS，我會推薦使用 Valet。Valet 是 PHP 框架 Laravel 提供給 Mac 使用者的本機開發環境，它最大的好處是共用背景執行的 Nginx，只要當電腦開機時就會同步啟用，也不會像套裝軟體每建一個站就會有獨立的 Nginx 要安裝與執行。另外它使用了 DnsMasq 這套 DNS 軟體，無需再自行修改 host 檔來新增測試站網址。</p>
+<p>官網上面提到 Valet 執行時大約只會站 7MB 的記憶體，而且速度非常快，我這幾年來已經全面改用 Valet 建過數百個站，我的配備是 2013 MBP 128G SSD、8GB RAM，到現在還每個站跑起來還是跟飛的一樣，完全不會有越用越慢的問題。</p>
+<p>Valet 除了可以跑 Laravel，當然也能作為 WordPress 的開發環境，開發者 Aaron Rutley 寫了一份名為 valetpress 的指令稿，透過 WordPress 命令列工具 WP CLI 來完成環境配置，從敲下第一行指令到真正建立好網站，我實測的平均秒數是 6 秒多，完勝所有用套裝軟體的速度。</p>
+<p>另一個好處是可以修改腳本的內容，改成符合自己需要的，像是我常常需要空的 WooCommerce 環境來進行測試，我只要在終端機裡面輸入 <code>$vp wc</code>，就能在十秒內建置好裝有 Storefront 佈景主題、倒入測試資料、WooCommerce 以及常用金流外掛的測試站。</p>
+<h2 id="Valet-安裝步驟"><a href="#Valet-安裝步驟" class="headerlink" title="Valet 安裝步驟"></a>Valet 安裝步驟</h2><p>先確保作業系統必須是 MacOS，我目前的版本是 10.15.7，CPU 是 Intel Core i5：</p>
+<h3 id="一、安裝-Homebrew"><a href="#一、安裝-Homebrew" class="headerlink" title="一、安裝 Homebrew"></a>一、安裝 Homebrew</h3><p>Homebrew 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安裝完成後，先確認 brew 可以正確執行，</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果執行 brew update 發生錯誤，要先把別名加入 .bash_profile，</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ open .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>輸入上面的指令後會打開一個文字檔，在檔案的最下面加入以下文字：</p>
+<pre class="line-numbers language-none"><code class="language-none">export PATH&#x3D;”&#x2F;usr&#x2F;local&#x2F;bin:$PATH”<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>確認 brew update 可以正確執行後就可以進入到下一步驟。</p>
+<h3 id="二、安裝-PHP-amp-Composer"><a href="#二、安裝-PHP-amp-Composer" class="headerlink" title="二、安裝 PHP&amp;Composer"></a>二、安裝 PHP&amp;Composer</h3><p>先使用 Homebrew 安裝 PHP，再安裝 PHP 套件管理系統 Composer：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew install php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew install composer<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="三、安裝-MySql"><a href="#三、安裝-MySql" class="headerlink" title="三、安裝 MySql"></a>三、安裝 MySql</h3><p>Valet 官方文件是安裝 MySql 5.7，個人是習慣裝 Mariadb：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew install mariadb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果遇到要登入資料庫的時候，會出現 **’ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)**，時，先進到該路徑把這檔案刪除，</p>
+<p>如果再次登入出現 **’Access denied for user ‘root’@’localhost’**，前往編輯 MySql 設定：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ vi &#x2F;usr&#x2F;local&#x2F;etc&#x2F;my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>加入下面這行後儲存後退出：</p>
+<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
+skip-grant-tables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最後再重啟資料庫即可。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew services restart MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="四、安裝-Valet"><a href="#四、安裝-Valet" class="headerlink" title="四、安裝 Valet"></a>四、安裝 Valet</h3><p>使用 composer 下載 valet 套件：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ composer global require laravel&#x2F;valet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>等待下載完成後開始執行安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ valet install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>這時候可能會出現找不到 valet 指令的錯誤訊息：<strong>command not found: valet</strong>，因為 valet 是 composer 的套件，而套件會被裝在 vendor 資料夾底下，因此沒辦法直接呼叫，這時候要把 vendor 路徑進行 export。我的環境是用 zsh，所以要打開 .zshrc 來加入設定：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ open ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然後加入下方路徑後儲存：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;sbin:&#x2F;Users&#x2F;user&#x2F;.composer&#x2F;vendor&#x2F;bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>設定檔有任何修改記得要跑一次 source 才會套用更新：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ source ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>加入後再次 valet install，會出現 <strong>stopping Nginx</strong> 的訊息，代表正在啟用 valet 中，但如果出現 <strong>Homebrew PHP appears not to be linked.</strong> 代表 Homebrew 沒有連結到正確的 PHP，輸入以下指令來產生連結：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew link php –force<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再次輸入 valet install 即可啟用 Valet。Valet 預設情況下它會在背景執行，所以如果要連上測試站的話，再也不用像以前啟用 MAMP、Docker、Local 要等上一段時間，只要一開機 Valet 就會自動啟用。</p>
+<h3 id="五、安裝-WP-CLI"><a href="#五、安裝-WP-CLI" class="headerlink" title="五、安裝 WP-CLI"></a>五、安裝 WP-CLI</h3><p>WP CLI 是 WordPress 非常實用的指令工具，可以從系統面來管理網站，不管是安裝外掛或是匯入資料庫都能透過指令操作，安裝方式可以參考官方的說明，另外我們也可以使用 Homebrew 來安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew install wp-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>裝完後記得把 wp 關鍵字加入到個人設定檔中，這樣就可以用 wp –info 這樣的簡寫來操作它。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ chmod +x wp-cli.phar  
+$ sudo mv wp-cli.phar &#x2F;usr&#x2F;local&#x2F;bin&#x2F;wp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="六、下載-ValetPress"><a href="#六、下載-ValetPress" class="headerlink" title="六、下載 ValetPress"></a>六、下載 ValetPress</h3><p>上面環境都完成後，剩下就是加入 WordPress 的自動化腳本。先在本機 user 目錄新開一個隱藏目錄叫做「 .valetpress」 與目錄 「Sites」 資料夾，前者是放自動化腳本，後者是之後新建 WordPress 站的網站根目錄。</p>
+<p>我依照 Aaron Rutley 所寫的腳本新增了與 WooCommerce 相關的部分，下載連結如下：</p>
+<p><a href="https://github.com/oberonlai/.valetpress">下載 ValetPress - WooCommerce 版</a> </p>
+<p>解壓縮後放入這個 /username/.valetpress 這個目錄中，然後 .zshrc 要引入這個 valetpress 這個檔案，先打開 zsh 設定檔</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ open ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>加入以下判斷式：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">if [ -f ~&#x2F;.valetpress&#x2F;valetpress ]; then  
+	source ~&#x2F;.valetpress&#x2F;valetpress  
+else  
+	print “404: ~&#x2F;.valetpress&#x2F;valetpress not found.”  
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一樣，設定檔改好後記得要跑 source 才會更新，如果你有自己改寫 valetpress 也記得要 soruce 一下：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ source ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我新增的指令如下：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">if [ $1 &#x3D; &quot;wc&quot; ]; then
+	cd ~&#x2F;Sites
+	echo &quot;$&#123;VP_BOLD&#125;ValetPress, create empty new site with WooCommerce$&#123;VP_NONE&#125;&quot;
+	echo &quot;$&#123;VP_YELLOW&#125;Project Name:$&#123;VP_NONE&#125;&quot;
+	read project_name
+	mkdir &quot;$project_name&quot;
+	cd &quot;$project_name&quot;
+	mysql -uroot -e &quot;create database \&#96;$project_name\&#96;&quot;
+	wp core download --locale&#x3D;zh_TW --skip-content
+	wp core config --dbname&#x3D;&quot;$project_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1
+	wp core install --url&#x3D;&quot;$project_name&quot;.test --title&#x3D;&quot;$project_name&quot;.test --admin_user&#x3D;&quot;$project_name&quot;  --admin_password&#x3D;password --admin_email&#x3D;wordpress@wordpress.org
+	wp language core install zh_TW
+	wp language core activate zh_TW
+	wp option update timezone_string &quot;Asia&#x2F;Taipei&quot;
+	wp site switch-language zh_TW
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Project Created: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;$&#123;VP_NONE&#125;&quot;
+	wp plugin install woocommerce
+	wp language plugin install woocommerce zh_TW
+	wp plugin install ry-woocommerce-tools
+	wp language plugin install ry-woocommerce-tools zh_TW
+	wp plugin activate woocommerce ry-woocommerce-tools
+	wp theme install storefront
+	wp language theme install storefront zh_TW
+	wp theme activate storefront
+	echo &quot;Valet Link Project&quot;
+	cd ~&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;
+	valet link $project_name
+	valet secure $project_name
+	echo &quot;L: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;wp-admin&#x2F;$&#123;VP_NONE&#125;&quot;
+	echo &quot;U: $project_name&quot;
+	echo &quot;P: password&quot;
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>裡面大部分都是 WP CLI 的指令，像是安裝中文語系檔、安裝 WooCommerce 外掛、安裝 Storefront 佈景主題並且啟用它們，然後使用 valet link 來做連結，以及 secure 來做 SSL，預設的帳密為專案名稱 / password，如果要換登入密碼可以在 wp core install 那邊修改。</p>
+<p>之後新建一個裝有 WooCommerce 的測試站步驟如下：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ vp wc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>輸入專案名稱：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">ValetPress, create empty new site with WooCommerce
+Project Name:
+wc-test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>接下就會全自動化進行安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">wc-test
+Downloading WordPress 5.8 (zh_TW)...
+Using cached file &#39;&#x2F;Users&#x2F;oberonlai&#x2F;.wp-cli&#x2F;cache&#x2F;core&#x2F;wordpress-5.8-zh_TW.zip&#39;...
+Success: WordPress downloaded.
+Success: Generated &#39;wp-config.php&#39; file.
+Success: WordPress installed successfully.
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完成後就可以用專案名稱的網址來進入測試站，如果要砍掉測試站只要輸入 <code>$vp delete</code> 即可，刪除的同時資料庫也會一併移除，無須再手動處理。</p>
+<p>搞定開發環境後，下一篇文章介紹 WordPress 的資料夾基本結構，以及建立金流外掛的必備知識。</p>
 ]]></content>
       <categories>
         <category>WooCommerce</category>
