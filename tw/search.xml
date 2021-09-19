@@ -12779,7 +12779,7 @@ Generating autoload files<span aria-hidden="true" class="line-numbers-rows"><spa
       </tags>
   </entry>
   <entry>
-    <title>WooCommerce 金流串接實戰（三）- 建立資料夾結構</title>
+    <title>WooCommerce 金流串接實戰（四）- 資料庫結構</title>
     <url>/tw/woocommerce-payment-database/</url>
     <content><![CDATA[<p>在開始開發金流外掛的後台設定頁面前，我們先來快速認識一下 WordPress 的資料表，同時介紹讀取寫入會用到的函式，以下為有安裝 WooCommerce 的 WordPress 網站所有的資料表：</p>
 <pre class="line-numbers language-none"><code class="language-none">wp_actionscheduler_actions
