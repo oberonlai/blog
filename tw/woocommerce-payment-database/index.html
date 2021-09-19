@@ -30,7 +30,7 @@
 <meta property="og:description" content="在開始開發金流外掛的後台設定頁面前，我們先來快速認識一下 WordPress 的資料表，同時介紹讀取寫入會用到的函式，以下為有安裝 WooCommerce 的 WordPress 網站所有的資料表： wp_actionscheduler_actions wp_actionscheduler_claims wp_actionscheduler_groups wp_actionscheduler_lo">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-09-19T08:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-19T08:18:33.204Z">
+<meta property="article:modified_time" content="2021-09-19T08:20:54.868Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WooCommerce 金流">
 <meta property="article:tag" content="WordPress 外掛">
@@ -238,7 +238,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-19 16:00:00 / 修改時間：16:18:33" itemprop="dateCreated datePublished" datetime="2021-09-19T16:00:00+08:00">2021-09-19</time>
+              <time title="創建時間：2021-09-19 16:00:00 / 修改時間：16:20:54" itemprop="dateCreated datePublished" datetime="2021-09-19T16:00:00+08:00">2021-09-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,13 +255,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>13k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>12 分鐘</span>
+              <span>11 分鐘</span>
             </span>
 
         </div>
@@ -326,13 +326,70 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 
 
 <h2 id="wp-options"><a href="#wp-options" class="headerlink" title="wp_options"></a>wp_options</h2><p>該表存放全站設定相關的資料，也就是在後台左側選單 &gt; 設定裡面的設定都會存在這張表裡面，我們要開發的 WooCommerce 金流外掛，也是把相關的變數存在這個表中。為了節省效能，在寫入時可以先把設定的值組成陣列再進行 INSERT。</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> <span class="token title important"><span class="token punctuation">#</span> </span></span><span class="token punctuation">|</span><span class="token table-header important"> column_name  </span><span class="token punctuation">|</span><span class="token table-header important"> data_type           </span><span class="token punctuation">|</span><span class="token table-header important"> character_set </span><span class="token punctuation">|</span><span class="token table-header important"> collation          </span><span class="token punctuation">|</span><span class="token table-header important"> is_nullable </span><span class="token punctuation">|</span><span class="token table-header important"> column_default </span><span class="token punctuation">|</span><span class="token table-header important"> extra          </span><span class="token punctuation">|</span><span class="token table-header important"> foreign_key </span><span class="token punctuation">|</span><span class="token table-header important"> comment </span><span class="token punctuation">|</span>
-</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">--------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------</span><span class="token punctuation">|</span><span class="token punctuation">--------------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span>
-</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 1 </span><span class="token punctuation">|</span><span class="token table-data"> option_id    </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data"> auto_increment </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 2 </span><span class="token punctuation">|</span><span class="token table-data"> option_name  </span><span class="token punctuation">|</span><span class="token table-data"> varchar(191)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 3 </span><span class="token punctuation">|</span><span class="token table-data"> option_value </span><span class="token punctuation">|</span><span class="token table-data"> longtext            </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 4 </span><span class="token punctuation">|</span><span class="token table-data"> autoload     </span><span class="token punctuation">|</span><span class="token table-data"> varchar(20)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> yes            </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>column_name</th>
+<th>data_type</th>
+<th>character_set</th>
+<th>collation</th>
+<th>is_nullable</th>
+<th>column_default</th>
+<th>extra</th>
+<th>foreign_key</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>option_id</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td>auto_increment</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>option_name</td>
+<td>varchar(191)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>option_value</td>
+<td>longtext</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>autoload</td>
+<td>varchar(20)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <p>wp_options 相關的函式定義在 wp-include/option.php，常用的如下：</p>
 <p><strong>add_option( $option_name, $option_value, autoload=yes) 新增設定</strong></p>
 <p>它會先自動檢查 $option_name 是否存在，不存在的話新增一筆資料，已存在的話會把 $option_value 進行覆寫。autoload 預設為 yes，作用是設定該 $option 是否加入到快取之中。如果你確定每個頁面都會用到這個設定的話，就保持預設值 yes，反之為 no。範例如下：</p>
@@ -367,32 +424,298 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 
 
 <h2 id="wp-posts"><a href="#wp-posts" class="headerlink" title="wp_posts"></a>wp_posts</h2><p>存放文章、頁面、選單、文章版本、以及自定義文章的資料表，而自定義文章就是用這個表裡面的 post_type 欄位來紀錄不同的文章類型，WooCommerce 商品的 post_type 為 proudct，訂單則為 shop_order，它並沒有新建資料表來存放，而是放在 wp_posts 裡面。</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> <span class="token title important"><span class="token punctuation">#</span>  </span></span><span class="token punctuation">|</span><span class="token table-header important"> column_name           </span><span class="token punctuation">|</span><span class="token table-header important"> data_type           </span><span class="token punctuation">|</span><span class="token table-header important"> character_set </span><span class="token punctuation">|</span><span class="token table-header important"> collation          </span><span class="token punctuation">|</span><span class="token table-header important"> is_nullable </span><span class="token punctuation">|</span><span class="token table-header important"> column_default      </span><span class="token punctuation">|</span><span class="token table-header important"> extra          </span><span class="token punctuation">|</span><span class="token table-header important"> foreign_key </span><span class="token punctuation">|</span><span class="token table-header important"> comment </span><span class="token punctuation">|</span>
-</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">----</span><span class="token punctuation">|</span><span class="token punctuation">-----------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------</span><span class="token punctuation">|</span><span class="token punctuation">--------------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span>
-</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 1  </span><span class="token punctuation">|</span><span class="token table-data"> ID                    </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data"> auto_increment </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 2  </span><span class="token punctuation">|</span><span class="token table-data"> post_author           </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 3  </span><span class="token punctuation">|</span><span class="token table-data"> post_date             </span><span class="token punctuation">|</span><span class="token table-data"> datetime            </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> 0000-00-00 00:00:00 </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 4  </span><span class="token punctuation">|</span><span class="token table-data"> post_date_gmt         </span><span class="token punctuation">|</span><span class="token table-data"> datetime            </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> 0000-00-00 00:00:00 </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 5  </span><span class="token punctuation">|</span><span class="token table-data"> post_content          </span><span class="token punctuation">|</span><span class="token table-data"> longtext            </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 6  </span><span class="token punctuation">|</span><span class="token table-data"> post_title            </span><span class="token punctuation">|</span><span class="token table-data"> text                </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 7  </span><span class="token punctuation">|</span><span class="token table-data"> post_excerpt          </span><span class="token punctuation">|</span><span class="token table-data"> text                </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 8  </span><span class="token punctuation">|</span><span class="token table-data"> post_status           </span><span class="token punctuation">|</span><span class="token table-data"> varchar(20)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> publish             </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 9  </span><span class="token punctuation">|</span><span class="token table-data"> comment_status        </span><span class="token punctuation">|</span><span class="token table-data"> varchar(20)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> open                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 10 </span><span class="token punctuation">|</span><span class="token table-data"> ping_status           </span><span class="token punctuation">|</span><span class="token table-data"> varchar(20)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> open                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 11 </span><span class="token punctuation">|</span><span class="token table-data"> post_password         </span><span class="token punctuation">|</span><span class="token table-data"> varchar(255)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 12 </span><span class="token punctuation">|</span><span class="token table-data"> post_name             </span><span class="token punctuation">|</span><span class="token table-data"> varchar(200)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 13 </span><span class="token punctuation">|</span><span class="token table-data"> to_ping               </span><span class="token punctuation">|</span><span class="token table-data"> text                </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 14 </span><span class="token punctuation">|</span><span class="token table-data"> pinged                </span><span class="token punctuation">|</span><span class="token table-data"> text                </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 15 </span><span class="token punctuation">|</span><span class="token table-data"> post_modified         </span><span class="token punctuation">|</span><span class="token table-data"> datetime            </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> 0000-00-00 00:00:00 </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 16 </span><span class="token punctuation">|</span><span class="token table-data"> post_modified_gmt     </span><span class="token punctuation">|</span><span class="token table-data"> datetime            </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> 0000-00-00 00:00:00 </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 17 </span><span class="token punctuation">|</span><span class="token table-data"> post_content_filtered </span><span class="token punctuation">|</span><span class="token table-data"> longtext            </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 18 </span><span class="token punctuation">|</span><span class="token table-data"> post_parent           </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 19 </span><span class="token punctuation">|</span><span class="token table-data"> guid                  </span><span class="token punctuation">|</span><span class="token table-data"> varchar(255)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 20 </span><span class="token punctuation">|</span><span class="token table-data"> menu_order            </span><span class="token punctuation">|</span><span class="token table-data"> int(11)             </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 21 </span><span class="token punctuation">|</span><span class="token table-data"> post_type             </span><span class="token punctuation">|</span><span class="token table-data"> varchar(20)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> post                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 22 </span><span class="token punctuation">|</span><span class="token table-data"> post_mime_type        </span><span class="token punctuation">|</span><span class="token table-data"> varchar(100)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 23 </span><span class="token punctuation">|</span><span class="token table-data"> comment_count         </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20)          </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>column_name</th>
+<th>data_type</th>
+<th>character_set</th>
+<th>collation</th>
+<th>is_nullable</th>
+<th>column_default</th>
+<th>extra</th>
+<th>foreign_key</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ID</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td>auto_increment</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>post_author</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>post_date</td>
+<td>datetime</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>post_date_gmt</td>
+<td>datetime</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>post_content</td>
+<td>longtext</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>post_title</td>
+<td>text</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>post_excerpt</td>
+<td>text</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>post_status</td>
+<td>varchar(20)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>publish</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>comment_status</td>
+<td>varchar(20)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>open</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>ping_status</td>
+<td>varchar(20)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>open</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>post_password</td>
+<td>varchar(255)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>post_name</td>
+<td>varchar(200)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>to_ping</td>
+<td>text</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>pinged</td>
+<td>text</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>post_modified</td>
+<td>datetime</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>post_modified_gmt</td>
+<td>datetime</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>post_content_filtered</td>
+<td>longtext</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>post_parent</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>guid</td>
+<td>varchar(255)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>menu_order</td>
+<td>int(11)</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>post_type</td>
+<td>varchar(20)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td>post</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>post_mime_type</td>
+<td>varchar(100)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>comment_count</td>
+<td>bigint(20)</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <p>wp_posts 相關的函式定義在 wp-include/post.php，常用的如下：</p>
 <p><strong>wp_inset_post( $postarr, $wp_error=false) 插入新文章</strong></p>
 <p>$postarr 是一個定義新文章內容的陣列，裡面有許多參數可以定義，$wp_error 為 true 時會在文章插入失敗時回傳一個 WP_Error 物件，範例如下：</p>
@@ -458,13 +781,70 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 <h2 id="wp-postmeta"><a href="#wp-postmeta" class="headerlink" title="wp_postmeta"></a>wp_postmeta</h2><p>如果內建的文章欄位不夠用，想要新增其他欄位的話就會寫在這張表中。WordPress 提供很方便的作法讓你不用再自行增加資料表，每個 postmeta 使用 post_id 來對應到文章。</p>
 <p>如果你需要新增欄位但又不想讓使用者在文章編輯畫面看到該欄位，可以用下底線開頭的欄位名稱，這樣 WordPress 會自動在後台隱藏這個欄位而不被使用者看見。</p>
 <p>在開發金流外掛時會需要新增一些訂單欄位，像是從金流商回傳的訂單資料、卡號末四碼、以及相關資訊，而這些資料就可以放在 postmeta。</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> <span class="token title important"><span class="token punctuation">#</span> </span></span><span class="token punctuation">|</span><span class="token table-header important"> column_name </span><span class="token punctuation">|</span><span class="token table-header important"> data_type           </span><span class="token punctuation">|</span><span class="token table-header important"> character_set </span><span class="token punctuation">|</span><span class="token table-header important"> collation          </span><span class="token punctuation">|</span><span class="token table-header important"> is_nullable </span><span class="token punctuation">|</span><span class="token table-header important"> column_default </span><span class="token punctuation">|</span><span class="token table-header important"> extra          </span><span class="token punctuation">|</span><span class="token table-header important"> foreign_key </span><span class="token punctuation">|</span><span class="token table-header important"> comment </span><span class="token punctuation">|</span>
-</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------</span><span class="token punctuation">|</span><span class="token punctuation">--------------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span>
-</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 1 </span><span class="token punctuation">|</span><span class="token table-data"> meta_id     </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data"> auto_increment </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 2 </span><span class="token punctuation">|</span><span class="token table-data"> post_id     </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 3 </span><span class="token punctuation">|</span><span class="token table-data"> meta_key    </span><span class="token punctuation">|</span><span class="token table-data"> varchar(255)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> YES         </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 4 </span><span class="token punctuation">|</span><span class="token table-data"> meta_value  </span><span class="token punctuation">|</span><span class="token table-data"> longtext            </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> YES         </span><span class="token punctuation">|</span><span class="token table-data"> NULL           </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>column_name</th>
+<th>data_type</th>
+<th>character_set</th>
+<th>collation</th>
+<th>is_nullable</th>
+<th>column_default</th>
+<th>extra</th>
+<th>foreign_key</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>meta_id</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td>auto_increment</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>post_id</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>meta_key</td>
+<td>varchar(255)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>YES</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>meta_value</td>
+<td>longtext</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>YES</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <p>相關函式如下：</p>
 <p><strong>get_post_meta( $post_id, $meta_key, $single=false ) 取得文章欄位值</strong></p>
 <p>第一個參數為文章 ID，第二個為欄位名稱，如果留空值，會回傳所有相同 $meta_key 的 $meta_value，$single 為 true 的話會以字串回傳符合第一個 $meta_key 的 $meta_value，false 的話則會使用陣列回傳所有符合的 $meta_value，範例如下：</p>
@@ -492,19 +872,142 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 <span class="token function">delete_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$post_id</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'irp_student'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="wp-users"><a href="#wp-users" class="headerlink" title="wp_users"></a>wp_users</h2><p>存放使用者帳密與基本資料，如果要從資料庫修改使用者相關資訊，像是客戶忘記密碼或是要新增一個管理員帳號，就可以在這個表進行處理。</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> <span class="token title important"><span class="token punctuation">#</span>  </span></span><span class="token punctuation">|</span><span class="token table-header important"> column_name         </span><span class="token punctuation">|</span><span class="token table-header important"> data_type           </span><span class="token punctuation">|</span><span class="token table-header important"> character_set </span><span class="token punctuation">|</span><span class="token table-header important"> collation          </span><span class="token punctuation">|</span><span class="token table-header important"> is_nullable </span><span class="token punctuation">|</span><span class="token table-header important"> column_default      </span><span class="token punctuation">|</span><span class="token table-header important"> extra          </span><span class="token punctuation">|</span><span class="token table-header important"> foreign_key </span><span class="token punctuation">|</span><span class="token table-header important"> comment </span><span class="token punctuation">|</span>
-</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">----</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------</span><span class="token punctuation">|</span><span class="token punctuation">--------------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------------------</span><span class="token punctuation">|</span><span class="token punctuation">----------------</span><span class="token punctuation">|</span><span class="token punctuation">-------------</span><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span>
-</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 1  </span><span class="token punctuation">|</span><span class="token table-data"> ID                  </span><span class="token punctuation">|</span><span class="token table-data"> bigint(20) unsigned </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data"> auto_increment </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 2  </span><span class="token punctuation">|</span><span class="token table-data"> user_login          </span><span class="token punctuation">|</span><span class="token table-data"> varchar(60)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 3  </span><span class="token punctuation">|</span><span class="token table-data"> user_pass           </span><span class="token punctuation">|</span><span class="token table-data"> varchar(255)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 4  </span><span class="token punctuation">|</span><span class="token table-data"> user_nicename       </span><span class="token punctuation">|</span><span class="token table-data"> varchar(50)         </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 5  </span><span class="token punctuation">|</span><span class="token table-data"> user_email          </span><span class="token punctuation">|</span><span class="token table-data"> varchar(100)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 6  </span><span class="token punctuation">|</span><span class="token table-data"> user_url            </span><span class="token punctuation">|</span><span class="token table-data"> varchar(100)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 7  </span><span class="token punctuation">|</span><span class="token table-data"> user_registered     </span><span class="token punctuation">|</span><span class="token table-data"> datetime            </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> 0000-00-00 00:00:00 </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 8  </span><span class="token punctuation">|</span><span class="token table-data"> user_activation_key </span><span class="token punctuation">|</span><span class="token table-data"> varchar(255)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 9  </span><span class="token punctuation">|</span><span class="token table-data"> user_status         </span><span class="token punctuation">|</span><span class="token table-data"> int(11)             </span><span class="token punctuation">|</span><span class="token table-data"> NULL          </span><span class="token punctuation">|</span><span class="token table-data"> NULL               </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data"> NULL                </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span>
-<span class="token punctuation">|</span><span class="token table-data"> 10 </span><span class="token punctuation">|</span><span class="token table-data"> display_name        </span><span class="token punctuation">|</span><span class="token table-data"> varchar(250)        </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4       </span><span class="token punctuation">|</span><span class="token table-data"> utf8mb4_unicode_ci </span><span class="token punctuation">|</span><span class="token table-data"> NO          </span><span class="token punctuation">|</span><span class="token table-data">                     </span><span class="token punctuation">|</span><span class="token table-data">                </span><span class="token punctuation">|</span><span class="token table-data">             </span><span class="token punctuation">|</span><span class="token table-data">         </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>column_name</th>
+<th>data_type</th>
+<th>character_set</th>
+<th>collation</th>
+<th>is_nullable</th>
+<th>column_default</th>
+<th>extra</th>
+<th>foreign_key</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ID</td>
+<td>bigint(20) unsigned</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td>auto_increment</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>user_login</td>
+<td>varchar(60)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>user_pass</td>
+<td>varchar(255)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>user_nicename</td>
+<td>varchar(50)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>user_email</td>
+<td>varchar(100)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>user_url</td>
+<td>varchar(100)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>user_registered</td>
+<td>datetime</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>user_activation_key</td>
+<td>varchar(255)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>user_status</td>
+<td>int(11)</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NO</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>display_name</td>
+<td>varchar(250)</td>
+<td>utf8mb4</td>
+<td>utf8mb4_unicode_ci</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <p>wp_users 相關的函式定義在 wp-include/pluggable.php、wp-include/user.php，常用的如下：</p>
 <p><strong>wp_insert_user( $userdata ) 新增使用者</strong></p>
 <p>$userdata 為一個陣列，使用陣列來定義使用者的資料欄位，範例如下：</p>
@@ -747,12 +1250,12 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">659k</span>
+    <span title="總字數">658k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9:59</span>
+    <span title="所需總閱讀時間">9:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
