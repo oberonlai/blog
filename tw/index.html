@@ -209,6 +209,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-options/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/woocommerce-payment-options/" class="post-title-link" itemprop="url">WooCommerce 金流串接實戰（五）- 全域設定</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-20 09:30:00 / 修改時間：09:36:33" itemprop="dateCreated datePublished" datetime="2021-09-20T09:30:00+08:00">2021-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>7.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>7 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>對於 WordPress 資料庫結構有個大概的認識後，我們就能把後台的設定選項歸納為兩種，一種是放在 wp_options 的全域設定，另外一種是放在 wp_{xxx}meta 裡面的局部設定。在這個金流外掛之中我們會做到以下兩種設定欄位：</p>
+<ul>
+<li>金流商的商店代號、金鑰以及除錯設定</li>
+<li>訂單紀錄交易回傳結果</li>
+</ul>
+<p>第一個種欄位是全域設定，所以我們會把他寫在 wp_options 裡面，第二種是局部設定，寫在 wp_postmeta 裡面。這篇文章我們先來處理全域設定的部分。</p>
+<p>如果我們要做的設定選項無法關聯到 post、user 或是其他資料欄位的話，放在全域設定會是比較好的選擇，像是網站的標題、描述、語系、時區這些跟網站本身有關的項目，或是我們自行開發的外掛需要提供一些設定功能時，就會放在 wp_options 裡面。</p>
+<p>WordPress 的 Settings API 提供了豐富的函式可以來新增後台選單以及設定項的表單欄位，如果我們要製作設定頁面完全不用寫到半行 HTML 跟處理表單 POST 的問題，WordPress 全都幫我們封裝好了，而 WooCommerce 的設定 API 跟 WordPress 不同，它另外寫了一支抽象類別 WC_Settings_Page 來讓我們繼承使用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/woocommerce-payment-options/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-database/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2002,99 +2096,6 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-line-bot-plugin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-line-bot-plugin/" class="post-title-link" itemprop="url">WordPress LINE Bot 聊天機器人外掛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-08-14 12:20:00 / 修改時間：12:24:09" itemprop="dateCreated datePublished" datetime="2021-08-14T12:20:00+08:00">2021-08-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/LINE/" itemprop="url" rel="index"><span itemprop="name">LINE</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/LINE/%E5%A4%96%E6%8E%9B%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">外掛開發</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-line-bot-plugin/wordpress-line-bot-plugin-00.jpg"></p>
-<h2 id="外掛介紹"><a href="#外掛介紹" class="headerlink" title="外掛介紹"></a>外掛介紹</h2><p>LINE 聊天機器人的一大功能是可以在特定情境下自動發送多樣化的訊息到店家的官方帳號，只要透過 LINE Messaging API 就能根據店家網站的行為自動發送訊息，像是訂單未完成的提醒、ATM 付款轉帳帳號資訊、超商取貨的到貨通知，這些都可以透過店家的 LINE 官方帳號來提醒顧客。</p>
-<p>WordPress LINE Bot 聊天機器人外掛整合了 LINE Messaging API 與 WooCommerce，能直接在 WordPress 後台設定機器人訊息的觸發條件以及通知內文，並可帶入站內的會員以及訂單資訊提供更個人化的訊息推播。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/wordpress-line-bot-plugin/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2165,7 +2166,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">275</span>
+          <span class="site-state-item-count">276</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2176,7 +2177,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tw/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -2226,12 +2227,12 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">658k</span>
+    <span title="總字數">665k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9:58</span>
+    <span title="所需總閱讀時間">10:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
