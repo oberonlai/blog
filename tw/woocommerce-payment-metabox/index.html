@@ -22,20 +22,27 @@
     var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="七種願望一次滿足！今天分享的服務就是這麼神奇～GetSiteControl 提供電子報訂閱、聯絡表單、促銷 Banner、意見調查、社群追縱、社群分享以及線上客服七種功能，還能即時追縱這些工具的使用狀況，自訂顏色、出現頻率、預約發佈，更佛心的是還有出 WordPress 外掛可直接安裝使用，一次整合到位！">
+  <meta name="description" content="先來回顧一下目前鐵人付金流外掛的資料夾結構： iron-pay ├── composer.json ├── composer.lock ├── iron-pay.php ├── src │   └── Options.php └── vendor  上一篇我們完成了 WooCommerce 的全域設定，接下來我們要在後台的訂單管理頁新增一個交易結果以及紀錄金流商的回傳訊息，以便客戶日後可以針對有問">
 <meta property="og:type" content="article">
-<meta property="og:title" content="All In One 懶人行銷工具包">
-<meta property="og:url" content="https://oberonlai.blog/tw/all-in-one-%E6%87%B6%E4%BA%BA%E8%A1%8C%E9%8A%B7%E5%B7%A5%E5%85%B7%E5%8C%85/">
+<meta property="og:title" content="WooCommerce 金流串接實戰（六）- 自訂欄位">
+<meta property="og:url" content="https://oberonlai.blog/tw/woocommerce-payment-metabox/">
 <meta property="og:site_name" content="WordPress 開發日常">
-<meta property="og:description" content="七種願望一次滿足！今天分享的服務就是這麼神奇～GetSiteControl 提供電子報訂閱、聯絡表單、促銷 Banner、意見調查、社群追縱、社群分享以及線上客服七種功能，還能即時追縱這些工具的使用狀況，自訂顏色、出現頻率、預約發佈，更佛心的是還有出 WordPress 外掛可直接安裝使用，一次整合到位！">
+<meta property="og:description" content="先來回顧一下目前鐵人付金流外掛的資料夾結構： iron-pay ├── composer.json ├── composer.lock ├── iron-pay.php ├── src │   └── Options.php └── vendor  上一篇我們完成了 WooCommerce 的全域設定，接下來我們要在後台的訂單管理頁新增一個交易結果以及紀錄金流商的回傳訊息，以便客戶日後可以針對有問">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2017-09-19T03:22:51.000Z">
-<meta property="article:modified_time" content="2021-05-01T02:12:39.401Z">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-01.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-02.jpg">
+<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-03.jpg">
+<meta property="article:published_time" content="2021-09-21T01:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-21T01:04:34.332Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
-<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta property="article:tag" content="WooCommerce 金流">
+<meta property="article:tag" content="WordPress 外掛">
+<meta property="article:tag" content="WooCommerce 外掛">
+<meta property="article:tag" content="WC_Settings_Page">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-01.jpg">
 
-<link rel="canonical" href="https://oberonlai.blog/tw/all-in-one-%E6%87%B6%E4%BA%BA%E8%A1%8C%E9%8A%B7%E5%B7%A5%E5%85%B7%E5%8C%85/">
+<link rel="canonical" href="https://oberonlai.blog/tw/woocommerce-payment-metabox/">
 
 
 <script id="page-configurations">
@@ -48,7 +55,7 @@
   };
 </script>
 
-  <title>All In One 懶人行銷工具包 | WordPress 開發日常</title>
+  <title>WooCommerce 金流串接實戰（六）- 自訂欄位 | WordPress 開發日常</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
     <script data-pjax>
@@ -212,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/all-in-one-%E6%87%B6%E4%BA%BA%E8%A1%8C%E9%8A%B7%E5%B7%A5%E5%85%B7%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-metabox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/tw/images/avatar.jpg">
@@ -225,7 +232,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          All In One 懶人行銷工具包
+          WooCommerce 金流串接實戰（六）- 自訂欄位
         </h1>
 
         <div class="post-meta">
@@ -234,23 +241,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2017-09-19 11:22:51" itemprop="dateCreated datePublished" datetime="2017-09-19T11:22:51+08:00">2017-09-19</time>
+              <time title="創建時間：2021-09-21 09:00:00 / 修改時間：09:04:34" itemprop="dateCreated datePublished" datetime="2021-09-21T09:00:00+08:00">2021-09-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
                 </span>
             </span>
 
@@ -259,13 +260,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>858</span>
+              <span>3.9k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分鐘</span>
+              <span>4 分鐘</span>
             </span>
 
         </div>
@@ -277,9 +278,132 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>  七種願望一次滿足！今天分享的服務就是這麼神奇～GetSiteControl 提供電子報訂閱、聯絡表單、促銷 Banner、意見調查、社群追縱、社群分享以及線上客服七種功能，還能即時追縱這些工具的使用狀況，自訂顏色、出現頻率、預約發佈，更佛心的是還有出 WordPress 外掛可直接安裝使用，一次整合到位！</p>
+        <p>先來回顧一下目前鐵人付金流外掛的資料夾結構：</p>
+<pre class="line-numbers language-none"><code class="language-none">iron-pay
+├── composer.json
+├── composer.lock
+├── iron-pay.php
+├── src
+│   └── Options.php
+└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上一篇我們完成了 WooCommerce 的全域設定，接下來我們要在後台的訂單管理頁新增一個交易結果以及紀錄金流商的回傳訊息，以便客戶日後可以針對有問題的訂單進行追蹤。WordPress 的後台有很多現成的欄位，參考下圖：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-01.jpg"></p>
+<p>如果要新增的很容易，使用函式 <code>add_meta_box()</code> 跟勾點 <code>add_meta_boxes</code> 來傳入產生表單欄位的 HTML，最後使用勾點 <code>save_post</code> 在儲存文章時觸發 <code>update_post_meta()</code> 即可將該欄位的資訊寫入資料庫：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">function</span> <span class="token function">irp_add_custom_box</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$screens</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'shop_order'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">foreach</span> <span class="token punctuation">(</span> <span class="token variable">$screens</span> <span class="token keyword">as</span> <span class="token variable">$screen</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">add_meta_box</span><span class="token punctuation">(</span>
+			<span class="token string single-quoted-string">'iron_pay_result'</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'鐵人付交易結果'</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'irp_custom_box_html'</span><span class="token punctuation">,</span>
+			<span class="token variable">$screen</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'side'</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'low'</span>
+		<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'add_meta_boxes'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'irp_add_custom_box'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">irp_custom_box_html</span><span class="token punctuation">(</span> <span class="token variable">$post</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$code</span>   <span class="token operator">=</span> <span class="token function">get_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$post</span><span class="token operator">-></span><span class="token constant">ID</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">get_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$post</span><span class="token operator">-></span><span class="token constant">ID</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token delimiter important">?></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>回傳代號<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>irp_resp_code<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">esc_attr</span><span class="token punctuation">(</span> <span class="token variable">$code</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><span class="token punctuation">"</span></span> <span class="token attr-name">x-readonly</span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span><span class="token property">margin-top</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>交易結果<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>irp_resp_result<span class="token punctuation">"</span></span> <span class="token attr-name">x-readonly</span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span><span class="token property">margin-top</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">esc_textarea</span><span class="token punctuation">(</span> <span class="token variable">$result</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+	<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">irp_save_postdata</span><span class="token punctuation">(</span> <span class="token variable">$post_id</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'irp_resp_code'</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">update_post_meta</span><span class="token punctuation">(</span>
+			<span class="token variable">$post_id</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span>
+			<span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'irp_resp_code'</span><span class="token punctuation">]</span>
+		<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'irp_resp_result'</span><span class="token punctuation">,</span> <span class="token variable">$_POST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">update_post_meta</span><span class="token punctuation">(</span>
+			<span class="token variable">$post_id</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span>
+			<span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'irp_resp_result'</span><span class="token punctuation">]</span>
+		<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'save_post'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'irp_save_postdata'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這樣就完成我們要的欄位了～</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-02.jpg"></p>
+<p>以上範例修改自官方文件，然而這個做法真的要記起來每個步驟真的非常困難，再加上還必須要知道一堆函式與勾點，我寫了這麼多年，每次真的要用到時都還是要去查文件，覺得效率不高，因此我整理了一套 wp-metabox 的 PHP 套件來簡化這些步驟，接下來示範如何使用這個套件來完成一樣的自訂欄位。</p>
 <span id="more"></span>
-<p>  [mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1447473838692949” display=”yes” title=”QWxsIEluIE9uZSDmh7bkurrooYzpirflt6XlhbfljIU=” body=”5LiD56iu6aGY5pyb5LiA5qyh5ru/6Laz77yB5LuK5aSp5YiG5Lqr55qE5pyN5YuZ5bCx5piv6YCZ6bq856We5aWH772eR2V0U2l0ZUNvbnRyb2wg5o+Q5L6b6Zu75a2Q5aCx6KiC6Zax44CB6IGv57Wh6KGo5Zau44CB5L+D6Yq3IEJhbm5lcuOAgeaEj+imi+iqv+afpeOAgeekvue+pOi/vee4seOAgeekvue+pOWIhuS6q+S7peWPiue3muS4iuWuouacjeS4g+eoruWKn+iDve+8jOmChOiDveWNs+aZgui/vee4semAmeS6m+W3peWFt+eahOS9v+eUqOeLgOazge+8jOiHquiogumhj+iJsuOAgeWHuuePvumgu+eOh+OAgemgkOe0hOeZvOS9iO+8jOabtOS9m+W/g+eahOaYr+mChOacieWHuiBXb3JkUHJlc3Mg5aSW5o6b5Y+v55u05o6l5a6J6KOd5L2/55So77yM5LiA5qyh5pW05ZCI5Yiw5L2N77yB” pid=”3052”]</p>
+
+
+<h2 id="新增訂單資料夾結構"><a href="#新增訂單資料夾結構" class="headerlink" title="新增訂單資料夾結構"></a>新增訂單資料夾結構</h2><p>我們先進入 src，資料夾，並新增 Posts 以及在 Posts 裡面的 ShopOrder 資料夾，並增加 Metabox.php 檔案，完成後資料夾結構如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">iron-pay
+├── composer.json
+├── composer.lock
+├── iron-pay.php
+├── src
+│   ├── Options.php
+│   └── Posts
+│       └── ShopOrder
+│           └── Metabox.php
+└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>之所以要用兩個資料夾來分類，主要目的是為了方便日後管理，我是根據 WordPress 的資料庫結構來設計的，Posts 資料夾對應的是 wp_posts，而 ShopOrder 是 post type 為 shop_order 的相關檔案，裡面放了自訂欄位的 Metabox.php，如果之後需要做訂單相關的非同步處理，就可以增加 Ajax.php，或是要做訂單資料的撈取就可以新增 Query.php。</p>
+<p>萬一之後客戶需要在商品管理頁面增加自訂欄位，那它的檔案路徑就會是 Posts/Product/Metabox.php，因為 Product 也是存放在 wp_posts 裡面的。這樣的分類方式可能要對資料表有一定的熟悉程度會比較好上手，這樣做的好處是如果在其他專案也需要用到訂單的自訂欄位或是其他功能，整包資料夾複製過去後修改命名空間的第一層名稱就可以重用。</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">namespace</span> <span class="token punctuation">&#123;</span>yourprefix<span class="token punctuation">&#125;</span><span class="token operator">/</span>Posts<span class="token operator">/</span>ShopOrder<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然後類別名稱、檔案名稱都不用再修改，不然常見的 WordPress 外掛檔名寫法都是要帶一堆前綴，然後宣告類別前要先檢查類別是否存在，引入命名空間之後可以很大程度增加程式碼的重用性，同時讓資料夾結構對應到命名空間，就不用再取 class-yourprefix-shop-order-metabox.php 這種又臭又長的名字。</p>
+<h2 id="安裝-wp-metabox-套件"><a href="#安裝-wp-metabox-套件" class="headerlink" title="安裝 wp-metabox 套件"></a>安裝 wp-metabox 套件</h2><p>將目錄切回到 iron-pay 資料夾底下，來進行 wp-metabox 套件的安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">~&#x2F;Sites&#x2F;woocommerce&#x2F;wp-content&#x2F;plugins&#x2F;iron-pay$ composer require oberonlai&#x2F;wp-metabox <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安裝完成後開啟 src/Posts/ShopOrder/Metabox.php 檔案，貼入以下程式碼：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Posts<span class="token punctuation">\</span>ShopOrder</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Metabox</span><span class="token punctuation">;</span>
+
+<span class="token variable">$metabox</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Metabox</span><span class="token punctuation">(</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'id'</span>       <span class="token operator">=></span> <span class="token string single-quoted-string">'iron_pay_field'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'title'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">'鐵人付交易結果'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'screen'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'shop_order'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'context'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'side'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'priority'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'low'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$metabox</span><span class="token operator">-></span><span class="token function">addText</span><span class="token punctuation">(</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'id'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">'irp_resp_code'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'label'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'回應代號'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$metabox</span><span class="token operator">-></span><span class="token function">addTextarea</span><span class="token punctuation">(</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'id'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">'irp_resp_result'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'label'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'交易結果'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>結果如下：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-metabox/wordpress-metabox-03.jpg"></p>
+<p>有別於最原始的範例，我們再也不用記一堆韓式跟勾點，也不用處理欄位值得儲存或更新，只要建立 Metabox 實例，然後看要新增什麼欄位就用對應的方法，透過跟 WooCommerce Settings API 類似的陣列值傳入方式來設定欄位，以下針對 Metabox 類別傳入的參數做說明：</p>
+<p><strong>id</strong> 自訂區塊的唯一 ID，所有的自訂欄位都要放在自訂區塊中，如果想要新增不同的區塊則需要再建立另外一個 new Metabox()</p>
+<p><strong>title</strong> 自訂欄位的顯示名稱</p>
+<p><strong>screen</strong> 設定顯示在哪個 Post Type 底下，我們要顯示在訂單頁所以是 shop_order。該如何知道目標的頁面是哪種 post type? 可以從網址最後的一個參數 post_type 就知道：</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;woocommerce.test&#x2F;wp-admin&#x2F;edit.php?post_type&#x3D;shop_order<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>context</strong> 自訂區塊的顯示位置，可選值有 normal, side, advanced，side 是在右側欄</p>
+<p><strong>priority</strong> 自訂區塊與其他區塊的順序，可選值有 high、core、default、low，越高越前面</p>
+<p>此外，該套件支援八種自訂欄位，常見的文字、單選框、下拉選單，另外還有圖片上傳、所見即所得編輯器以及重複器，具體的用法都很相似，傳入的參數都只有三個，id、label 與 desc，比較特別的是重複器欄位，但在這個外掛之中我們先不會用到它，更多欄位用法可以參考套件中的 README.md。</p>
+<p>另外如果我們需要傳入更多的參數像是 class、style、attr 之類的屬性也非常容易，只要開啟 vendor/oberonlai/wp-metabox/Metabox.php 這個類別，就能看到 add 欄位以及產出 HTML 的方法，從中我們還可以學到 WordPress 的過濾方法，像是 esc_attr() 以及 esc_html() 等等，這些都是在開發外掛時需要注意的安全性。</p>
+<p>眼尖的朋友可能會發現 WooCommerce 有內建一個訂單備註的欄位，在實務上我們常常也會用它來記錄訂單的狀態變更以及相關資訊，但如果一個訂單備註過多時就會變得不太好找，所以我自己在習慣上都還是會另外開一個自訂區塊來處理金流商的回傳資訊。</p>
+<p>完成設定頁面後下一篇我們先來了解 WooCommerce 的結帳流程，以及最重要的金流類別 WC_Payment_Gateway。</p>
 
         <hr>
         <h2>來一起玩 WordPress 吧！</h2>
@@ -293,6 +417,13 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/WooCommerce-%E9%87%91%E6%B5%81/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 金流</a>
+              <a href="/tw/tags/WordPress-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WordPress 外掛</a>
+              <a href="/tw/tags/WooCommerce-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 外掛</a>
+              <a href="/tw/tags/WC-Settings-Page/" rel="tag"><i class="fa fa-tag"></i> WC_Settings_Page</a>
+          </div>
 
         
 
@@ -300,13 +431,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/tw/wordpress-%E4%BB%98%E8%B2%BB%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C%E5%81%B5%E6%B8%AC%E5%A5%97%E4%BB%B6/" rel="prev" title="WordPress 付費佈景主題偵測套件">
-      <i class="fa fa-chevron-left"></i> WordPress 付費佈景主題偵測套件
+    <a href="/tw/woocommerce-payment-options/" rel="prev" title="WooCommerce 金流串接實戰（五）- 全域設定">
+      <i class="fa fa-chevron-left"></i> WooCommerce 金流串接實戰（五）- 全域設定
     </a></div>
-      <div class="post-nav-item">
-    <a href="/tw/%E5%BF%AB%E9%80%9F%E5%88%87%E6%8F%9B-wordpress-%E5%BE%8C%E5%8F%B0%E7%99%BB%E5%85%A5%E6%AC%8A%E9%99%90/" rel="next" title="快速切換 WordPress 後台登入權限">
-      快速切換 WordPress 後台登入權限 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
