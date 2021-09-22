@@ -14089,8 +14089,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="token variable">$methods</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'CreditCard_Gateway'</span><span class="token punctuation">;</span> 
     <span class="token keyword">return</span> <span class="token variable">$methods</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-
-<span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_payment_gateways'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway_class'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_payment_gateways'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway_class'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>這樣就能完成金流功能的註冊，接下來我們需要實作 <code>My_Gateway</code> 類別。</p>
 <h2 id="CreditCard-Gateway-類別必要實作屬性與方法"><a href="#CreditCard-Gateway-類別必要實作屬性與方法" class="headerlink" title="CreditCard_Gateway 類別必要實作屬性與方法"></a>CreditCard_Gateway 類別必要實作屬性與方法</h2><p>首先要有建構式來指定金流名稱、ID、描述等等基本資料，另外還需要執行設定項的初始化：</p>
