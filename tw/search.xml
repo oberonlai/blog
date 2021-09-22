@@ -14061,4 +14061,176 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
         <tag>WC_Settings_Page</tag>
       </tags>
   </entry>
+  <entry>
+    <title>WooCommerce 金流串接實戰（七）- WC_Payment_Gateway</title>
+    <url>/tw/woocommerce-payment-gateway/</url>
+    <content><![CDATA[<p>WooCommerce 的金流主要分為兩種，即時與非即時完成付款，即時指的是當訂單成立後就可以取得消費者的付款結果，像是信用卡、WebATM，WooCommerce 提供三種模式來處理即時付款：</p>
+<ol>
+<li><p>付款表單 - 讓消費者直接在站內完成信用卡或是付款相關資訊的填寫，由於安全性的考量，台灣有支援這種模式的金流商相對較少，但因為其結帳的便利性可降低付款跳出率，這幾年有不少廠商開始支援 Token 交易代碼化，也就是傳送過程中並非直接傳送消費者的卡號，而是使用一串代碼來避免直接暴露。</p>
+</li>
+<li><p>Iframe 嵌入 - 按下結帳時使用 Iframe 顯示卡號輸入畫面，之前國內也有金流商是採用這種方式付款，但該金流商目前已停止該類型的付款方式。</p>
+</li>
+<li><p>頁面跳轉 - 不讓消費者在站內提供付款資訊，而是跳轉到金流商的頁面進行付款，這是目前的主流方式，根據金流商運作模式，有些是使用 Form 來 Post，或是需要呼叫 API 來取得跳轉網址。</p>
+</li>
+</ol>
+<p>非即時付款的金流常見的有虛擬轉帳帳號、超商代碼繳費，有些金流商會需要跳轉到他們的介面，像是選擇要產生的轉帳帳號是用哪家銀行、列印哪家超商的繳費代碼，也有廠商沒提供這些選擇，就是單純的直接回傳固定一家銀行或超商的繳費資訊，這種類型的就是直接將回傳結果顯示在站內即可。</p>
+<span id="more"></span>
+
+<p>WooCommerce 最常見的結帳流程為：加入購物車 &gt; 輸入帳單資訊 &gt; 跳轉到第三方付款頁 &gt; 跳轉回站內感謝頁，接下來說明新增 WooCommerce 金流付款的架構。</p>
+<h2 id="WooCommerce-新增金流-Gateway"><a href="#WooCommerce-新增金流-Gateway" class="headerlink" title="WooCommerce 新增金流 Gateway"></a>WooCommerce 新增金流 Gateway</h2><p>在實作之前我們先釐清中英對照，Payment 指的是付款公司，實務上會是把金流商的公司名稱作為 Payment，而一個金流商會提供許多不同的付款方式，像是信用卡、ATM、超商代碼等等，而這些付款方式就是 Gateway。</p>
+<p>首先繼承 WooCommerce 的金流類別 <code>WC_Payment_Gateway</code>，並將類別的宣告放在 <code>plugins_loaded</code> 勾點裡面：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">class</span> <span class="token class-name">CreditCard_Gateway</span> <span class="token keyword">extends</span> <span class="token class-name">WC_Payment_Gateway</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-CreditCard_Gateway```" data-language="CreditCard_Gateway```"><div class="caption"><span>不用建立實例，這部分 WooCommerce 會幫我們處理，在命名上最好可以很直觀的理解這是哪一種付款方式，接下來在 ```woocommerce_payment_gateways``` 勾點新增付款方式的類別名稱即可：</span></div><code class="language-CreditCard_Gateway```">
+&#96;&#96;&#96;php
+function add_gateway_class( $methods ) &#123;
+    $methods[] &#x3D; &#39;CreditCard_Gateway&#39;; 
+    return $methods;
+&#125;
+
+add_filter( &#39;woocommerce_payment_gateways&#39;, &#39;add_gateway_class&#39; );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這樣就能完成金流功能的註冊，接下來我們需要實作 <code>My_Gateway</code> 類別。</p>
+<h2 id="CreditCard-Gateway-類別必要實作屬性與方法"><a href="#CreditCard-Gateway-類別必要實作屬性與方法" class="headerlink" title="CreditCard_Gateway 類別必要實作屬性與方法"></a>CreditCard_Gateway 類別必要實作屬性與方法</h2><p>首先要有建構式來指定金流名稱、ID、描述等等基本資料，另外還需要執行設定項的初始化：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">class</span> <span class="token class-name">CreditCard_Gateway</span> <span class="token keyword">extends</span> <span class="token class-name">WC_Payment_Gateway</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">id</span>                 <span class="token operator">=</span> <span class="token string single-quoted-string">'my_credit_card'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">icon</span>               <span class="token operator">=</span> <span class="token string single-quoted-string">'imgUrl'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">has_fields</span>         <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">method_title</span>       <span class="token operator">=</span> <span class="token string single-quoted-string">'信用卡'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">method_description</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'使用信用卡付款'</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> <code>$this-&gt;id</code> – 付款方式的唯一 ID，最好帶有自己的前綴，因為同一間金流商可能會有其他第三方開發金流外掛，如果只用金流商的前綴發生衝突的機率很高</p>
+<p><code>$this-&gt;icon</code> – 顯示在前台結帳頁付款名稱旁的圖標，讓消費者知道他們會透過哪一間金流公司進行付款</p>
+<p><code>$this-&gt;has_fields</code> – 在結帳頁是否有提供付款資訊填寫表單，因為我們大部分都是使用跳轉到第三方，所以這邊設成 false 即可</p>
+<p><code>$this-&gt;method_title</code> – 付款方式名稱，會顯示在 WooCommerce 的設定頁</p>
+<p><code>$this-&gt;method_description</code> - 付款方式描述，會顯示在 WooCommerce 的設定頁</p>
+<p>設定完屬性後，建構式裡面還需要設定以下內容：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">class</span> <span class="token class-name">CreditCard_Gateway</span> <span class="token keyword">extends</span> <span class="token class-name">WC_Payment_Gateway</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// 略</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token function">init_form_fields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token function">init_settings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">title</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'title'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">description</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'description'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+			<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_update_options_payment_gateways_'</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">id</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'process_admin_options'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第一個方法 <code>init_form_fields()</code> 稍後會實作，它的功用在建立 Gateway 的設定項，在前面的文章中，我們已經把金流的相關設定放在全域設定裡面，因為一個金流商會提供多種 Gateway，所以把設定放在 Gateway 裡面的話對於使用者來說會很麻煩，一樣的金流商店代號、密鑰資訊在信用卡、ATM、超商代碼都要個別輸入，因此這類資訊放在全域設定裡面會比較恰當。</p>
+<p>但如果你接的金流只有一個 Gateway 的話，把設定項放在這邊就很適合。第二個方法是 <code>init_settings()</code>，它的功用是初始化設定，之後就可以透過 <code>get_option()</code> 取得 init_form_fields 裡面的設定欄位值，像是：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">title</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'title'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">description</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'description'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p>title 跟 description 稍後會實作在 <code>init_form_field()</code> 方法裡面，而這邊 <code>$this-&gt;title</code> 以及 <code>$this-&gt;description</code> 有別於 <code>method_title</code> 與 <code>method_description</code>，他們是顯示在前台結帳頁的付款方式名稱，這個名稱可以透過設定項來讓使用者自行修改，而最後的勾點 <code>woocommerce_update_options_payment_gateways_&#123;gateway_id&#125;</code> 則是更新設定內容，<code>process_admin_options</code> 我們不需實作，交由 <code>WC_Payment_Gateway</code> 處理即可。</p>
+<p>接下來是實作 <code>init_form_fields</code> 方法，我們只需要最基本的三個欄位即可：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">class</span> <span class="token class-name">CreditCard_Gateway</span> <span class="token keyword">extends</span> <span class="token class-name">WC_Payment_Gateway</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// 略</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">init_form_fields</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">form_fields</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+				<span class="token string single-quoted-string">'enabled'</span>     <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'啟用/停用'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'label'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'啟用付款'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">'checkbox'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'default'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'no'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'title'</span>       <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'付款方式名稱'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'text'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'description'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'付款方式描述'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'textarea'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最後是 <code>process_payment</code> 方法，它會處理點擊結帳按鈕後的行為，包含建立訂單、改變訂單狀態、清空購物車、將欄位傳送到金流商、取得網址後進行頁面跳轉，這部分我們會在下一篇串接信用卡來進行實作。</p>
+<h2 id="WC-API-的用途"><a href="#WC-API-的用途" class="headerlink" title="WC API 的用途"></a>WC API 的用途</h2><p>通常傳送訂單資料給金流商的時候，都會需要帶一個成功付款後的完成結帳網址，當金流商走完流程後就會根據該網址來進行頁面跳轉，WooCommerce API 提供一個動態的勾點 <code>woocommerce_api_&#123;slug&#125;</code>，只要替換 slug 就能製造出這個跳轉網址，範例如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">redirect_thankyou_page</span><span class="token punctuation">(</span> <span class="token variable">$order</span> <span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token comment">// 處理金流商回傳的參數</span>
+	<span class="token variable">$args</span> <span class="token operator">=</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">;</span>
+	<span class="token function">wp_safe_redirect</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_checkout_order_received_url</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_thankyou'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'redirect_thankyou_page'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>當金流商導回 <a href="https://example.com/wc-api/thankyou">https://example.com/wc-api/thankyou</a> 的時候，我們就能拿到參數的資訊做處理，然後將頁面跳轉到感謝頁，在非即時付款金流商要背景通知付款完成的情境下，也可以使用這個勾點來做到接收參數的功能。</p>
+<p>以下為付款方式 Gateway 類別的完整基礎架構：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">class</span> <span class="token class-name">CreditCard_Gateway</span> <span class="token keyword">extends</span> <span class="token class-name">WC_Payment_Gateway</span> <span class="token punctuation">&#123;</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">id</span>                 <span class="token operator">=</span> <span class="token string single-quoted-string">'credit_card'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">icon</span>               <span class="token operator">=</span> <span class="token string single-quoted-string">'imgUrl'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">has_fields</span>         <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">method_title</span>       <span class="token operator">=</span> <span class="token string single-quoted-string">'信用卡'</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">method_description</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'使用信用卡付款'</span><span class="token punctuation">;</span>
+
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token function">init_form_fields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token function">init_settings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">title</span>       <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'title'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">description</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'description'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+			<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_update_options_payment_gateways_'</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">id</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'process_admin_options'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">init_form_fields</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$this</span><span class="token operator">-></span><span class="token property">form_fields</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+				<span class="token string single-quoted-string">'enabled'</span>     <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'啟用/停用'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'label'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'啟用付款'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">'checkbox'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'default'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'no'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'title'</span>       <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'付款方式名稱'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'text'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'description'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+					<span class="token string single-quoted-string">'title'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'付款方式描述'</span><span class="token punctuation">,</span>
+					<span class="token string single-quoted-string">'type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'textarea'</span><span class="token punctuation">,</span>
+				<span class="token punctuation">)</span><span class="token punctuation">,</span>
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">process_payment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token comment">// 處理點擊結帳按鈕後的行為</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下一篇我們來實作鐵人付金流的信用卡 Gateway。</p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+      <tags>
+        <tag>WooCommerce 金流</tag>
+        <tag>WordPress 外掛</tag>
+        <tag>WooCommerce 外掛</tag>
+        <tag>WC_Settings_Page</tag>
+      </tags>
+  </entry>
 </search>
