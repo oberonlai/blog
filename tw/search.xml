@@ -14084,14 +14084,13 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 <span class="token punctuation">&#125;</span>
 <span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'plugins_loaded'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-CreditCard_Gateway```不用建立實例，這部分" data-language="CreditCard_Gateway```不用建立實例，這部分"><div class="caption"><span>WooCommerce 會幫我們處理，在命名上最好可以很直觀的理解這是哪一種付款方式，接下來在 ```woocommerce_payment_gateways``` 勾點新增付款方式的類別名稱即可：</span></div><code class="language-CreditCard_Gateway```不用建立實例，這部分">
-&#96;&#96;&#96;php
-function add_gateway_class( $methods ) &#123;
-    $methods[] &#x3D; &#39;CreditCard_Gateway&#39;; 
-    return $methods;
-&#125;
+<p>CreditCard_Gateway 不用建立實例，這部分 WooCommerce 會幫我們處理，在命名上最好可以很直觀的理解這是哪一種付款方式，接下來在 woocommerce_payment_gateways 勾點新增付款方式的類別名稱即可：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">add_gateway_class</span><span class="token punctuation">(</span> <span class="token variable">$methods</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token variable">$methods</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'CreditCard_Gateway'</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> <span class="token variable">$methods</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-add_filter( &#39;woocommerce_payment_gateways&#39;, &#39;add_gateway_class&#39; );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_payment_gateways'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'add_gateway_class'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>這樣就能完成金流功能的註冊，接下來我們需要實作 <code>My_Gateway</code> 類別。</p>
 <h2 id="CreditCard-Gateway-類別必要實作屬性與方法"><a href="#CreditCard-Gateway-類別必要實作屬性與方法" class="headerlink" title="CreditCard_Gateway 類別必要實作屬性與方法"></a>CreditCard_Gateway 類別必要實作屬性與方法</h2><p>首先要有建構式來指定金流名稱、ID、描述等等基本資料，另外還需要執行設定項的初始化：</p>
