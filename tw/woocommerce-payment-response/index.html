@@ -22,28 +22,23 @@
     var CONFIG = {"hostname":"oberonlai.blog","root":"/tw/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在還沒有開始學習 WordPress 以前，Google Blogger 是我最早接觸的部落格平台，有別於當時台灣的無名小站、Yahoo 奇摩家族、天空部落等等，Blogger (當年還叫做 Blogspot) 可以自訂的部分更多，還可以寫程式碼，重點是不會逼人硬要塞廣告，後台的操作介面友善，因此 Blogger 成為我紀錄個人資料的首選平台。">
+  <meta name="description" content="完成付款請求之後，接下來是準備好接收金流商回傳資訊的 Response 類別，目前外掛的資料夾結構如下： iron-pay ├── composer.json ├── composer.lock ├── iron-pay.php ├── src │   ├── Gateways │   │   ├── CreditCard.php │   │   ├── Request.php │   │   ├">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【 專案 】重新認識 Google Blogger">
-<meta property="og:url" content="https://oberonlai.blog/tw/%E3%80%90-%E5%B0%88%E6%A1%88-%E3%80%91%E9%87%8D%E6%96%B0%E8%AA%8D%E8%AD%98-google-blogger/">
+<meta property="og:title" content="WooCommerce 金流串接實戰（九）- 接收回傳資料">
+<meta property="og:url" content="https://oberonlai.blog/tw/woocommerce-payment-response/">
 <meta property="og:site_name" content="WordPress 開發日常">
-<meta property="og:description" content="在還沒有開始學習 WordPress 以前，Google Blogger 是我最早接觸的部落格平台，有別於當時台灣的無名小站、Yahoo 奇摩家族、天空部落等等，Blogger (當年還叫做 Blogspot) 可以自訂的部分更多，還可以寫程式碼，重點是不會逼人硬要塞廣告，後台的操作介面友善，因此 Blogger 成為我紀錄個人資料的首選平台。">
+<meta property="og:description" content="完成付款請求之後，接下來是準備好接收金流商回傳資訊的 Response 類別，目前外掛的資料夾結構如下： iron-pay ├── composer.json ├── composer.lock ├── iron-pay.php ├── src │   ├── Gateways │   │   ├── CreditCard.php │   │   ├── Request.php │   │   ├">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.08.02-1024x703.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.10.38-1024x755.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.13.30-1024x795.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.14.23-1024x769.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.15.13.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.16.44-1024x795.jpg">
-<meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.17.35-1024x792.jpg">
-<meta property="article:published_time" content="2019-12-23T04:32:44.000Z">
-<meta property="article:modified_time" content="2021-05-04T10:53:23.005Z">
+<meta property="article:published_time" content="2021-09-24T01:30:00.000Z">
+<meta property="article:modified_time" content="2021-09-24T01:38:38.893Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
-<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
+<meta property="article:tag" content="WooCommerce 金流">
+<meta property="article:tag" content="WordPress 外掛">
+<meta property="article:tag" content="WooCommerce 外掛">
+<meta property="article:tag" content="WC_Settings_Page">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.08.02-1024x703.jpg">
 
-<link rel="canonical" href="https://oberonlai.blog/tw/%E3%80%90-%E5%B0%88%E6%A1%88-%E3%80%91%E9%87%8D%E6%96%B0%E8%AA%8D%E8%AD%98-google-blogger/">
+<link rel="canonical" href="https://oberonlai.blog/tw/woocommerce-payment-response/">
 
 
 <script id="page-configurations">
@@ -56,7 +51,7 @@
   };
 </script>
 
-  <title>【 專案 】重新認識 Google Blogger | WordPress 開發日常</title>
+  <title>WooCommerce 金流串接實戰（九）- 接收回傳資料 | WordPress 開發日常</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163107142-1"></script>
     <script data-pjax>
@@ -220,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E3%80%90-%E5%B0%88%E6%A1%88-%E3%80%91%E9%87%8D%E6%96%B0%E8%AA%8D%E8%AD%98-google-blogger/">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-response/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/tw/images/avatar.jpg">
@@ -233,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【 專案 】重新認識 Google Blogger
+          WooCommerce 金流串接實戰（九）- 接收回傳資料
         </h1>
 
         <div class="post-meta">
@@ -242,23 +237,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2019-12-23 12:32:44" itemprop="dateCreated datePublished" datetime="2019-12-23T12:32:44+08:00">2019-12-23</time>
+              <time title="創建時間：2021-09-24 09:30:00 / 修改時間：09:38:38" itemprop="dateCreated datePublished" datetime="2021-09-24T09:30:00+08:00">2021-09-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-04 18:53:23" itemprop="dateModified" datetime="2021-05-04T18:53:23+08:00">2021-05-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%B0%88%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">專案</span></a>
+                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
                 </span>
             </span>
 
@@ -267,13 +256,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>8.7k</span>
+              <span>9.5k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>8 分鐘</span>
+              <span>9 分鐘</span>
             </span>
 
         </div>
@@ -285,170 +274,377 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.08.02-1024x703.jpg"></p>
-<p>在還沒有開始學習 WordPress 以前，Google Blogger 是我最早接觸的部落格平台，有別於當時台灣的無名小站、Yahoo 奇摩家族、天空部落等等，Blogger (當年還叫做 Blogspot) 可以自訂的部分更多，還可以寫程式碼，重點是不會逼人硬要塞廣告，後台的操作介面友善，因此 Blogger 成為我紀錄個人資料的首選平台。</p>
+        <p>完成付款請求之後，接下來是準備好接收金流商回傳資訊的 Response 類別，目前外掛的資料夾結構如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">iron-pay
+├── composer.json
+├── composer.lock
+├── iron-pay.php
+├── src
+│   ├── Gateways
+│   │   ├── CreditCard.php
+│   │   ├── Request.php
+│   │   ├── Response.php
+│   │   └── VirtualAccount.php
+│   ├── Options.php
+│   ├── Posts
+│   │   └── ShopOrder
+│   │       └── Metabox.php
+│   └── Utility.php
+└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>開啟 Response.php 檔案，輸入以下程式碼：</p>
 <span id="more"></span>
 
-<p>後來的日子裡，因為工作需要開始研究 CMS，轉而發現 WordPress 這個開源的部落格平台，如果以賣東西來比喻，Blogger 是推著路邊攤在賣，而 WordPress 就是全球連鎖超級市場，後者的彈性以及衍伸的周邊資源，是 Blogger 望塵莫及的，也因此 Blogger 就慢慢的從我的腦海中遠去…(遠目)</p>
-<h2 id="改版任務"><a href="#改版任務" class="headerlink" title="改版任務"></a>改版任務</h2><p>這次的專案接到一個很特別的任務，沒錯，就是要幫 Blogger 改版(驚)，在了解業主需求時，早已熟悉 WordPress 的我無不大力推從更換部落格系統，佈景主題多、外掛多、相關資源多…</p>
-<p>想不到列了一堆好處還是無法說服業主更換 Blogger，該部落格以經營了六年多，裡面有 500 多篇文章，文章的上稿方式是先從 iPad2 的備忘錄完成文章，然後再用 iOS5 版的 Safari 登入 Blogger 後台把文章貼入，重點就是在於 WordPress 後台在舊版的 Safari 無法正常運作，也無法使用 WordPress 的 iOS App，因此在不改變上稿流程的情況下，還是只能繼續沿用 Blogger 。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.10.38-1024x755.jpg"></p>
-<p>舊版網站的首頁&amp;內頁</p>
-<p>而這此需要改版的主要原因，在於舊版版面的設計已經無法符合 500 多篇文章的需求，再加上分類項目數量眾多，對於瀏覽者很難透過視覺動線去尋找文章，其次是文章以書評為主，大量的文字缺少圖片，少了圖片就比較難吸引瀏覽者點閱，因此針對舊版的網站的問題提出了相對應的改善方案：</p>
-<h3 id="一-文章太多被埋沒"><a href="#一-文章太多被埋沒" class="headerlink" title="(一) 文章太多被埋沒"></a>(一) 文章太多被埋沒</h3><ul>
-<li>  改變版面配置</li>
-<li>  增加圖片</li>
-<li>  增加精選文章</li>
-<li>  增加熱門文章</li>
-</ul>
-<h3 id="二-分類太多難搜尋"><a href="#二-分類太多難搜尋" class="headerlink" title="(二) 分類太多難搜尋"></a>(二) 分類太多難搜尋</h3><ul>
-<li>  主選單顯示文章分類</li>
-<li>  規劃書籍主題策展</li>
-</ul>
-<h3 id="三-跳出率過高"><a href="#三-跳出率過高" class="headerlink" title="(三) 跳出率過高"></a>(三) 跳出率過高</h3><ul>
-<li>  增加文章延伸閱讀</li>
-<li>  顯示同類別的其他文章</li>
-</ul>
-<h3 id="四-與其他書評部落格缺少差異化"><a href="#四-與其他書評部落格缺少差異化" class="headerlink" title="(四) 與其他書評部落格缺少差異化"></a>(四) 與其他書評部落格缺少差異化</h3><ul>
-<li>  增加品牌標語與主視覺元素</li>
-</ul>
-<h2 id="遇到的挑戰"><a href="#遇到的挑戰" class="headerlink" title="遇到的挑戰"></a>遇到的挑戰</h2><p>太習慣用 WordPress 的邏輯來思考部落格，首頁是 index、內頁是 single、列表頁是 archive，不同用途的頁面應該是分屬在不同檔案，但 Blogger 從頭到尾就只有一份 xml 檔 (雖然介面文字是寫 html，但標頭明明就是 xml)，要如何在同一份檔案去處理不同的頁面呈現是第一個面臨到的問題，</p>
-<p>其次是 Blogger 把資料、介面、控制邏輯也都放在同份 xml 檔，這對於習慣 MVC 邏輯的我實在是坐立難安，因此常發生明明已經改過的東西卻被還原，這是因為後台的控制項變更後，Blogger 會自動把 xml 檔進行覆寫，所以逼自己養成習慣，改 xml 之前都要先重整頁面。</p>
-<p>最後是 Blogger 的 xml 編輯器實在不怎麼友善，因為要把所有資料、頁面全都塞進去，每次載入時會需要花上一些時間，對於習慣 hot reload 的我就像等上十年之久，然後因為 controller 也在裡面，所以會看到一堆 Blogger 專用的 <b> tag，在閱讀上有些吃力，也只能逼自己慢慢習慣了。</p>
-<p>但這個編輯器讓我最崩潰的地方是當 xml 寫錯時，點下儲存等了約五秒後，會跳出「更新失敗」的提示，就這樣，只顯示「更新失敗」這四個字，除此之外沒有任何的除錯訊息告訴我是哪邊發生錯誤、錯在哪邊 (怒)，只好用刪除法把剛剛寫過的東西逐一刪除看是誰出問題，但每儲存一次就要五秒以上，因此常常改個小東西就要半天的時間了，實在是苦不堪言。</p>
-<p>也試著把整份 xml 貼入 viscode 改完後再貼回去，但即使是原封不動的複製貼上，只要一進過編輯器的 code 就是無法再正常儲存，然後繼續丟「更新失敗」這四個字給你，總覺得這陣子在睡覺時做夢都夢到這四個字…</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.13.30-1024x795.jpg"></p>
-<p>更新失敗地獄</p>
-<p>最後沒辦法，還是找現成的主題來修改，選擇了 Emporio Flamingo 這個主題，有首頁、內頁兩種版型，側邊欄也可以根據不同版型來進行設定，另外他也設計了他自己的小工具，在套用上還滿方便的，然後也從他的程式碼中去學習 Blogger 的專屬語法，回想起自己最早學習 WordPress Theme Custom 也是從別人寫好的佈景主題去摸索的。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.14.23-1024x769.jpg"></p>
-<p>謝謝 Emporio 的拯救</p>
-<h2 id="Blogger-Tags"><a href="#Blogger-Tags" class="headerlink" title="Blogger Tags"></a>Blogger Tags</h2><p>Blogger 標籤是以 &lt;b:&gt; 這樣的形式出現，也是會有開頭跟結尾，然後根據不同的標籤類型會帶有相對應的屬性，常用的標籤有以下幾種：</p>
-<h3 id="ㄧ-判斷式-lt-b-if-gt"><a href="#ㄧ-判斷式-lt-b-if-gt" class="headerlink" title="(ㄧ) 判斷式 &lt;b:if&gt;"></a>(ㄧ) 判斷式 &lt;b:if&gt;</h3><p>要在同一個檔案顯示不同頁面的內容主要就是要靠判斷式，其屬性為 cond，判斷不同頁面的寫法如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;archive&quot;&#39;&gt;
-&lt;!--庫存頁面會出現的內容--&gt;
-&lt;&#x2F;b:if&gt;
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
 
-&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;index&quot;&#39;&gt;
-&lt;!-- 首頁會出現的內容 --&gt;
-&lt;&#x2F;b:if&gt;
+<span class="token keyword">use</span> <span class="token package">Irp<span class="token punctuation">\</span>Utility</span><span class="token punctuation">;</span>
 
-&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;item&quot;&#39;&gt;
-&lt;!-- 文章內頁會出現的內容 --&gt;
-&lt;&#x2F;b:if&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">defined</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ABSPATH'</span> <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">exit</span><span class="token punctuation">;</span>
 
-<p>判斷式也可以用巢狀結構來達成 AND，或是使用 else 來進行條件不成立時的描述。</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;index&quot;&#39;&gt;
-  &lt;b:if cond&#x3D;&#39;data:blog.searchQuery&#39;&gt;
-    &lt;!--首頁與搜尋頁會出現的內容--&gt;
-  &lt;&#x2F;b:if&gt;
-&lt;&#x2F;b:if&gt;
+<span class="token comment">/**
+ * Receive response from ironpay.
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Response</span> <span class="token punctuation">&#123;</span>
 
-&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;item&quot;&#39;&gt;
-    &lt;!--文章內頁會出現的內容--&gt;
-&lt;b:else&#x2F;&gt;
-    &lt;!--除了文章內頁以外會出現的內容--&gt;
-&lt;&#x2F;b:if&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token comment">/**
+	 * Initialize and add hooks
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
-<p>更多條件式的用法可以參考 -&gt; <a target="_blank" rel="noopener" href="https://ultimatebloggerguide.blogspot.com/2016/07/blogger-conditional-tags-for-page-types.html">https://ultimatebloggerguide.blogspot.com/2016/07/blogger-conditional-tags-for-page-types.html</a></p>
-<h3 id="二-迴圈-lt-b-loop-gt"><a href="#二-迴圈-lt-b-loop-gt" class="headerlink" title="(二) 迴圈 &lt;b:loop&gt;"></a>(二) 迴圈 &lt;b:loop&gt;</h3><p>迴圈會用到的地方是在要顯示文章列表時使用，範例如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;b:loop index&#x3D;&#39;i&#39; values&#x3D;&#39;data:posts&#39; var&#x3D;&#39;post&#39;&gt;
-  &lt;div&gt;
-    &lt;h3&gt;
-      &lt;b:eval expr&#x3D;&#39;data:i + 1&#39; &#x2F;&gt;. &lt;data:post.title &#x2F;&gt;
-    &lt;&#x2F;h3&gt;
-    &lt;div&gt;
-      &lt;data:post.body &#x2F;&gt;
-    &lt;&#x2F;div&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;b:loop&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+		<span class="token comment">// Online Payment listener.</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'receive_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_online_response'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'valid_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>可參考 -&gt; <a target="_blank" rel="noopener" href="https://bloggerbook.blakbin.com/2018/11/blogger-bloop-tag.html">https://bloggerbook.blakbin.com/2018/11/blogger-bloop-tag.html</a></p>
-<h3 id="三-常用參數"><a href="#三-常用參數" class="headerlink" title="(三) 常用參數"></a>(三) 常用參數</h3><p>如果要取得網站標題、文章名稱、發表日期等等的相關資訊，就可以使用 <a href="data:">data:</a> 標籤來取得，沒有結尾標籤，直接使用斜線結尾，相關範例如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;data:blog.title &#x2F;&gt;      &#x2F;&#x2F; 取得網誌標題
-&lt;data:blog.pageType &#x2F;&gt;   &#x2F;&#x2F; 取得頁面類型
-&lt;data:posts.title &#x2F;&gt;     &#x2F;&#x2F; 取得文章標題
-&lt;data:posts.body &#x2F;&gt;.     &#x2F;&#x2F; 取得文章內文<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+		<span class="token comment">// Offline Payment listener.</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay-offline'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'receive_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_offline_response'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'valid_response_offline'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>完整屬性可以參考 Google Blogger 文件 -&gt;<a target="_blank" rel="noopener" href="https://support.google.com/blogger/answer/47270?hl=zh-Hant">https://support.google.com/blogger/answer/47270?hl=zh-Hant</a></p>
-<p>但在實際運用上有滿多在 Google 文件上都找不到的屬性，然後有些屬性寫在 <Head> 會沒作用，當初在寫 og tag 的時候嘗試了滿多，以下為可正確顯示的範例：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;head&gt;
-    &lt;meta content&#x3D;&#39;width&#x3D;device-width, initial-scale&#x3D;1&#39; name&#x3D;&#39;viewport&#39;&#x2F;&gt;
-    &lt;title&gt;&lt;data:view.title.escaped&#x2F;&gt; &amp;#8226;文學女孩的開卷日常&amp;#8226;&lt;&#x2F;title&gt;
-    &lt;meta content&#x3D;&#39;IE&#x3D;edge,chrome&#x3D;1&#39; http-equiv&#x3D;&#39;X-UA-Compatible&#39;&#x2F;&gt;
-    &lt;meta content&#x3D;&#39;width&#x3D;device-width, initial-scale&#x3D;1.0&#39; name&#x3D;&#39;viewport&#39;&#x2F;&gt;
-    &lt;!--Open Graph Begin--&gt;
-&lt;meta expr:content&#x3D;&#39;data:blog.title&#39; property&#x3D;&#39;og:site_name&#39;&#x2F;&gt;
-&lt;b:switch var&#x3D;&#39;data:blog.pageType&#39;&gt;
-&lt;b:case value&#x3D;&#39;item&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;article&#39; property&#x3D;&#39;og:type&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;Miffy Huang&#39; property&#x3D;&#39;article:author&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;data:blog.pageName&#39; property&#x3D;&#39;og:title&#39;&#x2F;&gt;
-     &lt;meta content&#x3D;&#39;data:widgets.Blog.first.posts.first.featuredImage&#39; property&#x3D;&#39;og:image&#39;&#x2F;&gt;
-   &lt;b:if cond&#x3D;&#39;data:blog.metaDescription&#39;&gt;
-      &lt;meta expr:content&#x3D;&#39;data:blog.metaDescription&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-   &lt;b:else&#x2F;&gt;
-      &lt;meta expr:content&#x3D;&#39;data:blog.metaDescription&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-   &lt;&#x2F;b:if&gt;
-&lt;b:case value&#x3D;&#39;index&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;blog&#39; property&#x3D;&#39;og:type&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;data:blog.title&#39; property&#x3D;&#39;og:title&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;data:blog.metaDescription&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;https:&#x2F;&#x2F;1.bp.blogspot.com&#x2F;-vbSrd8AWktA&#x2F;XfyOaPYu82I&#x2F;AAAAAAAAAo8&#x2F;fF0MJDsIFEEg8VKE-xqM2NtBtKGoQGGiACLcBGAsYHQ&#x2F;s1600&#x2F;ogimage.jpg&#39; property&#x3D;&#39;og:image&#39;&#x2F;&gt;
-&lt;b:case value&#x3D;&#39;archive&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;website&#39; property&#x3D;&#39;og:type&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;&quot;&quot; + data:blog.pageName + &quot; on &quot; + data:blog.title&#39; property&#x3D;&#39;og:title&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;&quot;This is an archive page &quot; + data:blog.pageName + &quot; on &quot; + data:blog.title + &quot;&quot;&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-&lt;b:case value&#x3D;&#39;static_page&#39;&#x2F;&gt;
-   &lt;meta content&#x3D;&#39;website&#39; property&#x3D;&#39;og:type&#39;&#x2F;&gt;
-   &lt;meta expr:content&#x3D;&#39;data:blog.pageName&#39; property&#x3D;&#39;og:title&#39;&#x2F;&gt;
-     &lt;meta content&#x3D;&#39;https:&#x2F;&#x2F;1.bp.blogspot.com&#x2F;-vbSrd8AWktA&#x2F;XfyOaPYu82I&#x2F;AAAAAAAAAo8&#x2F;fF0MJDsIFEEg8VKE-xqM2NtBtKGoQGGiACLcBGAsYHQ&#x2F;s1600&#x2F;ogimage.jpg&#39; property&#x3D;&#39;og:image&#39;&#x2F;&gt;
-   &lt;b:if cond&#x3D;&#39;data:blog.metaDescription&#39;&gt;
-      &lt;meta expr:content&#x3D;&#39;data:blog.metaDescription&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-   &lt;b:else&#x2F;&gt;
-      &lt;meta expr:content&#x3D;&#39;&quot;This is an static page &quot; + data:blog.pageName + &quot; on &quot; + data:blog.title + &quot;&quot;&#39; property&#x3D;&#39;og:description&#39;&#x2F;&gt;
-   &lt;&#x2F;b:if&gt;
-&lt;&#x2F;b:switch&gt;
-&lt;!--Open Graph End--&gt;
-&lt;&#x2F;head&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-<h2 id="加入第三方功能"><a href="#加入第三方功能" class="headerlink" title="加入第三方功能"></a>加入第三方功能</h2><p>為了可以讓瀏覽者瀏覽更多文章，在文章內頁下方的加入同分類的其他文章連結，本想自己寫迴圈來撈，但在需要顯示圖片以及摘要的寫法上碰到了困難，於是找了一下有沒有相關的外掛可以使用，想不到還真的有(大心)。</p>
-<p>解法是這使用這篇的工具 -&gt; <a target="_blank" rel="noopener" href="https://sneeit.com/premium-flexible-related-post-widget-for-blogger-blogspot/">https://sneeit.com/premium-flexible-related-post-widget-for-blogger-blogspot/</a></p>
-<p>加入的方式很簡單，先把下方程式碼貼入到 xml 文章結尾的地方</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!-- START::_140414_related_posts::START --&gt;
-&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;item&quot;&#39;&gt;
- &lt;b:if cond&#x3D;&#39;data:post.labels&#39;&gt;
-  &lt;b:loop values&#x3D;&#39;data:post.labels&#39; var&#x3D;&#39;label&#39;&gt;
-   &lt;span class&#x3D;&#39;_140414_related_label&#39; expr:post_id&#x3D;&#39;data:post.id&#39; expr:url&#x3D;&#39;data:label.url&#39; style&#x3D;&#39;display:none&#39;&gt;&lt;data:label.name&#x2F;&gt;&lt;&#x2F;span&gt;
-  &lt;&#x2F;b:loop&gt;
- &lt;&#x2F;b:if&gt;
- &lt;div class&#x3D;&#39;_140414_related_posts&#39; expr:post_id&#x3D;&#39;data:post.id&#39;&gt;
- &lt;&#x2F;div&gt;
-&lt;&#x2F;b:if&gt;
-&lt;!-- END::_140414_related_posts::END --&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>然後再用他們提供的工具來設定要顯示的篇數、是否顯示圖片、日期等等的資訊，最後點擊 Add Widget 就會在 Blogger 後台的版面配置出現相關文章的小工具，然後再把他移動到頁面主體區塊的最下方即可。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.15.13.jpg"></p>
-<p>視覺化設定項</p>
-<p>要注意的是相關文章會出現在留言區塊之上，以瀏覽者來說的邏輯怪怪的，應該是先看完留言結束這篇文章的瀏覽後才會顯示其他文章，所以要把上方的程式碼移到留言下方才是正確的位置：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;b:if cond&#x3D;&#39;data:showCmtPopup&#39;&gt;
-  &lt;div id&#x3D;&#39;comment-popup&#39;&gt;
-    &lt;iframe allowtransparency&#x3D;&#39;allowtransparency&#39; frameborder&#x3D;&#39;0&#39; id&#x3D;&#39;comment-actions&#39; name&#x3D;&#39;comment-actions&#39; scrolling&#x3D;&#39;no&#39;&gt;
-    &lt;&#x2F;iframe&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;b:if&gt;
-&lt;&#x2F;section&gt;
-&lt;!-- 要在 showCmtPopup 的 Section 下面 --!&gt;
- &lt;!-- START::_140414_related_posts::START --&gt;
-&lt;b:if cond&#x3D;&#39;data:blog.pageType &#x3D;&#x3D; &quot;item&quot;&#39;&gt;
-  &lt;h3 class&#x3D;&#39;title_related&#39;&gt;相關閱讀&lt;&#x2F;h3&gt;
-...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>首先，我們用靜態方法 <code>init()</code>來初始化勾點的部分，勾點一共分為兩組，分別是即時付款 Online Payment 以及非即時付款 Offline Payment。每一組又個別有兩個勾點，我們先看 Online Payment 這一組，第一個勾點是 WooCommerce API 所提供的，也就是前面我們有提到的動態勾點：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'receive_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>這次 Blogger 的改版前後大概花了一個禮拜的時間，比較多的修改都是 CSS 的調整，但最耗時的還是存檔、除錯以及找要改哪裡的時間，目前還在觀察改版之後的瀏覽數據是否有所提升，最重要的還是希望可以吸引到出版社或是書商的邀稿合作，喔，對了，忘了說業主是我太太，還希望有好的機會能懇請介紹XD</p>
-<p><a target="_blank" rel="noopener" href="https://www.justgirl.me/"><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.16.44-1024x795.jpg"></a></p>
-<p>改版首頁</p>
-<p><a target="_blank" rel="noopener" href="https://www.justgirl.me/2019/06/blog-post.html"><img src="https://oberonlai.blog/wp-content/uploads/2019/12/CleanShot-2019-12-23-at-12.17.35-1024x792.jpg"></a></p>
-<p>改版內頁</p>
-<p>網站連結 -&gt; <a target="_blank" rel="noopener" href="https://www.justgirl.me/">https://www.justgirl.me</a></p>
+<p>這代表當我們的造訪 <code>https://woocommerce.test/wc-api/iron-pay/</code> 會觸發 <code>receive_response</code> 這個方法，這個方法的主要功能為驗證當請求這個網址時有接收到金流商回傳的參數，並且通過加密演算法的驗證。</p>
+<p>第二個勾點為 <code>ironpay_online_response</code>，當看到有我們自己命名前綴的勾點時，就代表這是我們自己新增的，新增的方法稍後會實作。</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_online_response'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'valid_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>這個勾點會在通過我們的請求來源安全性驗證後觸發 <code>valid_response()</code>，該方法實作更新訂單資料、改變庫存狀態、以及將回傳資料寫入資料庫後進行頁面跳轉等行為。</p>
+<p>有了 Online Payment 勾點的理解之後，Offline Payment 也是一樣的邏輯，設定好回傳網址後，我們就能在請求類別 Request 裡面將這兩個網址作為參數傳給金流商，通知他們當消費者完成後結帳後會呼叫這兩個網址。</p>
+<p>通常金流商回有兩種呼叫方式，一種是前景呼叫，也就是透過消費者的瀏覽器跳轉到我們提供的網址，不管是即時或是非即時付款，都需要讓消費者回到原站會比較合理。</p>
+<p>另一種是背景呼叫，常見於非即時付款，因為消費者已經走完結帳流程關閉瀏覽器了，當消費者隔天完成轉帳，需要靠金流商的主機來發起付款完成通知，這種請求也就是俗稱的背景呼叫。</p>
+<p>不同金流商對於這兩種呼叫方式的參數命名都不太相同，前景呼叫有可能叫 <code>return_url</code> 或是 <code>back_url</code>，背景呼叫有可能叫做 <code>notify_url</code> 或是 <code>callback_url</code>，因為這些名稱都無法很直觀的分辨到底是前景還是背景，所以詳讀文件的參數名稱以及流程圖會比較保險些，不然只根據參數名稱來傳很容易搞錯。</p>
+<p>接下來是實作 <code>receive_response()</code> 方法：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Irp<span class="token punctuation">\</span>Utility</span><span class="token punctuation">;</span>
+
+<span class="token function">defined</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ABSPATH'</span> <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">exit</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Receive response from ironpay.
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Response</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token comment">/**
+	 * Initialize and add hooks
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive response from ironpay
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">receive_response</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span> <span class="token keyword">empty</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$params</span> <span class="token operator">=</span> <span class="token function">wc_clean</span><span class="token punctuation">(</span> <span class="token function">wp_unslash</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$args</span>   <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+				<span class="token string single-quoted-string">'authcode'</span>        <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'authcode'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'nonce_str'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nonce_str'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'orderdate'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'orderdate'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'orgno'</span>           <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'orgno'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'out_trade_no'</span>    <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'periods'</span>         <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'periods'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'result'</span>          <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'secondtimestamp'</span> <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'secondtimestamp'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'status'</span>          <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'total_fee'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'total_fee'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+			<span class="token variable">$sign</span> <span class="token operator">=</span> <span class="token class-name static-context">Utility</span><span class="token operator">::</span><span class="token function">generate_sign</span><span class="token punctuation">(</span> <span class="token variable">$args</span><span class="token punctuation">,</span> <span class="token class-name static-context">Utility</span><span class="token operator">::</span><span class="token function">get_secret</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// $params['sign'] 是金流商回傳的，把它拿來跟我們自己算出來的 $sign 做比對</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$sign</span> <span class="token operator">===</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'sign'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">current_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					<span class="token function">do_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_online_response'</span><span class="token punctuation">,</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span> <span class="token function">current_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay-offline'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					<span class="token function">do_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_offline_response'</span><span class="token punctuation">,</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先我們先檢查是否有回傳參數，因為不同金流商有可能會用 <code>$_POST</code> 或是 <code>$_GET</code> 回傳，所以用 <code>$_REQUEST</code> 可以通用在不同專案之中，<code>wc_clean()</code> 跟 <code>wp_unslash()</code> 是 WooCommerce 內建的函式，用來消除斜線或是空格等字元，我們把回傳的資料組成一個陣列，在建立勾點之前，我們先要判斷回傳的演算法是否有符合我們自己算出來的結果，藉此來確保這次的請求是由金流商呼叫。</p>
+<p>我們先用 Utility 類別來算出我們的 sign，計算的方法為傳入所有參數加上商店金鑰，算好後再用它來比對金流商的 sign 是否吻合，如果正確的話才會建立勾點。 <code>current_action()</code> 是判斷該方法是在哪個勾點被執行，<code>do_action()</code> 則是建立勾點，第一個參數為勾點名稱，第二個為使用該勾點的函式可以拿到的變數。</p>
+<p>接下來是做訂單處理的 <code>valid_response()</code> 方法：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Irp<span class="token punctuation">\</span>Utility</span><span class="token punctuation">;</span>
+
+<span class="token function">defined</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ABSPATH'</span> <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">exit</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Receive response from ironpay.
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Response</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token comment">/**
+	 * Initialize and add hooks
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive response from ironpay
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">receive_response</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive online payment
+	 *
+	 * @param array $params The post data received from ironpay.
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">valid_response</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">global</span> <span class="token variable">$woocommerce</span><span class="token punctuation">;</span>
+		<span class="token variable">$order</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>WC_Order</span><span class="token punctuation">(</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$order</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'0000'</span> <span class="token operator">===</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">payment_complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">reduce_order_stock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">update_status</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'on-hold'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token variable">$woocommerce</span><span class="token operator">-></span><span class="token property">cart</span><span class="token operator">-></span><span class="token function">empty_cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">add_order_note</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'鐵人付交易結果：'</span> <span class="token operator">.</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">wp_safe_redirect</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_checkout_order_received_url</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">exit</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我們先取得全域變數 <code>$woocommerce</code>，這個變數等下可以來操作購物車，接著是用金流商回傳的訂單 ID 來建立訂單物件，訂單物件有很多方法提供給我們修改訂單資料。<code>$params[&#39;status&#39;]</code> 為金流商回傳的交易代號，通常每個代號會代表不同的結果，所以根據金流文件來判斷當代號為 0000 成功時，執行以下的動作：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$order</span><span class="token operator">-></span><span class="token function">payment_complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">reduce_order_stock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$woocommerce</span><span class="token operator">-></span><span class="token property">cart</span><span class="token operator">-></span><span class="token function">empty_cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">add_order_note</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'鐵人付交易結果：'</span> <span class="token operator">.</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>分別是將訂單狀態改完完成、減少庫存、清空購物車，以及更新我們的自訂欄位 <code>_irp_resp_code</code> 與 <code>_irp_resp_result</code>，最後的 <code>add_order_note()</code> 方法是新增訂單備註，回傳資料要做哪些事會根據客戶需求而有所不同，但大致上不外乎是以上幾種流程。</p>
+<p>處理完訂單後則使用 <code>wp_safe_redirect()</code> 指定跳轉頁面，<code>$order-&gt;get_checkout_order_received_url()</code> 為完成購買頁，至於背景呼叫 <code>valid_response_offline()</code> 也差不多，主要差別在於不需做頁面跳轉，以及可能會需要返回金流商指定的內容：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Irp<span class="token punctuation">\</span>Utility</span><span class="token punctuation">;</span>
+
+<span class="token function">defined</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ABSPATH'</span> <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">exit</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Receive response from ironpay.
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Response</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token comment">/**
+	 * Initialize and add hooks
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive response from ironpay
+	 *
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">receive_response</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive online payment
+	 *
+	 * @param array $params The post data received from ironpay.
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">valid_response</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 略</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">/**
+	 * Receive offline payment
+	 *
+	 * @param array $params The post data received from ironpay.
+	 * @return void
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">valid_response_offline</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">global</span> <span class="token variable">$woocommerce</span><span class="token punctuation">;</span>
+		<span class="token variable">$order</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>WC_Order</span><span class="token punctuation">(</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$order</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// 略</span>
+			<span class="token function">wp_send_json</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'success'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">exit</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-wp_send_json()```" data-language="wp_send_json()```"><div class="caption"><span>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 ```wp_send_json( 'success' );``` 來符合金流商的要求。</span></div><code class="language-wp_send_json()```">
+完整的 Response 類別程式碼如下：
+
+&#96;&#96;&#96;php
+namespace Irp\Gateways;
+
+use Irp\Utility;
+
+defined( &#39;ABSPATH&#39; ) || exit;
+
+&#x2F;**
+ * Receive response from ironpay.
+ *&#x2F;
+class Response &#123;
+
+	&#x2F;**
+	 * Initialize and add hooks
+	 *
+	 * @return void
+	 *&#x2F;
+	public static function init() &#123;
+
+		&#x2F;&#x2F; Online Payment listener.
+		add_action( &#39;woocommerce_api_iron-pay&#39;, array( __CLASS__, &#39;receive_response&#39; ) );
+		add_action( &#39;ironpay_online_response&#39;, array( __CLASS__, &#39;valid_response&#39; ) );
+
+		&#x2F;&#x2F; Offline Payment listener.
+		add_action( &#39;woocommerce_api_iron-pay-offline&#39;, array( __CLASS__, &#39;receive_response&#39; ) );
+		add_action( &#39;ironpay_offline_response&#39;, array( __CLASS__, &#39;valid_response_offline&#39; ) );
+
+	&#125;
+
+	&#x2F;**
+	 * Receive response from ironpay
+	 *
+	 * @return void
+	 *&#x2F;
+	public static function receive_response() &#123;
+
+		if ( ! empty( $_REQUEST ) ) &#123;
+			$params &#x3D; wc_clean( wp_unslash( $_REQUEST ) );
+			$args   &#x3D; array(
+				&#39;authcode&#39;        &#x3D;&gt; $params[&#39;authcode&#39;],
+				&#39;nonce_str&#39;       &#x3D;&gt; $params[&#39;nonce_str&#39;],
+				&#39;orderdate&#39;       &#x3D;&gt; $params[&#39;orderdate&#39;],
+				&#39;orgno&#39;           &#x3D;&gt; $params[&#39;orgno&#39;],
+				&#39;out_trade_no&#39;    &#x3D;&gt; $params[&#39;out_trade_no&#39;],
+				&#39;periods&#39;         &#x3D;&gt; $params[&#39;periods&#39;],
+				&#39;result&#39;          &#x3D;&gt; $params[&#39;result&#39;],
+				&#39;secondtimestamp&#39; &#x3D;&gt; $params[&#39;secondtimestamp&#39;],
+				&#39;status&#39;          &#x3D;&gt; $params[&#39;status&#39;],
+				&#39;total_fee&#39;       &#x3D;&gt; $params[&#39;total_fee&#39;],
+			);
+
+			$sign &#x3D; Utility::generate_sign( $args, Utility::get_secret() );
+
+			if ( $sign &#x3D;&#x3D;&#x3D; $params[&#39;sign&#39;] ) &#123;
+				if ( current_action() &#x3D;&#x3D;&#x3D; &#39;woocommerce_api_iron-pay&#39; ) &#123;
+					do_action( &#39;ironpay_online_response&#39;, $params );
+				&#125; elseif ( current_action() &#x3D;&#x3D;&#x3D; &#39;woocommerce_api_iron-pay-offline&#39; ) &#123;
+					do_action( &#39;ironpay_offline_response&#39;, $params );
+				&#125;
+			&#125;
+		&#125;
+	&#125;
+
+	&#x2F;**
+	 * Receive online payment
+	 *
+	 * @param array $params The post data received from ironpay.
+	 * @return void
+	 *&#x2F;
+	public static function valid_response( $params ) &#123;
+		global $woocommerce;
+		$order &#x3D; new \WC_Order( $params[&#39;out_trade_no&#39;] );
+		if ( $order ) &#123;
+			if ( &#39;0000&#39; &#x3D;&#x3D;&#x3D; $status ) &#123;
+				$order-&gt;payment_complete();
+				$order-&gt;reduce_order_stock();
+			&#125; else &#123;
+				$order-&gt;update_status( &#39;on-hold&#39; );
+			&#125;
+			$woocommerce-&gt;cart-&gt;empty_cart();
+			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_code&#39;, $params[&#39;status&#39;] );
+			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_result&#39;, $params[&#39;result&#39;] );
+			$order-&gt;add_order_note( &#39;鐵人付交易結果：&#39; . $params[&#39;result&#39;], true );
+			wp_safe_redirect( $order-&gt;get_checkout_order_received_url() );
+			exit;
+		&#125;
+	&#125;
+
+	&#x2F;**
+	 * Receive offline payment
+	 *
+	 * @param array $params The post data received from ironpay.
+	 * @return void
+	 *&#x2F;
+	public static function valid_response_offline( $params ) &#123;
+		global $woocommerce;
+		$order &#x3D; new \WC_Order( $params[&#39;out_trade_no&#39;] );
+		if ( $order ) &#123;
+			if ( &#39;0000&#39; &#x3D;&#x3D;&#x3D; $status ) &#123;
+				$order-&gt;payment_complete( $buysafe_no );
+				$order-&gt;reduce_order_stock();	
+			&#125;
+			$woocommerce-&gt;cart-&gt;empty_cart();
+			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_code&#39;, $params[&#39;status&#39;] );
+			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_result&#39;, $params[&#39;result&#39;] );
+			$order-&gt;add_order_note( &#39;鐵人付交易結果：&#39; . $params[&#39;result&#39;], true );
+			wp_send_json( &#39;success&#39; );
+			exit;
+		&#125;
+	&#125;
+&#125;
+
+Response::init();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這樣就算是完成接收金流商回傳資料的工作了，剩下的就是根據金流商的規格去做調整，WooCommerce 金流串接就能大功告成了，但在交給客戶測試驗收前，我們先自己來做單元測試，下一篇來介紹如何寫測試以及說明應該要測試哪些類別與方法。</p>
 
         <hr>
         <h2>來一起玩 WordPress 吧！</h2>
@@ -462,6 +658,13 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tw/tags/WooCommerce-%E9%87%91%E6%B5%81/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 金流</a>
+              <a href="/tw/tags/WordPress-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WordPress 外掛</a>
+              <a href="/tw/tags/WooCommerce-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 外掛</a>
+              <a href="/tw/tags/WC-Settings-Page/" rel="tag"><i class="fa fa-tag"></i> WC_Settings_Page</a>
+          </div>
 
         
 
@@ -469,13 +672,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/tw/%E3%80%90-%E6%95%99%E8%A8%93-%E3%80%91%E9%97%9C%E6%96%BC%E9%A3%B2%E9%A3%9F/" rel="prev" title="【 教訓 】關於飲食">
-      <i class="fa fa-chevron-left"></i> 【 教訓 】關於飲食
+    <a href="/tw/woocommerce-payment-request/" rel="prev" title="WooCommerce 金流串接實戰（八）- 發起付款請求">
+      <i class="fa fa-chevron-left"></i> WooCommerce 金流串接實戰（八）- 發起付款請求
     </a></div>
-      <div class="post-nav-item">
-    <a href="/tw/%E3%80%90-%E5%8F%83%E8%80%83-%E3%80%91world68-%E4%B8%96%E7%95%8C%E5%90%84%E5%9C%8B%E7%B6%B2%E7%AB%99%E6%94%B6%E9%9B%86/" rel="next" title="【 參考 】World68 世界各國網站收集">
-      【 參考 】World68 世界各國網站收集 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
