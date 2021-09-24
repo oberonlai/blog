@@ -30,12 +30,11 @@
 <meta property="og:description" content="完成付款請求之後，接下來是準備好接收金流商回傳資訊的 Response 類別，目前外掛的資料夾結構如下： iron-pay ├── composer.json ├── composer.lock ├── iron-pay.php ├── src │   ├── Gateways │   │   ├── CreditCard.php │   │   ├── Request.php │   │   ├">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-09-24T01:30:00.000Z">
-<meta property="article:modified_time" content="2021-09-24T01:41:10.656Z">
+<meta property="article:modified_time" content="2021-09-24T01:42:36.533Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WooCommerce 金流">
 <meta property="article:tag" content="WordPress 外掛">
 <meta property="article:tag" content="WooCommerce 外掛">
-<meta property="article:tag" content="WC_Settings_Page">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://oberonlai.blog/tw/woocommerce-payment-response/">
@@ -239,7 +238,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-24 09:30:00 / 修改時間：09:41:10" itemprop="dateCreated datePublished" datetime="2021-09-24T09:30:00+08:00">2021-09-24</time>
+              <time title="創建時間：2021-09-24 09:30:00 / 修改時間：09:42:36" itemprop="dateCreated datePublished" datetime="2021-09-24T09:30:00+08:00">2021-09-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -527,7 +526,7 @@
 
 <span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上述<code>wp_send_json()</code>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 <code>wp_send_json( &#39;success&#39; );</code> 來符合金流商的要求。</p>
+<p>上述 <code>wp_send_json()</code>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 <code>wp_send_json( &#39;success&#39; );</code> 來符合金流商的要求。</p>
 <p>完整的 Response 類別程式碼如下：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
 
@@ -661,7 +660,6 @@
               <a href="/tw/tags/WooCommerce-%E9%87%91%E6%B5%81/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 金流</a>
               <a href="/tw/tags/WordPress-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WordPress 外掛</a>
               <a href="/tw/tags/WooCommerce-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WooCommerce 外掛</a>
-              <a href="/tw/tags/WC-Settings-Page/" rel="tag"><i class="fa fa-tag"></i> WC_Settings_Page</a>
           </div>
 
         

@@ -14953,7 +14953,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 
 <span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上述<code>wp_send_json()</code>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 <code>wp_send_json( &#39;success&#39; );</code> 來符合金流商的要求。</p>
+<p>上述 <code>wp_send_json()</code>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 <code>wp_send_json( &#39;success&#39; );</code> 來符合金流商的要求。</p>
 <p>完整的 Response 類別程式碼如下：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
 
@@ -15077,7 +15077,6 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
         <tag>WooCommerce 金流</tag>
         <tag>WordPress 外掛</tag>
         <tag>WooCommerce 外掛</tag>
-        <tag>WC_Settings_Page</tag>
       </tags>
   </entry>
 </search>
