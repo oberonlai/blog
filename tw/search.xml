@@ -14953,122 +14953,120 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 
 <span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-wp_send_json()```" data-language="wp_send_json()```"><div class="caption"><span>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 ```wp_send_json( 'success' );``` 來符合金流商的要求。</span></div><code class="language-wp_send_json()```">
-完整的 Response 類別程式碼如下：
+<p>上述<code>wp_send_json()</code>為 WordPress 內建的函式，主要功能是輸出 JSON 字串，假設金流商那邊希望當呼叫我們的 API 網址時，如果有成功接收的話回傳 success 字串，那我們就可以寫成 <code>wp_send_json( &#39;success&#39; );</code> 來符合金流商的要求。</p>
+<p>完整的 Response 類別程式碼如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">namespace</span> <span class="token package">Irp<span class="token punctuation">\</span>Gateways</span><span class="token punctuation">;</span>
 
-&#96;&#96;&#96;php
-namespace Irp\Gateways;
+<span class="token keyword">use</span> <span class="token package">Irp<span class="token punctuation">\</span>Utility</span><span class="token punctuation">;</span>
 
-use Irp\Utility;
+<span class="token function">defined</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ABSPATH'</span> <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">exit</span><span class="token punctuation">;</span>
 
-defined( &#39;ABSPATH&#39; ) || exit;
-
-&#x2F;**
+<span class="token comment">/**
  * Receive response from ironpay.
- *&#x2F;
-class Response &#123;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Response</span> <span class="token punctuation">&#123;</span>
 
-	&#x2F;**
+	<span class="token comment">/**
 	 * Initialize and add hooks
 	 *
 	 * @return void
-	 *&#x2F;
-	public static function init() &#123;
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
-		&#x2F;&#x2F; Online Payment listener.
-		add_action( &#39;woocommerce_api_iron-pay&#39;, array( __CLASS__, &#39;receive_response&#39; ) );
-		add_action( &#39;ironpay_online_response&#39;, array( __CLASS__, &#39;valid_response&#39; ) );
+		<span class="token comment">// Online Payment listener.</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'receive_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_online_response'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'valid_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-		&#x2F;&#x2F; Offline Payment listener.
-		add_action( &#39;woocommerce_api_iron-pay-offline&#39;, array( __CLASS__, &#39;receive_response&#39; ) );
-		add_action( &#39;ironpay_offline_response&#39;, array( __CLASS__, &#39;valid_response_offline&#39; ) );
+		<span class="token comment">// Offline Payment listener.</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay-offline'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'receive_response'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_offline_response'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token constant">__CLASS__</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'valid_response_offline'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-	&#125;
+	<span class="token punctuation">&#125;</span>
 
-	&#x2F;**
+	<span class="token comment">/**
 	 * Receive response from ironpay
 	 *
 	 * @return void
-	 *&#x2F;
-	public static function receive_response() &#123;
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">receive_response</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
-		if ( ! empty( $_REQUEST ) ) &#123;
-			$params &#x3D; wc_clean( wp_unslash( $_REQUEST ) );
-			$args   &#x3D; array(
-				&#39;authcode&#39;        &#x3D;&gt; $params[&#39;authcode&#39;],
-				&#39;nonce_str&#39;       &#x3D;&gt; $params[&#39;nonce_str&#39;],
-				&#39;orderdate&#39;       &#x3D;&gt; $params[&#39;orderdate&#39;],
-				&#39;orgno&#39;           &#x3D;&gt; $params[&#39;orgno&#39;],
-				&#39;out_trade_no&#39;    &#x3D;&gt; $params[&#39;out_trade_no&#39;],
-				&#39;periods&#39;         &#x3D;&gt; $params[&#39;periods&#39;],
-				&#39;result&#39;          &#x3D;&gt; $params[&#39;result&#39;],
-				&#39;secondtimestamp&#39; &#x3D;&gt; $params[&#39;secondtimestamp&#39;],
-				&#39;status&#39;          &#x3D;&gt; $params[&#39;status&#39;],
-				&#39;total_fee&#39;       &#x3D;&gt; $params[&#39;total_fee&#39;],
-			);
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span> <span class="token keyword">empty</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token variable">$params</span> <span class="token operator">=</span> <span class="token function">wc_clean</span><span class="token punctuation">(</span> <span class="token function">wp_unslash</span><span class="token punctuation">(</span> <span class="token variable">$_REQUEST</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$args</span>   <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+				<span class="token string single-quoted-string">'authcode'</span>        <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'authcode'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'nonce_str'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nonce_str'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'orderdate'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'orderdate'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'orgno'</span>           <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'orgno'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'out_trade_no'</span>    <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'periods'</span>         <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'periods'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'result'</span>          <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'secondtimestamp'</span> <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'secondtimestamp'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'status'</span>          <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+				<span class="token string single-quoted-string">'total_fee'</span>       <span class="token operator">=></span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'total_fee'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-			$sign &#x3D; Utility::generate_sign( $args, Utility::get_secret() );
+			<span class="token variable">$sign</span> <span class="token operator">=</span> <span class="token class-name static-context">Utility</span><span class="token operator">::</span><span class="token function">generate_sign</span><span class="token punctuation">(</span> <span class="token variable">$args</span><span class="token punctuation">,</span> <span class="token class-name static-context">Utility</span><span class="token operator">::</span><span class="token function">get_secret</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-			if ( $sign &#x3D;&#x3D;&#x3D; $params[&#39;sign&#39;] ) &#123;
-				if ( current_action() &#x3D;&#x3D;&#x3D; &#39;woocommerce_api_iron-pay&#39; ) &#123;
-					do_action( &#39;ironpay_online_response&#39;, $params );
-				&#125; elseif ( current_action() &#x3D;&#x3D;&#x3D; &#39;woocommerce_api_iron-pay-offline&#39; ) &#123;
-					do_action( &#39;ironpay_offline_response&#39;, $params );
-				&#125;
-			&#125;
-		&#125;
-	&#125;
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$sign</span> <span class="token operator">===</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'sign'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">current_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					<span class="token function">do_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_online_response'</span><span class="token punctuation">,</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span> <span class="token function">current_action</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string single-quoted-string">'woocommerce_api_iron-pay-offline'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					<span class="token function">do_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ironpay_offline_response'</span><span class="token punctuation">,</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
 
-	&#x2F;**
+	<span class="token comment">/**
 	 * Receive online payment
 	 *
 	 * @param array $params The post data received from ironpay.
 	 * @return void
-	 *&#x2F;
-	public static function valid_response( $params ) &#123;
-		global $woocommerce;
-		$order &#x3D; new \WC_Order( $params[&#39;out_trade_no&#39;] );
-		if ( $order ) &#123;
-			if ( &#39;0000&#39; &#x3D;&#x3D;&#x3D; $status ) &#123;
-				$order-&gt;payment_complete();
-				$order-&gt;reduce_order_stock();
-			&#125; else &#123;
-				$order-&gt;update_status( &#39;on-hold&#39; );
-			&#125;
-			$woocommerce-&gt;cart-&gt;empty_cart();
-			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_code&#39;, $params[&#39;status&#39;] );
-			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_result&#39;, $params[&#39;result&#39;] );
-			$order-&gt;add_order_note( &#39;鐵人付交易結果：&#39; . $params[&#39;result&#39;], true );
-			wp_safe_redirect( $order-&gt;get_checkout_order_received_url() );
-			exit;
-		&#125;
-	&#125;
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">valid_response</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">global</span> <span class="token variable">$woocommerce</span><span class="token punctuation">;</span>
+		<span class="token variable">$order</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>WC_Order</span><span class="token punctuation">(</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$order</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'0000'</span> <span class="token operator">===</span> <span class="token variable">$status</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">payment_complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">reduce_order_stock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">update_status</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'on-hold'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token variable">$woocommerce</span><span class="token operator">-></span><span class="token property">cart</span><span class="token operator">-></span><span class="token function">empty_cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">add_order_note</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'鐵人付交易結果：'</span> <span class="token operator">.</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">wp_safe_redirect</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_checkout_order_received_url</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">exit</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
 
-	&#x2F;**
+	<span class="token comment">/**
 	 * Receive offline payment
 	 *
 	 * @param array $params The post data received from ironpay.
 	 * @return void
-	 *&#x2F;
-	public static function valid_response_offline( $params ) &#123;
-		global $woocommerce;
-		$order &#x3D; new \WC_Order( $params[&#39;out_trade_no&#39;] );
-		if ( $order ) &#123;
-			if ( &#39;0000&#39; &#x3D;&#x3D;&#x3D; $status ) &#123;
-				$order-&gt;payment_complete( $buysafe_no );
-				$order-&gt;reduce_order_stock();	
-			&#125;
-			$woocommerce-&gt;cart-&gt;empty_cart();
-			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_code&#39;, $params[&#39;status&#39;] );
-			update_post_meta( $order-&gt;get_id(), &#39;_irp_resp_result&#39;, $params[&#39;result&#39;] );
-			$order-&gt;add_order_note( &#39;鐵人付交易結果：&#39; . $params[&#39;result&#39;], true );
-			wp_send_json( &#39;success&#39; );
-			exit;
-		&#125;
-	&#125;
-&#125;
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">valid_response_offline</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">global</span> <span class="token variable">$woocommerce</span><span class="token punctuation">;</span>
+		<span class="token variable">$order</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>WC_Order</span><span class="token punctuation">(</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$order</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'0000'</span> <span class="token operator">===</span> <span class="token variable">$status</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">payment_complete</span><span class="token punctuation">(</span> <span class="token variable">$buysafe_no</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">reduce_order_stock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+			<span class="token punctuation">&#125;</span>
+			<span class="token variable">$woocommerce</span><span class="token operator">-></span><span class="token property">cart</span><span class="token operator">-></span><span class="token function">empty_cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_code'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">update_post_meta</span><span class="token punctuation">(</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'_irp_resp_result'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">add_order_note</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'鐵人付交易結果：'</span> <span class="token operator">.</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">wp_send_json</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'success'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">exit</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-Response::init();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token class-name static-context">Response</span><span class="token operator">::</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>這樣就算是完成接收金流商回傳資料的工作了，剩下的就是根據金流商的規格去做調整，WooCommerce 金流串接就能大功告成了，但在交給客戶測試驗收前，我們先自己來做單元測試，下一篇來介紹如何寫測試以及說明應該要測試哪些類別與方法。</p>
 ]]></content>
