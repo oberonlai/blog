@@ -30,7 +30,7 @@
 <meta property="og:description" content="剛開始接案的時候，常常為了能趕在結案日來臨之前把案子結掉，很多功能都是表面上能運作就拿去交差，心裏雖然知道可能會有問題，但總是會抱持著賭一把客戶不會發現的心態，就這樣請他們測試驗收，十次裡面大概有十次都會被發現有問題，從此之後我就發現我完全沒有賭運，乖乖把功能測試到自己有信心時才請客戶驗收。 大部分時間我都是用手動測試，如果要測金流外掛，就是每次手動操作一次結帳流程，選擇該金流後進行結帳，然後看">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-09-25T01:30:00.000Z">
-<meta property="article:modified_time" content="2021-09-25T02:00:43.978Z">
+<meta property="article:modified_time" content="2021-09-25T02:03:22.686Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WooCommerce 金流">
 <meta property="article:tag" content="WordPress 外掛">
@@ -240,7 +240,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-25 09:30:00 / 修改時間：10:00:43" itemprop="dateCreated datePublished" datetime="2021-09-25T09:30:00+08:00">2021-09-25</time>
+              <time title="創建時間：2021-09-25 09:30:00 / 修改時間：10:03:22" itemprop="dateCreated datePublished" datetime="2021-09-25T09:30:00+08:00">2021-09-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,13 +286,13 @@
 <h3 id="2-整合測試-Integration-Test"><a href="#2-整合測試-Integration-Test" class="headerlink" title="2.整合測試 Integration Test"></a>2.整合測試 Integration Test</h3><p>結合外部資料來進行測試稱之為整合測試，有別於單元測試是要測試最小單元，必須要隔離所有會影響測試結果的外部因素，像是從資料庫取得的資料、從 API 拿到的回傳結果來進行測試，而整合測試就是把這些外部因素拉進來一起測試的方法，確保當這些最小單元組合在一起並引入外部因素後仍然可以正常運作。</p>
 <h3 id="3-端對端測試-End-to-end-Test"><a href="#3-端對端測試-End-to-end-Test" class="headerlink" title="3.端對端測試 End-to-end Test"></a>3.端對端測試 End-to-end Test</h3><p>單元測試與整合測試是從工程師的角度來進行，而端對端測試則是模擬真實使用者的行為來進行測試，像是我們自己在做手動測試一樣，只是全部都改為用前端程式搭配瀏覽器來控制使用者的滑鼠點擊、頁面跳轉等行為，如果以 WooCommerce 來說，就是測試使用者把商品加入購物車、輸入結帳資料、選擇金流點選結帳按鈕等流程。</p>
 <h2 id="寫單元測試的重點"><a href="#寫單元測試的重點" class="headerlink" title="寫單元測試的重點"></a>寫單元測試的重點</h2><p>以投入的成本來看，單元測試是 CP 值最高的種類，因為只是測試最小單元所以執行起來的速度很快，又能預先發現潛在的風險，以下為寫單元測試的大原則：</p>
-<h3 id="單元測試的命名要清晰易懂"><a href="#單元測試的命名要清晰易懂" class="headerlink" title="單元測試的命名要清晰易懂"></a>單元測試的命名<strong>要</strong>清晰易懂</h3><p>可以直接從名稱中辨識這個測試的目的是什麼，像是我想要測試金流商的加密演算方法是否有正確運作，命名 <code>test_ironpay_generate_sign()</code> 就能很直觀看出來其目的。</p>
-<h3 id="單元測試要測試-True-amp-False"><a href="#單元測試要測試-True-amp-False" class="headerlink" title="單元測試要測試 True &amp; False"></a>單元測試<strong>要</strong>測試 True &amp; False</h3><p>不僅要驗證資料正確的部分，也要考慮到當傳入不正確的資料時，看被測試對象會如何反應，以及反應結果是否如我們所預期。</p>
-<h3 id="單元測試要隨手進行"><a href="#單元測試要隨手進行" class="headerlink" title="單元測試要隨手進行"></a>單元測試<strong>要</strong>隨手進行</h3><p>不像整合測試或端對端測試因為需要外部環境的支援所以執行起來會很花時間，單元測試可以每寫完一個方法就立刻進行測試，不管是使用命令列工具還是編輯器的擴充套件都能很方便的隨時進行測試。</p>
-<h3 id="單元測試要持續維護"><a href="#單元測試要持續維護" class="headerlink" title="單元測試要持續維護"></a>單元測試<strong>要</strong>持續維護</h3><p>理想上當然是希望寫一次就可以永遠堪用，但隨著功能的演變測試也要跟上，不然就失去了寫測試的意義。</p>
-<h3 id="單元測試裡面不要測試實作細節"><a href="#單元測試裡面不要測試實作細節" class="headerlink" title="單元測試裡面不要測試實作細節"></a>單元測試裡面<strong>不要</strong>測試實作細節</h3><p>因為實作有可能會隨著功能需求的變更而進行修改，這會導致測試類別也必須要跟著修改，測試應該要把目標放在輸出結果的驗證而非實作細節。</p>
-<h3 id="單元測試裡面不要使用邏輯"><a href="#單元測試裡面不要使用邏輯" class="headerlink" title="單元測試裡面不要使用邏輯"></a>單元測試裡面<strong>不要</strong>使用邏輯</h3><p>如果在測試裡面寫了 if else 或其他判斷語句，會增加測試的變數，測試要維持最單純的資料輸入以及驗證輸出的狀態。</p>
-<h3 id="單元測試之間不要共用變數"><a href="#單元測試之間不要共用變數" class="headerlink" title="單元測試之間不要共用變數"></a>單元測試之間<strong>不要</strong>共用變數</h3><p>如同上面提到單元測試的目的就是要測試最小單元，所以每個測試都是可以獨立測試運作，有時候我們可能為方便重用測試資料，所以會把測試資料當作變數傳入測試中，但這樣可能會導致測試產生預期外的錯誤，如果真有這樣的需求可以用 DataProvider 來處理。</p>
+<h3 id="單元測試的命名「要」清晰易懂"><a href="#單元測試的命名「要」清晰易懂" class="headerlink" title="單元測試的命名「要」清晰易懂"></a>單元測試的命名「要」清晰易懂</h3><p>可以直接從名稱中辨識這個測試的目的是什麼，像是我想要測試金流商的加密演算方法是否有正確運作，命名 <code>test_ironpay_generate_sign()</code> 就能很直觀看出來其目的。</p>
+<h3 id="單元測試「要」測試-True-amp-False"><a href="#單元測試「要」測試-True-amp-False" class="headerlink" title="單元測試「要」測試 True &amp; False"></a>單元測試「要」測試 True &amp; False</h3><p>不僅要驗證資料正確的部分，也要考慮到當傳入不正確的資料時，看被測試對象會如何反應，以及反應結果是否如我們所預期。</p>
+<h3 id="單元測試「要」隨手進行"><a href="#單元測試「要」隨手進行" class="headerlink" title="單元測試「要」隨手進行"></a>單元測試「要」隨手進行</h3><p>不像整合測試或端對端測試因為需要外部環境的支援所以執行起來會很花時間，單元測試可以每寫完一個方法就立刻進行測試，不管是使用命令列工具還是編輯器的擴充套件都能很方便的隨時進行測試。</p>
+<h3 id="單元測試「要」持續維護"><a href="#單元測試「要」持續維護" class="headerlink" title="單元測試「要」持續維護"></a>單元測試「要」持續維護</h3><p>理想上當然是希望寫一次就可以永遠堪用，但隨著功能的演變測試也要跟上，不然就失去了寫測試的意義。</p>
+<h3 id="單元測試裡面「不要」測試實作細節"><a href="#單元測試裡面「不要」測試實作細節" class="headerlink" title="單元測試裡面「不要」測試實作細節"></a>單元測試裡面「不要」測試實作細節</h3><p>因為實作有可能會隨著功能需求的變更而進行修改，這會導致測試類別也必須要跟著修改，測試應該要把目標放在輸出結果的驗證而非實作細節。</p>
+<h3 id="單元測試裡面「不要」使用邏輯"><a href="#單元測試裡面「不要」使用邏輯" class="headerlink" title="單元測試裡面「不要」使用邏輯"></a>單元測試裡面「不要」使用邏輯</h3><p>如果在測試裡面寫了 if else 或其他判斷語句，會增加測試的變數，測試要維持最單純的資料輸入以及驗證輸出的狀態。</p>
+<h3 id="單元測試之間「不要」共用變數"><a href="#單元測試之間「不要」共用變數" class="headerlink" title="單元測試之間「不要」共用變數"></a>單元測試之間「不要」共用變數</h3><p>如同上面提到單元測試的目的就是要測試最小單元，所以每個測試都是可以獨立測試運作，有時候我們可能為方便重用測試資料，所以會把測試資料當作變數傳入測試中，但這樣可能會導致測試產生預期外的錯誤，如果真有這樣的需求可以用 DataProvider 來處理。</p>
 <h2 id="金流外掛的測試項目"><a href="#金流外掛的測試項目" class="headerlink" title="金流外掛的測試項目"></a>金流外掛的測試項目</h2><p>開發 WooCommerce 外掛的好處是內建的函式或方法都已經經過開發人員的測試，使用他們提供的 API 可以減少出錯的機會，所以我們需要測試的項目是我們自行設計的邏輯，以鐵人付外掛為例，請求類別 Request、接收類別 Response 以及工具類別 Utility 就是應該著重測試的地方。</p>
 <p>下一篇我們以測試 Utility 類別裡面的三個方法為例，來說明如何在外掛中導入單元測試，以及介紹 VSCode 實用的套件來加速測試流程。</p>
 
