@@ -209,6 +209,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/acf-preview-problem-with-wp-insert-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/acf-preview-problem-with-wp-insert-post/" class="post-title-link" itemprop="url">ACF Preview Problem with wp_insert_post()</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-01-08 21:28:12" itemprop="dateCreated datePublished" datetime="2020-01-08T21:28:12+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://oberonlai.blog/wp-content/uploads/2020/01/CleanShot-2020-01-08-at-21.10.57.jpg"></p>
+<p>狀況是這樣：寫了 ajax 前台發文並能切換文章狀態，當 wp_insert_post() 發文後，如果是使用草稿狀態的話 preview link 會無法正常顯示內容，但切換成發佈狀態是可以正常顯示，而且 acf 的 欄位都有進去，但如果又切換成草稿，則會不顯示任何內容，</p>
+<p>必須要去後台點選預覽按鈕或是儲存草稿後，preview link 才能正常顯示，插入文章的寫法如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+  * 建立新文章
+  *&#x2F;
+if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
+  $author_id &#x3D; $_POST[&#39;author_id&#39;];
+  $my_post &#x3D; array(
+    &#39;post_title&#39;    &#x3D;&gt; $post_title,
+    &#39;post_name&#39;   &#x3D;&gt; $post_title,
+    &#39;post_status&#39;   &#x3D;&gt; $post_status, &#x2F;&#x2F; 取得 select 值
+    &#39;post_author&#39;   &#x3D;&gt; $author_id,
+    &#39;post_category&#39; &#x3D;&gt; $post_category
+  );
+  $new_post_id &#x3D; wp_insert_post( $my_post );
+  $post_id &#x3D; $new_post_id;
+  update_field(&#39;storage&#39;,$storage_field,$new_post_id);
+  wp_save_post_revision($new_post_id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然後預覽按鈕的 URL 是這樣組：</p>
+<pre class="line-numbers language-none"><code class="language-none">document.querySelector(&#39;#btnPreview a&#39;).href &#x3D; &#96;$&#123;insert_params.siteurl&#125;?p&#x3D;$&#123;jsonData.postId&#125;&amp;preview&#x3D;true&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>一直以為是不開給作者進 wp-admin 的權限所導致的，或是 Gutenberg 造成的錯誤，爬了文查到這是 wp_insert_post 的機制造成的 -&gt; <a target="_blank" rel="noopener" href="https://support.advancedcustomfields.com/forums/topic/saved-drafts-not-displaying-custom-fields/page/2/">https://support.advancedcustomfields.com/forums/topic/saved-drafts-not-displaying-custom-fields/page/2/</a></p>
+<blockquote>
+<p>Could not figure out what was causing it but when i remove preview=true from the uri it works again.</p>
+</blockquote>
+<p>嘗試了在預覽網址後面不要帶 preview 的參數，結果可以順利預覽了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E3%80%90-%E5%BD%B1%E7%89%87-%E3%80%91how-to-build-a-software-company-with-no-money/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2384,153 +2498,6 @@ function resizeWidth(pMatchMedia)&#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/html5-event/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/html5-event/" class="post-title-link" itemprop="url">從新學習HTML5 (三) 事件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-04-01 22:04:57" itemprop="dateCreated datePublished" datetime="2019-04-01T22:04:57+08:00">2019-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Clipboard-API"><a href="#Clipboard-API" class="headerlink" title="Clipboard API"></a>Clipboard API</h2><p>捕捉使用者在頁面剪下、複製、貼上的動作</p>
-<p>copy/oncopy 偵測複製行為</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;p id&#x3D;&#39;text&#39;&gt;這邊是即將要被複製的文字&lt;&#x2F;p&gt;
-&lt;script&gt;
-  var text &#x3D; document.querySelector(&#39;#text&#39;)
-  text.oncopy &#x3D; function(e)&#123;
-    alert( &quot;你剛剛複製了～&quot; );
-    return false; &#x2F;&#x2F; 多這行禁止複製文字
-  &#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>cut/oncut 偵測剪下行為</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;p id&#x3D;&#39;text&#39;&gt;這邊是即將要被剪下的文字&lt;&#x2F;p&gt;
-&lt;script&gt;
-  var text &#x3D; document.querySelector(&#39;#text&#39;)
-  text.oncut &#x3D; function(e)&#123;
-    alert( &quot;你剛剛剪下了～&quot; );
-    return false; &#x2F;&#x2F; 多這行禁止剪下文字
-  &#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>paste/onpaste 偵測貼上行為，使用 clipboardClip.getData(‘Text’) 來取得貼上的內容</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;p id&#x3D;&#39;text&#39;&gt;這邊是即將要被貼上的文字&lt;&#x2F;p&gt;
-&lt;p id&#x3D;&#39;msg&#39;&gt;&lt;&#x2F;p&gt;
-&lt;script&gt;
-  var text &#x3D; document.querySelector(&#39;#text&#39;),
-      msg &#x3D; document.querySelector(&#39;#msg&#39;)
-  text.onpaste &#x3D; function(e)&#123;
-    alert( &quot;你剛剛貼上你複製的文字了&quot; );
-    msg.innerHTML &#x3D; e.clipboardData.getData(&#39;Text&#39;)
-  &#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Drag-amp-Drop-API"><a href="#Drag-amp-Drop-API" class="headerlink" title="Drag&amp;Drop API"></a>Drag&amp;Drop API</h2><p>拖曳與置放元素的動作，要完成 drag &amp; drop 需經過以下步驟</p>
-<p>1. 使用 dataTransfer 取得 DataTransfer 物件來設置拖曳資訊</p>
-<p>2. 初始化事件 ondragstart 使用 dataTransfer.clearData() 來清空資訊以及 dataTransfer.setData() 紀錄開始拖曳的元素的資料</p>
-<p>3. 感應被拖曳的元素移動到可置放的元素使用 ondragover 來偵測</p>
-<p>4. 最後的置放使用 ondrop 來觸發，並用 dataTransfer.getData() 來取得拖曳元素，再用 appendChild 來把元素加入到目標元素中</p>
-<p>相關事件有：</p>
-<p>dragstart - 開始拖曳時觸發<br>drag - 拖曳過程中觸發<br>dragenter - 拖曳進入目標元素時被觸發<br>dragleave - 拖曳離開目標元素時被觸發<br>dragover - 拖曳經過目標元素時被觸發<br>drop - 置放至目標元素時被觸發<br>dragend - 結束拖曳操作時被觸發</p>
-<p>相關物件：</p>
-<p>dataTransfer.setData() - 寫入拖曳元素資料<br>dataTransfer.getData() - 取得拖曳元素資料<br>dataTransfer.clearData() - 清空拖曳元素資料  </p>
-<h2 id="History-API"><a href="#History-API" class="headerlink" title="History API"></a>History API</h2><p>透過 JS 來控制頁面的上下頁跳轉以及指定瀏覽歷程</p>
-<p>window.history.forward() - 下一頁<br>window.history.back() - 上一頁<br>window.history.go(pageIndex) - 前往指定的頁面</p>
-<p>控制瀏覽歷程以及改變網址列的網址結構</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 改變現有網址不換頁
-window.history.pushState(null, null, &quot;&#x2F;new&#x2F;&quot;);
-
-&#x2F;&#x2F; 作用同上，但不會把瀏覽歷程加到歷史紀錄中
-window.history.replaceState(null, null, &quot;&#x2F;new&#x2F;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Selector-API"><a href="#Selector-API" class="headerlink" title="Selector API"></a>Selector API</h2><p>熟悉 jQuery 的話用它當選擇器會很方便</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;p class&#x3D;&#39;ele&#39; id&#x3D;&#39;ELE-a&#39;&gt;aa&lt;&#x2F;p&gt;
-&lt;p class&#x3D;&#39;ele&#39; id&#x3D;&#39;ELE-b&#39;&gt;bb&lt;&#x2F;p&gt;
-&lt;script&gt;
-document.querySelect(&#39;#ELE-a&#39;).innerHTML;
-var ele &#x3D; document.querySelectAll(&#39;ele&#39;).innerHTML;
-
-&#x2F;&#x2F; 要取出值時要用迴圈去拿
-for(var i&#x3D;0; I&lt; ele.length; i++)&#123;
-  alert(ele.innerHTML)
-&#125;
-&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2601,7 +2568,7 @@ for(var i&#x3D;0; I&lt; ele.length; i++)&#123;
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">282</span>
+          <span class="site-state-item-count">283</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2612,7 +2579,7 @@ for(var i&#x3D;0; I&lt; ele.length; i++)&#123;
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tw/tags/">
-        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -2662,12 +2629,12 @@ for(var i&#x3D;0; I&lt; ele.length; i++)&#123;
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">703k</span>
+    <span title="總字數">710k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">10:39</span>
+    <span title="所需總閱讀時間">10:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

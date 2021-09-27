@@ -209,6 +209,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-e2e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/woocommerce-payment-e2e/" class="post-title-link" itemprop="url">WooCommerce 金流串接實戰（十二）- 端對端測試</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-27 09:30:00 / 修改時間：10:15:17" itemprop="dateCreated datePublished" datetime="2021-09-27T09:30:00+08:00">2021-09-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>7.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>6 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>曾經做過一個專案，顧客把商品加入購物車後，可以同時選擇要加入幾筆商品，然後在結帳頁的時候需要根據商品數量來增加報名資料的欄位，也就是說如果購物車裡面有三筆資料，一樣的報名表單就需要填寫三份不同的客戶資料，有點類似旅行社在報名前需要填寫所有成員的資料一樣。</p>
+<p>然後某天接到客戶反應說當只有一位報名時功能正常，但只要是多位報名會有問題，我就依照慣例開始手動測試，每一個報名要填的欄位有 8 個，所以每測試一次我至少要填 8 x 2 = 16 個欄位，用瀏覽器記憶的功能輸入或許不會花太多時間，但萬一客戶反應同時報名五個人以上會有問題，我就要填 40 個以上的欄位了，在找尋有沒有更快的測試方法時，才知道有端對端測試工具這種好物。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/woocommerce-payment-e2e/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-unit-test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2139,94 +2227,6 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-freelance-quotation-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-freelance-quotation-2/" class="post-title-link" itemprop="url">程式設計報價 (二) - 重新定義甲乙方關係</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-09-07 09:30:00 / 修改時間：09:34:51" itemprop="dateCreated datePublished" datetime="2021-09-07T09:30:00+08:00">2021-09-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E6%8E%A5%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">接案</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>從傳統的接案甲乙方關係我們發現，因為利益的衝突，甲方也不可能得到乙方 100% 的專業協助，因為乙方要的是結案，沒有在報價單裡面的項目乙方沒有義務提供，但甲方花了錢就是希望為了獲得這些專業建議，所以造成彼此雙輸的局面。</p>
-<p>所以我對於結案的認知，並非是收到尾款或是過了約定結案時間後就算結案，而是乙方可以滿足甲方的商業目標而提供持續性的專業建議，當甲方決定暫停該專案或是結束與乙方的合作關係時，這才是所謂的「結案」，當甲乙方的關係不再是短期的專案性質，而是持續性的互惠合作，這樣的接案方式我稱之為「敏捷式接案」。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/wordpress-freelance-quotation-2/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2297,7 +2297,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">282</span>
+          <span class="site-state-item-count">283</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2308,7 +2308,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tw/tags/">
-        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -2358,12 +2358,12 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">703k</span>
+    <span title="總字數">710k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">10:39</span>
+    <span title="所需總閱讀時間">10:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

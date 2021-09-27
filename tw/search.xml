@@ -15475,4 +15475,303 @@ OK (1 test, 1 assertion)<span aria-hidden="true" class="line-numbers-rows"><span
         <tag>單元測試</tag>
       </tags>
   </entry>
+  <entry>
+    <title>WooCommerce 金流串接實戰（十二）- 端對端測試</title>
+    <url>/tw/woocommerce-payment-e2e/</url>
+    <content><![CDATA[<p>曾經做過一個專案，顧客把商品加入購物車後，可以同時選擇要加入幾筆商品，然後在結帳頁的時候需要根據商品數量來增加報名資料的欄位，也就是說如果購物車裡面有三筆資料，一樣的報名表單就需要填寫三份不同的客戶資料，有點類似旅行社在報名前需要填寫所有成員的資料一樣。</p>
+<p>然後某天接到客戶反應說當只有一位報名時功能正常，但只要是多位報名會有問題，我就依照慣例開始手動測試，每一個報名要填的欄位有 8 個，所以每測試一次我至少要填 8 x 2 = 16 個欄位，用瀏覽器記憶的功能輸入或許不會花太多時間，但萬一客戶反應同時報名五個人以上會有問題，我就要填 40 個以上的欄位了，在找尋有沒有更快的測試方法時，才知道有端對端測試工具這種好物。</p>
+<span id="more"></span>
+
+<p>所謂的端對端測試就是透過 JS 來自動操縱瀏覽器來依序執行頁面跳轉、按鈕點擊、填寫表單等真實使用者的瀏覽行為，它可以帶來以下好處：</p>
+<ul>
+<li>確保我們寫好的程式碼是可以被使用者正常操作的</li>
+<li>測試程式碼寫好一次後可以重複利用</li>
+<li>減少手動測試的人為錯誤</li>
+<li>減少手動測試的時間</li>
+<li>安排固定時間自動執行測試</li>
+<li>提升程式碼品質</li>
+</ul>
+<p>現在市面上有超多廠商在提供這樣端對端測試的 SaaS 服務，像是 Ghost Inspector、Lambadtest、Usertrace 等等，只要搜尋 auto test tool 就可以找到一大堆，而本文要介紹的是 WooCommerce 官方提供的 wc-e2e-page-object。</p>
+<p>它是一個 JS 的套件，整合斷言庫 Chai.js 以及 WooCommerce 常見的操作行為，像是前台加入購物車、點擊結帳按鈕，或是後台的新增商品、編輯訂單資料等等，都可以透過這個套件來進行操作。</p>
+<h2 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h2><p>首先為了跟 PHPUnit 的資料夾區分，我們新建一個 e2e 資料夾，裡面會放 JS 的測試<code>place-order.js</code>，接著新增 <code>.babelrc</code> 貼入並以下內容：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+    &quot;presets&quot;: [
+        &quot;es2015&quot;,
+        &quot;stage-2&quot;
+    ],
+    &quot;plugins&quot;: [
+        &quot;add-module-exports&quot;
+    ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>wc-e2e 套件需經由 NPM 安裝，須確保電腦可執行 Node.js，切換到外掛根目錄下，新增 package.json 檔，並貼入以下內容：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"iron-pay"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"cross-env NODE_CONFIG_DIR='./config' BABEL_ENV=commonjs mocha e2e/place-order.js --compilers js:babel-register --recursive"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"babel"</span><span class="token operator">:</span> <span class="token string">"^6.5.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-cli"</span><span class="token operator">:</span> <span class="token string">"^6.14.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-eslint"</span><span class="token operator">:</span> <span class="token string">"^7.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-plugin-add-module-exports"</span><span class="token operator">:</span> <span class="token string">"^0.2.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-preset-es2015"</span><span class="token operator">:</span> <span class="token string">"^6.14.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-preset-stage-2"</span><span class="token operator">:</span> <span class="token string">"^6.13.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"chai"</span><span class="token operator">:</span> <span class="token string">"^3.5.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"chai-as-promised"</span><span class="token operator">:</span> <span class="token string">"^6.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"config"</span><span class="token operator">:</span> <span class="token string">"^1.24.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"cross-env"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"istanbul"</span><span class="token operator">:</span> <span class="token string">"^1.0.0-alpha"</span><span class="token punctuation">,</span>
+    <span class="token property">"mocha"</span><span class="token operator">:</span> <span class="token string">"^3.0.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"wc-e2e-page-objects"</span><span class="token operator">:</span> <span class="token string">"0.2.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"chromedriver"</span><span class="token operator">:</span> <span class="token string">"^93.0.1"</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>需要注意的地方是 scripts 的地方，要把 test 路徑設定為我們的 e2e 資料夾裡面的測試程式碼 <code>place-order.js</code>：</p>
+<pre class="line-numbers language-none"><code class="language-none">&quot;test&quot;: &quot;cross-env NODE_CONFIG_DIR&#x3D;&#39;.&#x2F;config&#39; BABEL_ENV&#x3D;commonjs mocha e2e&#x2F;place-order.js --compilers js:babel-register --recursive&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>最後是新增一個 config 資料夾裡面放跑端對端測試時的設定檔 <code>default.json</code>：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://woocommerce.test"</span><span class="token punctuation">,</span>
+    <span class="token property">"users"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"admin"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"woocommerce"</span><span class="token punctuation">,</span>
+            <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"password"</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token property">"customer"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">""</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"startBrowserTimeoutMs"</span><span class="token operator">:</span> <span class="token number">30000</span><span class="token punctuation">,</span>
+    <span class="token property">"mochaTimeoutMs"</span><span class="token operator">:</span> <span class="token number">120000</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>url 是本機 WordPress 的路徑，並提供管理者的登入帳密，完成以上資料準備後，就能進行套件的安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">iron-pay$ npm install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安裝完成後外掛資料夾結構如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">iron-pay
+├── composer.json
+├── composer.lock
+├── config
+│   └── default.json
+├── e2e
+│   └── place-order.js
+├── iron-pay.php
+├── node_modules
+├── package-lock.json
+├── package.json
+├── phpunit.xml
+├── src
+│   ├── Gateways
+│   ├── Options.php
+│   ├── Posts
+│   └── Utility.php
+├── tests
+│   ├── Gateways
+│   ├── OptionsTest.php
+│   ├── Posts
+│   └── UtilityTest.php
+└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="撰寫測試程式"><a href="#撰寫測試程式" class="headerlink" title="撰寫測試程式"></a>撰寫測試程式</h2><p>接著我們要撰寫測試程式碼，我們的測試流程為將商品加入購物車 -&gt; 確保購物車內有該商品 -&gt; 進入結帳頁 -&gt; 選擇鐵人付信用卡金流 -&gt; 按下結帳按鈕成立訂單</p>
+<p>開啟 <code>place-order.js</code>，貼入以下測試的架構：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> config <span class="token keyword">from</span> <span class="token string">'config'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> chai <span class="token keyword">from</span> <span class="token string">'chai'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> chaiAsPromised <span class="token keyword">from</span> <span class="token string">'chai-as-promised'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> test <span class="token keyword">from</span> <span class="token string">'selenium-webdriver/testing'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Helper objects for performing actions.</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> WebDriverManager<span class="token punctuation">,</span> WebDriverHelper <span class="token keyword">as</span> helper <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'wp-e2e-webdriver'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// We're going to use the ShopPage and CartPage objects for this tutorial.</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ShopPage<span class="token punctuation">,</span> CartPage<span class="token punctuation">,</span> CheckoutPage <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'wc-e2e-page-objects'</span><span class="token punctuation">;</span>
+
+chai<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span> chaiAsPromised <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> assert <span class="token operator">=</span> chai<span class="token punctuation">.</span>assert<span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> manager<span class="token punctuation">;</span>
+<span class="token keyword">let</span> driver<span class="token punctuation">;</span>
+
+test<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span> <span class="token string">'鐵人付信用卡測試'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// Set up the driver and manager before testing starts.</span>
+    test<span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span> <span class="token string">'open browser'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'startBrowserTimeoutMs'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        manager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebDriverManager</span><span class="token punctuation">(</span> <span class="token string">'chrome'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> baseUrl<span class="token operator">:</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'url'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver <span class="token operator">=</span> manager<span class="token punctuation">.</span><span class="token function">getDriver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        helper<span class="token punctuation">.</span><span class="token function">clearCookiesAndDeleteLocalStorage</span><span class="token punctuation">(</span> driver <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'mochaTimeoutMs'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 測試</span>
+
+    test<span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span> <span class="token string">'quit browser'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        manager<span class="token punctuation">.</span><span class="token function">quitBrowser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>基本架構為先引入測試要用的套件，分別匯入 ShopPage、CartPage、CheckoutPage 三個由 wc-e2e-page-objects 提供的模組，這些模組都有各自的方法來進行介面的互動。</p>
+<p>測試的任務從 <code>test.describe()</code> 開始，先定義這個任務的名稱，然後開啟瀏覽器、檢查是否逾時，到最後關閉瀏覽器，介於 <code>test.before()</code> 跟 <code>test.after()</code> 中間就是我們要執行的動作。</p>
+<p>首先是將商品加入購物車：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 略</span>
+test<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span> <span class="token string">'鐵人付信用卡測試'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// Set up the driver and manager before testing starts.</span>
+    test<span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span> <span class="token string">'open browser'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'mochaTimeoutMs'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 測試加入購物車</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'將商品加入購物車'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> shopPage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ShopPage</span><span class="token punctuation">(</span> driver<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> url<span class="token operator">:</span> manager<span class="token punctuation">.</span><span class="token function">getPageUrl</span><span class="token punctuation">(</span> <span class="token string">'/shop'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> added_product <span class="token operator">=</span> shopPage<span class="token punctuation">.</span><span class="token function">addProductToCart</span><span class="token punctuation">(</span> <span class="token string">'Flying Ninja'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        assert<span class="token punctuation">.</span>eventually<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span> added_product <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    test<span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span> <span class="token string">'quit browser'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>宣告 ShopPage 的實例，並且將本機頁面跳轉至 shop 頁面，接下來使用 ShopPage 物件的 <code>addProductToCart()</code> 方法，將商品 Flying Ninja 加入購物車，該方法會回傳布林值，所以用斷言 <code>assert.eventually.ok( added_product )</code> 檢查是否回傳為 true，完成後執行 <code>npm run test</code>，就會看到 Chrome 瀏覽器被啟用，並且自動執行加入購物車的動作，並在命令列裡面看到執行成功的訊息：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">iron-pay$ npm run test
+
+&gt; iron-pay@1.0.0 test &#x2F;Users&#x2F;oberonlai&#x2F;Sites&#x2F;woocommerce&#x2F;wp-content&#x2F;plugins&#x2F;iron-pay
+&gt; cross-env NODE_CONFIG_DIR&#x3D;&#39;.&#x2F;config&#39; BABEL_ENV&#x3D;commonjs mocha e2e&#x2F;place-order.js --compilers js:babel-register --recursive
+
+
+
+  鐵人付信用卡測試
+    ✓ 將商品加入購物車 (1936ms)
+
+
+  1 passing (4s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下來加入第二個任務，讓頁面自動跳轉到購物車並且確認裡面有剛剛加入的商品名稱：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 略</span>
+test<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span> <span class="token string">'鐵人付信用卡測試'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// Set up the driver and manager before testing starts.</span>
+    test<span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span> <span class="token string">'open browser'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'mochaTimeoutMs'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 測試加入購物車</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'將商品加入購物車'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// 測試購物車有正確加入商品</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'前往購物車'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> cartPage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CartPage</span><span class="token punctuation">(</span> driver<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> url<span class="token operator">:</span> manager<span class="token punctuation">.</span><span class="token function">getPageUrl</span><span class="token punctuation">(</span> <span class="token string">'/cart'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> has_product <span class="token operator">=</span> cartPage<span class="token punctuation">.</span><span class="token function">hasItem</span><span class="token punctuation">(</span> <span class="token string">'Flying Ninja'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        assert<span class="token punctuation">.</span>eventually<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span> has_product <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    test<span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span> <span class="token string">'quit browser'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這邊我們使用的是 CartPage 物件，並且用它的 <code>hasItem()</code> 方法來檢查購物車裡面是否有 Flying Ninja 這個商品，如果有的話就能通過斷言：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">iron-pay$ npm run test
+
+iron-pay@1.0.0 test &#x2F;Users&#x2F;oberonlai&#x2F;Sites&#x2F;woocommerce&#x2F;wp-content&#x2F;plugins&#x2F;iron-pay
+&gt; cross-env NODE_CONFIG_DIR&#x3D;&#39;.&#x2F;config&#39; BABEL_ENV&#x3D;commonjs mocha e2e&#x2F;place-order.js --compilers js:babel-register --recursive
+
+
+
+  鐵人付信用卡測試
+    ✓ 將商品加入購物車 (2302ms)
+    ✓ 前往購物車 (831ms)
+
+
+  2 passing (5s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最後是測試鐵人付信用卡結帳，測試流程是選擇信用卡並點擊前往付款按鈕：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 略</span>
+test<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span> <span class="token string">'鐵人付信用卡測試'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// Set up the driver and manager before testing starts.</span>
+    test<span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span> <span class="token string">'open browser'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span> config<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> <span class="token string">'mochaTimeoutMs'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 測試加入購物車</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'將商品加入購物車'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// 測試購物車有正確加入商品</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'前往購物車'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+       <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span>
+	
+	<span class="token comment">// 測試能夠使用鐵人付前往結帳</span>
+	test<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span> <span class="token string">'前往結帳頁並下訂單'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> checkoutPage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CheckoutPage</span><span class="token punctuation">(</span> driver<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> url<span class="token operator">:</span> manager<span class="token punctuation">.</span><span class="token function">getPageUrl</span><span class="token punctuation">(</span> <span class="token string">'/checkout'</span> <span class="token punctuation">)</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> select_payment <span class="token operator">=</span> checkoutPage<span class="token punctuation">.</span><span class="token function">selectPaymentMethod</span><span class="token punctuation">(</span> <span class="token string">'信用卡'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> place_order <span class="token operator">=</span> checkoutPage<span class="token punctuation">.</span><span class="token function">placeOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        assert<span class="token punctuation">.</span>eventually<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span> select_payment <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        assert<span class="token punctuation">.</span>eventually<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span> place_order <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    test<span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span> <span class="token string">'quit browser'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 略</span>
+    <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這邊使用 CheckoutPage 物件，並利用 <code>selectPaymentMethod()</code> 與 <code>placeOrder()</code> 這兩個方法來執行選擇付款方式與結帳的動作，要注意的地方是不管是哪種方法，要傳送的參數都是頁面上看得到的名稱，而非欄位的 id 或 value 值，畫面上看到什麼就傳什麼，執行結果如下：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">iron-pay$ npm run test
+
+&gt; iron-pay@1.0.0 test &#x2F;Users&#x2F;oberonlai&#x2F;Sites&#x2F;woocommerce&#x2F;wp-content&#x2F;plugins&#x2F;iron-pay
+&gt; cross-env NODE_CONFIG_DIR&#x3D;&#39;.&#x2F;config&#39; BABEL_ENV&#x3D;commonjs mocha e2e&#x2F;place-order.js --compilers js:babel-register --recursive
+
+
+
+  鐵人付信用卡測試
+    ✓ 將商品加入購物車 (1972ms)
+    ✓ 前往購物車 (487ms)
+    ✓ 前往結帳頁並下訂單 (786ms)
+
+
+  3 passing (5s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>這樣就能確保使用鐵人付信用卡是可以正常建立訂單的。</p>
+<p>當我們寫了測試來檢查自己的程式碼時，目的不是消除所有錯誤，也並非是寫了測試功能就完全不會有臭蟲，而是讓我們在修改程式的當下，萬一引發某些錯誤時可以立即透過測試來得知。</p>
+<p>像上面的這個測試我們就無法測到金流商 API 發生錯誤時的情境，但因為有了這些測試，我們可以快速定位到是因為回傳資料有誤進而追查，而非又要翻原始碼去逐一定位問題所在，有了測試我們可以把除錯範圍縮小，減少除錯的時間。</p>
+<p>當我們在本機測試完成後，接下來就要進入測試機的階段，下一篇會介紹外掛的部署流程，以及如何使用 VPS 建置測試站。</p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+      <tags>
+        <tag>WooCommerce 金流</tag>
+        <tag>WordPress 外掛</tag>
+        <tag>WooCommerce 外掛</tag>
+        <tag>自動化測試</tag>
+        <tag>e2e</tag>
+      </tags>
+  </entry>
 </search>
