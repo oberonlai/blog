@@ -15774,4 +15774,263 @@ test<span class="token punctuation">.</span><span class="token function">describ
         <tag>e2e</tag>
       </tags>
   </entry>
+  <entry>
+    <title>WooCommerce 金流串接實戰（十三）- 建立測試機</title>
+    <url>/tw/woocommerce-payment-staging/</url>
+    <content><![CDATA[<p>開發 WooCommerce 金流外掛能在本機測試的部分除了確保設定項有正確寫入資料庫外，剩下的就是確保按下結帳按鈕時不會有任何的錯誤產生，至於能否將正確的資料送到金流商以及成功接收回傳資料，都還是要在遠端主機才能進行測試，雖然我們可以用一些工具像是 Postman 來模擬金流商的 API，但最終這支外掛還是要能夠在正式環境中運作才行。</p>
+<p>通常承接外掛開發這一類的案件，客戶本身都已經有運作中的網站，為了要讓我們的外掛可以在不影響客戶網站的情況下測試，最好的方法就是客戶可以提供給我們跟正式環境一模一樣的測試站來執行金流外掛的結帳流程。</p>
+<p>但常遇到的狀況是客戶無法提供，這樣的話就需要我們自己架設測試環境，但自架的測試環境跟正式站還是會有所落差，所以主要測試的方向就是確保金流商的 API 可以運作正常，至於裝在正式站是否會跟其他外掛產生衝突或其他狀況而造成問題，這就只能等到上正式站才能知道了。</p>
+<span id="more"></span>
+
+<p>通常我的開發流程如下：在本機完成外掛開發 -&gt; 自動化測試 -&gt; 開 VPS 測試機 -&gt; 進入測試機繼續開發與除錯 -&gt; 自動化測試 -&gt; 人工測試 -&gt; 部署到正式站</p>
+<p>當本機開發完成第一輪後，接下進入測試機確保 API 的傳送與接收都正常，確認沒問題後再透過自動化工具部署到正式站，在自動部署的過程中會再跑一次測試，萬一上正式站後發生問題，就能手動還原部署前的狀態，接下來檢查造成問題的因素有哪些，再將這些因素搬移到測試機來進行重現並除錯。</p>
+<p>最好的情況下是客戶允許我們把正式站的資料倒進測試機，但盡可能只搬移檔案的部分不要動到資料庫，要動到資料庫也排除跟使用者相關的資料表，以減少個資外洩的風險。</p>
+<p>如果在測試機無法重現，我們勢必還是要進入正式機來除錯，為了避免顧客不小心選到我們正在測試中的金流商，可以加入一個只限定管理員才能看到該付款方式的功能，另外一定要準備好的就是日誌紀錄，WooCommerce 有提供日誌類別 <code>WC_Logger</code>，使用之後就可以在後台的 WooCommerce &gt; 狀態 &gt; 日誌紀錄來印出訊息，千萬不要讓除錯的資訊直接顯示在前台。</p>
+<p>設定好部署流程之後，接下來我們就來建立測試機，我習慣用 VPS 來建置，因為可以透過指令碼把我們需要的工具一次安裝完成，還記得之前我們用的本機開發環境 Valet 嗎？它有提供 Linux 的版本，這樣就能讓我們的本機與測試環境一樣。</p>
+<p>但 Valet 的主要用途就是拿來本機開發用，雖然他有外連網址的功能，但因為沒辦法綁網域，因此也就無法安裝 SSL，有些金流商會要求回傳網址需要加密，這讓 Valet 不適合用在測試環境之中。</p>
+<p>因此我們會採用一套叫做 WordOps 的 WordPress 環境，只要下一段指令就能一次安裝好 PHP、Nginx、MySql 以及 WordPress，同時也內建了 SSL 功能，再加上它將伺服器設定進行過最佳化，讓網站跑起來可以非常順暢，它可以直接作為正式環境來使用，因此拿來當測試環境再適合也不過。</p>
+<p>除此之外，我們還需要以下工具：Git、Compose、Node.js，這些都能透過指令安裝，我們希望在安裝 VPS 時，只要輸入測試站的網址以及後台登入帳密，剩下的這些作業全部可以自動化搞定，為了達成這一點，首先我們必須先找可以使用指令工具來建立環境的 VPS，這邊示範使用 Linode 的服務。</p>
+<h2 id="安裝-linode-cli"><a href="#安裝-linode-cli" class="headerlink" title="安裝 linode-cli"></a>安裝 linode-cli</h2><p>linode-cli 是使用 Python 開發的，因此要確保本機環境有安裝，如果沒有的話可以使用 Homebrew 進行安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ brew install python3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>接下來安裝 linode-cli：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ pip install linode-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安裝完成後我們先把登入授權設定好：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ linode-cli configure --token<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>它會請我們前往管理後台取得登入的 Token，照它的說明取得後輸入即可：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">Welcome to the Linode CLI.  This will walk you through some initial setup.
+
+First, we need a Personal Access Token.  To get one, please visit
+https:&#x2F;&#x2F;cloud.linode.com&#x2F;profile&#x2F;tokens and click
+&quot;Create a Personal Access Token&quot;.  The CLI needs access to everything
+on your account to work correctly.
+Personal Access Token:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>再來是設定測試機的機房位置與規格：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ linode-cli configurate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我們使用東京機房，所以選擇 ap-norteast：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">Default Region for operations.  Choices are:
+ 1 - ap-west
+ 2 - ca-central
+ 3 - ap-southeast
+ 4 - us-central
+ 5 - us-west
+ 6 - us-southeast
+ 7 - us-east
+ 8 - eu-west
+ 9 - ap-south
+ 10 - eu-central
+ 11 - ap-northeast
+
+Default Region (Optional): 11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>選擇最小規格的主機每月 5 美金：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">Default Type of Linode to deploy.  Choices are:
+ 1 - g6-nanode-1
+ 2 - g6-standard-1
+ 3 - g6-standard-2
+ 4 - g6-standard-4
+ 5 - g6-standard-6
+ 6 - g6-standard-8
+ 7 - g6-standard-16
+ 8 - g6-standard-20
+ 9 - g6-standard-24
+ 10 - g6-standard-32
+ 11 - g7-highmem-1
+ 12 - g7-highmem-2
+ 13 - g7-highmem-4
+ 14 - g7-highmem-8
+ 15 - g7-highmem-16
+ 16 - g6-dedicated-2
+ 17 - g6-dedicated-4
+ 18 - g6-dedicated-8
+ 19 - g6-dedicated-16
+ 20 - g6-dedicated-32
+ 21 - g6-dedicated-48
+ 22 - g6-dedicated-50
+ 23 - g6-dedicated-56
+ 24 - g6-dedicated-64
+ 25 - g1-gpu-rtx6000-1
+ 26 - g1-gpu-rtx6000-2
+ 27 - g1-gpu-rtx6000-3
+ 28 - g1-gpu-rtx6000-4
+
+Default Type of Linode (Optional): 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>預設的 OS 使用 linode/ubuntu20.04：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">Default Image to deploy to new Linodes.  Choices are:
+ 1 - linode&#x2F;almalinux8
+ 2 - linode&#x2F;alpine3.10
+ 3 - linode&#x2F;alpine3.11
+ 4 - linode&#x2F;alpine3.12
+ 5 - linode&#x2F;alpine3.13
+ 6 - linode&#x2F;alpine3.14
+ 7 - linode&#x2F;arch
+ 8 - linode&#x2F;centos7
+ 9 - linode&#x2F;centos8
+ 10 - linode&#x2F;centos-stream8
+ 11 - linode&#x2F;debian10
+ 12 - linode&#x2F;debian11
+ 13 - linode&#x2F;debian9
+ 14 - linode&#x2F;fedora32
+ 15 - linode&#x2F;fedora33
+ 16 - linode&#x2F;fedora34
+ 17 - linode&#x2F;gentoo
+ 18 - linode&#x2F;debian9-kube-v1.19.11
+ 19 - linode&#x2F;debian9-kube-v1.20.7
+ 20 - linode&#x2F;debian9-kube-v1.21.1
+ 21 - linode&#x2F;opensuse15.2
+ 22 - linode&#x2F;opensuse15.3
+ 23 - linode&#x2F;rocky8
+ 24 - linode&#x2F;slackware14.2
+ 25 - linode&#x2F;ubuntu16.04lts
+ 26 - linode&#x2F;ubuntu18.04
+ 27 - linode&#x2F;ubuntu20.04
+ 28 - linode&#x2F;ubuntu20.10
+ 29 - linode&#x2F;ubuntu21.04
+ 30 - linode&#x2F;alpine3.9
+ 31 - linode&#x2F;centos6.8
+ 32 - linode&#x2F;debian8
+ 33 - linode&#x2F;fedora31
+ 34 - linode&#x2F;opensuse15.1
+ 35 - linode&#x2F;slackware14.1
+
+Default Image (Optional): 27<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完成基本設定後，就能使用指令建立機器，後面的 123456 就是 root 權限登入密碼：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ linode-cli linodes create --root_pass 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>接下來會看到以下的主機資訊：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>label</th>
+<th>region</th>
+<th>type</th>
+<th>image</th>
+<th>status</th>
+<th>ipv4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12345678</td>
+<td>linode12345678</td>
+<td>ap-northeast</td>
+<td>g6-nanode-1</td>
+<td>linode/ubuntu20.04</td>
+<td>provisioning</td>
+<td>123.123.123.123</td>
+</tr>
+</tbody></table>
+<p>在等待建立的過程中，我們可以先把自己電腦的 RSA key 傳上去，這樣 ssh 登入就不用輸入密碼了，如果沒有 key 的話先產生一個：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ ssh-keygen<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>接下來複製到剛開好的主機中：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ ssh-copy-id root@123.123.123.123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然後輸入一次 root 密碼即可，完成後會看到以下訊息：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">Number of key(s) added:        1
+
+Now try logging into the machine, with:   &quot;ssh &#39;root@123.123.123.123&#39;&quot;
+and check to make sure that only the key(s) you wanted were added.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下一步使用 ssh 登入主機並執行自動化指令安裝：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">root@localhost:~ bash &lt;(curl -s https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;oberonlai&#x2F;sh_staging&#x2F;master&#x2F;wordops.sh)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>首先要回答六個問題，分別為：</p>
+<ul>
+<li>測試站的網址，不用輸入 http/https</li>
+<li>管理者登入帳號</li>
+<li>管理者登入密碼</li>
+<li>管理者電子郵件</li>
+<li>外掛名稱</li>
+<li>外掛的存放庫網址</li>
+</ul>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">1.Staging site url:
+staging.example.com
+2.Staging admin user:
+user
+3.Staging admin password:
+pass
+4.Staging admin email:
+mail@mail.com
+5.Plugin name:
+my-plugin
+6.Git clone url:
+https:&#x2F;&#x2F;github.com&#x2F;xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>指令的內容如下：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># Get information
+echo &quot;1.Staging site url:&quot;
+read staging_url
+echo &quot;2.Staging admin user:&quot;
+read staging_user
+echo &quot;3.Staging admin password:&quot;
+read staging_pass
+echo &quot;4.Staging admin email:&quot;
+read staging_email
+echo &quot;5.Plugin name:&quot;
+read plugin_name
+echo &quot;6.Git clone url:&quot;
+read repo
+
+# Set timezone
+sudo timedatectl set-timezone Asia&#x2F;Taipei
+
+# Install WordOps
+wget -qO wo wops.cc &amp;&amp; sudo bash wo --force
+wo stack upgrade --nginx
+wo site create &quot;$staging_url&quot; --wp --user&#x3D;&quot;$staging_user&quot; --pass&#x3D;&quot;$staging_pass&quot; --email&#x3D;&quot;$staging_email&quot; --letsencrypt
+cd &#x2F;var&#x2F;www&#x2F;&quot;$staging_url&quot;&#x2F;htdocs
+
+# Install plugins and themes
+wp language core install zh_TW --allow-root
+wp language core activate zh_TW --allow-root
+wp option update timezone_string &quot;Asia&#x2F;Taipei&quot; --allow-root
+wp site switch-language zh_TW --allow-root
+wp plugin install woocommerce --allow-root
+wp language plugin install woocommerce zh_TW --allow-root
+wp plugin activate woocommerce zh_TW --allow-root
+wp theme install storefront --allow-root
+wp language theme install storefront zh_TW --allow-root
+wp theme activate storefront --allow-root
+
+# Install Tool
+sudo apt update
+sudo apt -y upgrade
+sudo apt -y autoremove
+sudo apt -y install git-all
+sudo apt -y install nodejs npm
+sudo apt -y install composer
+
+cd wp-content&#x2F;plugins
+git clone &quot;$repo&quot;
+cd &quot;$plugin_name&quot;
+composer install
+npm install
+usermod --shell &#x2F;bin&#x2F;bash www-data
+echo &quot;Staging build successfully!&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先設定時區以及 WordOps 的安裝，把我們輸入的資料帶進 WordOps 建立網站的指令中，然後將目錄切換到該站底下，使用 WP CLI 來處理網站的內容，因為我們現在是使用 root 權限在執行，所以要加上 –allow-root 的參數。</p>
+<p>安裝完 WordPress 之後再把我們開發上需要的工具 Git、Node.js、Composer 透過 apt 來進行安裝，最後將目錄切換到測試站的 plugins 資料夾底下，把放在 Github 的金流外掛 clone 下來，並根據需要進行 composer 與 npm install，最後將網站使用者 www-data 加入權限，之後就能使用 www-data 來執行指令。</p>
+<p>大家可以根據這個範本整理成自己需要的項目，整個安裝過程大概十分鐘，記得在執行之前要先把 DNS 指到這台主機，這樣 WordOps 才能正確加上憑證。</p>
+<p>測試機安裝完成後，幫 VSCode 安裝 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development</a> 套件，這樣就可以在本地連線到測試機繼續開發，之後的版本控管也都可以在測試機上面進行，如果要回到本機測試的話，再 Pull 回來即可。</p>
+<p>下一篇介紹自動部署到正式機的方法。</p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+      <tags>
+        <tag>WooCommerce 金流</tag>
+        <tag>WordPress 外掛</tag>
+        <tag>WooCommerce 外掛</tag>
+        <tag>自動化測試</tag>
+        <tag>e2e</tag>
+      </tags>
+  </entry>
 </search>
