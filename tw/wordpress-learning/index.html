@@ -25,18 +25,17 @@
   <meta name="description" content="這篇文章本來應該是鐵人賽的最後一篇文章，但因為文章寫到頭暈眼花，一整個算錯了剩餘篇數，於是就多出一篇來，剛好拿來當第一份週更的發刊XD  今天想跟大家分享我是如何學習 WordPress 開發的，先跟大家自我介紹一下我的背景，我不是念資訊相關科系的本科生，我大學是主修應用外文系的商用英文，基本上跟軟體開發扯不上半點邊，只是因為剛好大三的電腦課學了 Dreamweaver 一款用來做網頁的軟體，從此">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一次開發 WordPress 就上手">
-<meta property="og:url" content="https://oberonlai.blog/tw/learning-wordpress/">
+<meta property="og:url" content="https://oberonlai.blog/tw/wordpress-learning/">
 <meta property="og:site_name" content="WordPress 開發日常">
 <meta property="og:description" content="這篇文章本來應該是鐵人賽的最後一篇文章，但因為文章寫到頭暈眼花，一整個算錯了剩餘篇數，於是就多出一篇來，剛好拿來當第一份週更的發刊XD  今天想跟大家分享我是如何學習 WordPress 開發的，先跟大家自我介紹一下我的背景，我不是念資訊相關科系的本科生，我大學是主修應用外文系的商用英文，基本上跟軟體開發扯不上半點邊，只是因為剛好大三的電腦課學了 Dreamweaver 一款用來做網頁的軟體，從此">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-10-08T06:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-08T06:05:49.628Z">
+<meta property="article:modified_time" content="2021-10-08T06:13:00.178Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
-<meta property="article:tag" content="WordPress 外掛">
-<meta property="article:tag" content="WordPress 開發">
+<meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://oberonlai.blog/tw/learning-wordpress/">
+<link rel="canonical" href="https://oberonlai.blog/tw/wordpress-learning/">
 
 
 <script id="page-configurations">
@@ -213,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/learning-wordpress/">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/tw/images/avatar.jpg">
@@ -237,7 +236,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-10-08 14:00:00 / 修改時間：14:05:49" itemprop="dateCreated datePublished" datetime="2021-10-08T14:00:00+08:00">2021-10-08</time>
+              <time title="創建時間：2021-10-08 14:00:00 / 修改時間：14:13:00" itemprop="dateCreated datePublished" datetime="2021-10-08T14:00:00+08:00">2021-10-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,6 +275,8 @@
 <hr>
 <p>今天想跟大家分享我是如何學習 WordPress 開發的，先跟大家自我介紹一下我的背景，我不是念資訊相關科系的本科生，我大學是主修應用外文系的商用英文，基本上跟軟體開發扯不上半點邊，只是因為剛好大三的電腦課學了 Dreamweaver 一款用來做網頁的軟體，從此迷上設計這個領域。</p>
 <p>我大概到了大四才知道自己想從事平面設計這個產業，對，不是網頁設計而是平面設計，因為看了很多設計大師的作品，覺得做設計超酷超帥又超自由(?)，所以當我退伍後都是找設計助理相關的工作，因為沒有經歷也沒有學歷，工作真是有夠難找，最後去了一間高級日式餐廳旗下的設計公司做設計助理，然後做了兩個禮拜後就被資遣，當時覺得社會大學實在有夠難混。</p>
+<span id="more"></span>
+
 <p>於是就開始了全職接案與全職工作的人生循環，接案接不下去跑去上班，上班覺得太無聊又跑回去接案，直到認識了 WordPress 之後才開始有所改變，也逐漸從以設計為職志轉變為程式開發，我學習 WordPress 經歷過以下幾個階段：</p>
 <h2 id="探索期"><a href="#探索期" class="headerlink" title="探索期"></a>探索期</h2><p>跟大家剛開始接觸 WordPress 一樣，當第一次把 WordPress 安裝完成後，迎面而來的就是有永遠挑不完的佈景主題跟什麼功能都有的花花世界，我曾經做過 Visual Composer 的聯盟行銷，同時也賣中文化的語系檔，那時候就很想把這些工具分享給在接案的朋友，因為實在是太好用了，隨便選幾個版套型花十分鐘改一下內容，就能拿去給客戶提案甚至是當成初稿交差，接案用 WordPress 實在太方便。</p>
 <p>幾個案子實戰下來，大概就能知道 WordPress 適用於哪些案件以及它的侷限，比較棘手的是找不到合適的外掛可以做，或是有類似的外掛但功能無法百分之百的滿足客戶需求，縱使還是可以靠著業務技巧來矇混過關，但總是會有遇到無法解決的問題，於是開始試著去修改一些程式碼。</p>
@@ -309,11 +310,6 @@
 
 
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tw/tags/WordPress-%E5%A4%96%E6%8E%9B/" rel="tag"><i class="fa fa-tag"></i> WordPress 外掛</a>
-              <a href="/tw/tags/WordPress-%E9%96%8B%E7%99%BC/" rel="tag"><i class="fa fa-tag"></i> WordPress 開發</a>
-          </div>
 
         
 
@@ -411,7 +407,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tw/tags/">
-        <span class="site-state-item-count">90</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

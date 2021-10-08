@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://oberonlai.blog/tw/about/</loc>
+    <loc>https://oberonlai.blog/tw/wordpress-learning/</loc>
     
     <lastmod>2021-10-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/learning-wordpress/</loc>
+    <loc>https://oberonlai.blog/tw/about/</loc>
     
     <lastmod>2021-10-08</lastmod>
     
@@ -2686,13 +2686,6 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/tags/Appsero/</loc>
-    <lastmod>2021-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/tags/WordPress-%E9%96%8B%E7%99%BC/</loc>
     <lastmod>2021-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
