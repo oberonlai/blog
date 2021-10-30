@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://oberonlai.blog/tw/woocommerce-for-taiwan/</loc>
-    
-    <lastmod>2021-10-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://oberonlai.blog/tw/wordpress-learning-books/</loc>
     
     <lastmod>2021-10-22</lastmod>
@@ -3017,13 +3010,6 @@
   
   <url>
     <loc>https://oberonlai.blog/tw/categories/WordPress-%E9%96%8B%E7%99%BC/</loc>
-    <lastmod>2021-10-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oberonlai.blog/tw/categories/WooCommerce-%E9%96%8B%E7%99%BC/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -210,93 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-%E5%8A%A0%E5%AF%86%E5%BE%8C%E5%9C%96%E7%89%87-url-%E7%9A%84%E8%99%95%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-%E5%8A%A0%E5%AF%86%E5%BE%8C%E5%9C%96%E7%89%87-url-%E7%9A%84%E8%99%95%E7%90%86/" class="post-title-link" itemprop="url">WordPress 加密後圖片 URL 的處理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-12 11:05:35" itemprop="dateCreated datePublished" datetime="2018-02-12T11:05:35+08:00">2018-02-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>把網站改成 https 後，最惱人的問題就是還有一堆沒加密網址造成混合內容而無法得到綠鎖頭，其中佔最大宗的就是圖片路徑，最直接的做法就是必須進到資料庫內做批次修改，但對不熟 SQL 語法的朋友進資料庫的修改就怕有東西改錯造成網站資料毀損，這時候就可以使用 Velvet Blues Update URLs 這支外掛來批次修改圖片路徑，事實上它不只可以修改圖片路徑，還可以修改全站的連結，這對於搬家換網址的情境下也非常適用。</p>
-<p>[mxp_fb2wp_display_embed sender=”449900911783585” item=”share” post_id=”449900911783585_1584951078278557” display=”yes” title=”V29yZFByZXNzIOWKoOWvhuW+jOWclueJhyBVUkwg55qE6JmV55CG” body=”5oqK57ay56uZ5pS55oiQIGh0dHBzIOW+jO+8jOacgOaDseS6uueahOWVj+mhjOWwseaYr+mChOacieS4gOWghuaykuWKoOWvhue2suWdgOmAoOaIkOa3t+WQiOWFp+WuueiAjOeEoeazleW+l+WIsOe2oOmOlumgre+8jOWFtuS4reS9lOacgOWkp+Wul+eahOWwseaYr+WclueJh+i3r+W+ke+8jOacgOebtOaOpeeahOWBmuazleWwseaYr+W/hemgiOmAsuWIsOizh+aWmeW6q+WFp+WBmuaJueasoeS/ruaUue+8jOS9huWwjeS4jeeGnyBTUUwg6Kqe5rOV55qE5pyL5Y+L6YCy6LOH5paZ5bqr55qE5L+u5pS55bCx5oCV5pyJ5p2x6KW/5pS56Yyv6YCg5oiQ57ay56uZ6LOH5paZ5q+A5pCN77yM6YCZ5pmC5YCZ5bCx5Y+v5Lul5L2/55SoIFZlbHZldCBCbHVlcyBVcGRhdGUgVVJMcyDpgJnmlK/lpJbmjpvkvobmibnmrKHkv67mlLnlnJbniYfot6/lvpHvvIzkuovlr6bkuIrlroPkuI3lj6rlj6/ku6Xkv67mlLnlnJbniYfot6/lvpHvvIzpgoTlj6/ku6Xkv67mlLnlhajnq5nnmoTpgKPntZDvvIzpgJnlsI3mlrzmkKzlrrbmj5vntrLlnYDnmoTmg4XlooPkuIvkuZ/pnZ7luLjpgannlKjjgII=” pid=”3345”]</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/11-%E5%80%8B-sql-%E8%AA%9E%E6%B3%95%E5%BF%AB%E9%80%9F%E4%BF%AE%E6%94%B9-wordpress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2036,6 +1949,99 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-%E6%90%9C%E5%B0%8B%E5%A4%96%E6%8E%9B%E6%AF%94%E8%BC%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/woocommerce-%E6%90%9C%E5%B0%8B%E5%A4%96%E6%8E%9B%E6%AF%94%E8%BC%83/" class="post-title-link" itemprop="url">WooCommerce 搜尋外掛比較</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-01-09 12:48:32" itemprop="dateCreated datePublished" datetime="2018-01-09T12:48:32+08:00">2018-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>637</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>對於商品量龐大的購物網站來說，提供方便又即時的商品搜尋功能就格外重要，這篇文章比較了三款 WooCommerce 商品搜尋外掛，這三款都有免費版與付費版本，可依照自身需求再決定是否購買進階付費版。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/woocommerce-%E6%90%9C%E5%B0%8B%E5%A4%96%E6%8E%9B%E6%AF%94%E8%BC%83/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -2106,13 +2112,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-count">289</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/tw/categories/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -2167,12 +2173,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">738k</span>
+    <span title="總字數">735k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:11</span>
+    <span title="所需總閱讀時間">11:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
