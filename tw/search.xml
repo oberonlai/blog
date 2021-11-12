@@ -16541,6 +16541,7 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p>它先檢查購物車裡面的商品是否帶有價格的自訂欄位，有的話就透過 Fields 類別的靜態方法來取得附加費用的計算邏輯，最後再把原始價格 $base 加上算出來的費用，使用 WooCommerce 的 <code>set_price()</code> 來做為訂單總價。</p>
 <p>結合以上三個勾點我們就能搞懂這支外掛基本運作邏輯：先將商品自訂欄位寫入，然後在前台的商品頁加入前端表格，透過 JS 計算出附加費用後，再去修改購物車的商品總金額，藉此達成根據顧客手動輸入的結果來改變訂單總價。</p>
 <p>另外值得一提的是 Advanced Product Fields 的設定頁面做得很好，除了比照 ACF 的設定邏輯外，整個資料夾結構也非常清楚，未來如果要開發自訂欄位的操作介面，這支外掛是非常好的參考教材。</p>
+<p>補充：<a href="https://woocommerce.com/products/measurement-price-calculator/">Measurement Price Calculator</a> 也可以達成類似的功能</p>
 ]]></content>
       <categories>
         <category>WooCommerce</category>
