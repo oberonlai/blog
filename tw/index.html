@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-11-26 11:00:00 / 修改時間：11:53:25" itemprop="dateCreated datePublished" datetime="2021-11-26T11:00:00+08:00">2021-11-26</time>
+              <time title="創建時間：2021-11-26 11:00:00 / 修改時間：11:55:20" itemprop="dateCreated datePublished" datetime="2021-11-26T11:00:00+08:00">2021-11-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,142 +281,14 @@
           <p>近期我寫了一套給開發者&amp;自己用的套件，主要功能是簡化外掛開發時載入佈景主題範本的需求，以往在學習開發佈景主題時，常會看到下面這張圖來解釋 WordPress 範本的繼承關係：</p>
 <p><img src="https://developer.wordpress.org/files/2014/10/Screenshot-2019-01-23-00.20.04.png"></p>
 <p>這張圖很完整的說明當使用者造訪特定頁面時會對應的範本檔，這方面的知識可以參考 WordCamp Taipei 2019 的這場分享：「<a target="_blank" rel="noopener" href="https://wordpress.tv/2020/06/08/barry-lin-wordpress-%E5%88%9D%E5%AD%B8%E8%80%85%E4%B8%96%E7%95%8C%EF%BC%8C%E4%BD%88%E6%99%AF%E7%B5%90%E6%A7%8B%E6%A6%82%E5%BF%B5%E8%AB%87%EF%BC%81-theme-hierarchy-for-beginners/">Barry Lin: WordPress 初學者世界，佈景結構概念談！</a>」。既然範本檔主要是佈景主題在設計前台畫面使用的，跟開發外掛有什麼關係呢？事實上在實務中還滿常碰到的，像是如果你的外掛有新增自定義文章，就會需要設計該文章的範本，可能是文章內頁或是彙整頁。</p>
-<p>此外，如果要在外掛中提供可重用的頁面範本，或是有針對 WooCommerce 的頁面進行某種程度的客製化，你的外掛都會需要載入範本，由於這些範本中的功能都是外掛所提供的，所以基本上不適合將它放在佈景主題的資料夾裡面，統一放在外掛目錄才好管理與維護，以下就外掛載入範本檔的具體方法進行介紹。</p>
-<h2 id="外掛結構"><a href="#外掛結構" class="headerlink" title="外掛結構"></a>外掛結構</h2><p>我們以一個叫做 wp-template 的範例外掛來說明，首先看到它的資料夾結構如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">├── composer.json
-├── composer.lock
-├── src
-├── templates
-│   ├── archive-book.php
-│   ├── author.php
-│   ├── page-slug.php
-│   ├── page-test.php
-│   ├── single-book.php
-│   ├── template-demo.php
-│   ├── template-test.php
-│   └── woocommerce
-│       └── checkout
-│           └── form-checkout.php
-├── vendor
-└── wp-template.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>templates 資料夾放的是對應的範本檔，可以看到有各種不同類型的範本：</p>
-<p><strong>Page Template</strong></p>
-<p>以 template 開頭的檔案如 <code>template-demo.php</code> 跟 <code>template-test.php</code> 是可重用的頁面範本檔，可以讓使用者在後台的頁面管理中選擇使用。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-template/wordpress-plugin-template-01.jpg"></p>
-<p><strong>Page Slug Remplate</strong></p>
-<p>以 page 開頭的檔案如 <code>page-slug.php</code> 以及 <code>page-test.php</code>，這會在頁面的網址代稱為 slug 或是 test 的時候所使用。</p>
-<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-template/wordpress-plugin-template-02.jpg"></p>
-<p><strong>Post Type Template</strong></p>
-<p>該外掛註冊了一個自定義文章叫做 book，該文章的內頁以及彙整頁範本分別為 <code>single-book.php</code> 與 <code>archive-book.php</code>。</p>
-<p><strong>WordPress Template</strong></p>
-<p>假設該外掛有一個需求是要客製化作者頁面，對應到的範本是 <code>author.php</code>，透過它就可以複寫佈景主題內建的作者頁面。</p>
-<p><strong>WooCommerce Template</strong></p>
-<p>另外如果要複寫 WooCommerce 的相關頁面，對應的是 WooCommerce 資料夾，資料夾的結構與檔案名稱要跟預設的一樣，這邊我們假設要客製化結帳頁面，因此需要的檔案是 <code>form-checkout.php</code>。</p>
-<h2 id="取代範本的邏輯"><a href="#取代範本的邏輯" class="headerlink" title="取代範本的邏輯"></a>取代範本的邏輯</h2><p>WordPress 提供了一個動態勾點叫做 <code>$&#123;type&#125;_template</code>，可以判斷在不同的頁面下替換不同的範本，會回傳一個路徑，我們就是透過這個路徑來修改載入黨案，所有可使用的類型有：</p>
-<ul>
-<li>  <code>404_template</code></li>
-<li>  <code>archive_template</code></li>
-<li>  <code>attachment_template</code></li>
-<li>  <code>author_template</code></li>
-<li>  <code>category_template</code></li>
-<li>  <code>date_template</code></li>
-<li>  <code>embed_template</code></li>
-<li>  <code>frontpage_template</code></li>
-<li>  <code>home_template</code></li>
-<li>  <code>index_template</code></li>
-<li>  <code>page_template</code></li>
-<li>  <code>paged_template</code></li>
-<li>  <code>privacypolicy_template</code></li>
-<li>  <code>search_template</code></li>
-<li>  <code>single_template</code></li>
-<li>  <code>singular_template</code></li>
-<li>  <code>tag_template</code></li>
-<li>  <code>taxonomy_template</code></li>
-</ul>
-<p>舉替換作者頁為例，只要透過 <code>author_template</code> 這個勾點去載入外掛中的範本，就可以進行替換：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'author_template'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'set_author_template'</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">set_author_template</span><span class="token punctuation">(</span> <span class="token variable">$template</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/author.php'</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token variable">$template</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>比較不一樣的是 WooCommerce，它用自己的勾點 <code>wc_get_template</code> 來處理，它帶有三個參數，可以讓我們進一步檢查外掛中是否有包含 WooCommerce 對應的範本檔，如果沒有的話就使用內建的範本：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'wc_get_template'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'intercept_wc_template'</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">intercept_wc_template</span><span class="token punctuation">(</span> <span class="token variable">$template</span><span class="token punctuation">,</span> <span class="token variable">$template_name</span><span class="token punctuation">,</span> <span class="token variable">$template_path</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token variable">$dir</span>  <span class="token operator">=</span> <span class="token function">trailingslashit</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/woocommerce/'</span><span class="token punctuation">;</span>
-	<span class="token variable">$path</span> <span class="token operator">=</span> <span class="token variable">$dir</span> <span class="token operator">.</span> <span class="token variable">$template_name</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token function">file_exists</span><span class="token punctuation">(</span> <span class="token variable">$path</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$path</span> <span class="token punctuation">:</span> <span class="token variable">$template</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="wp-template"><a href="#wp-template" class="headerlink" title="wp-template"></a>wp-template</h2><p>由於在不同的情境下使用的勾點不同，用法也有些差異，因此我寫了一個介面來統一操作習慣，這樣之後就不需要再記要用哪個勾點了，該套件名稱為 wp-template，先使用 composer 進行安裝：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ composer require oberonlai&#x2F;wp-template<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>接下來在宣告類別時把範本的路徑帶入：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>如果你的範本目錄是放在 <code>yourpluign/views</code> 底下，那就是變成 <code>new Template( plugin_dir_path( __FILE__ ) . &#39;views/&#39; );</code> 即可，記得最後的斜線不要漏掉。</p>
-<h3 id="新增可重用的頁面範本檔"><a href="#新增可重用的頁面範本檔" class="headerlink" title="新增可重用的頁面範本檔"></a>新增可重用的頁面範本檔</h3><p>使用 <code>add_page()</code> 方法來建立，帶有兩個參數：</p>
-<ul>
-<li>$file - 範本檔案名稱</li>
-<li>$name - 顯示在後台頁面管理範本下拉選單中的文字</li>
-</ul>
-<p>範例如下：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_page</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'template-demo.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'我的範本'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>要增加多個範本就呼叫多次 <code>add_page()</code>：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_page</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'template-demo.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'我的範本'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_page</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'template-test.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'他的範本'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_page</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'template-your.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'你的範本'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="新增頁面代稱範本"><a href="#新增頁面代稱範本" class="headerlink" title="新增頁面代稱範本"></a>新增頁面代稱範本</h3><p>使用 <code>add_page_slug()</code> 方法建立，帶有兩個參數：</p>
-<ul>
-<li>$file - 範本檔案名稱</li>
-<li>$slug - 頁面代稱</li>
-</ul>
-<p>範例如下：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_page_slug</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'page-test.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'test'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>這樣當使用者造訪頁面 <a target="_blank" rel="noopener" href="https://example.com/test">https://example.com/test</a> 的時候使用的就會是外掛的範本。</p>
-<h3 id="新增自定義文章範本"><a href="#新增自定義文章範本" class="headerlink" title="新增自定義文章範本"></a>新增自定義文章範本</h3><p>使用 <code>add_post()</code> 方法建立，帶有三個參數：</p>
-<ul>
-<li>$file - 範本檔案名稱</li>
-<li>$type - 自定義文章名稱</li>
-<li>$position - 所在位置</li>
-</ul>
-<p>範例如下：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_post</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'single-book.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'book'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'single'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_post</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'archive-book.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'book'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'archive'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="複寫-WordPress-佈景主題範本"><a href="#複寫-WordPress-佈景主題範本" class="headerlink" title="複寫 WordPress 佈景主題範本"></a>複寫 WordPress 佈景主題範本</h3><p>使用這個方法要特別小心，理論上要從外掛修改佈景主題的內容，請優先使用勾點來處理，複寫範本檔可能會造成後續維護上的困難，除非你有把握這個網站永遠都會是你經手，或是有清楚的交接文件，不然會害接手的人怎麼改都改不動。</p>
-<p>使用 <code>add_wp()</code> 即可複寫，這個勾點的執行順序是 99，因此上述的問題要特別小心，該方法帶有兩個參數：</p>
-<ul>
-<li>$file - 範本檔案名稱</li>
-<li>$position - 所在位置</li>
-</ul>
-<p>範例如下：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_wp</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'author.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'author'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取代作者葉</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_wp</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'404.php'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'404'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取代 404 頁</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="複寫-WooCommerce-範本"><a href="#複寫-WooCommerce-範本" class="headerlink" title="複寫 WooCommerce 範本"></a>複寫 WooCommerce 範本</h3><p>使用 <code>add_woocommerce()</code> 方法建立，與 <code>add_wp()</code>一樣，優先使用勾點而非透過範本去修改頁面內容，因為 WooCommerce 常常會釋出範本更新，如果官方有更新而我們自己客製化的版本沒有跟上，可能就會發生預期外的狀況。</p>
-<p>該方法不用帶任何參數，它會自動抓 <code>templates/woocommerce</code> 資料夾裡面的檔案，而該資料夾的結構記得要完全比照 WooCommerce 的規則，也就是 <code>plugins/woocommerce/templates</code> 裡面的結構以及檔案命名。</p>
-<p>範例如下：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">ODS<span class="token punctuation">\</span>Template</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Template</span><span class="token punctuation">(</span> <span class="token function">plugin_dir_path</span><span class="token punctuation">(</span> <span class="token constant">__FILE__</span> <span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'templates/'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$template</span><span class="token operator">-></span><span class="token function">add_woocommerce</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>完整用法請參考：<a target="_blank" rel="noopener" href="https://github.com/oberonlai/wp-template">https://github.com/oberonlai/wp-template</a></p>
-<p>使用這個套件可以一致性的載入我們所需的範本檔，減少記憶不同的用法，歡迎大家用看看，使用上有任何問題也可以跟我說！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/WordPress%20%E5%A4%96%E6%8E%9B%E8%88%87%E5%89%8D%E7%AB%AF%E6%95%B4%E5%90%88%20-%20%E7%AF%84%E6%9C%AC/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

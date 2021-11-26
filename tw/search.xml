@@ -16627,6 +16627,8 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
     <content><![CDATA[<p>近期我寫了一套給開發者&amp;自己用的套件，主要功能是簡化外掛開發時載入佈景主題範本的需求，以往在學習開發佈景主題時，常會看到下面這張圖來解釋 WordPress 範本的繼承關係：</p>
 <p><img src="https://developer.wordpress.org/files/2014/10/Screenshot-2019-01-23-00.20.04.png"></p>
 <p>這張圖很完整的說明當使用者造訪特定頁面時會對應的範本檔，這方面的知識可以參考 WordCamp Taipei 2019 的這場分享：「<a href="https://wordpress.tv/2020/06/08/barry-lin-wordpress-%E5%88%9D%E5%AD%B8%E8%80%85%E4%B8%96%E7%95%8C%EF%BC%8C%E4%BD%88%E6%99%AF%E7%B5%90%E6%A7%8B%E6%A6%82%E5%BF%B5%E8%AB%87%EF%BC%81-theme-hierarchy-for-beginners/">Barry Lin: WordPress 初學者世界，佈景結構概念談！</a>」。既然範本檔主要是佈景主題在設計前台畫面使用的，跟開發外掛有什麼關係呢？事實上在實務中還滿常碰到的，像是如果你的外掛有新增自定義文章，就會需要設計該文章的範本，可能是文章內頁或是彙整頁。</p>
+<span id="more"></span>
+
 <p>此外，如果要在外掛中提供可重用的頁面範本，或是有針對 WooCommerce 的頁面進行某種程度的客製化，你的外掛都會需要載入範本，由於這些範本中的功能都是外掛所提供的，所以基本上不適合將它放在佈景主題的資料夾裡面，統一放在外掛目錄才好管理與維護，以下就外掛載入範本檔的具體方法進行介紹。</p>
 <h2 id="外掛結構"><a href="#外掛結構" class="headerlink" title="外掛結構"></a>外掛結構</h2><p>我們以一個叫做 wp-template 的範例外掛來說明，首先看到它的資料夾結構如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">├── composer.json
