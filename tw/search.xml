@@ -16819,4 +16819,70 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>Filecoin</category>
       </categories>
   </entry>
+  <entry>
+    <title>WordPress IPFS 媒體庫上傳外掛</title>
+    <url>/tw/wordpress-plugin-ipfs-upload/</url>
+    <content><![CDATA[<p>還在擔心因為網站圖片太多而讓主機硬碟爆掉嗎？或是因為瞬間讀取圖片而造成主機的資源耗盡？想要租用圖床服務卻不知道哪家好？甚至是圖床服務費用超出預期的想像？現在拜分散式儲存以及區塊鏈技術所賜，你有不同的選擇：星際檔案系統 IPFS ( InterPlanetary File System )。</p>
+<p>在介紹外掛之前先來科普一下 IPFS：</p>
+<p>IPFS 是一種傳輸協定，它可以連結所有使用這套協定的電腦（節點），進而形成一種區域網路，所有人都可以加入成為這個網路的一份子，並且彼此分享傳輸檔案，另一方面，為了讓更多人願意加入這個網路，尤其是貢獻硬碟空間來存放 IPFS 網路中的檔案，Filecoin 因此誕生，只要你願意讓你的電腦存放檔案，以及同意讓有需要該檔案的人透過你的電腦來取得，你就可以賺到 Filecoin。</p>
+<p>Filecoin 自己本身也是一個網路，而它的組成是根基於 IPFS，因此我們可以選擇把檔案放在 IPFS 節點或是 Filecoin 節點，存放在 IPFS 節點的風險在於該節點並未有任何的約束來確保我們的檔案會被長久存放，也許該節點的擁有人發現他的硬碟快爆了，就會開始把所有已存放的檔案刪除（包含我們的檔案），這樣想要我們檔案的人就連不到了，雖然 IPFS 會把檔案分散在不同的節點上，但還是不太穩。</p>
+<p>相較之下，上傳到 Filecoin 節點會比較保險一些，因為該節點的擁有人為了要賺取 Filecoin，因此會投入足夠的硬體設備來存放資料，藉此確保檔案的長期保存。至於每個節點擁有人要賺取的錢從何而來？使用者付費，也就是需要將檔案保存在 FIlecoin 節點的使用者，等於是上傳者付一筆錢請 Filecoin 節點儲存他的檔案，就跟我們使用 Dropbox 或是租 Amazon S3 一樣，差別在於這些節點是分散在全世界而非由少數企業所把持。</p>
+<p>另外還有一個不一樣的地方是請求檔案的流量費，當我們要取得一個存放在 Filecoin 節點中的檔案時也需要付費給該節點，這讓沒有硬碟空間但可以連網的電腦也能加入這個網路來獲取報酬，進而增加整個網路的節點分佈提升存取效率。</p>
+<p>要將檔案上傳到 IPFS 或是 Filecoin 節點不是一件容易的事，因此目前有出現幾間「中心化」的服務協助我們將檔案上傳，除了提供視覺化的上傳介面，對於工程師來說也有很方便的 API 可以使用。而這些服務透過補貼使用者來提高使用率，也就是說我們將檔案存放在 Filecoin 節點不用付錢，而是他們自行吸收。</p>
+<p>但也有收取固定月費的儲存服務，如果超過一定的基準會根據使用量再酌收費用，而且會收硬碟以及頻寬費用，因為對 Filecoin 網路來說，這些儲存服務商就是使用者，因此他們會需要把經營成本轉嫁在我們身上。</p>
+<p>根據目前手邊查到的資料，主要在經營 IPFS 儲存服務的有四家，免費與付費各半：</p>
+<h2 id="NFT-Storage"><a href="#NFT-Storage" class="headerlink" title="NFT.Storage"></a><a href="https://nft.storage/">NFT.Storage</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-01.jpg"></p>
+<p>NFT.Storage 是免費的服務商，它沒有限制上傳空間以及流量，有限制的是只能上傳圖片，因為它是專門提供給 NFT 存放圖片用的，因此不能透過它上傳影片或是聲音檔。另一個限制是單檔不能超過  31 GiB ( 33GB )，檔案過大它會自動分割上傳。另外實測後發現它的 API 會有存取限制，稍後會再說明。</p>
+<h2 id="Web3-Storage"><a href="#Web3-Storage" class="headerlink" title="Web3.Storage"></a><a href="https://web3.storage/">Web3.Storage</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-02.jpg"></p>
+<p>Web3.Storage 也是免費的服務商，它提供開發者一套 JavaScript Library 來處理上傳，它也是限制單檔不能超過 31 GiB ( 33GB )，而每個帳號有 1TB 的硬碟空間額度，它的優點是沒有限制上傳檔案類型，1TB 的使用量要用它來打造一些服務感覺也是非常夠用的。</p>
+<h2 id="Pinata-Cloud"><a href="#Pinata-Cloud" class="headerlink" title="Pinata.Cloud"></a><a href="https://www.pinata.cloud/">Pinata.Cloud</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-03.jpg"></p>
+<p>Pinata 是一套付費的 IPFS 儲存服務，免費方案提供 1GB 的空間，付費方案提供每月 100GB 的頻寬以及每 GB 0.15 美元的儲存費用，它比較特的地方有兩點，第一個是它的付費方案提供一個 Gateway，也就是你可以將你自己的網址對應到 IPFS 上面的檔案，IPFS 上傳後的網址長得像這樣：<a href="https://ipfs.io/ipfs/bafkreiguxr2tcuqvl2bord23zhajmuer6t4fdu33u6trjnhijeizg4bjhy">https://ipfs.io/ipfs/bafkreiguxr2tcuqvl2bord23zhajmuer6t4fdu33u6trjnhijeizg4bjhy</a>，又臭又長而且根本不可能記住，而 Pinata 可以解決這個問題。</p>
+<p>另一個特點是 Pinata 可以將上傳後的檔案隱藏起來，由於 IPFS 都是公開網路，只要檔案一傳上去就就會被所有人存取，這對於想要控管檔案權限的使用者不怎麼友善，透過 Pinata 的技術可以將上傳後的檔案做控管。</p>
+<h2 id="Space"><a href="#Space" class="headerlink" title="Space"></a><a href="https://space.storage/">Space</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-04.jpg"></p>
+<p>Space 是一套付費的儲存服務，跟上述三套不太相同的地方是它專注在提供個人儲存，也就是想要取代 Dropbox、Google Drive 等服務。Space 提供有相同需求的使用者，因此它的權限控管都比上述的服務來得完整許多。免費方案提供 5GB 的空間，付費方案每月 11 美金有 500GB 的空間，超過的話每 GB 0.02 美金計價，並且沒有額外的流量費。</p>
+<h2 id="WordPress-IPFS-Upload"><a href="#WordPress-IPFS-Upload" class="headerlink" title="WordPress IPFS Upload"></a>WordPress IPFS Upload</h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-05.jpg"></p>
+<p>身為 WordPress 重度使用者的我一直在思考該如何把 IPFS 的技術帶到 WordPress上面，於是就誕生了 WordPress IPFS Upload 這支外掛，它主要的功能是透過第三方儲存服務的 API，讓 WordPress 使用者可以直接在媒體庫把照片傳上 IPFS 的節點，這中間不需要任何的技術、不用懂得 IPFS 協議，更不用付半毛 Filecon（目前是），就能讓網站的圖片長期保存在全世界的節點中。</p>
+<p>以下就安裝&amp;使用步驟進行說明。</p>
+<p><strong>一、前往 Github 下載外掛檔</strong></p>
+<p>由於該外掛還在測試版本因此未上架官方目錄，如果你想要試用的話先前往 Github 存放庫進行下載：<a href="https://github.com/oberonlai/ipfs-upload/archive/refs/tags/v1.0.0.zip">https://github.com/oberonlai/ipfs-upload/archive/refs/tags/v1.0.0.zip</a>，將下載後的 zip 檔更名為 ipfs-upload.zip。</p>
+<p><strong>二、上傳 ipfs-upload.zip</strong></p>
+<p>登入 WordPress 後台，進入外掛 &gt; 外掛安裝，點選上傳外掛，選擇 ipfs-upload.zip 進行上傳</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-06.jpg"></p>
+<p><strong>三、取得 NFT.Storage API Key</strong></p>
+<p>IPFS Upload 是串接 NFT.Storage 的 API，因此我們需要先取得它的 API 金鑰，前往 <a href="https://nft.storage/">https://nft.storage</a>，並點選右上角的 Login，可以使用 Email 或是 Github 帳號進行註冊：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-07.jpg"></p>
+<p>註冊完成後會看到已上傳圖片列表，在上方的選單中找到 API Keys 這個選項：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-08.jpg"></p>
+<p>點選 New Key 後輸入一個可以辨識的名稱，再點選 create 完成新增，新增成功後把 Key 複製起來，稍後貼回網站裡面：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-09.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-10.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-11.jpg"></p>
+<p><strong>四、設定 API Key</strong></p>
+<p>進入 WordPress 後台 &gt; 設定 &gt; IPFS Uplaod，可以看到 Key 的設定畫面，把剛剛複製的 Key 貼入後按下儲存，即可完成設定：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-12.jpg"></p>
+<p><strong>五、圖檔上傳</strong></p>
+<p>最後進入媒體庫，點選任何一張圖片，就可以看到 IPFS Upload 的按鈕，點下去後它就會執行上傳，完成後會顯示 IPFS 的網址連結，你就可以把該連結插入到文章或是頁面之中，取代原本的圖片路徑：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-13.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-14.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-15.jpg"></p>
+<p>如果需要一次上傳多張的話，可以點選媒體庫列表中上方的批次選取按鈕，勾選需要上傳的圖片後，點擊 Upload to IPFS：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-16.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-17.jpg"></p>
+<p>目前已知的問題是如果同時上傳超過 10 張，可能會造成上傳失敗，另外一個比較棘手的問題是上傳後的網址，上文提及 Pinata 提供 Gateway 可以自訂網址，可惜 NFT.Storage 沒有提供這樣的功能，目前找的解決辦法是 CDN 廠商 Cloudflare 有免費提供他們的 Gateway，邏輯是用 Proxy 的方式把我們的網址指到 cloudflare-ipfs.com，再透過這個網址對應到 ipfs.io 上面。</p>
+<p>具體的設定方式為先新增一筆 CNAME 名稱為你的網址，然後目標是 cloudflare-ipfs.com：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-18.jpg"></p>
+<p>然後再新增一筆 TXT 來指定要對應的 IFPS CID，CID 具體指的是路徑 ipfs.io/ipfs/bafkreiguxr2tcuqvl2bord23zhajmuer6t4fdu33u6trjnhijeizg4bjhy 最後面的「bafkreiguxr2tcuqvl2bord23zhajmuer6t4fdu33u6trjnhijeizg4bjhy」這一段：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-ipfs-upload/wordpress-plugin-ipfs-upload-19.jpg"></p>
+<p>設定好之後就可以使用我們自己的網址來連到 IPFS 上面的檔案，更多說明可以參考 Cloudflare 的<a href="https://developers.cloudflare.com/distributed-web/ipfs-gateway/connecting-website">官方文件</a>。</p>
+<p>對，你跟我想的一樣，這個解決方案麻煩到爆炸XDD，首先必須是要把網址的 DNS 託管在 Cloudflare，其次是每個檔案都需要手動添加 TXT，雖然 Cloudflare 有提供 API 可以透過程式加入 DNS 紀錄，但這個作法我覺得還是綁手綁腳的，如果真的要商用的話我自己可能還是會選擇 Pinata 來串接。</p>
+<p>希望透過本文的分享可以讓大家認識到 IPFS 的實際應用層面，在現在滿天都是區塊鏈的熱潮中，要能夠找到自己有興趣研究的項目鑽研下去才不會受到幣價的波動而迷失自我，我也還在學習著努力不去每天看 FIL 的幣價XD。</p>
+<p>如果有任何關於這支外掛使用上的問題歡迎回報，有任何建議也歡迎跟我說，希望讓 WordPress 也可以搭上這波去中心化趨勢，下週五見！</p>
+]]></content>
+      <categories>
+        <category>區塊鏈</category>
+        <category>加密貨幣</category>
+        <category>IPFS</category>
+        <category>Filecoin</category>
+      </categories>
+  </entry>
 </search>
