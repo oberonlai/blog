@@ -16919,4 +16919,52 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>敏捷式接案</category>
       </categories>
   </entry>
+  <entry>
+    <title>WooCommerce LINE Pay 金流外掛</title>
+    <url>/tw/linepay-for-woocommerce-plugin/</url>
+    <content><![CDATA[<p>下半年不知為何，有不少客戶來信詢問 LINE Pay 金流外掛串接，一直覺得很納悶，該外掛不是早就已經有大大開發出來了，為何市場上還會有這個需求？深入了解之後發現到目前市面上能夠取得的版本有三個：</p>
+<ul>
+<li>版本一：由 Denny Tsai 在六年前所釋出的開源版本 <a href="https://github.com/happydenn/wc-payment-gateway-line-pay">wc-payment-gateway-line-pay</a>，這個版本客戶覺得因為距離上一次更新是六年前太久了，怕出問題找不到人支援所以不敢使用。</li>
+<li>版本二：由 Artisan Workshop 開發並有上架在 WordPress 官方目錄的 <a href="https://tw.wordpress.org/plugins/linepay-wc/">LINE Pay for WooCommerce</a>，從外掛說明頁可以看到一句話「Please contact us if you would like to cooperate with the operation check such as Taiwan.」，客戶因為該團隊是日本人，怕溝通上會有問題所以也不敢使用。</li>
+<li>版本三：由 cloudwp 所開發的 <a href="https://cloudwp.pro/market/plugins/premium-plugins/line-pay-pro-for-woocommerce/">LINE Pay Pro for WooCommerce</a> ，cloudwp 是台灣少數長期深耕 WooCommerce 金流外掛的專業團隊，他們推出許多整合台灣金流的實用外掛，費用也不貴，一個月只要台幣 399 元就能省下請工程師的金流串接費用，換算一年也才 4,788 元，有專業團隊維護又有持續更新，想不到客戶不採用的原因是因為覺得太貴 Orz…</li>
+</ul>
+<p>早在前幾個月，手邊取得許久之前 LINE 官方釋出的 WooCommerce LINE Pay 版本，雖然現已下架，但整理了一下程式碼實測後發現還是可以正常運作，於是開始把它用在幾個專案之中，期間也發現了一些問題並進行除錯，以及根據客戶的實際需求再加入了一些新功能，所以想說再將其釋出給有需要的客戶，主要功能說明如下：</p>
+<span id="more"></span>
+
+<p><strong>一、設定允許管理員退款的訂單狀態</strong></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-01.jpg"></p>
+<p>可以讓管理員在後台針對特定的訂單狀態進行 LINE Pay 退款的動作，該選項可以勾選多筆訂單狀態，藉此可以在符合該狀態的訂單編輯頁面中進行退款作業，目前僅支援全額退款。</p>
+<p><strong>二、設定允許顧客在我的帳號頁進行退款</strong></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-04.jpg"></p>
+<p>提供顧客在前台我的帳號頁針對處理中或是已完成訂單進行退款。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-05.jpg"></p>
+<p><strong>三、自訂前台顯示 LOGO</strong></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-02.jpg"></p>
+<p>該設定提供前台結帳時 LINE Pay 的顯示 LOGO，可以自行設定尺寸也能上傳客製化的圖像：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-03.jpg"></p>
+<h2 id="申請開發者金鑰"><a href="#申請開發者金鑰" class="headerlink" title="申請開發者金鑰"></a>申請開發者金鑰</h2><p>在還沒有正式申請成為 LINE Pay 合作商店前，可以使用開發者的 Sandbox 權限來取得 Channel ID 以及 Channel 密鑰，同時還有訂單管理後台來檢視測試訂單的紀錄與狀態，藉此來確認金流可以正常運作，申請步驟如下：</p>
+<p><strong>一、建立 Sandbox</strong></p>
+<p>前往 LINE Pay Developer 的 <a href="https://pay.line.me/jp/developers/techsupport/sandbox/creation?locale=zh_TW&result=duplicateEmail">Tech Support 頁面</a>，可以看到建立 Sandbox 的表單：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-06.jpg"></p>
+<p>送出後就可以取得 Merchant Center 也就是 LINE Pay 管理後的測試帳密：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-08.jpg"></p>
+<p><strong>二、取得 Channel ID 與密鑰</strong></p>
+<p>前往 <a href="https://pay.line.me/portal/tw/auth/login#">Merchant Center 登入介面</a>並選擇「以商店ID登入」：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-09.jpg"></p>
+<p>登入後找到左邊選單的 Payment Integration Management &gt; Manage Link Key，再次輸入剛剛信件中的密碼後，就能取得 Channel ID 與密鑰：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-10.jpg"></p>
+<p><strong>三、輸入 WooCommerce 後台</strong></p>
+<p>回到 WooCommerce 的 LINE Pay 設定，貼上對應的 Channel ID 以及 Channel Secret 即可：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-11.jpg"></p>
+<p>記得要「啟用 Sandbox 模式要勾選」，才會是使用測試用的 Channel ID 以及密鑰。</p>
+<hr>
+<p>可前往該網址進行金流測試：<a href="https://demo.lineforwp.com/">https://demo.lineforwp.com</a></p>
+<h2 id="取得-WooCommerce-LINE-Pay-金流外掛"><a href="#取得-WooCommerce-LINE-Pay-金流外掛" class="headerlink" title="取得 WooCommerce LINE Pay 金流外掛"></a>取得 WooCommerce LINE Pay 金流外掛</h2><p>需要 WooCommerce LINE Pay 金流外掛嗎？<a href="https://lineforwp.com/product/woocommerce-line-pay-plugin/">購買連結</a></p>
+<p>有任何問題歡迎 <a href="mailto:m615926@gmail.com">與我聯絡</a>～</p>
+]]></content>
+      <categories>
+        <category>專案管理</category>
+        <category>敏捷式接案</category>
+      </categories>
+  </entry>
 </search>
