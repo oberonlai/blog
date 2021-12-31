@@ -16940,7 +16940,7 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-05.jpg"></p>
 <p><strong>三、自訂前台顯示 LOGO</strong></p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-02.jpg"></p>
-<p>該設定提供前台結帳時 LINE Pay 的顯示 LOGO，可以自行設定尺寸也能上傳客製化的圖像：</p>
+<p>該設定提供前台結帳時 LINE Pay 的顯示 LOGO。</p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-line-pay-plugin/woocommerce-line-pay-plugin-03.jpg"></p>
 <h2 id="申請開發者金鑰"><a href="#申請開發者金鑰" class="headerlink" title="申請開發者金鑰"></a>申請開發者金鑰</h2><p>在還沒有正式申請成為 LINE Pay 合作商店前，可以使用開發者的 Sandbox 權限來取得 Channel ID 以及 Channel 密鑰，同時還有訂單管理後台來檢視測試訂單的紀錄與狀態，藉此來確認金流可以正常運作，申請步驟如下：</p>
 <p><strong>一、建立 Sandbox</strong></p>
