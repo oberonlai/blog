@@ -210,6 +210,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/plesk-find-huge-file-or-folder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/plesk-find-huge-file-or-folder/" class="post-title-link" itemprop="url">Plesk 下找出大容量資料夾或檔案</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-02-27 14:32:10" itemprop="dateCreated datePublished" datetime="2019-02-27T14:32:10+08:00">2019-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/Host/" itemprop="url" rel="index"><span itemprop="name">Host</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>867</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/02/Carbonize-2019-02-27-at-2.15.52-PM.png?fit=1024,429&ssl=1"></p>
+<p>主機硬碟的空間超過一半了，沒足夠容量做整台主機的全量備份，只好手動找出是哪些大檔再吃硬碟，幾個關鍵容易肥大的資料夾先掃一掃。</p>
+<p>第一個是 /tmp 資料夾，如果是用 Plesk 的備份套件來搬家的話，搬完後這邊都會有暫存檔，如果是大站的這邊很容易會爆肥，記得要清。使用指令來撈出檔案最大的前五筆，筆數可自行調整。</p>
+<pre class="line-numbers language-none"><code class="language-none">du -ah &#x2F;tmp  sort -n -r  head -n 5 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第二是 /var/lib/psa/dumps/domain，這是 Plesk 每個 domain 的備份目錄，我習慣都是備份到 Dropbox 上面，所以本機不會留備份檔，但有時後 Dropbox 備份失敗，Plesk 就會把備份檔存在這個目錄，所以檢查這邊有沒有肥大的備份檔是第二個地方。</p>
+<p>--max-depth 是要往下找到第幾層資料夾，以 plesk 的路徑來說是 /var/lib/psa/dumps/domains/<a target="_blank" rel="noopener" href="http://www.aaa.bbb,domain/">www.aaa.bbb，domain</a> 裡面放的就是該網址的備份檔，所以 –max-depth 設為一就好。</p>
+<pre class="line-numbers language-none"><code class="language-none">du -ah &#x2F;var&#x2F;lib&#x2F;psa&#x2F;dumps&#x2F;domains --max-depth&#x3D;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第三是 /var/www/vhosts/，這就是網站的主要路徑，裡面放的是運行中的網站，底下第一層就是 domain，所以一樣撈出第一層就好。</p>
+<pre class="line-numbers language-none"><code class="language-none">du -ah &#x2F;var&#x2F;www&#x2F;vhosts&#x2F; --max-depth&#x3D;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>篩選出肥大的網站之後，再進去查看是哪些資料夾肥大，以 WordPress 來說正常肥大的是 wp-content/uploads，這邊放的是圖檔，所以網站經營久了，自然會肥大，只能考慮圖床或是其他方案。</p>
+<p>可以砍的像是 snapshots 資料夾，這是在升級或更新 WordPress 前自動做的快照，以防有狀況時可以隨時還原，有固定備份的話這個資料夾的東西就可以砍了。</p>
+<p>其他再檢查有沒有不需要的網站，或是為了搬家留下的壓縮檔，就只能一個一個檢查了，清完後空間還是不夠，就確認可以升級硬碟空間了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/2019-02-26-wordpress-meetup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2467,99 +2567,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E4%B8%80%E4%BA%9B%E6%9C%83%E8%AE%93-wordpress-%E7%B6%B2%E7%AB%99%E8%AE%8A%E6%85%A2%E7%9A%84%E7%86%B1%E9%96%80%E5%A4%96%E6%8E%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/%E4%B8%80%E4%BA%9B%E6%9C%83%E8%AE%93-wordpress-%E7%B6%B2%E7%AB%99%E8%AE%8A%E6%85%A2%E7%9A%84%E7%86%B1%E9%96%80%E5%A4%96%E6%8E%9B/" class="post-title-link" itemprop="url">一些會讓 WordPress 網站變慢的熱門外掛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-03-26 12:31:29" itemprop="dateCreated datePublished" datetime="2018-03-26T12:31:29+08:00">2018-03-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>WordPress 最吸引人使用的因素莫過於有一大堆實用又豐富的外掛生態，但外掛往往也是造成網站速度變慢的主因之一，沒有經過良好設計的外掛，會因為頻繁的資料庫連線、大範圍的資料庫查詢、在沒用到的頁面引入、或是引入一些不必要的套件而造成網站效能低落，本文列舉出幾套熱門且吃資源的外掛，以及可能的替代方案，還有如何透過土法煉鋼的方式找出吃效能的外掛怪獸，如果你的網站剛好遇到這樣的問題，在升級主機前可以先從外掛檢查下手！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/%E4%B8%80%E4%BA%9B%E6%9C%83%E8%AE%93-wordpress-%E7%B6%B2%E7%AB%99%E8%AE%8A%E6%85%A2%E7%9A%84%E7%86%B1%E9%96%80%E5%A4%96%E6%8E%9B/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2630,7 +2637,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">297</span>
+          <span class="site-state-item-count">298</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2682,7 +2689,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -2691,12 +2698,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">759k</span>
+    <span title="總字數">761k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:30</span>
+    <span title="所需總閱讀時間">11:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

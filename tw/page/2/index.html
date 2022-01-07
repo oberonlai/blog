@@ -210,6 +210,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-gateway/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/woocommerce-payment-gateway/" class="post-title-link" itemprop="url">WooCommerce 金流串接實戰（七）- WC_Payment_Gateway</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-22 12:00:00 / 修改時間：12:09:51" itemprop="dateCreated datePublished" datetime="2021-09-22T12:00:00+08:00">2021-09-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>WooCommerce 的金流主要分為兩種，即時與非即時完成付款，即時指的是當訂單成立後就可以取得消費者的付款結果，像是信用卡、WebATM，WooCommerce 提供三種模式來處理即時付款：</p>
+<ol>
+<li><p>付款表單 - 讓消費者直接在站內完成信用卡或是付款相關資訊的填寫，由於安全性的考量，台灣有支援這種模式的金流商相對較少，但因為其結帳的便利性可降低付款跳出率，這幾年有不少廠商開始支援 Token 交易代碼化，也就是傳送過程中並非直接傳送消費者的卡號，而是使用一串代碼來避免直接暴露。</p>
+</li>
+<li><p>Iframe 嵌入 - 按下結帳時使用 Iframe 顯示卡號輸入畫面，之前國內也有金流商是採用這種方式付款，但該金流商目前已停止該類型的付款方式。</p>
+</li>
+<li><p>頁面跳轉 - 不讓消費者在站內提供付款資訊，而是跳轉到金流商的頁面進行付款，這是目前的主流方式，根據金流商運作模式，有些是使用 Form 來 Post，或是需要呼叫 API 來取得跳轉網址。</p>
+</li>
+</ol>
+<p>非即時付款的金流常見的有虛擬轉帳帳號、超商代碼繳費，有些金流商會需要跳轉到他們的介面，像是選擇要產生的轉帳帳號是用哪家銀行、列印哪家超商的繳費代碼，也有廠商沒提供這些選擇，就是單純的直接回傳固定一家銀行或超商的繳費資訊，這種類型的就是直接將回傳結果顯示在站內即可。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/woocommerce-payment-gateway/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-metabox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2056,94 +2152,6 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-freelance-choice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/wordpress-freelance-choice/" class="post-title-link" itemprop="url">自由接案也是一種職涯選擇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-09-02 10:00:00 / 修改時間：10:08:17" itemprop="dateCreated datePublished" datetime="2021-09-02T10:00:00+08:00">2021-09-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E6%8E%A5%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">接案</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>事實上，在 11 年的職涯中，我上過 8 年的班，也就是說這 8 年我都是過著白天上班晚上趕案子的生活。每一個時期我都給自己不同的接案理由：</p>
-<p>剛出社會我就知道自己想從事網頁設計的工作，但自己非本科系出身又沒有相關經歷，當年市場上很少有公司願意聘請這樣的素人，只好白天在書店打工晚上去接案網找案子做，小案件的發包者不太在意接案者的經歷，只要能讓他們相信他們的需求我能做得出來就好，所以第一個想接案的理由是因為找不到工作。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/wordpress-freelance-choice/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2214,7 +2222,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">297</span>
+          <span class="site-state-item-count">298</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2266,7 +2274,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -2275,12 +2283,12 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">759k</span>
+    <span title="總字數">761k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:30</span>
+    <span title="所需總閱讀時間">11:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
