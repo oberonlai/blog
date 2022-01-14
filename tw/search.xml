@@ -11507,16 +11507,34 @@ $cat_ids = array_unique( $cat_ids );
 <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'John'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>把類別設計完成後，我們現在有一個商業邏輯：檢查該名使用者是否已滿 18 歲，滿了才能瀏覽 18 禁的內容：</p>
-<p>if( $user-&gt;age &lt; 18 ) {<br>  throw new TooYoungException ( ‘等你滿 18 歲再來吧～’ );<br>}</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TooYoungException</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'等你滿 18 歲再來吧～'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>上面的寫法看起來很合理，直接存取 $user 的公開屬性 age，就能判斷是否有滿足特定年紀，而這樣的判斷式會遍佈整個程式裡面，只要有需要判斷 $user 年紀的地方就需要下這一個判斷式，假設到了下個月，需要改成 21 歲時該怎麼做？對，這時候就只能用編輯器進行全站搜尋取代 18 這個數字。</p>
 <p>另一個問題在於任何人都可以隨意修改 $user 的年紀，因為這個屬性是可以公開存取的，所以在建立實體之後，還是能夠被進行複寫，這是不合理的：</p>
-<p>$user = new User( ‘john’, ‘john@example.com’, 18 );<br>$user-&gt;age = 21; // 可以直接被覆寫</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'john'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span> <span class="token comment">// 可以直接被覆寫</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>還有一個更嚴重的問題：雖然年齡這個屬性被強制要求於建構式函式中必填，但還是缺少了參數驗證的機制，雖然我們已經有用 int 來確認 $age 參數是整數，但卻無法驗證年齡是否為負數：</p>
-<p>$user = new User( ‘John’, ‘john@example.com’,  -20);</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'John'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span>  <span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>以上這些問題的主要原因在於 User 類別沒有把屬性綁定在方法裡面，這個類別看起來比較像是某種類型的資料結構而非真正的類別。所以接下來，我們開始來設計介面，第一個步驟就是先把隱藏所有的屬性，以及新增方法來取得 $user 的年齡：</p>
-<p>class User {<br>  private $name;<br>  private $email;<br>  private $age;</p>
-<p>  public function __constructor( string $name, string $email, int $age ){<br>    $this-&gt;name = $name;<br>    $this-&gt;email = $email;<br>    $this-&gt;age = $age;<br>  }</p>
-<p>  public function getAge(): int {<br>    return $this-&gt;age;<br>  }</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">class</span> User <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token variable">$email</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">function</span> \<span class="token constant">_</span>\<span class="token function">_constructor</span><span class="token punctuation">(</span> <span class="token keyword type-hint">string</span> <span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token keyword type-hint">string</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token keyword type-hint">int</span> <span class="token variable">$age</span> <span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">email</span> <span class="token operator">=</span> <span class="token variable">$email</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">int</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">age</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>我們先透過宣告私有屬性，修正了公開屬性可以直接存取因而被覆寫的問題，下一步是把年齡的判斷邏輯隱藏在類別裡面，對於實體物件來說，它不用知道具體的年齡，只要知道他是否滿足特定年紀即可：</p>
 <p>class User {<br>  …<br>  public function isYoung(): bool {<br>  return $this-&gt;age &lt; 18;<br>  }<br>}</p>
 <p>新增 isYoung() 這個方法就能解決之後年齡要變動的問題。現在 User 這個類別看起來比較像真正的「類別」了，當我們要檢查 user 的年紀不用直接存取屬性來進行判斷，而改用 isYoung() 來檢查即可。</p>
@@ -16992,8 +17010,97 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p>雖然這一年達到了巔峰，但有時三更半夜還是會有很多憂慮，像是萬一哪一天長期合作的朋友不找我合作了、身體健康發生異常、或是疫情再次進入台灣，雖然告訴自己現在賺的應該夠用了，但害怕失去這一切的擔心從來沒有消失過，萬一又要從頭來過自己的運氣還會這麼好嗎？</p>
 <p>另一方面雖然案件收入已經穩定，但基本上還是處於一種不工作就沒有收入的狀態，為此我開始嘗試與朋友合作來分擔案件需求，一樣採用時薪計價的方式來運作，也開始學習著該如何把需求做更有效的溝通，並把合適的工作分配給對的夥伴。</p>
 <p>有了朋友的幫忙，希望自己可以變成每週只花三天的時間在案件上，剩下的時間要來重新規劃自己的部落格，將內容重新整理分類，並整合多方業務來直接線上銷售，以及開始著手一直很想做的教育事業，不管是教接案還是 WordPress 開發，讓更多接案者可以有更好的生活品質。</p>
-<p>雖然做這些不知道能不能解決自己的憂慮，但至少知道自己現在有一些能力可以來幫助別人，就像從十月開始的這份電子報一樣，雖然每個禮拜都在燒腦不知道要寫什麼，但當每寫完一篇自己就有一種被療癒的感覺，更不用說能收到讀者回覆的交流，就好像能感受到有些不會消失的東西持續存在著。</p>
-<p>謝謝你的訂閱，2022 年應該又會是很精彩的一年，畢竟我的新 Macbook Pro 1/19 就會到貨了 :D，我們明年見！</p>
+<p>雖然做這些不知道能不能解決自己的憂慮，但至少知道自己現在有一些能力可以來幫助別人，就像從十月開始固定每週寫文章一樣，雖然每個禮拜都在燒腦不知道要寫什麼，但當每寫完一篇自己就有一種被療癒的感覺，更不用說能收到讀者回覆的交流，就好像能感受到有些不會消失的東西持續存在著，希望 2022 年也能持續下去！</p>
+]]></content>
+      <categories>
+        <category>專案管理</category>
+        <category>敏捷式接案</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>撐起百萬營收的接案管理工具 - Ora</title>
+    <url>/tw/ora/</url>
+    <content><![CDATA[<p>前陣子寄出的開發時數評估經過 Eddie 確認後，準備可以來開始進行正式合作了。Eddie 是從搜尋引擎找到我的敏捷式接案系列文章，對於曾經有過不愉快的外包合作經驗的他，第一次發現原來還有這樣的外包計價模式，於是主動與我聯繫洽談合作。</p>
+<p>Eddie 的公司主要使用 WooCommerce 來經營購物商城，他希望可以串接銀行金流來降低手續費抽成，他提供了我文件讓我評估預計的開發時數，並且詳述哪些付款方式需要串接，根據他的需求以及詳讀串接文件後我的評估項目如下：</p>
+<span id="more"></span>
+
+<h4 id="一-前置作業-2-4-小時"><a href="#一-前置作業-2-4-小時" class="headerlink" title="(一) 前置作業 - 2~4 小時"></a>(一) 前置作業 - 2~4 小時</h4><ul>
+<li>開發環境建置 - 1~2h</li>
+<li>程式碼部署流程建置 - 1~2h</li>
+</ul>
+<h4 id="二-WooCommerce-設定介面開發-3-5-小時"><a href="#二-WooCommerce-設定介面開發-3-5-小時" class="headerlink" title="(二) WooCommerce 設定介面開發 - 3~5 小時"></a>(二) WooCommerce 設定介面開發 - 3~5 小時</h4><ul>
+<li>新增金流設定欄位 - 1~2h</li>
+<li>新增前台結帳頁金流選擇介面 - 2~3h</li>
+</ul>
+<h4 id="三-授權交易資料傳送-6-10-小時"><a href="#三-授權交易資料傳送-6-10-小時" class="headerlink" title="(三) 授權交易資料傳送 - 6~10 小時"></a>(三) 授權交易資料傳送 - 6~10 小時</h4><ul>
+<li>授權驗證加密機制 - 2~3h</li>
+<li>信用卡網路收單訂單資料欄位傳送 - 2~3h</li>
+<li>信用卡分期付款網路收單訂單資料欄位傳送 - 1~2h</li>
+<li>測試與除錯 1~2h</li>
+</ul>
+<h4 id="四-接收金流商回傳資料-6-10-小時"><a href="#四-接收金流商回傳資料-6-10-小時" class="headerlink" title="(四) 接收金流商回傳資料 - 6~10 小時"></a>(四) 接收金流商回傳資料 - 6~10 小時</h4><ul>
+<li>將交易結果回寫至訂單備註 - 1~2h</li>
+<li>根據交易結果顯示完成畫面 - 2~3h</li>
+<li>交易失敗處理 - 2~3h</li>
+<li>測試與除錯 - 1~2h</li>
+</ul>
+<h4 id="五-退款機制處理-4-7-小時"><a href="#五-退款機制處理-4-7-小時" class="headerlink" title="(五) 退款機制處理 - 4~7 小時"></a>(五) 退款機制處理 - 4~7 小時</h4><ul>
+<li>新增前後台退款使用者介面 - 1~2h</li>
+<li>退款訂單資料欄位傳送 - 2~3h</li>
+<li>將退款結果回寫至訂單備註 - 1~2h</li>
+<li>測試與除錯 - 1~2h</li>
+</ul>
+<p>完成該金流外掛的預估開發時數為 21 到 36 小時之間，這樣的範圍是 Eddie 可以接受的成本，因此確認過合作方式後，我們就正式展開合作。</p>
+<h2 id="一、專案管理初始化"><a href="#一、專案管理初始化" class="headerlink" title="一、專案管理初始化"></a>一、專案管理初始化</h2><p><a href="https://ora.pm/">https://ora.pm</a></p>
+<p>首先，我在專案管理軟體 Ora 裡面先建立一個新的 Eddie Organization，使用 Organization 的好處在於免費方案就能加入 10 個成員，並能使用一些 Organization 專屬的功能，這對於小型敏捷團隊非常夠用：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-01.jpg"></p>
+<p>在建立 Organization 時一併邀請 Eddie 加入，他會在信箱收到 Ora 的邀請信，在此之前如果他沒有 Ora 的帳號也沒關係，信中的連結會引導新會員註冊。Organization 建立完之後接下來新增 Project，一個 Organization 可以擁有多個 Project，依照我跟 Eddie 目前合作的狀態，我們就只有一個 WooCommerce 金流外掛開發的 Project：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-02.jpg"></p>
+<p>建立 Project 時可以選擇預設的專案管理範本，我使用 Project Management 來管理該專案，該範本包含四種工作處理狀態：To Do, In Progress, Needs Review 以及 Done，之後我會用這四種狀態來分類上述的開發項目。</p>
+<p>選定使用的範本後接下來就是設定 Project 的名稱以及加入成員，名稱使用 Eddie 公司名取前三個英文字母作為前綴，這個前綴也會用在實際開發寫程式時作為辨識的用途，其次是加入可以看到該 Project 的成員，除了 Eddie 外，我還加入了 Eddie 的助理 Emma，這樣當工作狀態有變更時他們都會收到通知：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-03.jpg"></p>
+<p>Project 的進階設定可以加入更多的管理功能，我啟用了六個項目：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-04.jpg"></p>
+<p><strong>Time Tracking</strong> - 計時功能，可以針對每個工作項目花費多少時間進行計時</p>
+<p><strong>Checkboxes on Cards</strong> - 待辦清單，用於拆解細部的工作項目</p>
+<p><strong>Board Views</strong> - 使用看板模式來詳列每個工作項目的狀態</p>
+<p><strong>Pipeline Workflow</strong> - 可以追蹤有多少工作被發起、待驗收以及已完成</p>
+<p><strong>Visible Issue IDs</strong> - 顯示每個工作的 ID 編號以利辨識，這樣就能在對話串 tag 工作項目</p>
+<p><strong>Task Types</strong> - 工作項目的類型，能追蹤時間是花在功能開發、修改還是除錯上面</p>
+<hr>
+<p>設定好 Project 的預設功能後，我將開發項目分為三個部分，而分類的依據是做完這些功能後可以讓 Eddie 實際測試並驗收的項目，因此建立以下三個 Task：</p>
+<p><strong>前置作業與設定介面開發</strong> - 該項目的驗收標準為 Eddie 可以連進測試網站並且在後台可以儲存金流相關的資訊</p>
+<p><strong>交易資料傳送與接收</strong> - 該項目的驗收標準為 Eddie 可以在測試網站進行商品購買並使用該金流完成交易</p>
+<p><strong>退款功能</strong> - 該項目的驗收標準為 Eddie 可以在測試網站前後台進行退款作業</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-06.jpg"></p>
+<p>建立好可以讓 Eddie 驗收的 Task 後，接下來我把每個執行細項寫在 Task 裡面，這時候我用 Checklist 彙整：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-07.jpg"></p>
+<p>完成 Checklist 執行細項後，我依序設定時數預估、Label 以及 Task Type，時數預估我抓每個執行項目的累計，藉此讓 Eddie 知道超出這個時數就需要讓公司重新評估開發成本，Label 以及 Task Type 可以讓 Eddie 在追蹤每月花費時得知更多的細節：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-08.jpg"></p>
+<p>完成前置作業後，我把 Task 移到 In Progress 的階段就代表專案正式啟動：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-09.jpg"></p>
+<h2 id="二、資訊集中與同步溝通"><a href="#二、資訊集中與同步溝通" class="headerlink" title="二、資訊集中與同步溝通"></a>二、資訊集中與同步溝通</h2><p>進入要執行的 Task 後點擊 Start Timer 開始計算工作時數，我將測試站環境的登入資訊寫在 Task 的 Description 裡面，並註記其他需要 Eddie 確認的項目，Eddie 請助理 Emma 來跟進後續需要提供的資料：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-10.jpg"></p>
+<p>在處理第一個 Task 的時候，Eddie 發現到他們的購物車結帳頁面需要做一些欄位上的調整，想要請我這邊幫忙，他使用 Chat 的 Direct Messages 來描述這個需求：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-11.jpg"></p>
+<p>因此在 To Do 項目中我再新增了「結帳頁新增縣市下拉選單」這個需求，同時間，我把金流的設定功能開發完成並請 Emma 驗收，她直接在 Chat 的 Discussions 回覆驗收的結果，確認無誤後勾選 Approve 完成該 Task：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-12.jpg"></p>
+<p>第一週的時間過去了，我用 Reports 功能來回報上週的工作時數以及工作項目，並且針對 Label 以及 Task Type 來分析第一週的工作狀態：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-13.jpg"></p>
+<p>看了第一張的工作時數後，Eddie 跟我告知下一週先處理前幾天提出的縣市下拉選單問題，並且希望在週三前可以完成驗收並測試，由於這功能我有處理過，所以對於他提出的時間點我判斷能完成，於是我使用 Agenda 先安排好下週的工作進度，優先處理該項目：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-14.jpg"></p>
+<h2 id="三、工作分派與委託"><a href="#三、工作分派與委託" class="headerlink" title="三、工作分派與委託"></a>三、工作分派與委託</h2><p>三週過去了，Eddie 的專案進度已經執行到最後一項的退款功能開發，上午剛與 Eddie 通完視訊電話，他還需要請我串接物流 API，但目前剛好我手上還有其他客戶在執行，我就詢問 Eddie 是否願意讓我協尋夥伴來共同開發，窗口統一由我接洽並且進行功能測試驗收。</p>
+<p>由於這樣的合作模式彼此已經有默契了，所以 Eddie 可以接受我再外發出去的作法，反正有任何狀況一樣找我，因此我尋求認識多年的工程師朋友 Steven 合作，請他來協助我物流 API 串接的功能開發。</p>
+<p>我另外開了一個 Organization 叫做 Steven&amp;Oberon 並且建立全新的 Project，這樣就不會跟非物流串接的工作項目混淆，而我則扮演 Eddie 與 Steven 之間的溝通橋樑。同樣的，我先在 Eddie 這邊將可驗收的工作項目整理出來，並且複製一份到 Steven 這邊，重新整理成工程師可理解的執行步驟：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-15.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-16.jpg"></p>
+<p>當 Steven 開始執行時，我就會隨時收到他的物流 API 串接的工作進度通知，有任何問題透過 Chat 來進行確認，每天下班前，我會使用 Reports 查看 Steven 的工作時數，然後手動填進 Eddie 這邊的工作項目中：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/ora/ora-17.jpg"></p>
+<p>一週結束後，一樣使用 Reports 來向 Eddie 回報本月累積的工作時數以及完成事項。</p>
+<p>現在手邊除了有 Eddie 的專案在執行外，還有其他三位客戶我也是用這樣的方式進行管理，另外還協同 Steven 與另外兩位夥伴來消化工作項目。啊，Eddie 又在敲我了，應該又是有新的需求要開發了～</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>這禮拜一直在想該從什麼樣的角度來介紹 Ora，它的功能十分強大而且非常彈性，但也因此讓初次接觸這個工具的朋友不知道該如何下手，於是我就以每天的工作日常來實際帶入 Ora 裡面我真正有在使用的功能，希望可以讓你了解到 Ora 原來是可以這樣用的。</p>
+<p>Ora 協助我可以真正落實時薪制的接案模式，靠的就是他強大的計時與圖表功能，同時還有方便的聊天頻道，以及行事曆與我最愛的 Github 整合，它的 API 也很豐富，昨天在深入研究時在想搞不好可以開發一個 WordPress 專用的回報系統外掛，也就是當網站發生重大錯誤時可以把錯誤訊息送到 Ora 來做後續的追蹤與處理，但礙於最近手邊工作一堆，可能還是只能想想就好XD</p>
+<p>如果你剛好在找一套包山包海的專案管理系統我很推薦使用 Ora～</p>
 ]]></content>
       <categories>
         <category>專案管理</category>

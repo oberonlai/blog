@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/09/hero.jpeg">
 <meta property="article:published_time" content="2020-09-12T02:52:08.000Z">
-<meta property="article:modified_time" content="2021-05-01T09:58:58.442Z">
+<meta property="article:modified_time" content="2022-01-07T09:50:17.617Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="OOP">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 17:58:58" itemprop="dateModified" datetime="2021-05-01T17:58:58+08:00">2021-05-01</time>
+                <time title="修改時間：2022-01-07 17:50:17" itemprop="dateModified" datetime="2022-01-07T17:50:17+08:00">2022-01-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -321,16 +321,34 @@
 <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'John'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>把類別設計完成後，我們現在有一個商業邏輯：檢查該名使用者是否已滿 18 歲，滿了才能瀏覽 18 禁的內容：</p>
-<p>if( $user-&gt;age &lt; 18 ) {<br>  throw new TooYoungException ( ‘等你滿 18 歲再來吧～’ );<br>}</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TooYoungException</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'等你滿 18 歲再來吧～'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>上面的寫法看起來很合理，直接存取 $user 的公開屬性 age，就能判斷是否有滿足特定年紀，而這樣的判斷式會遍佈整個程式裡面，只要有需要判斷 $user 年紀的地方就需要下這一個判斷式，假設到了下個月，需要改成 21 歲時該怎麼做？對，這時候就只能用編輯器進行全站搜尋取代 18 這個數字。</p>
 <p>另一個問題在於任何人都可以隨意修改 $user 的年紀，因為這個屬性是可以公開存取的，所以在建立實體之後，還是能夠被進行複寫，這是不合理的：</p>
-<p>$user = new User( ‘john’, ‘john@example.com’, 18 );<br>$user-&gt;age = 21; // 可以直接被覆寫</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'john'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span> <span class="token comment">// 可以直接被覆寫</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>還有一個更嚴重的問題：雖然年齡這個屬性被強制要求於建構式函式中必填，但還是缺少了參數驗證的機制，雖然我們已經有用 int 來確認 $age 參數是整數，但卻無法驗證年齡是否為負數：</p>
-<p>$user = new User( ‘John’, ‘john@example.com’,  -20);</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'John'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'john@example.com'</span><span class="token punctuation">,</span>  <span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>以上這些問題的主要原因在於 User 類別沒有把屬性綁定在方法裡面，這個類別看起來比較像是某種類型的資料結構而非真正的類別。所以接下來，我們開始來設計介面，第一個步驟就是先把隱藏所有的屬性，以及新增方法來取得 $user 的年齡：</p>
-<p>class User {<br>  private $name;<br>  private $email;<br>  private $age;</p>
-<p>  public function __constructor( string $name, string $email, int $age ){<br>    $this-&gt;name = $name;<br>    $this-&gt;email = $email;<br>    $this-&gt;age = $age;<br>  }</p>
-<p>  public function getAge(): int {<br>    return $this-&gt;age;<br>  }</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">class</span> User <span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token variable">$email</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">function</span> \<span class="token constant">_</span>\<span class="token function">_constructor</span><span class="token punctuation">(</span> <span class="token keyword type-hint">string</span> <span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token keyword type-hint">string</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token keyword type-hint">int</span> <span class="token variable">$age</span> <span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">email</span> <span class="token operator">=</span> <span class="token variable">$email</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">int</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">age</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>我們先透過宣告私有屬性，修正了公開屬性可以直接存取因而被覆寫的問題，下一步是把年齡的判斷邏輯隱藏在類別裡面，對於實體物件來說，它不用知道具體的年齡，只要知道他是否滿足特定年紀即可：</p>
 <p>class User {<br>  …<br>  public function isYoung(): bool {<br>  return $this-&gt;age &lt; 18;<br>  }<br>}</p>
 <p>新增 isYoung() 這個方法就能解決之後年齡要變動的問題。現在 User 這個類別看起來比較像真正的「類別」了，當我們要檢查 user 的年紀不用直接存取屬性來進行判斷，而改用 isYoung() 來檢查即可。</p>
@@ -747,7 +765,7 @@ return strtolower($cleared);
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">298</span>
+          <span class="site-state-item-count">299</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -808,12 +826,12 @@ return strtolower($cleared);
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">761k</span>
+    <span title="總字數">764k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:32</span>
+    <span title="所需總閱讀時間">11:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
