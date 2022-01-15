@@ -2288,7 +2288,37 @@ function scrollIndicatior() &#123;
 </blockquote>
 <p>ValetPress 方便之處在於作者 Aaron Rutley 把一些常用的流程都寫好指令了，像是下載 WP、建 DB、設定帳號密碼等等，要改寫成自己的也非常容易，比照辦理就行，最常用的指令是 vp create，也就是新增一個站，輸入後就會用問答式的介面來引導你，</p>
 <p>他的指令內容也非常淺顯易懂，節錄如下：</p>
-<p>if [ $1 = “create” ]; then<br>cd ~/Sites<br>echo “${VP_BOLD}ValetPress, create new site ${VP_NONE}”<br>echo “${VP_YELLOW}Project Name:${VP_NONE}”<br>read project_name<br>mkdir “$project_name”<br>cd “$project_name”<br>mysql -uroot -e “create database \`$project_name\`“<br>wp core download<br>wp core config –dbname=”$project_name” –dbuser=root –dbhost=127.0.0.1<br>wp core install –url=”$project_name”.dev –title=”$project_name”.dev –admin_user=”$project_name”  –admin_password=password –admin_email=wordpress@wordpress.org<br>rm -rf wp-content<br>git clone <a href="https://aaronrutley@bitbucket.org/aaronrutley/turbo-light.git">https://aaronrutley@bitbucket.org/aaronrutley/turbo-light.git</a> wp-content<br>cd wp-content<br>rm -rf .git<br>git init<br>eval mv ~/Sites/“$project_name”/wp-content/themes/turbo-light ~/Sites/“$project_name”/wp-content/themes/“$project_name”<br>wp theme activate “$project_name”<br>wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering<br>wp plugin update –all<br>echo “${VP_GREEN}Success:${VP_NONE} Project Created: ${VP_UNDERLINE}http://$project_name.dev/${VP_NONE}”<br>echo “L: ${VP_UNDERLINE}http://$project_name.dev/wp-admin/${VP_NONE}”<br>echo “U: $project_name”<br>echo “P: password”<br>echo “${VP_GREEN}Success:${VP_NONE} Running NPM install”<br>cd ~/Sites/“$project_name”/wp-content/themes/“$project_name”<br>npm install<br>echo “${VP_GREEN}Success:${VP_NONE} Running Gulp (default)”<br>gulp<br>fi</p>
+<pre class="line-numbers language-none"><code class="language-none">if \[ $1 &#x3D; &quot;create&quot; \]; then
+cd ~&#x2F;Sites
+echo &quot;$&#123;VP\_BOLD&#125;ValetPress, create new site $&#123;VP\_NONE&#125;&quot;
+echo &quot;$&#123;VP\_YELLOW&#125;Project Name:$&#123;VP\_NONE&#125;&quot;
+read project\_name
+mkdir &quot;$project\_name&quot;
+cd &quot;$project\_name&quot;
+mysql -uroot -e &quot;create database \\\&#96;$project\_name\\\&#96;&quot;
+wp core download
+wp core config --dbname&#x3D;&quot;$project\_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1
+wp core install --url&#x3D;&quot;$project\_name&quot;.dev --title&#x3D;&quot;$project\_name&quot;.dev --admin\_user&#x3D;&quot;$project\_name&quot;  --admin\_password&#x3D;password --admin\_email&#x3D;wordpress@wordpress.org
+rm -rf wp-content
+git clone https:&#x2F;&#x2F;aaronrutley@bitbucket.org&#x2F;aaronrutley&#x2F;turbo-light.git wp-content
+cd wp-content
+rm -rf .git
+git init
+eval mv ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;turbo-light ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
+wp theme activate &quot;$project\_name&quot;
+wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering
+wp plugin update --all
+echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Project Created: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;$&#123;VP\_NONE&#125;&quot;
+echo &quot;L: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;wp-admin&#x2F;$&#123;VP\_NONE&#125;&quot;
+echo &quot;U: $project\_name&quot;
+echo &quot;P: password&quot;
+echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running NPM install&quot;
+cd ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
+npm install
+echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running Gulp (default)&quot;
+gulp
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。</p>
 <p>如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～</p>
 <h2 id="ValetPress-安裝步驟"><a href="#ValetPress-安裝步驟" class="headerlink" title="ValetPress 安裝步驟"></a>ValetPress 安裝步驟</h2><p>相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：</p>
@@ -2304,15 +2334,23 @@ function scrollIndicatior() &#123;
 </blockquote>
 <p>確認 brew update 可以正確執行後就可以進入到下一步了！</p>
 <h3 id="二、安裝-PHP-amp-Composer"><a href="#二、安裝-PHP-amp-Composer" class="headerlink" title="二、安裝 PHP&amp;Composer"></a>二、安裝 PHP&amp;Composer</h3><p>先使用 Homebrew 安裝 PHP，再安裝 PHP 套件管理系統 Composer：</p>
-<p>$ brew install php</p>
-<p>$ brew install composer</p>
+<pre class="line-numbers language-none"><code class="language-none">$ brew install php
+$ brew install composer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="三、安裝-MySql"><a href="#三、安裝-MySql" class="headerlink" title="三、安裝 MySql"></a>三、安裝 MySql</h3><p>Valet 官方文件是安裝 MySql 5.7，個人是習慣裝 Mariadb：</p>
-<p>$ brew install mariadb</p>
+<p><code>$ brew install mariadb</code></p>
 <p>狀況來了，當我要 mysql -u root 的時候，會出現時 <strong>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)，</strong></p>
-<p>爬了一堆解，試了一堆方法都還是行不通，於是找到出問題的 /tmp/mysql.sock 這個檔案，發現他只是一個連結並且沒有連到任何內容，所以我就把他砍了(?)，</p>
-<p>再次登入 mysql -u root 出現 **’Access denied for user ‘root’@’localhost’**，查了之後說是權限不夠，可以用 sudo 來執行，但 ValetPress 的腳本我試過加 sudo 還是過不了，最後找到另一個解法：前往編輯 vi /usr/local/etc/my.cnf，加入下面這行後再重新啟動 Mariadb，才有辦法成功連線。</p>
-<p>[mysqld]<br>skip-grant-tables</p>
-<p>$ brew services restart MariaDB</p>
+<p>爬了一堆解，試了一堆方法都還是行不通，最後發現到如果是透過 Homebrew 安裝的只要執行以下指令即可：</p>
+<p><code>$ mysql.server start</code></p>
+<p>再次登入 mysql -u root 出現 **’Access denied for user ‘root’@’localhost’**，查了之後說是權限不夠，可以用 sudo 來執行，但 ValetPress 的腳本我試過加 sudo 還是過不了，解決辦法是先用 sudo 進入後去修改 root 的密碼為空值：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
+<span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> <span class="token operator">=</span> password<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>
+quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完成後重新啟用即可。</p>
+<pre class="line-numbers language-none"><code class="language-none">$ brew services restart MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="四、安裝-Valet"><a href="#四、安裝-Valet" class="headerlink" title="四、安裝 Valet"></a>四、安裝 Valet</h3><p>使用 composer 下載 valet 套件：</p>
 <p>$ composer global require laravel/valet</p>
 <p>下載依賴套件中…</p>
