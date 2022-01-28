@@ -17185,7 +17185,7 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
       </categories>
   </entry>
   <entry>
-    <title>如何說服客戶改用時薪計價</title>
+    <title>Mac 開發工具大清單</title>
     <url>/tw/developer-tools-for-mac/</url>
     <content><![CDATA[<p>很久以前我是這樣去客戶那邊開會的：先從筆電包裡面拿出 Mac Mini（對，你沒看錯，就是那台便當盒），然後拿出電源線找會議室的插頭插好、接投影機的 HDMI、依序拿出無線鍵盤、觸控板，最後按下 Mini 的電源鍵開機，完成開機大概要等一分半左右，為了避免尷尬我就會趁這段時間換名片、馬屁一下客戶的辦公室有多漂亮，最害怕的就是已經沒有東西可以扯了但電腦還沒開機完成…</p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-01.jpg"></p>
@@ -17248,8 +17248,7 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p>最後還是附一下 Setapp 的<a href="https://go.setapp.com/invite/oberon">推廣申請連結</a>，上面介紹的軟體有九成都在裡面，如果你還不知道的話請立刻快去申請，可以省下超多軟體購買的費用！</p>
 ]]></content>
       <categories>
-        <category>專案管理</category>
-        <category>敏捷式接案</category>
+        <category>開發工具</category>
       </categories>
   </entry>
 </search>
