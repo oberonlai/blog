@@ -17184,4 +17184,72 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>敏捷式接案</category>
       </categories>
   </entry>
+  <entry>
+    <title>如何說服客戶改用時薪計價</title>
+    <url>/tw/developer-tools-for-mac/</url>
+    <content><![CDATA[<p>很久以前我是這樣去客戶那邊開會的：先從筆電包裡面拿出 Mac Mini（對，你沒看錯，就是那台便當盒），然後拿出電源線找會議室的插頭插好、接投影機的 HDMI、依序拿出無線鍵盤、觸控板，最後按下 Mini 的電源鍵開機，完成開機大概要等一分半左右，為了避免尷尬我就會趁這段時間換名片、馬屁一下客戶的辦公室有多漂亮，最害怕的就是已經沒有東西可以扯了但電腦還沒開機完成…</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-01.jpg"></p>
+<span id="more"></span>
+
+<p>最後受不了還是在 2013 年靠著分期付款買下左邊人生第一台蘋果的筆記型電腦 MacBook Pro，本以為對於蘋果電腦早就用得很習慣的我來說，筆記型電腦也只是方便好攜帶而已，但我錯了，當一開機打起鍵盤與手指頭放上觸控板後，第一次感受到自己跟電腦融為一體，不管是開機速度、軟體反應時間、輸入時的流暢感，這種體驗是以前從不曾有過的。</p>
+<p>從此之後的多年歲月，這台 MBP 伴我度過了各個大大小小的專案、參與了數百場會議、寫下數不清的程式碼、文章，最驚人的是，他從來沒有當過機，從、來、沒、有，不管我怎麼操他、摧殘他，他還是日復一日的正常運作，也因此讓我對 MacBook 充值了超多信仰，縱使在這期間陸續有 MBP 的後續機種上市，卻完全沒有我手中這一台的便利性，有好長的一段時間我都覺得這台電腦可以陪我到退休。</p>
+<p>一睜眼八年過去了，2013 年的 MBP 慢慢跑不動日新月異的軟體了，最讓我困擾的是現在許多應用程式都採用 React.js 開發，常常用沒多久就會跳出網頁消耗大量電力的提示然後開始 Lag，最痛苦的就是使用 WordPress 的區塊編輯器了，常常文章寫到一半就開始變得遲緩，每打一個字都要等個零點幾秒讓它反應，要刪除文字時還會一不小心把整段刪掉，讓我在寫作時無法專注思考，最後就只能改用備忘錄先寫好再貼進去。</p>
+<p>另外 128GB 的硬碟空間也是一個問題，我每週都會固定整理硬碟空間，把非必要每天使用的軟體移除掉，等真的需要用的時候再裝，工作檔案就移到備份硬碟，盡可能的把本機空間保留下來。</p>
+<p>但這樣每週一次的數位斷捨離終究還是會碰到瓶頸，不管花多少時間清理，軟體本身總是會因為越來越多功能而越來越肥，累積多年清不到的角落也持續藏污納垢，更可惜的是許多好用的軟體我也不敢裝，深怕硬碟會爆炸。</p>
+<p>直到前年 Apple 推出 M1 晶片的機種時我眼睛為之一亮，深深被其效能所吸引，但很多原本實用的接口、Mega Safe 都還是沒有，於是我等，我知道一定會有更適合我的 MBP 機種推出。</p>
+<p>在去年年初市場上就謠傳三月會推出 M1 的下一代機中，發表會當天我凌晨到五點就驚醒了了，偷偷在床上背著老婆裝睡然後拿著手機偷看發表會，隨著發表會一個接一個的新功能發表，我期待的 MBP 終究沒有出現，最後在失望之餘又轉生氣的心情下，把所有在講 Mac Rumor 的 Youtuber 全部退訂，告訴自己再也不要相信這些八卦了。</p>
+<p>好不容易等到了年底，看到了新 MPB 發表會，除了原本預料中的 M1 晶片加強版外，竟然還有頂規的 M1 Max，當下立刻高潮決定要衝 M1 Max，無奈跟以往的產品一樣，NCC 電檢一樣要等上一個半月，看著中國 Youtuber 可以在第一時開箱&amp;購買，就覺得台灣好像第三世界的國家，真的等到可以下訂又是好幾週之後的事了。</p>
+<p>好不容易等到到可以下訂的日期了，但另一個掙扎又來了，M1 Max 晶片因為是屬於客製版本需要再等上一個月才能到貨，本想說算了，就買可以比較快到貨的 M1 Pro 就好，但又覺得都等了一年多了，還差這幾個月嗎？忍耐再忍耐，終於在上週拿到本體了。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-02.jpg"></p>
+<p>我是直接去 A13 取貨，本以為會有開機測試的服務，但實際狀況是店員跟我確認外盒的規格後就結束了XD，於是跑去同一層的星巴克開箱，睽違了八年再次開箱 MacBook Pro 還是很感動，但畢竟還是 MBP，沒有像八年前第一次用到它的驚豔感，有的只是一種很熟悉的老夥伴換了新衣。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-03.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-04.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/my-macbook/my-macbook-05.jpg"></p>
+<p>我花了大概半天的時間就把資料移轉完成了，我沒有直接用 Time Machine 進行備份回復，而是重新配置新機器的環境，多虧每週的空間清理以及使用軟體的好習慣，搬起家來非常輕鬆，尤其是透過 AirDrop 傳送超快，不用靠著隨身硬碟來丟來丟去。</p>
+<p>最花時間的就是配置 WordPress 的本機開發環境了，我照著之前自己的筆記使用 Valet 來搭建，結果不知道是因為版本不同還是筆記亂寫，安裝的過程一直發生錯誤，本想說放棄它直接改用 Local 或是 DevKinsta，但就是不想認輸，最後還是順利完成安裝，也順便把之前的<a href="https://oberonlai.blog/tw/valetpress-setup/">筆記</a>再更新一下。</p>
+<p>軟體的部分我都是以 Setapp 上面的為主，換了電腦之後重新安裝也非常便利，需要注意的是最低階方案只支援一台電腦，所以當新電腦取得授權後舊電腦透過 Setapp 安裝的軟體就無法使用了。</p>
+<p>有了 1TB 的 SSD 之後，我終於可以裝許多好用的軟體了，下面我根據不同需求列出我有安裝的好物：</p>
+<h3 id="筆記軟體"><a href="#筆記軟體" class="headerlink" title="筆記軟體"></a>筆記軟體</h3><p><strong><a href="https://obsidian.md/">Obsidian</a></strong> - 自從捨棄了用 WordPress 寫文章之後，我都改用這套來寫，雖然它主打的功能是一種關聯圖的介面，但我主要都是用它來寫 Markdown 格式的文章。</p>
+<p><strong><a href="https://hexo.io/">Hexo</a></strong> - 它不是 Mac 軟體而是一個部落格系統，會介紹它是因為我把它跟 Obsidian 一起整合使用，我先將 Obsidian 的儲存庫指到 Hexo 的文章目錄，寫完後我就可以直接將文章透過 git 去更新，我寫了一段 script 去跑：</p>
+<pre class="line-numbers language-none"><code class="language-none">function blogupdate() &#123;
+        cd &#x2F;Users&#x2F;oberonlai&#x2F;web_hexo_blog
+        hexo g
+        git add .
+        git commit -a -m &quot;update&quot;
+        git push
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>當我寫完後只要執行 <code>blogupdate</code> 就能把文章更新到部落格上面去。</p>
+<p><strong><a href="https://www.notion.so/zh-tw">Notion</a></strong> - 使用 Obsidian 之前的主力筆記軟體，有舊筆記殘留在裡面就還是裝一下。</p>
+<p><strong><a href="https://evernote.com/intl/zh-tw">Evernote</a></strong>  - 使用 Notion 之前的主力比較軟體，有更舊的筆記殘留在裡面，也許要找時間看能否把它匯出 Markdown 文件了。</p>
+<p><strong><a href="https://setapp.com/apps/sidenotes">SlideNotes</a></strong> - 紀錄臨時文字的工具，會用它是因為它可以常駐在側邊欄，有需要的時候可以透過快捷鍵呼叫，不需要再開啟筆記軟體，我都拿來紀錄零碎的想法或是一些私人的代辦事項。</p>
+<p><strong><a href="https://setapp.com/apps/carbonize">Petrify</a></strong> - 把程式碼變成精美的圖片展示，寫文章的時候很好用，但用 Markdown 寫之後就很懶得再做成圖了XD</p>
+<h3 id="系統工具"><a href="#系統工具" class="headerlink" title="系統工具"></a>系統工具</h3><p><strong><a href="https://setapp.com/apps/cleanshot">CleanShot X</a></strong> - 每天 100% 會用到的截圖工具，可以做註解、標記說明以及支援雲端上傳，跟客戶解釋畫面的必備工具。</p>
+<p><strong><a href="https://setapp.com/apps/forklift">ForkLift</a></strong> - 取代 Finder 的工具，可以分割視窗同時管理多個資料夾，做 SFTP 連線也很方便。</p>
+<p><strong><a href="https://setapp.com/apps/cleanmymac">CleanMyMac X</a></strong> - 清理工具，會用它純粹是因為它的介面做得超美XD。</p>
+<p><strong><a href="https://setapp.com/apps/clearvpn">ClearVPN</a></strong> - VPN 工具，拿來翻牆跟隱匿 IP 用，如果 IP 被 ban 就只能靠它了。</p>
+<h3 id="記帳軟體"><a href="#記帳軟體" class="headerlink" title="記帳軟體"></a>記帳軟體</h3><p><strong><a href="https://setapp.com/apps/moneywiz">MoneyWiz</a></strong> - 我拿來紀錄有重複性付款的收入，像是採用月繳的主機客戶，介面有點舊，雖然有新版但 Setapp 只有提供舊版的，客戶資料都在裡面就懶得再搬了。</p>
+<p><strong><a href="https://apps.apple.com/tw/app/%E5%A4%A9%E5%A4%A9%E8%A8%98%E5%B8%B3-%E7%B0%A1%E5%96%AE-%E5%AF%A6%E7%94%A8%E7%9A%84%E8%A8%98%E5%B8%B3%E6%9C%AC/id954944283">天天記帳</a></strong> - MacOS Monterey 最棒的功能就是可以執行 iOS 的應用程式，我第一個安裝的就是這個 App，它記錄了我的個人開銷以及公司帳，以往都要拿出手機來記，現在可以一併在電腦上面處理了，大心！</p>
+<h3 id="管理工具"><a href="#管理工具" class="headerlink" title="管理工具"></a>管理工具</h3><p><strong><a href="https://apps.apple.com/tw/app/helm-hosts-file-manager/id1099472017?mt=12">Helm</a></strong> - 管理 HOST 的工具，不用再開 host 檔能新增刪除紀錄</p>
+<p><strong><a href="https://oberonlai.blog/tw/ora/">Ora</a></strong> - 跑起來意外的順暢，好多 Bug 都消失了，大心 x 2</p>
+<p><strong><a href="https://apps.apple.com/tw/app/spark-email-app-by-readdle/id1176895641?mt=12">Spark</a></strong> - 超級好用的收信軟體，除了整合多個信箱的基本功能外，還可以設定預約發信、信件通知提醒、儲存常用範本，介面更是流暢好用，有了它我已經好多年沒開過 Gmail 了。</p>
+<h3 id="開發工具"><a href="#開發工具" class="headerlink" title="開發工具"></a>開發工具</h3><p><strong><a href="https://setapp.com/apps/sizzy">Sizzy</a></strong> - 提供給開發者專用的瀏覽器，可以同時顯示多種裝置以及螢幕尺寸，之前就一直很想用它無奈舊電腦跑不動，現在終於可以用了～</p>
+<p><strong><a href="https://setapp.com/apps/expressions">Expression</a></strong> - 正規表示法的顯示工具，可以即時看到有沒有寫對，不用再一直重複試錯。</p>
+<p><strong><a href="https://setapp.com/apps/tableplus">TablePlus</a></strong> - 本機資料庫管理工具，介面漂亮用起來也滿直覺的，我把它當作 PHPMyAmdin 來使用。</p>
+<p><strong><a href="https://setapp.com/apps/pixelsnap">PixelSnap</a></strong> - 前端切版必備工具，不被設計軟體侷限，只要出現在螢幕上面的東西全都可以量。</p>
+<p><strong><a href="https://setapp.com/apps/sip">Sip</a></strong> - 前端切版必備工具二，螢幕看得到的東西都可以取得色碼，還可以切換多種格式。</p>
+<p><strong>Visual Studio Code</strong> - 主力開發編輯器，今年試著想開始用 PHPStorm 看看，可惜在 Setapp 上面沒有。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><strong><a href="https://minimisetech.gumroad.com/l/vHCps">MiniBook</a></strong>  - 自己寫的 Facebook 瀏覽器，版面清爽又沒有廣告，還設計了使用時間限制，但現在都直接開 unlimited 了 :p</p>
+<p><strong><a href="https://setapp.com/apps/coherence-pro">Coherence X</a></strong> - 可以把任何網頁變成應用程式的軟體，簡單說就是建立一個 Chrome 連結執行你指定的頁面，跟直接用瀏覽器開啟頁面比起來，變成獨立應用程式的好處是我可以使用 Cmd + Tab 快速切換，就不用在一堆頁籤海之中找尋我要的頁面。</p>
+<p><strong><a href="https://www.parallels.com/hk/">Parallels</a></strong> - 一直很想要可以一機兩用，最新版的 Parallels 跑起來超級流暢，安裝 Winodw 的步驟也非常無腦，個人還滿喜歡 win11 的介面，搭配融合模式真的就可以像在用 Mac 的 App 一樣使用 Window 的工具，雖然不曉得裝起來要幹嘛，至少 Steam 是先裝好了XD</p>
+<p><strong><a href="https://brave.com/zh/download/">Brave</a></strong> - 區塊鏈瀏覽器，有在買幣的朋友必備。</p>
+<hr>
+<p>目前使用新機器工作一週了，可以秒開軟體的感覺好像又回到八年前了一樣，希望這台機器可以陪我再戰十八年，而這篇文章也是想感謝陪伴著我這麼多年的舊機器，謝謝你讓我可以一路走到現在～</p>
+<p>最後還是附一下 Setapp 的<a href="https://go.setapp.com/invite/oberon">推廣申請連結</a>，上面介紹的軟體有九成都在裡面，如果你還不知道的話請立刻快去申請，可以省下超多軟體購買的費用！</p>
+]]></content>
+      <categories>
+        <category>專案管理</category>
+        <category>敏捷式接案</category>
+      </categories>
+  </entry>
 </search>
