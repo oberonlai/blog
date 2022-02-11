@@ -210,6 +210,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-tailwind-css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/wordpress-tailwind-css/" class="post-title-link" itemprop="url">無痛上手 WordPress 樣式客製化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-02-11 11:00:00 / 修改時間：12:01:18" itemprop="dateCreated datePublished" datetime="2022-02-11T11:00:00+08:00">2022-02-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress-%E5%A4%96%E6%8E%9B/" itemprop="url" rel="index"><span itemprop="name">WordPress 外掛</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如果你有架設過 WordPress 網站並且購買過國外佈景主題就知道，只要換上了中文內容就會大跑版，不是標題太大就是內文太小，整個排版看起來就是怪，雖然大部分的佈景主題都有提供調整的功能，但光是要找這個設定會影響到頁面中哪個部分就會花上不少時間。</p>
+<p>另外一種狀況比較棘手，那就是想要調整一些介面上的細節但佈景主題不支援，這時候去 Google 就會找到一些關於 CSS 的關鍵字，然後照著找到的答案試著調整，有時候運氣好複製貼上就搞定，但如果你不了解 CSS 運作的基本邏輯就很難去做進一步的修改。</p>
+<p>我之前寫過「<a target="_blank" rel="noopener" href="https://hellowp.cc/wordpress-theme-css-custom/">WordPress 佈景主題 CSS 客製化</a>」這篇文章，希望讓不會寫 CSS 但又需要調整一些畫面細節的朋友可以對 CSS 有一些基礎認識後能夠做更進階的調整，文章提到可以把常用的 CSS 屬性寫成自己的 class，這樣就可以在其他地方重複使用，而這也是許多 CSS 框架在做的事情。</p>
+<p>全世界市佔率最高的 CSS 框架是 Bootstrap，有許多 WordPress 的佈景主題都是採用這套框架，因此如果你熟悉它的 class 名稱就能很快的設計出標題、段落或是按鈕的樣式，甚至還可以做出許多像是彈跳視窗、輪播等等的互動介面，你只要知道如何寫 HTML 就能實現這些功能。</p>
+<p>Bootstrap 我用很多年也用得非常習慣，它是以元件為主的框架，也就是說當你今天用 <code>.btn-primary</code> 來做按鈕的時候它就會給你一個按鈕（廢話），但假設我想要調整這個按鈕的一些細節，像是字級大小或是行高，實作起來會比較麻煩，因為元件的屬性預設都被定義好了，要客製化的話需要重新編譯預設值或是直接用原生的 CSS 去覆寫。</p>
+<p>偷懶的我通常都是採用第二種方法，然後有時候發現覆寫不過去就會加入 <code>!important</code> 來挖洞給自己跳，尤其是在修改既有的佈景主題時這樣的作法很容易改東牆壞西牆，維護起來很痛苦，直到後來遇見了新歡就再也回不去 Bootstrap 了。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-04.jpg"></p>
+<p>Tailwind CSS （ 以下簡稱 TW 台灣 😍 ）相較於 Bootstrap 以元件為核心，TW 的則是以 CSS 的屬性為主，也就是官網所稱的 Utility First，它可以從 class 名稱中非常直觀的看出這個元素所套用的樣式有哪些，我同樣以按鈕來舉例：</p>
+<p><strong>Bootstrap</strong></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>我是按鈕<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>Tailwind CSS</strong></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>block bg-blue-500 text-l leading-6 hover:bg-blue-600<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>我是按鈕<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Bootstrap 的 <code>btn-primary</code> 具體會呈現什麼樣的按鈕完全是個謎，你可能要透過檢查元素才知道它使用了哪些屬性，而 TW 的版本我可以直接念出來：「這是一個藍色的按鈕，尺寸大概是中型的，滑鼠停在上面會變深藍色」，透過這樣的敘述就很像平常自己在寫 CSS 的感覺，因此寫起來非常流暢與直覺，但前提是要對於 TW 的 class 名稱稍有認識。</p>
+<p>所有的 class 名稱可以在<a target="_blank" rel="noopener" href="https://tailwindcss.com/docs/aspect-ratio">官方文件</a>查詢，因為多到爆炸，所以我都是有用到的再去查就好，邊做邊查久了之後就會慢慢記得了，更完整的中文教學可以參考 2021 年鐵人賽的這篇得獎大作：「<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20138853/ironman/3928?page=1">排版神器 Tailwind CSS～和兔兔一起快速上手漂亮的元件開發！</a>」，作者搋兔大大的「搋」念 「ㄔㄨㄞ 」，意思是 Try to~</p>
+<h2 id="Tailwind-CSS-與-WordPress"><a href="#Tailwind-CSS-與-WordPress" class="headerlink" title="Tailwind CSS 與 WordPress"></a>Tailwind CSS 與 WordPress</h2><p>目前如果有經手到前端的 WordPress 專案我都會使用 TW 來處理，因為預設的環境設定比較複雜，需要配置 Node.js 環境以及安裝不少套件，我直接採用由 Calvin Brew 所整理的 <a target="_blank" rel="noopener" href="https://github.com/cjkoepke/wp-tailwind">Starter Theme</a>，然後再其移植到外掛之中，TW 有一個很棒的功能 PurgeCss 可以清除沒有用到的 class，這能讓最後發佈的 CSS 檔小到只有 10kb 左右。</p>
+<p>另外還有一套叫做 <a target="_blank" rel="noopener" href="https://tailpress.io/">TailPress</a>，可以直接透過 Composer 安裝，並且提供 CLI 直接建立整合好 TW 的佈景主題，同時還支援區塊編輯器，我自己是還沒試過但如果下次要手刻佈景主題的話我會考慮採用它。會發現這套是因為我本來想取這個名字作為外掛名稱，可惜被捷足先登了XD</p>
+<p>事實上我覺得對於設計師來說，與其用 Elmentor 來設計 UI，可以考慮嘗試 TW 看看，TW 可以客製化的程度非常高，而且生態系越來越豐富，除了有很多 HTML 的範本外，市面上也有許多視覺化工具可以讓設計師先快速堆疊出基本的內容後再進入細節的修改，像是：<a target="_blank" rel="noopener" href="https://shuffle.dev/tailwind">Shuffle</a>、<a target="_blank" rel="noopener" href="https://www.devwares.com/windframe">Windframe</a>、<a target="_blank" rel="noopener" href="https://devdojo.com/tails">Tails</a> 等等，將產出的 HTML 複製進 WordPress 之中再替換成動態資料即可。</p>
+<h2 id="Tailwind-CSS-Play-CDN"><a href="#Tailwind-CSS-Play-CDN" class="headerlink" title="Tailwind CSS Play CDN"></a>Tailwind CSS Play CDN</h2><p>之前在鐵人賽頒獎典禮上認識搋兔大大本人，閒聊中得知 TW 3.0 提供了一種以 CDN 來引入的方式讓我莫名興奮，它透過一支 JS 檔來產出頁面中有使用到的 CSS class，這代表可以讓完全不懂安裝 Node.js 配置編譯環境或是不會寫程式的朋友也可以很輕易的使用 TW，尤其以外掛為主的 WordPress 使用者更是適合，因此我花了幾小時開發了 Tailwind CSS Play CDN for WordPress 這支外掛，主要的功能如下：</p>
+<h3 id="一、無痛引入-Tailwind-CSS"><a href="#一、無痛引入-Tailwind-CSS" class="headerlink" title="一、無痛引入 Tailwind CSS"></a>一、無痛引入 Tailwind CSS</h3><p>當外掛啟用後會直接在所有頁面中引入 TW 的 JS 檔：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-01.jpg"></p>
+<p>除了可以在前台引入外，有時候如果需要客製化一些後台的操作面也能在後台引入。我這邊有特別針對後台進行預設樣式 ( Preflight ) 的調整，不然引入後會發生一些跑版的狀況。</p>
+<h3 id="二、前綴、設定檔、自訂-CSS"><a href="#二、前綴、設定檔、自訂-CSS" class="headerlink" title="二、前綴、設定檔、自訂 CSS"></a>二、前綴、設定檔、自訂 CSS</h3><p>根據官方文件所提供的功能，該外掛提供以下設定選項：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-02.jpg"></p>
+<p>首先是名稱前綴，要使用 TW 的 class 名稱最好加入自己的代號，不然很有可能會與其他既有的 CSS 框架或是內建的樣式衝突，TW 為了方便記憶所以 class 名稱都很短，像是 <code>block</code> 指的是 <code>display:block</code>、<code>hidden</code> 是 <code>display:none</code>，這種菜市場名沒有前綴的話絕對會跟其他人撞。</p>
+<p>其次是 config 的設定，TW 用 JSON 定義設定檔，包含加入新的樣式、修改預設值的參數等等，Custom CSS 區塊可以自訂樣式，這些設定是提供給前端工程師使用，一般來說用內建的樣式就已經非常足夠。</p>
+<h3 id="三、支援官方外掛"><a href="#三、支援官方外掛" class="headerlink" title="三、支援官方外掛"></a>三、支援官方外掛</h3><p>TW 的 CDN 最強大的地方在於還能引入官方的外掛，目前支援四種，未來應該會越來越多：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-03.jpg"></p>
+<p>我最喜歡用的是 Typography，只要兩個 class 就可以讓內文變得清晰好閱讀，而且還可以針對裝置去改變整體內文的行高與字級大小，更多使用方法可以參考官方文件：<a target="_blank" rel="noopener" href="https://tailwindcss.com/docs/typography-plugin">https://tailwindcss.com/docs/typography-plugin</a>。</p>
+<p>使用這支 WordPress 外掛需要注意的地方是官方提醒 Play CDN 只適用於測試環境中，因為還在持續開發有可能會因為加入新功能而導致未預期的狀況，為了避免這個問題，我把目前的版本先抓了一份到外掛的目錄中，並且未來如果 TW 有新版的 CDN 釋出時，我會將舊版本保留下來並且增加 CDN 版本的選擇設定，藉此來避免因為官方加入新功能或是 CDN 掛掉時而導致網站爆炸。</p>
+<p>但如果要用 TW 官方外掛的話就無法使用目錄中的 JS 檔，一定要使用 CDN 版本才能正確引入，因此當有使用官方外掛卻發生網站爆炸時，第一時間先停用 TW 的官方外掛來排除，相信他們會持續完善 Play CDN 的各項功能以及增加穩定性。</p>
+<p>我個人目前是把 Play CDN 用在自己的個人網站上，用得非常順暢也沒遇過任何問題，但如果你想用在客戶的網站上我覺得你還是要評估下，看你要用到多少 TW 的 class 以及萬一 CDN 爆掉會造成的影響程度。</p>
+<p>另外一個你可能會考慮的點是檔案尺寸的問題，上文有提及如果是以 Node.js 環境來做編譯的話 CSS 檔案會非常小，而 Play CDN 那支 JS 檔就要 300 KB，並且會將 CSS 直接寫在頁面中，我實測透過 gzip 壓縮可以到 90 KB 上下，因此如果你非常在意檔案尺寸的話建議還是從本機來用 TW 會比較恰當。</p>
+<p>Tailwind CSS Play CDN for WordPress 外掛目前持續開發中，我之後也會把自己有用到的功能再加進去，如果你有好的建議也可以跟我說喔～</p>
+<p>下載連結：<a target="_blank" rel="noopener" href="https://github.com/oberonlai/twpress">https://github.com/oberonlai/twpress</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/developer-tools-for-mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1987,140 +2102,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-unit-test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/woocommerce-payment-unit-test/" class="post-title-link" itemprop="url">WooCommerce 金流串接實戰（十ㄧ）- 導入單元測試</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-09-26 16:00:00 / 修改時間：16:15:11" itemprop="dateCreated datePublished" datetime="2021-09-26T16:00:00+08:00">2021-09-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>9k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>8 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>先來回顧一下目前鐵人付外掛的資料夾結構：</p>
-<pre class="line-numbers language-none"><code class="language-none">iron-pay
-├── composer.json
-├── composer.lock
-├── iron-pay.php
-├── src
-│   ├── Gateways
-│   │   ├── CreditCard.php
-│   │   ├── Request.php
-│   │   ├── Response.php
-│   │   └── VirtualAccount.php
-│   ├── Options.php
-│   ├── Posts
-│   │   └── ShopOrder
-│   │       └── Metabox.php
-│   └── Utility.php
-└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>通常我們會新增一個 tests 資料夾來放入測試的類別，並且其目錄結構會完全比照 src 裡面的所有內容，以及在既有的檔名後面加入 Test 的後綴，具體的結構如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">iron-pay
-├── composer.json
-├── composer.lock
-├── iron-pay.php
-├── src
-│   ├── Gateways
-│   │   ├── CreditCard.php
-│   │   ├── Request.php
-│   │   ├── Response.php
-│   │   └── VirtualAccount.php
-│   ├── Options.php
-│   ├── Posts
-│   │   └── ShopOrder
-│   │       └── Metabox.php
-│   └── Utility.php
-├── tests
-│   ├── Gateways
-│   │   ├── CreditCardTest.php
-│   │   ├── RequestTest.php
-│   │   ├── ResponseTest.php
-│   │   └── VirtualAccountTest.php
-│   ├── OptionsTest.php
-│   ├── Posts
-│   │   └── ShopOrder
-│   │       └── MetaboxTest.php
-│   └── UtilityTest.php
-└── vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在本文中會專注於測試 Utility 這個類別，這個類別主要有兩個方法，第一個是測試產生金流商驗證演算法的計算結果是否有符合預期，第二個是測試取得商店代號的格式是否正確。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/woocommerce-payment-unit-test/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2191,13 +2172,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">301</span>
+          <span class="site-state-item-count">302</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/tw/categories/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -2252,12 +2233,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">771k</span>
+    <span title="總字數">775k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:41</span>
+    <span title="所需總閱讀時間">11:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

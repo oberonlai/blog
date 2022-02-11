@@ -210,6 +210,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/ods-starter-theme/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/ods-starter-theme/" class="post-title-link" itemprop="url">【 工具 】使用 ODS starter theme 開發 WordPress 佈景主題</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-04-18 10:39:25" itemprop="dateCreated datePublished" datetime="2020-04-18T10:39:25+08:00">2020-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 21:07:38" itemprop="dateModified" datetime="2021-05-01T21:07:38+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/saas/" itemprop="url" rel="index"><span itemprop="name">saas</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/F2E/" itemprop="url" rel="index"><span itemprop="name">F2E</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>11 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>坦白說做了這麼多年的專案，始終覺得沒有找到一套適合自己的 Starter Theme，不管是官方的還是很多社群朋友推薦的，用起來都還是有卡卡的感覺。</p>
+<p>後來看到現在很多網路公司都會開發自己的 <a target="_blank" rel="noopener" href="https://designsystemsrepo.com/design-systems-recent">Design System</a>，驚覺到要有一套自己的系統才能讓整個工作流程更加順暢，進而建立自己的標準化規格，讓未來的自己好過些。</p>
+<p>以往在進行 A 專案的時候，都會去爬以前寫過的程式碼，它們可能散落在 BCD 專案裡面，但時間一久再加上年紀變大，常常想不起來之前寫過的東西放在哪個專案裡面。</p>
+<p>另一方面，自己在寫的時候很少遵循什麼 Code Standard，所以就算找到之前的程式碼，也會先碎碎念自己以前怎麼會把 Code 寫成這副德行，然後真的要用的時候都還要再花時間進行整理。</p>
+<p>而且雖然是自己寫的東西，但不少的寫法都是 Google 來的，為什麼要這樣寫？這樣寫的用意是什麼？當專案結束拿到尾款後，這些問題就也隨風而去了，當下次再碰到類似的狀況要修改成不同的功能，又要再花很多時間來重新研究。</p>
+<p>基於這些理由，<a target="_blank" rel="noopener" href="https://ods.obeornlai.blog/">ODS - Oberon Design System</a> （歐迪賽系統XD）就誕生了～～～</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/ods-starter-theme/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/valetpress-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1982,108 +2100,6 @@ if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E3%80%90-%E5%BD%B1%E7%89%87-%E3%80%91how-to-build-a-software-company-with-no-money/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/%E3%80%90-%E5%BD%B1%E7%89%87-%E3%80%91how-to-build-a-software-company-with-no-money/" class="post-title-link" itemprop="url">【 影片 】How To Build a Software Company With No Money</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-12-27 12:04:08" itemprop="dateCreated datePublished" datetime="2019-12-27T12:04:08+08:00">2019-12-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/saas/" itemprop="url" rel="index"><span itemprop="name">saas</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>969</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>DON’T WRITE THE CODE!!!</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wlouEWnEFVQ">https://www.youtube.com/watch?v=wlouEWnEFVQ</a></p>
-<p>看到第一句我就不爭氣的笑了(苦笑)，如果時間能重回到開發 FS 的六個月前，我想我應該還是會 Write the code 吧～畢竟寫扣是自己存在的證明(?)</p>
-<p>但如果自己是產品的發起人，我想我應該會遵循 Martell 說的透過以下三個方式來確認自己的構想是否真的被市場所需要：</p>
-<ol>
-<li> 使用可以點的 Prototype 來進行測試</li>
-<li> 找到正確的早期試用者</li>
-<li> 設計預先銷售的機制</li>
-</ol>
-<p>以上三種方法不准寫到任何一行程式，首先使用 Keynote 或是 Powerpoint 來做 prototype，他推薦的是 <a target="_blank" rel="noopener" href="https://keynotopia.com/">Keynotopia</a>，上過 Axure RP 的朋友就知道，用簡報軟體來製作原型會有所侷限，無法呈現頁面捲動、複雜的頁面邏輯…，但這也是重點，最早期的 Prototype 就是越單純越好，能展現構想要解決的核心問題就行。如果做得太完整、太漂亮，受測者就會礙於人際關係不敢提供真實意見，只能說些表面的好聽話。</p>
-<p>他說他們曾經設計過一個只有三頁的 Prototype：說明頁、留下 Email、偽結帳頁，當瀏覽者真正願意為這產品付費進到結帳頁時，畫面顯示系統維護中，等能使用時就會通知你，藉此來測試這個構想的轉換率是否有投入成本的開發必要性。</p>
-<p>另外找到正確的早期使用者是第二個關鍵，如果這個構想是去找不願意嘗試新事物、比較保守的客戶，想當然被打槍的機率當然是 99.9%，然後因此覺得這個構想沒有搞頭就放棄了，現在網路的便利性要找到早期使用者也不會太困難。</p>
-<p>最後一定要有一套銷售的機制，不用真正可以收到錢，只要讓受測者認知到這個構想需要花多少錢，他們就會開始思考這產品可以應用在什麼場景，然後提出他們對於這產品的真實想法與需求，不然就一樣只會得到表面的讚美。</p>
-<p>雖然 Martell 說不用擔心產品都還沒開發真的有人會願意買單這件事情，他看過太多企業會願意為了一個能解決他們問題的產品而進行投資，但在台灣是不是會這樣就不知道了，常常都還是會害怕點子被偷被整碗端走，所以要比的就是執行力，萬一對手是有資源的，更不敢把構想直接拿出來，我想這就是一種自我感覺良好的機制在運作吧XD</p>
-<p>最近在讀「獲利時代」的續集「價值主張」也是提到同樣的概念，快速測試、快速驗證、快速失敗，但我的個性就是喜歡慢慢來的怎麼辦…</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2154,13 +2170,13 @@ if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">301</span>
+          <span class="site-state-item-count">302</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/tw/categories/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -2215,12 +2231,12 @@ if($is_new_post &#x3D;&#x3D;&#x3D; &#39;new&#39;)&#123;
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">771k</span>
+    <span title="總字數">775k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:41</span>
+    <span title="所需總閱讀時間">11:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
