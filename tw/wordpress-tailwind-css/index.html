@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-02.jpg">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/wordpress-tailwind-css/wordpress-tailwind-css-03.jpg">
 <meta property="article:published_time" content="2022-02-11T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-11T04:01:18.498Z">
+<meta property="article:modified_time" content="2022-02-11T04:01:46.684Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
 <meta name="twitter:card" content="summary">
@@ -242,7 +242,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2022-02-11 11:00:00 / 修改時間：12:01:18" itemprop="dateCreated datePublished" datetime="2022-02-11T11:00:00+08:00">2022-02-11</time>
+              <time title="創建時間：2022-02-11 11:00:00 / 修改時間：12:01:46" itemprop="dateCreated datePublished" datetime="2022-02-11T11:00:00+08:00">2022-02-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,6 +280,8 @@
         <p>如果你有架設過 WordPress 網站並且購買過國外佈景主題就知道，只要換上了中文內容就會大跑版，不是標題太大就是內文太小，整個排版看起來就是怪，雖然大部分的佈景主題都有提供調整的功能，但光是要找這個設定會影響到頁面中哪個部分就會花上不少時間。</p>
 <p>另外一種狀況比較棘手，那就是想要調整一些介面上的細節但佈景主題不支援，這時候去 Google 就會找到一些關於 CSS 的關鍵字，然後照著找到的答案試著調整，有時候運氣好複製貼上就搞定，但如果你不了解 CSS 運作的基本邏輯就很難去做進一步的修改。</p>
 <p>我之前寫過「<a target="_blank" rel="noopener" href="https://hellowp.cc/wordpress-theme-css-custom/">WordPress 佈景主題 CSS 客製化</a>」這篇文章，希望讓不會寫 CSS 但又需要調整一些畫面細節的朋友可以對 CSS 有一些基礎認識後能夠做更進階的調整，文章提到可以把常用的 CSS 屬性寫成自己的 class，這樣就可以在其他地方重複使用，而這也是許多 CSS 框架在做的事情。</p>
+<span id="more"></span>
+
 <p>全世界市佔率最高的 CSS 框架是 Bootstrap，有許多 WordPress 的佈景主題都是採用這套框架，因此如果你熟悉它的 class 名稱就能很快的設計出標題、段落或是按鈕的樣式，甚至還可以做出許多像是彈跳視窗、輪播等等的互動介面，你只要知道如何寫 HTML 就能實現這些功能。</p>
 <p>Bootstrap 我用很多年也用得非常習慣，它是以元件為主的框架，也就是說當你今天用 <code>.btn-primary</code> 來做按鈕的時候它就會給你一個按鈕（廢話），但假設我想要調整這個按鈕的一些細節，像是字級大小或是行高，實作起來會比較麻煩，因為元件的屬性預設都被定義好了，要客製化的話需要重新編譯預設值或是直接用原生的 CSS 去覆寫。</p>
 <p>偷懶的我通常都是採用第二種方法，然後有時候發現覆寫不過去就會加入 <code>!important</code> 來挖洞給自己跳，尤其是在修改既有的佈景主題時這樣的作法很容易改東牆壞西牆，維護起來很痛苦，直到後來遇見了新歡就再也回不去 Bootstrap 了。</p>
