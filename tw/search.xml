@@ -17297,4 +17297,53 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>WordPress 外掛</category>
       </categories>
   </entry>
+  <entry>
+    <title>WooCommerce 訂單大改版</title>
+    <url>/tw/woocommerce-custom-order-table/</url>
+    <content><![CDATA[<p>前陣子喵到  WooCommerce Developer Blog 發佈了一篇新文章，標題是 <a href="https://developer.woocommerce.com/2022/01/17/the-plan-for-the-woocommerce-custom-order-table/">The plan for the WooCommerce custom order table</a>，簡單說就是開發團隊決定把 WooCommerce 訂單的資料表拆分出來，進而改善資料庫的使用效率，因為這個改變會影響市面上八成  WooCommerce 相關的外掛，因此想說還是先整理一下未來可能會遇到的問題以及該如何預防的方法。</p>
+<h2 id="資料庫小科普"><a href="#資料庫小科普" class="headerlink" title="資料庫小科普"></a>資料庫小科普</h2><p>如果你對資料庫不熟的話可以把它想成是 Excel 的試算表，目前 WordPress 所採用的 MySQL 為關聯式資料庫，它就像是一個表格，有標頭、列與欄，每一筆存入的資料都會用表格的方式來記錄，下圖是 WordPress 文章的紀錄方式：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-custom-order-table/woocommerce-custom-order-table-01.jpg"></p>
+<span id="more"></span>
+
+<p>是不是就很像試算表裡面的表格？至於資料表就是資料庫裡面不同的表格，你可以把它視為 Excel 裡面的工作表 ( sheet )，WordPress 的文章資料主要寫在 wp_posts 這個資料表，眼尖的你可能會發現這張表紀錄的不只是「文章」，還紀錄了頁面、附件甚至是商品的資料，是不是覺得很奇怪？依照我們平常使用試算表的邏輯，不同類型的資料應該是拆分成不同工作表來整理會比較清楚，全部混在一起不就會很難找嗎？</p>
+<p>我們試著新增一筆 WooCommerce 訂單看看：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-custom-order-table/woocommerce-custom-order-table-02.jpg"></p>
+<p>沒錯，它也是紀錄在 wp_posts 裡面XD，WordPress 之所以會這樣紀錄是因為最早的時候它只是個寫部落格的工具，與內容相關的資料全都會放在這個資料表，在當年看起來是合情合理，但經過這麼多年的爆炸式成長，許多跟寫部落格完全沒關係的外掛被大量開發出來，但存放資料的地方卻一樣都是 wp_posts。</p>
+<p>另一個比 wp_posts 更棘手的問題是 wp_postmeta：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-custom-order-table/woocommerce-custom-order-table-03.jpg"></p>
+<p>這是一個會倍數式暴增的資料表，原因是 wp_posts 的欄位是固定的，當我們需要自行增加欄位時就會寫在 wp_postmeta 這個資料表，像是商品的價格、訂單的付款方式等等，另外如果你有用過自定義欄位的外掛 Admin Custom Fields 或是其他類似的工具，它們也會全部寫在這個資料表之中，可想而知它絕對是數一數二的肥。</p>
+<p>WooCommerce 團隊長期以來一直想解決這個問題，試想要進入一個擁有上萬筆資料的表格找資料絕對不是一件容易的事，就算交給電腦找資料越多所需花費的時間就越長，因此拆分資料表勢在必行，事實上 WooCommerce 已經建立了許多新的資料表來存放相關的資料，而這次主要是針對訂單的部分來處理。</p>
+<p>根據文中所述目前還在草案階段，該階段定義出全新的四張資料表，分別是：</p>
+<ul>
+<li><strong>wp_wc_orders</strong> - 紀錄訂單的基本資料，包含訂單編號、金額、付款方式等欄位</li>
+<li><strong>wp_wc_order_addresses</strong> - 紀錄訂單中與結帳相關的資訊，像是訂購人、運送地址、聯絡電話等欄位</li>
+<li><strong>wp_wc_order_operational_data</strong> - 紀錄訂單的附屬資訊，像是税、折價券等欄位</li>
+<li><strong>wp_wc_orders_meta</strong> - 紀錄訂單的自訂欄位，等同於 wp_postmeta</li>
+</ul>
+<p>這些資料表的規劃都還是初稿，官方預定在 2022 年的第三季定案並且實作。</p>
+<h2 id="對商店經營者的影響"><a href="#對商店經營者的影響" class="headerlink" title="對商店經營者的影響"></a>對商店經營者的影響</h2><p>如果你有在使用 WooCommerce 經營購物網站，務必要確保你在使用的金物流、電子發票、客製訂單欄位的外掛有跟上這次的更新，雖然官方應該會確保舊版的相容性，但資料表變更影響的幅度很大，如果要相容舊版勢必要保留原本在 wp_posts 裡面的訂單，然後把新的訂單異動寫到新的資料表中，到時候會不會產生訂單資料錯亂或是衝突都還是未知數。</p>
+<p>建議是到了今年秋天時多留意 WooCommerce 的更新內容，不要一看到有更新就立刻點下去，先觀望一下觀察社群的反應，如果確定要更新絕對不能忘記備份資料庫，不然造成業務損失就很悶了…</p>
+<h2 id="對開發者的影響"><a href="#對開發者的影響" class="headerlink" title="對開發者的影響"></a>對開發者的影響</h2><p>雖然是今年第三季才會定案，但身為開發者可以從現在開始就改變操作訂單的習慣，以往要處理訂單相關的操作我都會很習慣使用 WordPress 的 API，也就是 <code>update_post_meta()</code>、<code>get_post_meta()</code>，但這些是針對寫入 wp_postmeta 用的，拆分後這些方法就 GG 了。</p>
+<p>因此早在 2017 年 WooCommerce 就已經設計一支專門操作資料 CRUD 的抽象類別 WC_Data，目前可以操作的對象有訂單、訂單商品明細、商品、折價券以及顧客，以寫入訂單資料為例，當寫入訂單的付款方式時原本可以用 <code>update_post_meta( $order_id, &#39;_payment_method&#39;, &#39;oberon-pay&#39; );</code>，用 WC_Data 來處理的話會變成這樣：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$order</span> <span class="token operator">=</span> <span class="token function">wc_get_order</span><span class="token punctuation">(</span> <span class="token variable">$order_id</span> <span class="token punctuation">)</span>
+<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">set_payment_method</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'oberon-pay'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token variable">$order</span><span class="token operator">-></span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$order</span><span class="token operator">-></span><span class="token function">get_payment_method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// oberon-pay</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>wc_get_order()</code>會回傳 WC_Order 物件，而 WC_Order 則是繼承 WC_Data 而來，所以上述的範例中 <code>$order</code> 就可以使用 WC_Data 的屬性跟方法，WC_Data 有三個特色：</p>
+<p>1.利用 $data 屬性存放所有需要操作的欄位<br>2.利用 setter 與 getter 寫入與取得資料<br>3.利用 save() 方法儲存資料庫</p>
+<p>有了這個類別我們就可以用 set_xxx 來把我們的所需要的值寫入 $data 這個屬性中，像是 <code>set_payment_method</code>、<code>set_billing_first_name</code> 等等，最後面的 <code>save()</code> 記得不要漏掉，因為 setter 只是把資料寫入 $data 而已，要執行 save 才會把 $data 更新進資料庫。</p>
+<p>然後要取得值的話就是用 get_xxx：<code>get_payment_method</code>、<code>get_billing_first_name</code>，不知道你覺得這樣用起來有沒有比較直覺？我自己是還不太習慣，而且不知為何在某些 Hook 下會拿不到資料，結果最後還是用 <code>get_post_meta()</code> 來處理，但不管如何還是必須要改變了，更多關於 WC_Data 的資料可以參考：</p>
+<ul>
+<li><a href="https://woocommerce.com/document/developing-using-woocommerce-crud-objects/#section-3">Developing using WooCommerce CRUD objects</a></li>
+<li><a href="https://developer.woocommerce.com/2016/10/27/the-new-crud-classes-in-woocommerce-2-7/">The new CRUD classes in WooCommerce 2.7</a></li>
+<li><a href="https://github.com/woocommerce/woocommerce/wiki/Order-and-Order-Line-Item-Data">Order and Order Line Item Data</a></li>
+<li><a href="https://advancedwoo.com/topic/wc_data-overview/#/">WC_DATA OVERVIEW</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+  </entry>
 </search>
