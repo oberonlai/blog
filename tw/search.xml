@@ -17346,4 +17346,56 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>WooCommerce</category>
       </categories>
   </entry>
+  <entry>
+    <title>WordPress 媒體庫的新選擇</title>
+    <url>/tw/wordpress-media-uplodcare/</url>
+    <content><![CDATA[<p>多年前經手過一個需要將圖檔與網站放在不同主機的專案，當時雲端儲存的成本還沒有像現在這麼彈性，最後採取的作法是開了兩台 VPS，一台裝 WordPress 另一台裝 PHP 的檔案管理軟體 <a href="https://filerun.com/">Filerun</a>讓客戶可以自行從 Web 介面上傳圖檔而不需要使用 FTP 軟體。</p>
+<p>而 WordPress 這端我開發了一支可以從媒體庫透過 FTP 直接上傳到圖床機的外掛，讓客戶可以在 WordPress 後台就能處理，後來我也把這支 <a href="https://wordpress.org/plugins/media-with-ftp/">Media with FTP</a> 外掛上架到官方的外掛目錄，當時覺得這就是圖床的最佳解決方案…</p>
+<span id="more"></span>
+
+<p>後來聽朋友分享可以用雲端儲存來解決圖床問題，主要是使用 <a href="https://tw.wordpress.org/plugins/amazon-s3-and-cloudfront/">WP Offload Media</a> 這支外掛，可以將媒體庫同步至 Amazon S3、DigitalOcean Spaces 及 Google Cloud Storage，但一直沒有實戰的機會，直到 2019 年跟朋友一起開發 <a href="https://oberonlai.blog/tw/flash-stories-technical/">Flash Stories</a> 這個產品需要有大量的儲存空間來存放使用者上傳的圖片與影片，才開始評估要用哪間的空間比較好。</p>
+<p>在產品開發的過程中發現到除了要讓使用者可以上傳媒體外，還要有簡易的圖片編輯功能，像是裁切、旋轉或縮放等等，這些功能要全部自己開發會讓我往生，於是第一時間就先去 Github 爬有沒有開源的套件可以用，結果找到 <a href="https://uppy.io/#live-demo">Uppy</a> 這套上傳套件，可以讓使用者除了上傳本機的圖片外，還能連接自己的社群帳號後上傳 FB 裡面的照片。</p>
+<p>這套件可以讓使用者提升上傳的便利性，同時也支援第三方的雲端儲存可以把圖片直接丟過去避免吃到主機空間，但可惜的是它沒有圖片編輯的功能，最後在某個論壇看到今天的主角：Uploadcare</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-01.jpg"></p>
+<p>簡單說它就是一套圖片管理的基礎設施，但除了基礎建設外還多了應用層，甚至導入了 AI 來做圖片辨識，以下就四個面向來介紹 Uploadcare 的強大之處：</p>
+<h2 id="ㄧ、上傳圖片與編輯介面"><a href="#ㄧ、上傳圖片與編輯介面" class="headerlink" title="ㄧ、上傳圖片與編輯介面"></a>ㄧ、上傳圖片與編輯介面</h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-02.jpg"><br>跟 Uppy 類似，Uploadcare 提供了許多上傳的方式，像是從 Google Drive、Dropbox、Facebook 上傳外還提供了相機拍攝上傳的功能，另外也可以從網址上傳，你可以直接把 Unsplash 的圖片網址貼入它自己就會抓得到，不用再多一道下載上傳的動作。</p>
+<p>另外值得一提的是它的圖片編輯功能，有九種不同的方式可以讓你簡易的編輯照片：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-03.jpg"><br>分別有裁切、旋轉、水平垂直鏡像、模糊化、銳利化、對比度、灰階與顏色反轉，雖然完全不能與圖片編輯軟體比擬，但要做一些臨時的圖片裁切還算堪用。</p>
+<p>在 Uploadcare 的後台可以自訂上傳介面，包含介面的語系、色系，以及可使用的上傳方式與編輯圖片功能，如果你希望讓使用者只能從 FB 上傳以及裁切功能，可以直接在後台關閉其他不需要的項目：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-04.jpg"></p>
+<p>要把上傳介面安裝在自己的網站上也非常方便，最簡單的方式就是用 CDN 引入，然後照它的指示把 input 的屬性換成 Uploadcare 的參數即可：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-05.jpg"></p>
+<h2 id="二、圖片處理-API"><a href="#二、圖片處理-API" class="headerlink" title="二、圖片處理 API"></a>二、圖片處理 API</h2><p>Uploadcare 我覺得最驚艷的功能就是它可以透過請求網址來取得圖片的不同狀態，舉例來說，以前最害怕客戶上傳未經壓縮過的原始圖片，每張 3~30MB 不等，除了會讓主機硬碟快速爆炸外，對於瀏覽者來說前台頁面的讀取速度也是會讓人等到心情爆炸，因此常常都要提醒客戶記得把用在網站的圖片壓縮後再上傳，但這種需要人工的事難道不能用程式自動化解決嗎？</p>
+<p>我以一張從 Unsplash 下載並上傳到 Uploadcare 的圖片為例，這張圖原始尺寸是 2.3MB：<a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/</a></p>
+<p>我只要把請求網址改成這樣，在瀏覽的時候就會變成 338KB：<br><a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/-/quality/smart/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/-/quality/smart/</a></p>
+<p>注意到網址後面多了一串「-/preview/-/quality/smart/」嗎？透過請求網址的路徑 Uploadcare 會自動給你壓縮後的圖片，我們還可以寫成這樣：</p>
+<p>變成 400x400 的縮圖：<br><a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/400x400/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/400x400/</a></p>
+<p>變成 1024x768 的封面圖：<br><a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/1024x768/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/1024x768/</a></p>
+<p>你看出來規則了嗎？我可以自己定義任何需要的圖片尺寸，可以定義的方式還不只這樣，如果你有裁切過圖片就知道需要把照片的主角放在視覺中心，這件事如果不靠人工介入的話會有一定的難度，但 Uploadcare 幫我們用 AI 處理了：<br><a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/scale_crop/400x800/smart/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/scale_crop/400x800/smart/</a></p>
+<p>我把圖片變裁切成直的，它會自動把圖片裡的主角自動置於中央，讓主角不會因為裁切而失去整張照片的視覺焦點，是不是超神奇！？</p>
+<p>你以為這樣就夠厲害了嗎？不，還有，Uploadcare 最變態的地方就是還可以做圖片濾鏡：<br><a href="https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/1024x768/-/enhance/-/filter/vevera/">https://ucarecdn.com/4b2c0201-c0c8-4307-a4b5-ccb220b5aa42/-/preview/1024x768/-/enhance/-/filter/vevera/</a></p>
+<p>有看到圖片多了復古的色系嗎？然後它還可以調整亮度、曝光度、對比度，全部都是透過請求網址來做修改，而且可以自訂數值，像是調高亮度 70%、對比度下降 20% 都能辦得到，我覺得靠它的 API 來做一套影像處理軟體也不是問題。</p>
+<p>喔，對了，我有提到它還可以做臉部辨識、色彩辨識以及物體辨識嗎？我覺得 Uploadcare 實在是太犯規了，都給它玩就好了啊～完整的請求參數使用說明可以參考官方文件：</p>
+<p><a href="https://uploadcare.com/docs/transformations/image/">https://uploadcare.com/docs/transformations/image/</a></p>
+<h2 id="三、WordPress-外掛"><a href="#三、WordPress-外掛" class="headerlink" title="三、WordPress 外掛"></a>三、WordPress 外掛</h2><p>如果你不會用 CDN 安裝或是寫 HTML/JS，該如何將這套強大的媒體服務整合到 WordPress 裡面呢？感謝 Uploadcare 開發了 WordPress 外掛，讓我們可以無痛整合：</p>
+<p><a href="https://tw.wordpress.org/plugins/uploadcare/#description">https://tw.wordpress.org/plugins/uploadcare/</a></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-06.jpg"></p>
+<p>除了可以在文章中使用 Uploadcare 的區塊來上傳圖片外，對於媒體庫的整合也非常完整，在媒體上傳介面多了一個 Upload via Uploadcare 的選項，點選後就會直接開啟上傳介面：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-07.jpg"></p>
+<p>另外也可以將站內既有的圖片同步到 Uplodcare：<br><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-08.jpg"></p>
+<p>同步後它還會自動幫你替換文章中的圖片路徑，幫我們把搜尋取代的時間都省下來了。將圖片放上 Uploadcare 就再也不會因為佈景主題產生的大量縮圖檔而把主機硬碟塞爆，要任何尺寸的縮圖只要一個網址就搞定！</p>
+<h2 id="四、儲存與傳輸"><a href="#四、儲存與傳輸" class="headerlink" title="四、儲存與傳輸"></a>四、儲存與傳輸</h2><p>Uploadcard 圖片是存放在 Amazon S3，同時也有備份的機制，至於存取速度的部分他們有提供自己的 CDN 內容傳輸網路，整合的 CDN 廠商是前陣子買下 Linode 的 Akamai，因此有提供中華電信的節點，能大幅提升國內瀏覽的存取速度：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-09.jpg"></p>
+<p>最後是關鍵的費用，事實上在開發完 Flash Stories 後我就再也沒有用過這套服務了，之所以沒有辦法持續使用還是在於費用，以前他們的方案很硬，每個月印象中就要 40 鎂左右，完全沒有免費方案，要用就是必須掏卡出來了。</p>
+<p>直到最近在幫朋友評估圖床時重新想起了它，才發現他們現在有提供免費 3GB 空間、3000 個檔案數以及 30GB 的傳輸量可以使用，額度用完後起始的付費方案 20 鎂就有了，然後看是要加空間還是要加檔案數都能很彈性的調整，改成這樣的方案親民許多，讓我有誘因可以推薦朋友使用。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-10.jpg"></p>
+<p>這個費用跟自己去租 S3 比起來一定比較貴，但如果要把其他應用面的開發成本計算進去我覺得還是划算非常多，而且 Uploadcare 還有很多進階的功能是我文中沒提及的，像是它可以做自動壓縮、WebP 支援、Lazy Load 等等，另外也可以自訂 CDN 的 CNAME，這些都要我處理的話我會舉白旗投降XD</p>
+<p>如果你剛好也在評估圖床服務我真心推薦 <a href="https://uploadcare.com/?via=oberon">Uploadcare</a> ( 這是推廣連結可以讓我得到一點佣金 )，有免費方案可以試用不用擔心，就是盡量玩壞它就對了XD</p>
+<p>補充一：類似的服務還可以參考 <a href="https://cloudinary.com/">Cloudinary</a></p>
+<p>補充二：朋友提醒圖床服務最重要的是能否將備份匯出避免被綁死，uploadcare 有提供已上傳圖片備份到自己 AWS S3 的機制，文件說明：<a href="https://uploadcare.com/docs/uploads/storage/#backup-storage">https://uploadcare.com/docs/uploads/storage/#backup-storage</a></p>
+]]></content>
+      <categories>
+        <category>WordPress 外掛</category>
+      </categories>
+  </entry>
 </search>
