@@ -17378,6 +17378,7 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p>喔，對了，我有提到它還可以做臉部辨識、色彩辨識以及物體辨識嗎？我覺得 Uploadcare 實在是太犯規了，都給它玩就好了啊～完整的請求參數使用說明可以參考官方文件：</p>
 <p><a href="https://uploadcare.com/docs/transformations/image/">https://uploadcare.com/docs/transformations/image/</a></p>
 <h2 id="三、WordPress-外掛"><a href="#三、WordPress-外掛" class="headerlink" title="三、WordPress 外掛"></a>三、WordPress 外掛</h2><p>如果你不會用 CDN 安裝或是寫 HTML/JS，該如何將這套強大的媒體服務整合到 WordPress 裡面呢？感謝 Uploadcare 開發了 WordPress 外掛，讓我們可以無痛整合：</p>
+<p>備註：如果你的 WordPress 是 5.9 以上先不要安裝該外掛，啟用時會噴錯，已回報給 Uploadcare 客服進行處理～</p>
 <p><a href="https://tw.wordpress.org/plugins/uploadcare/#description">https://tw.wordpress.org/plugins/uploadcare/</a></p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-media-uplodcare/wordpress-media-uplodcare-06.jpg"></p>
 <p>除了可以在文章中使用 Uploadcare 的區塊來上傳圖片外，對於媒體庫的整合也非常完整，在媒體上傳介面多了一個 Upload via Uploadcare 的選項，點選後就會直接開啟上傳介面：</p>
