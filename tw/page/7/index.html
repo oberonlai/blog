@@ -210,6 +210,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/git-change-remote-url/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/git-change-remote-url/" class="post-title-link" itemprop="url">Git 修改遠端 remote url</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-01-15 16:54:34" itemprop="dateCreated datePublished" datetime="2019-01-15T16:54:34+08:00">2019-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>351</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>感謝微軟買了 Github，開放了私有 Repo 的功能，雖然自己寫的不是什麼多了不起的程式碼，但畢竟是客戶的東西還是不好意思直接公開，</p>
+<p>就直接從 Bitbuket 跳槽回 Github 吧，本地的檔案只要修改最後要 push 的遠端地址就好，其他都不用變動～</p>
+<p>1、先檢查目前的 remote 名稱</p>
+<pre class="line-numbers language-none"><code class="language-none">git remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、幹掉現有的 remote 名稱</p>
+<pre class="line-numbers language-none"><code class="language-none">git remote remove origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3、新增新的 remote url</p>
+<pre class="line-numbers language-none"><code class="language-none">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;m615926&#x2F;myrepo.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4、push 前記得要先 commit</p>
+<pre class="line-numbers language-none"><code class="language-none">git add .
+git commit -m ‘跳槽啦～&#39;
+git push --set-upstream origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/laravel-mix-svg-sprite-for-vue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2009,99 +2108,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E4%BA%94%E6%AC%BE%E8%AE%93-wordpress-%E6%88%90%E7%82%BA%E5%B0%88%E6%A1%88%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%9A%84%E5%85%8D%E8%B2%BB%E5%A4%96%E6%8E%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/%E4%BA%94%E6%AC%BE%E8%AE%93-wordpress-%E6%88%90%E7%82%BA%E5%B0%88%E6%A1%88%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%9A%84%E5%85%8D%E8%B2%BB%E5%A4%96%E6%8E%9B/" class="post-title-link" itemprop="url">五款讓 WordPress 成為專案管理工具的免費外掛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-06 11:33:42" itemprop="dateCreated datePublished" datetime="2018-02-06T11:33:42+08:00">2018-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>現今市面上有許多方便使用的專案管理系統，像是 Bitrix24、Asana、Trello 等等，也有像是開源的 Redmine，但除了自由軟體外，線上服務號稱的免費總是有其限制，如果你已經習慣使用 WordPress，何不直接在裡面來管理你的專案呢？這篇文章分享了五款專案管理外掛，好處是可以使用既有資源來做更多事，另一方面這些外掛提供很多設定項，就不會被現成軟體給綁死，完全能客製調整成符合自己企業的業務需求。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/%E4%BA%94%E6%AC%BE%E8%AE%93-wordpress-%E6%88%90%E7%82%BA%E5%B0%88%E6%A1%88%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%9A%84%E5%85%8D%E8%B2%BB%E5%A4%96%E6%8E%9B/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2172,7 +2178,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">306</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2233,12 +2239,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">783k</span>
+    <span title="總字數">791k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:52</span>
+    <span title="所需總閱讀時間">11:59</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

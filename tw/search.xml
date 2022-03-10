@@ -17439,4 +17439,91 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>WordPress 接案</category>
       </categories>
   </entry>
+  <entry>
+    <title>WordPress 外掛開發學習路線</title>
+    <url>/tw/wordpress-plugin-development/</url>
+    <content><![CDATA[<p>自從去年十月開始每週五固定產出電子報後收到許多工程師朋友的來信詢問，除了洽談合作外最主要的還是想知道該如何學習 WordPress 外掛開發，通常我會建議他們先去閱讀 WordPress 官方文件，然後再搭配自己寫過的幾篇文章與網路資源回覆給他們，感覺這樣應該就很足夠了。</p>
+<p>另一方面身邊也有一些親朋好友因為對於職涯發展遇到瓶頸，上人力銀行查到薪水比較好的職缺通常都是軟體工程師，因而想要轉行寫程式，我都會跟他們說 Google 一下就能找到永遠看不完的學習資源，更不說還有一堆線上課程可以選擇。</p>
+<p>但也就是因為資源永遠看不完，該如何篩選符合自己現階段能力的課程就變得異常困難，再加上學習哪些知識才能符合業界或職場需求，這對於剛入行的朋友完全無從得知，如果沒有在該產業打滾過個幾年建立相關人脈，產業的 Know How 是沒辦法在 Google 上找得到。</p>
+<p>因此我決定從 WordPress 接案市場也就是外掛開發的角度來切入，以我個人主觀的立場說明如果想要開發一支 WordPress 外掛需要具備哪些必備知識，並附上相關連結讓你可以直接找到正確的參考資料省下在茫茫大海中搜尋的時間。</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-development/wordpress-plugin-development-01.jpg"></p>
+<span id="more"></span>
+
+<h2 id="一、WordPress-外掛開發先備知識"><a href="#一、WordPress-外掛開發先備知識" class="headerlink" title="一、WordPress 外掛開發先備知識"></a>一、WordPress 外掛開發先備知識</h2><h3 id="1-認識社群（標配）"><a href="#1-認識社群（標配）" class="headerlink" title="1. 認識社群（標配）"></a>1. 認識社群（標配）</h3><p>如果你想要投入外掛開發想必你應該已經知道 WordPress 生態系的廣度以及有龐大的機會在裡面，而 WordPress 生態系非常注重人與人之間的連結以及社群彼此互相學習交流，而這也是開源軟體最核心的精神，每個人都可以自由取用，然後受到這些恩惠的人們再把知識分享出來以造福後進，達成一種良性循環。</p>
+<p>WordPress 不單純只是一個工具，而是背後無數使用者所打造的一個生態，這種感覺就好像你是這個生態的一份子，你寫的任何一行程式碼都會與這個生態融合，為了維護良好的生態你不會希望自己做出破壞這個環境的舉動，這些舉動除了為了搶案子去攻擊同業、濫用 GPL 授權，也包括寫出危險的程式碼。</p>
+<p>當然我們不是盲目的去認定架站工具就只有 WordPress 最好，其他工具都是垃圾，而是先建立自己與這個生態的連結並尊重社群，你可以嫌棄它哪裡不好並提出有效的解決方案，讓整個生態有改進與成長的空間，雖然這樣講有點玄，但當你付出的越多收穫越多卻是自己。</p>
+<p>所以第一關可以先加入 WordPress 正體中文社團，看看裡面大家都在討論什麼，也可以介紹自己感受一下這個社群的氛圍：<br><a href="https://www.facebook.com/groups/wordpresstw">https://www.facebook.com/groups/wordpresstw</a></p>
+<p>英文的可以加入 Advanced WordPress，裡面會分享許多 WordPress 開發相關的知識，也有很多大大會貼出他們開發的外掛，直接跟作者交流可以學到很多：<br><a href="https://www.facebook.com/groups/168889943173228">https://www.facebook.com/groups/168889943173228</a></p>
+<p>另外先申請一個 wordpress.org 的帳號，未來要參與官方社群討論或是向外掛作者請益時會派得上用場：<br><a href="https://login.wordpress.org/register?locale=en_US">https://login.wordpress.org/register?locale=en_US</a></p>
+<p>官方資訊更新可以到 Make WordPress，裡面有分很多不同的領域，我有訂閱的是 Core 與 Plugins：<br><a href="https://make.wordpress.org/">https://make.wordpress.org</a></p>
+<p>有時間的話也可以把 Matt Mullenweg ( WordPress 共同創辦人 ) 5% 回饋的精神讀一下：<br><a href="https://ma.tt/2014/09/five-for-the-future/">https://ma.tt/2014/09/five-for-the-future/</a></p>
+<h3 id="2-認識-PHP-標配"><a href="#2-認識-PHP-標配" class="headerlink" title="2.認識 PHP (標配)"></a>2.認識 PHP (標配)</h3><p>WordPress 後端的程式語言主要是用 PHP 寫成的，因此多少需要知道程式語言的邏輯與基礎語法，像是變數、函式、流程判斷，資料類型如字串、陣列、關聯式物件等等，雖然 <a href="https://www.w3schools.com/php/default.asp">w3schools</a> 裡面非常完整，但我個人比較不喜歡這種手冊式的學習方式，我偏好有實際範例的參考書籍，去天瓏書局可以找到非常多，我自己是念這本：</p>
+<p><a href="https://www.tenlong.com.tw/products/9789864762323">https://www.tenlong.com.tw/products/9789864762323</a></p>
+<p>它就像是給學生用的參考書，每年都會換個封面再出版，裡面的知識都非常基礎，也有實際的範例可以跟著寫，雖然業界有人批評這種書根本是在騙錢，但我認為對於完全沒寫過任何程式的人算是滿詳盡的入門。</p>
+<p>需要知道的是這種書籍並非是看完後就能精通一切了，它的主要目的是讓你可以寫出基本的 PHP 語法，以及當不知道該怎麼寫的時候能用對關鍵字找到正確的答案，你可以快速翻完有個概念即可，有了概念再去 w3schools 查就行，邊寫邊查才是學習程式語言的最佳方式。</p>
+<h3 id="3-認識-HTML、CSS、JavaScript（選配）"><a href="#3-認識-HTML、CSS、JavaScript（選配）" class="headerlink" title="3.認識 HTML、CSS、JavaScript（選配）"></a>3.認識 HTML、CSS、JavaScript（選配）</h3><p>這三個語法主要是控制使用者介面，HTML 主要定義整個頁面的基本架構，就像是房屋的鋼筋結構，而 CSS 則是負責裝潢外觀樣式，JavaScript 狹義的說是控制頁面元素互動的程式，像是按鈕、Slideshow 那些，開發外掛不一定會用到他們，但如果牽涉到使用者介面的話就還是脫離不了。</p>
+<p>學習 HTML、CSS 有非常多的書籍，但我當年看的都已經絕版了，很多語法也都沒有更新，因此找每年都會更新的教科書類型也行，我自己比較傾向日本作者的書籍，因為書中的圖表解釋非常清楚，這是其他國家的技術書籍比較少見的呈現方式，我推薦這本（我沒看過）：<br><a href="https://www.tenlong.com.tw/products/9789863126492?list_name=srh">https://www.tenlong.com.tw/products/9789863126492?list_name=srh</a></p>
+<p>JavaScript 是包山包海的程式語言，它可以寫網頁做 App，也可以設計爬蟲甚至是做 3D 遊戲，各種軟體開發的領域都能看到它的影子，而基本的語法我推薦我有看過的這本：<br><a href="https://www.tenlong.com.tw/products/9789863125068?list_name=srh">https://www.tenlong.com.tw/products/9789863125068?list_name=srh</a></p>
+<p>一樣是日本人寫的，比我早期看過的任何一本 JS 書籍都要來得淺顯易懂，也是因為這本讓我知道原來日本的電腦書這麼好唸。</p>
+<p>與 PHP 相同，這些書籍都只是敲門磚而已，讓你有個整體的概念，真正要學會還是要把袖子捲起來實際下去寫才知道。</p>
+<h3 id="4-安裝程式編輯軟體（標配）"><a href="#4-安裝程式編輯軟體（標配）" class="headerlink" title="4.安裝程式編輯軟體（標配）"></a>4.安裝程式編輯軟體（標配）</h3><p>畫圖需要用小畫家，要寫程式當然也要有合適的工具，目前業界的主流是微軟開發的 VSCode，除了完全免費以外還有豐富的套件可以安裝，因為其開源的特性還有線上免安裝的版本，喔，對了，這個軟體本身也是用 JavaScript 開發的～</p>
+<p>官網安裝：<br><a href="https://code.visualstudio.com/">https://code.visualstudio.com</a></p>
+<p>線上版本：<br><a href="https://vscode.dev/">https://vscode.dev</a></p>
+<p>開發 WordPress 推薦安裝的套件：<br><a href="https://wpism.com/visual-studio-code-extensions-wordpress/">https://wpism.com/visual-studio-code-extensions-wordpress/</a></p>
+<h2 id="二、WordPress-外掛開發基礎知識"><a href="#二、WordPress-外掛開發基礎知識" class="headerlink" title="二、WordPress 外掛開發基礎知識"></a>二、WordPress 外掛開發基礎知識</h2><h3 id="1-建立本機開發環境（標配）"><a href="#1-建立本機開發環境（標配）" class="headerlink" title="1.建立本機開發環境（標配）"></a>1.建立本機開發環境（標配）</h3><p>為了方便開發與測試，在本機電腦安裝 WordPress 是必要的，安裝 WordPress 需要 PHP、MySQL 資料庫以及伺服器，拜 WordPress 生態圈的強大，有許現成套裝軟體能直接建立，也有專門針對 WordPress 的本機架站軟體可以使用：</p>
+<p>MAMP - 針對 PHP 開發環境<br><a href="https://www.mamp.info/en/downloads/">https://www.mamp.info/en/downloads/</a></p>
+<p>Local - 針對 WordPress<br><a href="https://getflywheel.com/design-and-wordpress-resources/toolbox/local-by-flywheel/">https://getflywheel.com/design-and-wordpress-resources/toolbox/local-by-flywheel/</a></p>
+<p>DevKinsta - 針對 WordPress<br><a href="https://kinsta.com/devkinsta/">https://kinsta.com/devkinsta/</a></p>
+<p>如果你不想用套裝軟體而是想自己走過一次安裝流程也可以用我現在用的 ValetPress<br><a href="https://oberonlai.blog/tw/valetpress-setup/">https://oberonlai.blog/tw/valetpress-setup/</a></p>
+<h3 id="2-程式碼安全性（標配）"><a href="#2-程式碼安全性（標配）" class="headerlink" title="2.程式碼安全性（標配）"></a>2.程式碼安全性（標配）</h3><p>因為 WordPress 的市佔率讓非常多有心人士專門針對它進行攻擊，藉此取得網站管理權限或是植入惡意程式碼來做壞事，而且通常漏洞都是發生在沒有做好防護措施的外掛，因此開發外掛的第一件事就是要寫出安全的程式碼，也就是過濾要讀取與寫入資料庫的東西，這部分官方文件寫得非常詳盡：</p>
+<p><a href="https://developer.wordpress.org/plugins/security/">https://developer.wordpress.org/plugins/security/</a></p>
+<h3 id="3-資料讀寫-CRUD-（標配）"><a href="#3-資料讀寫-CRUD-（標配）" class="headerlink" title="3.資料讀寫 CRUD （標配）"></a>3.資料讀寫 CRUD （標配）</h3><p>開發外掛不外乎就是想要將資料寫入網站，並透過某種方式將其呈現出來，Read 跟 Create 是兩個最基本的動作，而在 WordPress 裡面將 Create 跟 Update 整合，所以實務上會用到的是 RUD 比較多。</p>
+<p>Read 的部分分成兩種，一種是要批次取得大量資料的 Query：<br><a href="https://developer.wordpress.org/reference/classes/wp_query/">https://developer.wordpress.org/reference/classes/wp_query/</a></p>
+<p>另一種是取得單一文章特定欄位的值：<br><a href="https://developer.wordpress.org/reference/functions/get_post_meta/">https://developer.wordpress.org/reference/functions/get_post_meta/</a></p>
+<p>Update 跟 Delete 可以參考我之前寫的這篇文章，文中藉由資料表結構來同步解釋對應的 API：<br><a href="https://oberonlai.blog/tw/building-web-apps-with-wordpress-basic/">https://oberonlai.blog/tw/building-web-apps-with-wordpress-basic/</a></p>
+<h3 id="4-勾點-Hook-的運用（標配）"><a href="#4-勾點-Hook-的運用（標配）" class="headerlink" title="4.勾點 Hook 的運用（標配）"></a>4.勾點 Hook 的運用（標配）</h3><p>WordPress 最驚人的就是版本向下相容性非常完整，要做到這點必須在不動到原始程式碼的情況下繼續往上加新功能，能辦到這件事的方法就是勾點，關於更多勾點的解釋可以參考：<br><a href="https://ithelp.ithome.com.tw/articles/10242112">https://ithelp.ithome.com.tw/articles/10242112</a><br><a href="https://developer.wordpress.org/plugins/hooks/">https://developer.wordpress.org/plugins/hooks/</a></p>
+<p>WordPress 內建大量的勾點，要知道什麼時候該用什麼勾點可以用這支外掛查詢：<br><a href="https://wordpress.org/plugins/query-monitor/">https://wordpress.org/plugins/query-monitor/</a></p>
+<p>我自己是習慣直接翻原始碼去查，用 VSCode 的全站搜尋功能去找到我想要掛的勾點附近的 HTML 元素，然後看前後有沒有定義勾點，定義勾點可以參考這篇：<br><a href="https://ithelp.ithome.com.tw/articles/10242796">https://ithelp.ithome.com.tw/articles/10242796</a></p>
+<h3 id="5-自定義文章、分類、欄位與設定頁（選配）"><a href="#5-自定義文章、分類、欄位與設定頁（選配）" class="headerlink" title="5.自定義文章、分類、欄位與設定頁（選配）"></a>5.自定義文章、分類、欄位與設定頁（選配）</h3><p>如果你開發的外掛需要存放大量的資料，你可以自行新增資料表來存放：<br><a href="https://ithelp.ithome.com.tw/articles/10239113">https://ithelp.ithome.com.tw/articles/10239113</a></p>
+<p>如果你的資料形式很類似 WordPress 內建的文章，像是有標題、日期、發表者等等，建議可以用自定義文章來處理，好處是不用手刻就能沿用 WordPress 後台的管理介面來提供使用者操作，以及跟現存的 WordPress 資料內容像是分類、標籤做整合，使用自定義文章在開發上會方便許多。</p>
+<p>新增自定義文章：<br><a href="https://developer.wordpress.org/plugins/post-types/">https://developer.wordpress.org/plugins/post-types/</a></p>
+<p>新增自定義分類：<br><a href="https://developer.wordpress.org/plugins/taxonomies/">https://developer.wordpress.org/plugins/taxonomies/</a></p>
+<p>新增欄位：<br><a href="https://developer.wordpress.org/plugins/metadata/">https://developer.wordpress.org/plugins/metadata/</a></p>
+<p>欄位的部分我習慣用外掛來設計，對於比較複雜的欄位可以透過視覺化介面來建立，這類外掛有很多，我最常用的是 Advance Custom Fields Pro：<br><a href="https://www.advancedcustomfields.com/pro/">https://www.advancedcustomfields.com/pro/</a></p>
+<p>如果你的外掛需要在後台建立選單讓使用者有操作介面來進行相關的設定，可以參考這篇：<br><a href="https://developer.wordpress.org/plugins/settings/">https://developer.wordpress.org/plugins/settings/</a></p>
+<p>設定介面用 ACF 也可以辦得到，但如果你今天是要把做好的外掛拿去販售，雖然 ACF <a href="https://www.advancedcustomfields.com/resources/including-acf-within-a-plugin-or-theme/">不介意</a>你把他們的程式碼整合在自己的外掛之中，但整合後會讓外掛檔案過大，可以的話還是自己用 Settings API 寫會比較好。</p>
+<h3 id="6-頁面範本與短代碼（選配）"><a href="#6-頁面範本與短代碼（選配）" class="headerlink" title="6.頁面範本與短代碼（選配）"></a>6.頁面範本與短代碼（選配）</h3><p>如果你的外掛需要在前台顯示資料，可以用兩種作法，第一種是用短代碼 Shortcode 呈現，短代碼可以讓後台管理員自行決定要將外掛的資料顯示在頁面的哪個區塊之中，短代碼也能帶入參數做靈活的運用：<br><a href="https://developer.wordpress.org/plugins/shortcodes/">https://developer.wordpress.org/plugins/shortcodes/</a></p>
+<p>如果你用了自定義文章也需要讓他們在前台顯示，但是版面的編排要跟 WordPress 內建的文章有所區別，那麼你會需要了解頁面範本以及路由規則，這是佈景主題的範疇：<br><a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">https://developer.wordpress.org/themes/basics/template-hierarchy/</a></p>
+<p>要在外掛中取代佈景主題的範本可以使用這個套件，基本上也是透過勾點來進行範本讀取的路徑轉換：<br><a href="https://packagist.org/packages/oberonlai/wp-page-template-loader">https://packagist.org/packages/oberonlai/wp-page-template-loader</a></p>
+<h2 id="三、WordPress-外掛開發進階知識"><a href="#三、WordPress-外掛開發進階知識" class="headerlink" title="三、WordPress 外掛開發進階知識"></a>三、WordPress 外掛開發進階知識</h2><h3 id="1-整合外部服務（標配）"><a href="#1-整合外部服務（標配）" class="headerlink" title="1.整合外部服務（標配）"></a>1.整合外部服務（標配）</h3><p>我自己這幾年做的比較多是與第三方網站串接 API，以及透過 Webhooks 來觸發站內行為，這部分需要的知識有：</p>
+<p>HTTP API：<br><a href="https://developer.wordpress.org/plugins/http-api/">https://developer.wordpress.org/plugins/http-api/</a><br><a href="https://developer.wordpress.org/apis/handbook/making-http-requests/">https://developer.wordpress.org/apis/handbook/making-http-requests/</a></p>
+<p>WordPress REST API<br><a href="https://developer.wordpress.org/rest-api/">https://developer.wordpress.org/rest-api/</a></p>
+<h3 id="2-PHP-套件管理-標配"><a href="#2-PHP-套件管理-標配" class="headerlink" title="2.PHP 套件管理 (標配)"></a>2.PHP 套件管理 (標配)</h3><p>WordPress 有外掛 PHP 當然也有，而安裝 PHP 外掛的方式就是用 Composer，有了這些套件可以省下許多開發時間，尤其是一些 SaaS 都會有提供 PHP SDK 來讓開發者進行整合，而整合的方式就是透過 Composer 進行安裝。</p>
+<p>Composer 的安裝與設定：<br><a href="https://imyoungyang.gitbooks.io/php7-study-group-notes/content/composer.html">https://imyoungyang.gitbooks.io/php7-study-group-notes/content/composer.html</a></p>
+<p>與 WordPress 相關的 Composer 套件：<br><a href="https://oberonlai.blog/tw/wordpress-and-composer/">https://oberonlai.blog/tw/wordpress-and-composer/</a></p>
+<h3 id="3-WP-Ajax（標配）"><a href="#3-WP-Ajax（標配）" class="headerlink" title="3.WP Ajax（標配）"></a>3.WP Ajax（標配）</h3><p>WordPress 的 Ajax 處理是開發外掛很常遇到的技術，不管是在前台或後台都會用得到：</p>
+<p>WordPress Ajax 實作：<br><a href="https://audilu.com/2012/06/12/wordpress-ajax-by-jquery/">https://audilu.com/2012/06/12/wordpress-ajax-by-jquery/</a><br><a href="https://www.mxp.tw/6859/">https://www.mxp.tw/6859/</a></p>
+<p>我有整理一個 Composer 套件來簡化 Ajax 的開發流程：<br><a href="https://packagist.org/packages/oberonlai/wp-ajax">https://packagist.org/packages/oberonlai/wp-ajax</a></p>
+<h3 id="4-WooCommerce-開發（標配）"><a href="#4-WooCommerce-開發（標配）" class="headerlink" title="4.WooCommerce 開發（標配）"></a>4.WooCommerce 開發（標配）</h3><p>不管是接案、求職還是銷售外掛，WooCommerce 電子商務外掛的整合都是很難避免的一環，畢竟這是與公司收入直接有關的工具所以需求很大，了解如何開發 WooCommerce 的外掛會非常容易遇到。</p>
+<p>其中最常遇到的是客製化結帳頁面：<br><a href="https://hellowp.cc/woocommerce-custom-checkout-filed/">https://hellowp.cc/woocommerce-custom-checkout-filed/</a></p>
+<p>跟金流的串接：<br><a href="https://oberonlai.blog/tw/woocommerce-payment-gateway/">https://oberonlai.blog/tw/woocommerce-payment-gateway/</a></p>
+<p>WooCommerce 外掛開發手冊：<br><a href="https://woocommerce.com/document/create-a-plugin/">https://woocommerce.com/document/create-a-plugin/</a></p>
+<h3 id="5-物件導向與設計模式（選配）"><a href="#5-物件導向與設計模式（選配）" class="headerlink" title="5.物件導向與設計模式（選配）"></a>5.物件導向與設計模式（選配）</h3><p>當一個外掛開發久了架構就會越來越肥大，要如何有效的管理以及可以靈活的加入新功能就變得非常關鍵，物件導向開發的知識是第一步，但這一步要在 WordPress 上面實現並不是件容易的事，而且相關的學習資源都是以 Java 居多，幸好我們身處在 WordPress 的強大社群之中。</p>
+<p>這本電子書詳盡的解釋何謂物件導向以及該如何用物件的方式來開發 WordPress 外掛：<br><a href="https://carlalexander.ca/object-oriented-programming-wordpress/">https://carlalexander.ca/object-oriented-programming-wordpress/</a></p>
+<p>如果對於 PHP 物件導向的寫法不熟悉可以閱讀這本：<br><a href="https://oberonlai.blog/tw/php-oop-way/">https://oberonlai.blog/tw/php-oop-way/</a></p>
+<p>當然，並非改用 class 而捨棄 function 的寫法就叫做物件導向，背後的精神在於更靈活的組合每個類別來設計功能，這時候就需要設計模式來進行組織。</p>
+<p>這本是我最早接觸設計模式的書籍，去年有出第二版，雖然裡面的範例是用 Java，但不影響對於設計模式的理解：<br><a href="https://www.books.com.tw/products/0010901056?loc=M_0007_001">https://www.books.com.tw/products/0010901056?loc=M_0007_001</a></p>
+<p>IT 鐵人賽也有大大專門以 PHP 為範例來解釋設計模式：<br><a href="https://ithelp.ithome.com.tw/articles/10233810">https://ithelp.ithome.com.tw/articles/10233810</a></p>
+<h3 id="6-自動化測試（選配）"><a href="#6-自動化測試（選配）" class="headerlink" title="6.自動化測試（選配）"></a>6.自動化測試（選配）</h3><p>一直想要改善自己寫東牆壞西牆的毛病，發現到自動化測試的領域，自動化測試有分不同的類型與適用場景，除了要學習寫測試腳本外也要搭配開發工具才能事半功倍。</p>
+<p>自動化測試介紹：<br><a href="https://oberonlai.blog/tw/woocommerce-payment-testing/">https://oberonlai.blog/tw/woocommerce-payment-testing/</a></p>
+<p>VSCode 寫 PHP 單元測試：<br><a href="https://ithelp.ithome.com.tw/articles/10239373">https://ithelp.ithome.com.tw/articles/10239373</a></p>
+<p>如何針對 WordPress 外掛開發寫測試：<br><a href="https://carlalexander.ca/introduction-wordpress-unit-testing/">https://carlalexander.ca/introduction-wordpress-unit-testing/</a></p>
+<hr>
+<p>其他可以深入研究的領域還有很多，像是自動化部署、區塊編輯器開發、Elementor 小工具開發甚至與區塊鏈的整合，我是以 WordPress 為核心去拓展其他軟體開發的知識，我現在最常用的學習方式就是直接看別人外掛怎麼寫的，看他們用了哪些套件以及如何組織外掛架構。</p>
+<p>希望這樣的清單可以協助想要入門 WordPress 開發外掛的你，如果有我漏掉項目也麻煩跟我說一聲，我會持續完善這份學習路線圖！</p>
+]]></content>
+      <categories>
+        <category>WordPress 外掛</category>
+      </categories>
+  </entry>
 </search>
