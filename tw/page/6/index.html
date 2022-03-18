@@ -210,6 +210,154 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/fs-%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E6%97%A5%E8%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/fs-%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E6%97%A5%E8%AA%8C/" class="post-title-link" itemprop="url">FS 程式開發日誌</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-12-03 09:38:19" itemprop="dateCreated datePublished" datetime="2019-12-03T09:38:19+08:00">2019-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E8%80%81%E4%BA%BA%E7%A2%8E%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">老人碎念</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2019-12-03"><a href="#2019-12-03" class="headerlink" title="2019/12/03"></a>2019/12/03</h3><p>重刻編輯器的 UI ，JS 的部分比想像中要來得棘手，改了 DOM 之後噴一堆錯，看來還是習慣用 getElementById 比較安全，querySelector 太依賴 DOM 結構。然後意外發現 CSS 的 calc 竟然可以先乘除後加減，對於要計算 100vh 的比例很方便。</p>
+<pre class="line-numbers language-none"><code class="language-none">height: calc( ((100vh - 102px) &#x2F; 5) &#x2F; 3.5 );<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2019-11-29"><a href="#2019-11-29" class="headerlink" title="2019/11/29"></a>2019/11/29</h3><p>「開始設計你的影像故事吧！頁面管理可以讓你新增、刪除、編輯頁面，還可以使用拖曳的方式來改變順序，在開始製作前不妨先把影像故事的頁面結構先建立完成，說一個好故事就從大綱開始！」這是在設計頁面管理的介面時，寫下的使用教學說明文字，在重新整理介面時，發現到一件事，這工具的背後，是不是該從教使用者如何寫出一個好故事開始？想要打造品牌，沒有一個好故事要從這麼競爭激烈的環境中脫穎而出實在困難，除非商品有獨特性或是獨佔性，但一般的業者可能很難有這樣的資源，業者的素材不好、品牌沒有深度、產品沒有靈魂，相反的，每次看旅遊雜誌總是介紹許多台灣努力在地深耕的品牌，其品質、包裝、行銷能力完全不輸國外品牌。希望這工具，可以幫助有心要經營品牌的業者，幫助他們把他們的理念可以傳達給更多人。</p>
+<h3 id="2019-11-28"><a href="#2019-11-28" class="headerlink" title="2019/11/28"></a>2019/11/28</h3><p>搞定頁面排序功能，比想像中碰到的阻礙小，要注意的地方就是重新排序完畢之後，要更新 data-slide 的數值，因為這會關係到 slide 的切換順序</p>
+<pre class="line-numbers language-none"><code class="language-none">setPageOrder()&#123;
+  this.vars.pageNav.addEventListener(&#39;stop&#39;,e&#x3D;&gt;&#123;
+    let orderArray &#x3D; [];
+    Array.from(this.vars.pageNav.querySelectorAll(&#39;li a&#39;)).forEach(element &#x3D;&gt; &#123;
+      orderArray.push(&#96;$&#123;element.dataset.page&#125;&#96;)
+    &#125;)
+    for (let i &#x3D; 0; i &lt; orderArray.length; i++) &#123;
+      this.vars.pageNav.querySelectorAll(&#39;li a&#39;)[i].dataset.slide &#x3D; i;
+      this.vars.slideshowPage.querySelector(&#39;.uk-slider-items&#39;).append(document.querySelector(&#96;li[data-page&#x3D;$&#123;orderArray[i]&#125;]&#96;))
+    &#125;
+    Array.from(this.vars.pageNav.querySelectorAll(&#39;li a&#39;)).forEach(element &#x3D;&gt; &#123;
+      setTimeout(() &#x3D;&gt; &#123;
+        element.classList.remove(&#39;active&#39;);
+      &#125;, 600);
+    &#125;);
+  &#125;)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>開始著手進行編輯器的 UI 調整，先用 Sketch 設計，讓左側主選單有順序性，引導使用者照步驟操作，第二層選單改用 tab 來設計，緊靠著主選單來暗示關聯性，比較麻煩的地方就是小工具的地方需要改寫不少 code，變成不能用 offcanvas 來做而是要用 toggle，這樣的調整在 class 方面可能會造成某些無法預期的問題，封面設定的部分捨棄讓人困惑的 Google 搜尋結果頁，改以單純的頁面來顯示，輔以文字說明，在視覺線索上可以多強調這張圖是封面的意涵。</p>
+<h3 id="2019-11-27"><a href="#2019-11-27" class="headerlink" title="2019/11/27"></a>2019/11/27</h3><p>在改變小工具的尺寸後，右邊的設定項會噴錯這件事過關了，不是原本 moveable 的寫法有問題，而是在 script.js 裡面有做一個取得 config 的點擊事件，因為取到的 e.target 包含範圍太廣，造成在拖曳 moveable 也會觸發到偵聽事件，而 moveable node 並沒有 data-config 的屬性，所以導致 config 噴錯，處理方式是把這一個事件拿掉，但又會造成背景的 config 取不到，所以再寫了一個點擊事件來取得背景圖的 config。因為這件事學到了怎麼從 class 裡面把需要的東西傳出來，只要在建構式的時候先取好要拿的東西的變數名，然後指派值給他，這樣他就會變成這個類別的屬性，接下來只要 new 出實體後就可以用 . 取得該屬性的值。</p>
+<pre class="line-numbers language-none"><code class="language-none">Array.from(document.querySelectorAll(&#39;li a[data-config^&#x3D;page]&#39;)).forEach(element &#x3D;&gt; &#123;  &#x2F;&#x2F; 點擊內頁底圖取得 config
+    element.addEventListener(&#39;click&#39;,(e)&#x3D;&gt;&#123;
+      config &#x3D; e.currentTarget.dataset.config;
+    &#125;)
+  &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>開發上遇到小低潮，根本原因是找不到現階段自己開發的目標是什麼？原本希望 11 月底就可以完成編輯器的部分，但遇到 UI 需要大幅度的調整，需要重新思考這工具的操作邏輯應該會是在何種使用情境底下，或是去類比既有的設計模式來進行調整，如果是以部落客為主要使用對像，操作方式可能會是類似文章發布系統，或是社群網站貼文的模式。如果是以大眾都熟悉的軟體，可能比較像是 Power Point，但真要這樣改下去整個 UI 都要重弄了，懊惱自己開發前為何不多做點研究以及使用 Prototype 做 user test，只能從現有的邏輯中先去調整看看了。</p>
+<p>所以有一種走了三個月又要從頭來過的感覺，想放棄的念頭就這樣冒了出來，再加上對於產品方向的不確定性，開始懷疑這一切是不是做白工？一覺睡起來，看著已經完成的 task 有 109 個，程式碼行數超過萬行、開發總小時數超過 300 個小時，學會了 js 的 class 運用、不依賴 jQuery 全寫原生 js、如何使用 localStorage 儲存複雜的資料、如何開發各種頁面小工具、drag＆drop、ajax insert post…，以一個 Side Project 的練習量來看好像已經足夠了XD。</p>
+<p>接下來呢…？進入撞牆期了，依照網站開發十多年的經驗，最好的解決辦法就是閉上嘴，專注在每一個 task 上面，其他，都不用想了。</p>
+<h3 id="2019-11-25"><a href="#2019-11-25" class="headerlink" title="2019/11/25"></a>2019/11/25</h3><p>這件事情卡關，在改變小工具的尺寸後，右邊的設定項會噴錯，原因是因為當點擊縮放控制點時，用來判斷要改變的對象 config 變數被清空了，所以需要在點擊縮放控制點時，要設定 config 為當前小工具的 data-config，於是寫了下面這一段，想要放在類別裡面，但 config 變數是在最外層的建立的，因此下面這段必須放在外層，又因為他是非同步事件，無法使用 return 的方式來回傳值，只能做成 function 寫在外層的 dataInput function 裡面</p>
+<pre class="line-numbers language-none"><code class="language-none">Array.from(document.querySelectorAll(&#39;.wrap-moveable.active .moveable-control&#39;)).forEach(element &#x3D;&gt; &#123;
+  element.addEventListener(&#39;click&#39;, e &#x3D;&gt; &#123;
+    config &#x3D; e.currentTarget.parentNode.previousElementSibling.dataset.config;
+  &#125;)
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>紀錄一下頁面拖曳改變順序的思路：左側選單當完成拖曳後，會依照現在的選單的順序組成一個 Array，去抓 data-page-name，組成 [“page0”,”page1”,”page2”]，然後中間的區塊會用迴圈的方式來 append innerHTML，用 getElementById 取得 node，然後依序 append。</p>
+<p>點擊複製網址功能，input 不能是在 disabled 的狀態下才有作用，但又不想讓 user 可以修改 input 裡面的內容，所以從 css 下手，用 pointer-events 讓 user 選不到 input field</p>
+<pre class="line-numbers language-none"><code class="language-none">vars.btnCopyEmbedCode.addEventListener(&#39;click&#39;, () &#x3D;&gt; &#123;
+  vars.embedCode.select();
+  vars.embedCode.setSelectionRange(0, 99999)
+  document.execCommand(&quot;copy&quot;);
+  vars.btnCopyEmbedCode.textContent &#x3D; &quot;已複製！&quot;
+  setTimeout(() &#x3D;&gt; &#123;
+    vars.btnCopyEmbedCode.textContent &#x3D; &quot;複製程式碼&quot;
+  &#125;, 2000);
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>FB &amp; Line share url</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;facebook.com&#x2F;sharer.php?u&#x3D;&lt;?php the_permalink(); ?&gt;&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img src&#x3D;&quot;&lt;?php echo get_template_directory_uri(); ?&gt;&#x2F;img&#x2F;01_newspopup_fb.svg&quot; width&#x3D;&quot;9&quot;&gt;&lt;&#x2F;a&gt;
+&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;lineit.line.me&#x2F;share&#x2F;ui?url&#x3D;&lt;?php the_permalink(); ?&gt;&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img src&#x3D;&quot;&lt;?php echo get_template_directory_uri(); ?&gt;&#x2F;img&#x2F;01_newspopup_line.svg&quot; width&#x3D;&quot;16&quot;&gt;&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="2019-11-23"><a href="#2019-11-23" class="headerlink" title="2019/11/23"></a>2019/11/23</h3><p>新增了 Bookend 的 CTA button，結果又發生逗號問題而讓 Bookend 噴錯，實在受夠了，乖乖把 Bookend 的 JSON 改用 PHP 的 Array 來組，最後再用 json_encode 來餵給 js，一開始組都還沒問題，但卡在 bookend link 這個地方，因為 as 要求的格式為 {},{}，但因為適是用陣列組出來的，所以 php 會變成 [{},{}]，多了外面的中括號 bookend 又會 GG，試著把 php array 轉成 object，但 encode 就還是會出現中括弧，一度想去 slack 裡面抱怨哪有人把多筆資料設計成 {},{} 這樣的格式，應該都是要用陣列才對，然後再想想問題提出了後面還要跟進與討論，覺得好懶好花時間，最後用了很爛的招： str_replace 四次來處理掉中括號以及多餘的逗號問題，希望未來有工程師看到我現在的解法，能想出更好的解決方案了。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?php echo str_replace(&#39;,&quot;,&#39;,&#39;,&#39;,str_replace(&#39;&#125;&quot;,&#39;,&#39;&#125;,&#39;,str_replace(&#39;&#125;,&quot;&#39;,&#39;&#125;,&#39;,str_replace(&#39;\&quot;&#39;,&#39;&quot;&#39;,json_encode( $bookend,JSON_UNESCAPED_UNICODE ))))); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>另外修改好了 sidebar 的 style，多加了可顯示或關閉 sidebar 的設定項，讓不需要使用 sidebar 的人就能把它關閉，加了重整頁面時會跳出未儲存檔案的提醒、根據文字小工具選到的字型動態載入 Google font。</p>
+<h3 id="2019-11-22"><a href="#2019-11-22" class="headerlink" title="2019/11/22"></a>2019/11/22</h3><p>把 Bookend 做了一個整理，加了品牌介紹的區塊，然後徹底檢查會造成 Bookend error 的各種狀況，會有 error 是因為 Bookend 必須是 JSON 格式，少或多一個逗號都會造成錯誤，當 user 沒有填 Bookend 的所有項目資料為空時，逗號的判斷沒有寫好所以造成各種錯誤，後來想想這個區塊不應該這樣寫，而是先用 PHP 組成陣列之後，再用 json_encode 去產出 bookend 需要的東西，這樣就不用擔心逗號的問題，未來有時間再處理了。</p>
+<p>另外增加了 uploadcare 的檔案上傳限制，容量限制為 4 MB，檔案型態只允許 jpg png gif mp3 mp4 ，其他全鎖，避免有心人士上傳了惡意腳本來亂。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/media-with-ftp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3053,130 +3201,6 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/scrum-kanban/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/scrum-kanban/" class="post-title-link" itemprop="url">原來我以為的看板根本不是看板...</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-01-19 13:35:04" itemprop="dateCreated datePublished" datetime="2019-01-19T13:35:04+08:00">2019-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%B0%88%E6%A1%88%E5%8D%B3%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">專案即生活</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>3.5k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>3 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://oberonlai.blog/wp-content/uploads/2019/01/3fcaf236-ee60-4696-b695-f9da5fde112b-2628-0000035174261442_file.jpg"> 很久沒有用 Trello 了，因為最近的專案一直找不太到適合的軟體來統整各方面的需求，於是就想說回頭用看看 Trello 來進行整理，基本的 Todo、In Process、Done 這幾個欄位也大概知道要怎麼用，但隨著進行的項目越來越多，Todo、In Process 越拖越長，卻不見 Done 的增加，開始懷疑是不是自己能力不足所以工作都消化不完 Orz… 直到上拜天去圖書館尋寶，找到這本 Ruddy 大大的大作「精實開發與看板方法」，才驚覺自己完全根本不知道什麼叫「看板」，還以為 Trello 就是看板，還以為只要會拖動卡片就是看板，真是搞笑了啊啊啊～ 本書分為八個章節，從基本介紹到看板設計，再到團隊與個人如何運用看板方法，最後還提到如何以系統思考來預測專案很難預知的各種變數，最有感覺的地方是看板一日遊的解說，非常契合自己以往在團隊中的開發經驗，以下就書中精華進行重點式摘要：</p>
-<h1 id="精實軟體開發七大原則："><a href="#精實軟體開發七大原則：" class="headerlink" title="精實軟體開發七大原則："></a>精實軟體開發七大原則：</h1><p>1、消除浪費 Eliminate waste：製造浪費的最大兇手是 Bug，只要保持程式碼的簡單可以避免 Bug，但現在軟體開發的環境越來越複雜，保持簡單不是一件容易的事，所以要可以真正的去了解程式碼，一知半解最容易造成 Bug。時程的預估都只是瞎猜，只有當專案開始時才能慢慢的掌握開發時間。 如何判斷浪費發生：</p>
-<p>一、半成品 Work In Process (WIP) 太多，控制在越小越好。</p>
-<p>二、額外過程：對專案不會產生價值的業務， 像是過多的行政文件整理。</p>
-<p>三、多餘功能：減少非必要的程式撰寫，新功能意味著新 bug 的可能。</p>
-<p>四、任務調換：多工 is evil，思路被打斷要重新進入很浪費時間。</p>
-<p>五、等待：等客戶的回應是必然的等待。OS: 這種等待真的是非常討厭，最近非常有感，一個問卷的評分方式請客戶提供結果等上了兩個禮拜，重點是還跟初期的規劃邏輯完全不同，一來一往就消耗超多時間。</p>
-<p>六、移動：簡單說就是卡關了要花多少時間去解。OS: 平常要做好給自己看的文件，尤其是開發環境的配置，卡在環境配置真的滿累人的。</p>
-<p>七、缺陷：就是 Bug，能越早找到越好。OS: 要開始練習寫測試案例了，不然都只是自己盲目的瞎測，給夥伴測試時也才有測試方向。</p>
-<p>2、增強學習 Amplify learning：卡關時能學到的東西最多，別一知半解的找到答案後貼上就沒事了，多了解一下是怎麼解決的，然後整理成文件，另外在有盈餘時間時進行重構是最高效的學習方式。 測試是最好的回饋，回饋要及時，寫完一段後就要進行測試，透過寫單元測試來核對程式碼的邏輯，最重要的是可以及早給客戶展示收集回饋，進而調整接下來的開發方向。 3、盡量延遲決策 Decide as late as possible：狀況還沒搞清楚的情況下就做決策，容易白做工而造成浪費，所以決策能拖就拖，拖到不做決策的成本高於做決策時， 就該做出決策了。 4、盡快交付 Deliver as fast as possible：別等到全部做完才給驗收，會讓驗收時間不夠， 進而影響到修改時間，及早交付以才能分清楚接下來工作項目的輕重緩急，看是要先修改客戶在意的項目，還是繼續開發其他功能。 5、授權團隊 Empower the team：在適當的規範下，讓團隊自己做出決策。 6、嵌入完整性 Build integrity in：接受需求變更是常態，透過持續的客戶回饋設計出理想中的系統，並保持架構的靈活。 7、著眼整體 See the whole：設定團隊開發目標避免拘泥於細節。</p>
-<h1 id="什麼是看板方法？"><a href="#什麼是看板方法？" class="headerlink" title="什麼是看板方法？"></a>什麼是看板方法？</h1><p>看板方法是半成品的約束系統，白話說就是要限制目前手頭正在做的工作數量，要等手上做的東西完成後，才能去拿新的工作來做，透過限制半成品的數量來找到最有效率的開發準則。 看板方法的實行步驟：整理現行工作流程 &gt; 把流程視覺化放進看板 &gt; 限制每個流程的半成品數量 &gt; 管理工作流程 &gt; 讓規則明確 &gt; 落實回饋循環 &gt; 由協助改善 經實驗演進 設計看板牆的三個基本元素：</p>
-<ol>
-<li> 範圍(整個工作的流程)</li>
-<li> 工作項目粒度(大工作還是小工作)</li>
-<li> 工作項目狀態(已完成 or 未完成)</li>
-</ol>
-<p>看板核心要素：</p>
-<ol>
-<li> 要有 WIP 限制</li>
-<li> 採用拉動系統，東西處理完後才能做新東西</li>
-<li> 有設定緩衝區</li>
-<li> 完成的項目先別刪，可以留著檢討完後再一次刪除</li>
-<li> 專案還沒開始時被要求估算時間，回答請再多給我一點時間進行評估</li>
-</ol>
-<h1 id="如何使用個人看板？"><a href="#如何使用個人看板？" class="headerlink" title="如何使用個人看板？"></a>如何使用個人看板？</h1><p>先把手邊的工作進行視覺化，依照待進行工作、準備中、今日工作、等待中、正在進行的工作、完成的這幾個項目來進行分類，個人專案看板的部分包含：衝刺工作項目、預備(分析及文件製作)、開發進行中、開發已完成、測試、發佈，原本我使用 Trello 來進行設計，但發現他沒有辦法跨看板來進行統整。 書中提到要可以有總覽的檢視介面來查看所有專案的狀態，試了幾套線上的服務，發現到 <a target="_blank" rel="noopener" href="https://ora.pm/">Ora</a> 這套服務功能比較齊全，且介面是我比較過最美的，但可惜的是他沒支援 WIP 的設定，看在他介面這麼優的前提下，只好自己想辦法弄了～ <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora1.jpg" alt="Ora1.jpg"> 上圖是我自己的個人看板，主要紀錄專案以外的事，中間上方可以快速切換看板，看板欄位的標題顏色都可以自己設定，會設成黑黃純粹是個人喜好XD。 第二欄準備中後面有個括弧 2，指的就是我給自己設定的 WIP，也就是說在準備中的工作事項不能超過兩個，有空位的時候才能從待進行工作拉入新的工作事項。同理，正在進行的工作的 WIP 也是設為 1，我的個人事務在一個衝刺時間內只做一項。 Ora 特別的地方在於說他的 List 有分為四種狀態：分別是 Frozen、Open、Review、Closed/Compledte，前兩者主要是控制這個 List 內的工作事項在 My Tasks 中是否可見，切換成 My Tasks 可以看到已被拉入 Open 的工作事項： <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora2.jpg" alt="Ora2.jpg"> 我在 MyLife 中把「看板方法讀書心得」拉入了準備中的這個 List，而這 List 的狀態是 Open，所以「看板方法讀書心得」的工作事項就會出現在 My Tasks 的 Inbox 裡面，最後我再從 Inbox 移動到要哪一天進行，這樣就能分配我今天、明天甚至是後天要做什麼。 專案的部分概念相同，理論上會有一個產品待辦項目，來紀錄這個專案需要開發的所有功能，把產品待辦項目拆解後就會進入衝刺工作項目，也就是在設定好的一個工作週期要來進行的任務，當中專案負責人會依據客戶需求來決定衝刺工作項目的開發順序， <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora3.jpg" alt="Ora3.jpg"> 同樣的，在預備跟開發-進行中的 List 後面也都有 (2) 的提示，代表這兩個階段只能接兩個工作事項，到了開發完成後後面還有一個 List 是測試，測試的內容就是要根據預備階段時整理好的測試案例來進行功能測試，沒問題後就可以 Demo 給客戶驗收。 驗收的結果有可能是需要修改，這時候就專案經理就要詢問客戶的意見，看是要先修改這個剛完成的項目還是繼續開發其他功能，藉此來決定接下來是哪個工作事項要進入預備階段。 <img src="https://oberonlai.blog/wp-content/uploads/2019/01/ora4.jpg" alt="Ora4.jpg"> Ora 還有許多功能，像是有開啟計時的話就會有上圖的報告，它也可以設定 Sprint Points，就可以在 Spring Review 那邊看到數據，但我還不太了解 Sprint 的理論與應用方法，日後再行補上。 可惜的是，Ora 沒有提供 WIP 的設定，所以也就沒有書中提到最重要的「累積流程圖 CFD」，這圖可以看出專案有沒有失控，尤其是接了太多根本做不完的需求，或是從中發現 WIP 的設定是否恰當，但以個人的專案來說，這套工具算是還夠用。 在預備階段的文件製作，作者提到需要製作系統文件以及測試案例的資料，看了很久一直不知道到底該怎麼撰寫，結果在書末的附錄就有完整的示範，然後又在 Google 的時候直接發現作者 Ruddy 大大的<a target="_blank" rel="noopener" href="https://ruddyblog.wordpress.com/2016/07/16/%E9%9C%80%E6%B1%82%E8%AE%8A%E5%8C%96%E5%A4%AA%E9%81%8E%E9%A0%BB%E7%B9%81/">這篇文章</a>，裡面提到一個工具叫做 <a target="_blank" rel="noopener" href="https://www.featuremap.co/">FeatureMap</a> 可以非常容易的做出 User Story Mapping 的展開圖，實在是非常方便，這次的專案就打算用它來練習撰寫測試案例。</p>
-<h1 id="個人心得"><a href="#個人心得" class="headerlink" title="個人心得"></a>個人心得</h1><p>看完這本書之後，告訴自己希望可以做到以下這些事：</p>
-<ol>
-<li> 找到答案複製貼上，不明白為何這樣寫，也許會造成其他問題也不知道， 還是要搞懂，然後把不需要的 code 拿掉</li>
-<li> 每個功能的流程要搞清楚，梳理出文件來確保沒有遺漏的狀態</li>
-<li> 常用的功能流程就差不多，沒做過的功能要特別注意</li>
-<li> 要學會寫文件交接給自己</li>
-<li> 從新檢視自己寫的東西進行重構，才能學到越多</li>
-<li> 做完一個工作事項再拉一個進來，就能看到目前累積的工作量</li>
-<li> 需要做決策時用七大原則來檢視目前的狀況</li>
-<li> 從既有流程進行小規模改善</li>
-<li> 功能一寫完就進行測試，別等到全部做完後再回來修改， 這樣可以提升交付程式的品質</li>
-<li> 工作事項要完成的前提是要經過測試</li>
-</ol>
-<p>感謝 Ruddy 大大的這本好書，接下來就是要進攻自動化測試喔喔喔～ 附上老師的部落格，裡面超有料—&gt;<a target="_blank" rel="noopener" href="https://ruddyblog.wordpress.com/">https://ruddyblog.wordpress.com</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3247,7 +3271,7 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">306</span>
+          <span class="site-state-item-count">307</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -3308,12 +3332,12 @@ add_filter( &#39;wp_mail_from_name&#39;, &#39;wpb_sender_name&#39; );<span aria-
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">791k</span>
+    <span title="總字數">794k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11:59</span>
+    <span title="所需總閱讀時間">12:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
