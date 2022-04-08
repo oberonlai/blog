@@ -17732,4 +17732,40 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>WordPress 接案</category>
       </categories>
   </entry>
+  <entry>
+    <title>WooCommerce 購物流程客製化 2.0</title>
+    <url>/tw/woocommerce-store-api/</url>
+    <content><![CDATA[<p>雖然說 WooCommerce 有提供非常多彈性客製化的空間，但基本上還是脫離不了內建的結帳流程與操作介面，縱使可以透過直接修改相關頁面的範本檔來達成目的，但還是有可能會因為範本檔的更新而必須調整已經製作好的內容，這對於想要打造全客製化的購物體驗會是一種限制，該如何在保有 WooCommerce 強大的後台管理功能同時卻還能讓前台介面有高度客製化的彈性呢？</p>
+<p>WooCommerce 官方部落格近期宣佈 Store API 進入穩定版，並且會在即將發佈的版本中內建這套 API。當我第一眼看到 Store API 的時候覺得納悶，不是早就已經有 WooCommerce REST API 為何還需要另外搞一套？研究後才發現這是為了實現在區塊編輯器中置入 WooCommerce 區塊而開發的，其中還包含了購物車與結帳頁：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-02.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-03.jpg"></p>
+<span id="more"></span>
+
+<p>這支外掛叫做 <a href="https://wordpress.org/plugins/woo-gutenberg-products-block/">WooCommerce Block</a>，已經發展的相當完整，可以看到以往如果想要在購物車頁增加內容或是調整結帳欄位，都需要透過勾點來進行客製化調整，而在區塊編輯器之中可以在右邊區塊設定來直接控制結帳欄位的顯示與否，甚至修改每個區塊的標題以及加入圖片或是文字段落，這對過去以短代碼為主的呈現方式來說，WooCommerce Block 一整個是大進化！</p>
+<p>然後我做了一個大膽的嘗試，我把商品列表、購物車以及結帳區塊全部都塞在同一個頁面，當我加入點擊加入購物車按鈕或是改變購物車內的商品數量時，下方結帳區塊的金額竟然也會同時變動！(大驚)</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-05.gif"></p>
+<p>如果你是想要做那種一頁式的銷售頁面再也不用裝其他外掛了，只要用 WooCommerce Block 就能一次搞定！但是，又是這個但是，我實測過目前台灣常用的金物流以及電子發票外掛都還不支援，在使用結帳頁區塊時它會跳出一個警示說明，告訴你目前他們目前有支援的外掛，大部分都還是他們自己家的居多：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-06.jpg"></p>
+<p>完整列表見此：<br><a href="https://woocommerce.com/document/cart-checkout-blocks-support-status/">https://woocommerce.com/document/cart-checkout-blocks-support-status/</a></p>
+<p>因此目前這支外掛的結帳區塊要在台灣實戰可能還有一段路要走，只能仰賴各位開發者大大們的努力了~</p>
+<p>回到一開始提到的 Store API，之所以可以不用短代碼就能實現這些功能背後就是靠它，與原有的 WC REST API 不同，它主要是靠 Cookie 來辨識當下的使用者，而 Store API 多了最重要的購物車與結帳，同時它是不用授權就能存取的。</p>
+<p>看到關鍵字「不用授權」了嗎？也就是說如果你今天逛一個用 WC 架設的電商網站，我就可以直接用 Store API 取得該站的商品列表並完成結帳，往正面的方面想這是聯盟行銷的一大利器，如果我覺得這個站的商品很不錯，我可以在自己的站開發一個購買介面讓我的瀏覽者購買該站的商品，這樣就不用另外做導購進而降低跳出後的轉換率流失。</p>
+<p>更進一步我們可以用前端框架來打造全客製化的結帳體驗，甚至是手機 APP 也會非常適合，擺脫了 WooCommerce 的範本限制就能自由打造使用者介面，它一共用 20 個功能可以操作：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-07.jpg"></p>
+<p>除了基本的購物車新增/刪除商品、套用折價券外，最關鍵的就是 checkout 結帳這一支，根據 Github 的範例只要帶上 billing_address、shipping_address 以及 payment_method 就能完成結帳，另外為了驗證請求來源還需要帶上 Nonce，這樣就能透過 Store API 完成結帳：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/woocommerce-store-api/woocommerce-store-api-08.jpg"></p>
+<p>另外 Store API 有一些限制，首先，它沒有辦法從 User ID 去指定要結帳的顧客是誰，它只能從當下發出 API 請求的客戶端紀錄 Cookie 來辨識是使用者，其次，它也無法修改商店的資料或是設定選項，有這需求的話還是要透過 WC REST API 來處理。</p>
+<p>Store API 主要是用來做資料的傳遞，基於安全性的考量不要用它回傳的內容來做介面的輸出，介面的部分就交給前端框架像是 React.js 進行渲染。</p>
+<p>更多的使用說明可以參考以下連結：</p>
+<p>官方新聞<br><a href="https://developer.woocommerce.com/2022/03/25/store-api-is-now-considered-stable/">https://developer.woocommerce.com/2022/03/25/store-api-is-now-considered-stable/</a></p>
+<p>Github<br><a href="https://github.com/woocommerce/woocommerce-gutenberg-products-block/tree/trunk/src/StoreApi">https://github.com/woocommerce/woocommerce-gutenberg-products-block/tree/trunk/src/StoreApi</a></p>
+<p>有了這 API 可以幫 WooCommerce 打通任督二脈，有心的話想要開發類似 Shopify 或是開店平台也不成問題，大大提升了 WooCommerce 的運用場景，我非常期待接下來能看到各種的應用，同時也想再去更了解 WooCommerce Block 看如何把自己寫好的外掛整合進去，讓台灣的 WooCommerce 電商能獲得更完整的支援。</p>
+<p>補充：</p>
+<p>Github 上面的 WooCommerce Block 存放庫有提供整合金流教學，有開發者大大看到的話可以研究一下：</p>
+<p><a href="https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/extensibility/README.md">https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/extensibility/README.md</a></p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+  </entry>
 </search>
