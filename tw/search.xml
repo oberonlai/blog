@@ -17801,4 +17801,46 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
         <category>接案</category>
       </categories>
   </entry>
+  <entry>
+    <title>WooCommerce 台灣金流結帳區塊</title>
+    <url>/tw/taiwan-payments-for-wc-block/</url>
+    <content><![CDATA[<p>先前分享過 WordPress 目前積極在推動的 WooCommerce Blocks 區塊編輯器，裡面甚至包含了結帳頁的區塊，可以同步購物車的商品數量以及直接在編輯器中管理結帳欄位，但很可惜的是這個結帳區塊支援的金流外掛有限，更不用說是台灣的金流，因此決定自己先跳坑踩個雷來試著整合一下，實作效果如下：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-01.gif"></p>
+<p>如果你也想體驗看看的話可以依照以下步驟：</p>
+<span id="more"></span>
+
+<ol>
+<li>安裝 WooCommerce 6.4.0 版以上</li>
+<li>安裝 WooCommerce Blocks 7.4.0 版以上</li>
+<li>安裝 RY WooCommerce Tools  最新版</li>
+<li>下載 WooCommerce 台灣金流結帳區塊 <a href="https://github.com/oberonlai/taiwan-payments-for-wc-block/releases">taiwan-payments-for-wc-block.zip </a></li>
+<li>啟用以上四支外掛</li>
+<li>啟用 RY Tools 綠界金流模組</li>
+<li>WooCommerce 付款方式啟用綠界信用卡</li>
+<li>將結帳頁面的短代碼移除，改用 checkout 區塊</li>
+</ol>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-02.jpg"></p>
+<p>順利的話就可以在 4. Payment Options 的地方看到綠界信用卡的選項：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-03.jpg"></p>
+<p>目前這支外掛只支援綠界信用卡的選項，其他付款方式都還沒整合，所以就先幫我玩玩就好，如果你想用在正式環境的話建議是不要，我接下來會陸續整合其他的台灣金流外掛，有任何想法再跟我說吧，以下是寫給開發者看的內容：</p>
+<h2 id="整合-WooCommerce-Blocks-payment-method-心得"><a href="#整合-WooCommerce-Blocks-payment-method-心得" class="headerlink" title="整合 WooCommerce Blocks payment method 心得"></a>整合 WooCommerce Blocks payment method 心得</h2><p>心得一句話：「真是天殺的難搞！」</p>
+<p>可能東西還很新吧，相關的教學都還只有官方的 Github 說明，而裡面的範例給的是 WooCommerce Stripe Plugin 帶有 52 個檔案變動的 Pull Request，還需要自己爬哪裡用到關鍵的 Hook 跟 Class，然後因為 Stripe 這支外掛結構滿大的，研究起來花了不少時間，後來索性去看 WooCommerce 內建的付款方式是如何整合。</p>
+<p>但下場也沒好到哪裡去，woocommerce-gutenberg-products-block 裡面東西更多，引入 block 的方式跟官方文件又有些許不同，於是去抓目前已經有支援結帳區塊的金流外掛，最後找到 woocommerce-gateway-eway 這支，它的結構相對單純好理解得多。</p>
+<p>整合過程中踩到以下幾個雷：</p>
+<h3 id="1-找不到抽象類別-AbstractPaymentMethodType"><a href="#1-找不到抽象類別-AbstractPaymentMethodType" class="headerlink" title="1. 找不到抽象類別 AbstractPaymentMethodType"></a>1. 找不到抽象類別 AbstractPaymentMethodType</h3><p>整合的方式跟建立金流很像，也是需要繼承一支類別來給定對應的方法，但不管是用 autoload 還是 require 的方式載入，都無法抓到 WooCommerce Blocks 裡面 AbstractPaymentMethodType 這個類別：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-04.jpg"></p>
+<p>我是直接複製貼上文件裡面的 namespace，想說都完全照貼了怎麼可能還會有錯，搞了好久想說從別的外掛複製看看，才驚覺文件裡面的路徑寫錯，Integration 少了一個 s…</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-05.jpg"></p>
+<p>這告訴我官方文件不一定是 100% 正確的…</p>
+<h3 id="2-缺少類別判斷"><a href="#2-缺少類別判斷" class="headerlink" title="2. 缺少類別判斷"></a>2. 缺少類別判斷</h3><p>發現上述問題後以為接下來就海闊天空了，但事情沒那麼簡單，我習慣用 autoload 來載入 PHP 檔案，但發現如果直接在外掛的主檔案做載入的話，依舊抓不到 AbstractPaymentMethodType，後來文件裡面有寫因為載入順序的話，必須要先判斷該類別是否存在，有存在的話才進行載入，實驗過正確的寫法如下：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-06.jpg"></p>
+<h3 id="3-Webpack-編譯環境"><a href="#3-Webpack-編譯環境" class="headerlink" title="3. Webpack 編譯環境"></a>3. Webpack 編譯環境</h3><p>本來想打算用官方的 @wordpress/create-block 來做，但知道他是根據 create-react-app 而來的所以應該很肥，因此想說自己來配置 Webpack 環境，無奈東西太多且相關的知識還遠遠不足，目前第一版外掛 JS 的編譯部分我完全沒處理，我是作弊直接拿 WooCommerce 內建的 BankTransfer 編譯過的 JavaScript 來改XD，關鍵在 name 的這個地方要改成跟金流類別裡面同樣的 id 名稱：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-07.jpg"></p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/taiwan-payments-for-wc-block/taiwan-payments-for-wc-block-08.jpg"></p>
+<p>詳細的外掛結構可以參考 Github 存放庫，我會繼續把 Webpack 的環境配置給搞懂，到時候再把它開源出來，希望透過這樣的拋磚可以讓開發者大大們願意嘗試整合 WooCommerce Blocks，重點是可以一起交流研究，不然光是少了 s 的那一關我就快被逼瘋了~</p>
+]]></content>
+      <categories>
+        <category>WooCommerce</category>
+      </categories>
+  </entry>
 </search>
