@@ -210,6 +210,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-plugin-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/wordpress-plugin-template/" class="post-title-link" itemprop="url">WordPress 外掛與前端整合 - 範本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-11-26 11:00:00 / 修改時間：11:55:20" itemprop="dateCreated datePublished" datetime="2021-11-26T11:00:00+08:00">2021-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/wordpress-%E5%A4%96%E6%8E%9B%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">wordpress 外掛開發</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/wordpress-%E5%A4%96%E6%8E%9B%E9%96%8B%E7%99%BC/%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/" itemprop="url" rel="index"><span itemprop="name">佈景主題</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/wordpress-%E5%A4%96%E6%8E%9B%E9%96%8B%E7%99%BC/%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/template-%E7%AF%84%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">template 範本</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>近期我寫了一套給開發者&amp;自己用的套件，主要功能是簡化外掛開發時載入佈景主題範本的需求，以往在學習開發佈景主題時，常會看到下面這張圖來解釋 WordPress 範本的繼承關係：</p>
+<p><img src="https://developer.wordpress.org/files/2014/10/Screenshot-2019-01-23-00.20.04.png"></p>
+<p>這張圖很完整的說明當使用者造訪特定頁面時會對應的範本檔，這方面的知識可以參考 WordCamp Taipei 2019 的這場分享：「<a target="_blank" rel="noopener" href="https://wordpress.tv/2020/06/08/barry-lin-wordpress-%E5%88%9D%E5%AD%B8%E8%80%85%E4%B8%96%E7%95%8C%EF%BC%8C%E4%BD%88%E6%99%AF%E7%B5%90%E6%A7%8B%E6%A6%82%E5%BF%B5%E8%AB%87%EF%BC%81-theme-hierarchy-for-beginners/">Barry Lin: WordPress 初學者世界，佈景結構概念談！</a>」。既然範本檔主要是佈景主題在設計前台畫面使用的，跟開發外掛有什麼關係呢？事實上在實務中還滿常碰到的，像是如果你的外掛有新增自定義文章，就會需要設計該文章的範本，可能是文章內頁或是彙整頁。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tw/wordpress-plugin-template/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/recruit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2135,94 +2232,6 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/woocommerce-payment-local-development/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/woocommerce-payment-local-development/" class="post-title-link" itemprop="url">WooCommerce 金流串接實戰（二）- 開發環境</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-09-17 09:00:00 / 修改時間：09:10:35" itemprop="dateCreated datePublished" datetime="2021-09-17T09:00:00+08:00">2021-09-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WooCommerce/" itemprop="url" rel="index"><span itemprop="name">WooCommerce</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>6k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>5 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在自己的電腦中建立一個 WordPress 需要的材料有 PHP、Apache or Nginx 以及 MySql，如果不想手動各別安裝，市面上也有很多現成的免費套裝軟體可以把這些環境自動建置起來，而且還可以根據自己的需要切換不同的版本，然後只要下載 WordPress、伺服器設定、資料庫連線等一系列步驟，就能在本機架設好 WordPress 網站。</p>
-<p>由於這幾年全代管 WordPress 網站主機的服務盛行，這些廠商為了增加市占率，提供給開發者免費的軟體來建置本機環境，除了已經內建基本服務外，最方便的是一鍵就能建立網站，所有的伺服器、資料庫連線設定它都已經幫我們處理好，然後當做完後點選部署，直接就能把網站上傳到他們的主機上，省去所有部署的繁瑣流程，關鍵字搜尋「local wordpress development」就能找到很多這類軟體。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/woocommerce-payment-local-development/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2293,7 +2302,7 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2354,12 +2363,12 @@ wp_woocommerce_tax_rates<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">805k</span>
+    <span title="總字數">807k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:12</span>
+    <span title="所需總閱讀時間">12:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
