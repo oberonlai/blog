@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/02/xka1Yj-1024x576.jpg">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/02/CleanShot-2020-02-07-at-11.23.07.jpg">
 <meta property="article:published_time" content="2020-04-02T08:30:00.000Z">
-<meta property="article:modified_time" content="2022-01-15T04:47:07.838Z">
+<meta property="article:modified_time" content="2022-05-02T04:05:53.125Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-01-15 12:47:07" itemprop="dateModified" datetime="2022-01-15T12:47:07+08:00">2022-01-15</time>
+                <time title="修改時間：2022-05-02 12:05:53" itemprop="dateModified" datetime="2022-05-02T12:05:53+08:00">2022-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,13 +263,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>6k</span>
+              <span>6.9k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>5 分鐘</span>
+              <span>6 分鐘</span>
             </span>
 
         </div>
@@ -300,7 +300,7 @@
 </blockquote>
 <p>ValetPress 方便之處在於作者 Aaron Rutley 把一些常用的流程都寫好指令了，像是下載 WP、建 DB、設定帳號密碼等等，要改寫成自己的也非常容易，比照辦理就行，最常用的指令是 vp create，也就是新增一個站，輸入後就會用問答式的介面來引導你，</p>
 <p>他的指令內容也非常淺顯易懂，節錄如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">if \[ $1 &#x3D; &quot;create&quot; \]; then
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if \[ $1 &#x3D; &quot;create&quot; \]; then
 cd ~&#x2F;Sites
 echo &quot;$&#123;VP\_BOLD&#125;ValetPress, create new site $&#123;VP\_NONE&#125;&quot;
 echo &quot;$&#123;VP\_YELLOW&#125;Project Name:$&#123;VP\_NONE&#125;&quot;
@@ -329,31 +329,46 @@ cd ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F
 npm install
 echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running Gulp (default)&quot;
 gulp
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+fi
+&#96;&#96;&#96;&#96;&#96;&#96;
 
-<p>關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。</p>
-<p>如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～</p>
-<h2 id="ValetPress-安裝步驟"><a href="#ValetPress-安裝步驟" class="headerlink" title="ValetPress 安裝步驟"></a>ValetPress 安裝步驟</h2><p>相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：</p>
-<h3 id="一、安裝-Homebrew"><a href="#一、安裝-Homebrew" class="headerlink" title="一、安裝 Homebrew"></a>一、安裝 Homebrew</h3><p><a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">Homebrew</a> 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝</p>
-<p>$ /bin/bash -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;">https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</a></p>
+關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。
+
+如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～
+
+## ValetPress 安裝步驟
+
+相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：
+
+### 一、安裝 Homebrew
+
+[Homebrew](https:&#x2F;&#x2F;brew.sh&#x2F;index_zh-tw) 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝
+
+&#96;&#96;&#96;shell
+$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>安裝完成後，先確認 brew 可以正確執行，</p>
-<p>$ brew update</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>如果執行 brew update 發生錯誤，要先把別名加入 .bash_profile，</p>
-<p>$ open .bash_profile</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ open .bash\_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>輸入上面的指令後會打開一個文字檔，在檔案的最下面加入以下文字：</p>
 <blockquote>
 <p>export PATH=”/usr/local/bin:$PATH”</p>
 </blockquote>
 <p>確認 brew update 可以正確執行後就可以進入到下一步了！</p>
 <h3 id="二、安裝-PHP-amp-Composer"><a href="#二、安裝-PHP-amp-Composer" class="headerlink" title="二、安裝 PHP&amp;Composer"></a>二、安裝 PHP&amp;Composer</h3><p>先使用 Homebrew 安裝 PHP，再安裝 PHP 套件管理系統 Composer：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ brew install php
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew install php
 $ brew install composer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="三、安裝-MySql"><a href="#三、安裝-MySql" class="headerlink" title="三、安裝 MySql"></a>三、安裝 MySql</h3><p>Valet 官方文件是安裝 MySql 5.7，個人是習慣裝 Mariadb：</p>
-<p><code>$ brew install mariadb</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew install mariadb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>狀況來了，當我要 mysql -u root 的時候，會出現時 <strong>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)，</strong></p>
 <p>爬了一堆解，試了一堆方法都還是行不通，最後發現到如果是透過 Homebrew 安裝的只要執行以下指令即可：</p>
-<p><code>$ mysql.server start</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mysql.server start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>再次登入 mysql -u root 出現 **’Access denied for user ‘root’@’localhost’**，查了之後說是權限不夠，可以用 sudo 來執行，但 ValetPress 的腳本我試過加 sudo 還是過不了，解決辦法是先用 sudo 進入後去修改 root 的密碼為空值：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
 <span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> <span class="token operator">=</span> password<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -361,40 +376,76 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>完成後重新啟用即可。</p>
-<pre class="line-numbers language-none"><code class="language-none">$ brew services restart MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew services restart MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="四、安裝-Valet"><a href="#四、安裝-Valet" class="headerlink" title="四、安裝 Valet"></a>四、安裝 Valet</h3><p>使用 composer 下載 valet 套件：</p>
 <p>$ composer global require laravel/valet</p>
 <p>下載依賴套件中…</p>
 <p><img src="https://oberonlai.blog/wp-content/uploads/2020/02/CleanShot-2020-02-07-at-11.23.07.jpg"></p>
 <p>上面那一堆跑完後開始安裝 Valet：</p>
-<p>$ valet install</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ valet install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>這時候出現 <strong>zsh: command not found: valet</strong> 的錯誤訊息，要讓 valet 可以全域使用，必須要 export 才行，我的環境是用 zsh，所以要打開 .zshrc 來加入設定：</p>
-<p>$ open ~/.zshrc</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ open ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>系統會開啟一個文字檔，然後加入下方文字：</p>
-<p>export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/user/.composer/vendor/bin:$PATH</p>
+<pre class="line-numbers language-none"><code class="language-none">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;sbin:&#x2F;Users&#x2F;user&#x2F;.composer&#x2F;vendor&#x2F;bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>.zshrc 有任何修改記得要跑一次 source 才會套用更新：</p>
-<p>$ source ~/.zshrc</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ source ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>加入後再次 valet install，會出現 <strong>stopping Nginx</strong> 的訊息，代表正在啟用 valet 中，但如果出現 <strong>Homebrew PHP appears not to be linked.</strong> 代表 Homebrew 沒有連結到正確的 PHP，輸入以下指令來產生連結：</p>
-<p>$ brew link php –force</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew link php --force<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>再次輸入 valet install 即可啟用 Valet。Valet 預設情況下它會在背景執行，所以如果要連上測試站的話，再也不用像以前啟用 MAMP、Docker、Local 要等上一段時間，只要一開機 Valet 就會自動啟用。</p>
 <h3 id="五、安裝-WP-CLI"><a href="#五、安裝-WP-CLI" class="headerlink" title="五、安裝 WP-CLI"></a>五、安裝 WP-CLI</h3><p><a target="_blank" rel="noopener" href="https://wp-cli.org/#installing">WP CLI</a> 是超強大又實用的指令工具，可以從系統底層對 WordPress 上下其手，可以參考官方的安裝方式也可以使用 Homebrew 來安裝：</p>
-<p>$ brew install wp-cli</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew install wp-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>裝完後記得把 wp 關鍵字加入到個人設定檔中，這樣就可以用 wp –info 這樣的簡寫來操作它。</p>
-<p>$ chmod +x wp-cli.phar<br>$ sudo mv wp-cli.phar /usr/local/bin/wp</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ chmod +x wp-cli.phar
+$ sudo mv wp-cli.phar &#x2F;usr&#x2F;local&#x2F;bin&#x2F;wp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="六、下載-ValetPress"><a href="#六、下載-ValetPress" class="headerlink" title="六、下載 ValetPress"></a>六、下載 ValetPress</h3><p>上面環境都完成後，主角 ValetPress 要登場了 。先在本機 user 目錄新開一個隱藏目錄叫做「 .valetpress」 與一般目錄 「Sites」 資料夾，前者是放 ValetPress 自動化腳本，後者是之後新建 WordPress 站的網站目錄。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/AaronRutley/valetpress/archive/master.zip">下載 ValetPress</a> <a target="_blank" rel="noopener" href="https://github.com/AaronRutley/valetpress/archive/master.zip">原始</a><a target="_blank" rel="noopener" href="https://github.com/AaronRutley/valetpress/archive/master.zip">檔</a>，解壓縮後放入這個 /yourmacusername/.valetpress 這個目錄中，然後 .zshrc 要引入這個 valetpress 這個檔案，先打開 zsh 設定檔</p>
-<p>$ open ~/.zshrc</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ open ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>加入以下判斷式：</p>
-<p>if [ -f ~/.valetpress/valetpress ]; then<br>    source ~/.valetpress/valetpress<br>else<br>    print “404: ~/.valetpress/valetpress not found.”<br>fi</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if \[ -f ~&#x2F;.valetpress&#x2F;valetpress \]; then
+    source ~&#x2F;.valetpress&#x2F;valetpress
+else
+    print &quot;404: ~&#x2F;.valetpress&#x2F;valetpress not found.&quot;
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>一樣，設定檔改好後記得要跑 source 才會更新，如果你有自己改寫 valetpress 也記得要 soruce 一下：</p>
-<p>$ source ~/.zshrc</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ source ~&#x2F;.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="七、打完收工"><a href="#七、打完收工" class="headerlink" title="七、打完收工"></a>七、打完收工</h3><p>輸入指令以及專案名稱，接下來可以就享受秒速建置本機環境的爽快感啦～但前提是要先記得把你的 repo 換上，ValetPress 內建的是 Private Repo。</p>
-<p>$ vp create</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ vp create<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>輸入後會出現問答式的安裝介面，安裝完成後，正當以為一切都已經搞定，結果連上測試網站的網址一直給我 <strong>404 not found</strong>…</p>
 <p>查了之後才知道要做 link：先把目錄切換到 Sites/projectname，然後 valet link projectname，然後 valet restart 即可，這一步驟我自己是已經把它寫在 Valetpress 裡面了，另外還有網站加密，加入以下腳本：</p>
-<p>echo “Valet Link Project”<br>cd ~/Sites/“$project_name”/<br>valet link $project_name<br>valet secure $project_name</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo &quot;Valet Link Project&quot;
+cd ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;
+valet link $project\_name
+valet secure $project\_name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在做 valet link 的時候會需要入 Mac 使用者密碼，輸入後就會自動完成連結，這樣就大功告成啦～</p>
+<h3 id="八、移動網站根目錄"><a href="#八、移動網站根目錄" class="headerlink" title="八、移動網站根目錄"></a>八、移動網站根目錄</h3><p>預設的情況下 Sites 的根目錄會放在使用者的資料夾底下，但最近為了想把原始碼做額外的異地備份，我希望可以讓整個 Sites 也能被同步到雲端，評估之下我最後選擇的備份環境是 iCloud，先將路徑切換到 iCloud 的根目錄：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cd &#x2F;Users&#x2F;yourusername&#x2F;Library&#x2F;Mobile Documents&#x2F;com~apple~CloudDocs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>所以我先在裡面開了 Sites 資料夾然後把已經建立的站移過去，但移過去後網站就打不開了，需要讓 valet 多做一個 park 的動作，在 iCloud 的目錄下執行 park：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~&#x2F;Library&#x2F;Mobile Documents&#x2F;com~apple~CloudDocs&#x2F;Sites $ valet park<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或是也可以開啟 ~/.config/valet/config.json 把 paths 加入 iCloud 的資料夾路徑，這樣就可以讓 valet 認得這個路徑裡面的網站了～</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"tld"</span><span class="token operator">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+    <span class="token property">"loopback"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"paths"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"/Users/yourusername/.config/valet/Sites"</span><span class="token punctuation">,</span>
+        <span class="token string">"/Users/yourusername/Library/Mobile Documents/com~apple~CloudDocs/Sites"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>目前使用 ValetPress 在兩個專案中，還沒有發生什麼狀況，網站整體速度也不錯，最感動的是硬碟沒有日益增肥，希望它可以陪我長長久久，不想再為了本機環境燒腦了 Orz…</p>
 
         <hr>
@@ -487,7 +538,7 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Valet%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什麼是 Valet？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valet%E3%80%81Valet-Plus%E3%80%81ValetPress%E3%80%81ValetXXX"><span class="nav-number">3.</span> <span class="nav-text">Valet、Valet Plus、ValetPress、ValetXXX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ValetPress-%E5%AE%89%E8%A3%9D%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.</span> <span class="nav-text">ValetPress 安裝步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%9D-Homebrew"><span class="nav-number">4.1.</span> <span class="nav-text">一、安裝 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%9D-PHP-amp-Composer"><span class="nav-number">4.2.</span> <span class="nav-text">二、安裝 PHP&amp;Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%9D-MySql"><span class="nav-number">4.3.</span> <span class="nav-text">三、安裝 MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%9D-Valet"><span class="nav-number">4.4.</span> <span class="nav-text">四、安裝 Valet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%9D-WP-CLI"><span class="nav-number">4.5.</span> <span class="nav-text">五、安裝 WP-CLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E8%BC%89-ValetPress"><span class="nav-number">4.6.</span> <span class="nav-text">六、下載 ValetPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%89%93%E5%AE%8C%E6%94%B6%E5%B7%A5"><span class="nav-number">4.7.</span> <span class="nav-text">七、打完收工</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-number">5.</span> <span class="nav-text">心得</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Valet%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什麼是 Valet？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valet%E3%80%81Valet-Plus%E3%80%81ValetPress%E3%80%81ValetXXX"><span class="nav-number">3.</span> <span class="nav-text">Valet、Valet Plus、ValetPress、ValetXXX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%9D-PHP-amp-Composer"><span class="nav-number">3.1.</span> <span class="nav-text">二、安裝 PHP&amp;Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%9D-MySql"><span class="nav-number">3.2.</span> <span class="nav-text">三、安裝 MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%9D-Valet"><span class="nav-number">3.3.</span> <span class="nav-text">四、安裝 Valet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%9D-WP-CLI"><span class="nav-number">3.4.</span> <span class="nav-text">五、安裝 WP-CLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E8%BC%89-ValetPress"><span class="nav-number">3.5.</span> <span class="nav-text">六、下載 ValetPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%89%93%E5%AE%8C%E6%94%B6%E5%B7%A5"><span class="nav-number">3.6.</span> <span class="nav-text">七、打完收工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%A7%BB%E5%8B%95%E7%B6%B2%E7%AB%99%E6%A0%B9%E7%9B%AE%E9%8C%84"><span class="nav-number">3.7.</span> <span class="nav-text">八、移動網站根目錄</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text">心得</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -563,12 +614,12 @@ quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">807k</span>
+    <span title="總字數">808k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:13</span>
+    <span title="所需總閱讀時間">12:14</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
