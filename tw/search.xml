@@ -2432,6 +2432,7 @@ valet secure $project\_name<span aria-hidden="true" class="line-numbers-rows"><s
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>目前使用 ValetPress 在兩個專案中，還沒有發生什麼狀況，網站整體速度也不錯，最感動的是硬碟沒有日益增肥，希望它可以陪我長長久久，不想再為了本機環境燒腦了 Orz…</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>2022 年的現在我換了新 MBP 擁有 1TB 的硬碟，但我還是繼續使用著 ValetPress，能夠高度客製化是讓我離不開它的原因，更不用說新電腦的執行效能跑 Valet 依舊是順暢到爆表，現在當我在本機開發完後推上測試機會很不適應遠端主機的後台執行速度，只能說都是被 Valet 給寵壞了XD</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
