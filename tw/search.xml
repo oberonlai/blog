@@ -2288,52 +2288,49 @@ function scrollIndicatior() &#123;
 </blockquote>
 <p>ValetPress 方便之處在於作者 Aaron Rutley 把一些常用的流程都寫好指令了，像是下載 WP、建 DB、設定帳號密碼等等，要改寫成自己的也非常容易，比照辦理就行，最常用的指令是 vp create，也就是新增一個站，輸入後就會用問答式的介面來引導你，</p>
 <p>他的指令內容也非常淺顯易懂，節錄如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if \[ $1 &#x3D; &quot;create&quot; \]; then
-cd ~&#x2F;Sites
-echo &quot;$&#123;VP\_BOLD&#125;ValetPress, create new site $&#123;VP\_NONE&#125;&quot;
-echo &quot;$&#123;VP\_YELLOW&#125;Project Name:$&#123;VP\_NONE&#125;&quot;
-read project\_name
-mkdir &quot;$project\_name&quot;
-cd &quot;$project\_name&quot;
-mysql -uroot -e &quot;create database \\\&#96;$project\_name\\\&#96;&quot;
-wp core download
-wp core config --dbname&#x3D;&quot;$project\_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1
-wp core install --url&#x3D;&quot;$project\_name&quot;.dev --title&#x3D;&quot;$project\_name&quot;.dev --admin\_user&#x3D;&quot;$project\_name&quot;  --admin\_password&#x3D;password --admin\_email&#x3D;wordpress@wordpress.org
-rm -rf wp-content
-git clone https:&#x2F;&#x2F;aaronrutley@bitbucket.org&#x2F;aaronrutley&#x2F;turbo-light.git wp-content
-cd wp-content
-rm -rf .git
-git init
-eval mv ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;turbo-light ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
-wp theme activate &quot;$project\_name&quot;
-wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering
-wp plugin update --all
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Project Created: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;$&#123;VP\_NONE&#125;&quot;
-echo &quot;L: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;wp-admin&#x2F;$&#123;VP\_NONE&#125;&quot;
-echo &quot;U: $project\_name&quot;
-echo &quot;P: password&quot;
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running NPM install&quot;
-cd ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
-npm install
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running Gulp (default)&quot;
-gulp
-fi
-&#96;&#96;&#96;&#96;&#96;&#96;
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ $1 &#x3D; &quot;create&quot; ]; then
+	cd ~&#x2F;Sites
+	echo &quot;$&#123;VP_BOLD&#125;ValetPress, create new site $&#123;VP_NONE&#125;&quot;
+	echo &quot;$&#123;VP_YELLOW&#125;Project Name:$&#123;VP_NONE&#125;&quot;
+	read project_name
+	mkdir &quot;$project_name&quot;
+	cd &quot;$project_name&quot;
+	echo &quot;$&#123;VP_YELLOW&#125;DB Prefix:$&#123;VP_NONE&#125;&quot;
+	read dbprefix
+	mysql -uroot -e &quot;create database \&#96;$project_name\&#96;&quot;
+	wp core download --locale&#x3D;zh_TW --skip-content
+	wp core config --dbname&#x3D;&quot;$project_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1 --dbprefix&#x3D;&quot;$dbprefix&quot;
+	wp core install --url&#x3D;&quot;$project_name&quot;.test --title&#x3D;&quot;$project_name&quot;.test --admin_user&#x3D;&quot;$project_name&quot;  --admin_password&#x3D;password --admin_email&#x3D;wordpress@wordpress.org
+	git clone https:&#x2F;&#x2F;github.com&#x2F;oberonlai&#x2F;ods.git wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	eval mv ~&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;ods ~&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	cd wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	rm -rf .git
+	git init
+	wp theme activate &quot;$project_name&quot;
+	#wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering
+	#wp plugin update --all
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Project Created: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;$&#123;VP_NONE&#125;&quot;
+	echo &quot;L: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;wp-admin&#x2F;$&#123;VP_NONE&#125;&quot;
+	echo &quot;U: $project_name&quot;
+	echo &quot;P: password&quot;
+	echo &quot;Valet Link Project&quot;
+	cd ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com~apple~CloudDocs&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;
+	valet link $project_name
+	valet secure $project_name
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Updating&amp;Running NPM install&quot;
+	cd ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com~apple~CloudDocs&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	npm-upgrade
+	npm install
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Running Parcel Build&quot;
+	npm run build
+	#gulp
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。
-
-如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～
-
-## ValetPress 安裝步驟
-
-相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：
-
-### 一、安裝 Homebrew
-
-[Homebrew](https:&#x2F;&#x2F;brew.sh&#x2F;index_zh-tw) 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝
-
-&#96;&#96;&#96;shell
-$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。</p>
+<p>如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～</p>
+<h2 id="ValetPress-安裝步驟"><a href="#ValetPress-安裝步驟" class="headerlink" title="ValetPress 安裝步驟"></a>ValetPress 安裝步驟</h2><p>相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：</p>
+<h3 id="一、安裝-Homebrew"><a href="#一、安裝-Homebrew" class="headerlink" title="一、安裝 Homebrew"></a>一、安裝 Homebrew</h3><p><a href="https://brew.sh/index_zh-tw">Homebrew</a> 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安裝完成後，先確認 brew 可以正確執行，</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

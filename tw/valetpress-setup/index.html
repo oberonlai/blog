@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/02/xka1Yj-1024x576.jpg">
 <meta property="og:image" content="https://oberonlai.blog/wp-content/uploads/2020/02/CleanShot-2020-02-07-at-11.23.07.jpg">
 <meta property="article:published_time" content="2020-04-02T08:30:00.000Z">
-<meta property="article:modified_time" content="2022-05-02T04:05:53.125Z">
+<meta property="article:modified_time" content="2022-05-02T04:07:57.501Z">
 <meta property="article:author" content="賴俊吾 &#x2F; Oberon Lai">
 <meta property="article:tag" content="WordPress,PHP,WordPress 外掛開發,WordPress 佈景主題開發,WordPress 工程師,敏捷接案,時薪計價,專案管理">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-05-02 12:05:53" itemprop="dateModified" datetime="2022-05-02T12:05:53+08:00">2022-05-02</time>
+                <time title="修改時間：2022-05-02 12:07:57" itemprop="dateModified" datetime="2022-05-02T12:07:57+08:00">2022-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,13 +263,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>6.9k</span>
+              <span>7.3k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>6 分鐘</span>
+              <span>7 分鐘</span>
             </span>
 
         </div>
@@ -300,52 +300,49 @@
 </blockquote>
 <p>ValetPress 方便之處在於作者 Aaron Rutley 把一些常用的流程都寫好指令了，像是下載 WP、建 DB、設定帳號密碼等等，要改寫成自己的也非常容易，比照辦理就行，最常用的指令是 vp create，也就是新增一個站，輸入後就會用問答式的介面來引導你，</p>
 <p>他的指令內容也非常淺顯易懂，節錄如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if \[ $1 &#x3D; &quot;create&quot; \]; then
-cd ~&#x2F;Sites
-echo &quot;$&#123;VP\_BOLD&#125;ValetPress, create new site $&#123;VP\_NONE&#125;&quot;
-echo &quot;$&#123;VP\_YELLOW&#125;Project Name:$&#123;VP\_NONE&#125;&quot;
-read project\_name
-mkdir &quot;$project\_name&quot;
-cd &quot;$project\_name&quot;
-mysql -uroot -e &quot;create database \\\&#96;$project\_name\\\&#96;&quot;
-wp core download
-wp core config --dbname&#x3D;&quot;$project\_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1
-wp core install --url&#x3D;&quot;$project\_name&quot;.dev --title&#x3D;&quot;$project\_name&quot;.dev --admin\_user&#x3D;&quot;$project\_name&quot;  --admin\_password&#x3D;password --admin\_email&#x3D;wordpress@wordpress.org
-rm -rf wp-content
-git clone https:&#x2F;&#x2F;aaronrutley@bitbucket.org&#x2F;aaronrutley&#x2F;turbo-light.git wp-content
-cd wp-content
-rm -rf .git
-git init
-eval mv ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;turbo-light ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
-wp theme activate &quot;$project\_name&quot;
-wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering
-wp plugin update --all
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Project Created: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;$&#123;VP\_NONE&#125;&quot;
-echo &quot;L: $&#123;VP\_UNDERLINE&#125;http:&#x2F;&#x2F;$project\_name.dev&#x2F;wp-admin&#x2F;$&#123;VP\_NONE&#125;&quot;
-echo &quot;U: $project\_name&quot;
-echo &quot;P: password&quot;
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running NPM install&quot;
-cd ~&#x2F;Sites&#x2F;&quot;$project\_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project\_name&quot;
-npm install
-echo &quot;$&#123;VP\_GREEN&#125;Success:$&#123;VP\_NONE&#125; Running Gulp (default)&quot;
-gulp
-fi
-&#96;&#96;&#96;&#96;&#96;&#96;
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ $1 &#x3D; &quot;create&quot; ]; then
+	cd ~&#x2F;Sites
+	echo &quot;$&#123;VP_BOLD&#125;ValetPress, create new site $&#123;VP_NONE&#125;&quot;
+	echo &quot;$&#123;VP_YELLOW&#125;Project Name:$&#123;VP_NONE&#125;&quot;
+	read project_name
+	mkdir &quot;$project_name&quot;
+	cd &quot;$project_name&quot;
+	echo &quot;$&#123;VP_YELLOW&#125;DB Prefix:$&#123;VP_NONE&#125;&quot;
+	read dbprefix
+	mysql -uroot -e &quot;create database \&#96;$project_name\&#96;&quot;
+	wp core download --locale&#x3D;zh_TW --skip-content
+	wp core config --dbname&#x3D;&quot;$project_name&quot; --dbuser&#x3D;root --dbhost&#x3D;127.0.0.1 --dbprefix&#x3D;&quot;$dbprefix&quot;
+	wp core install --url&#x3D;&quot;$project_name&quot;.test --title&#x3D;&quot;$project_name&quot;.test --admin_user&#x3D;&quot;$project_name&quot;  --admin_password&#x3D;password --admin_email&#x3D;wordpress@wordpress.org
+	git clone https:&#x2F;&#x2F;github.com&#x2F;oberonlai&#x2F;ods.git wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	eval mv ~&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;ods ~&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	cd wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	rm -rf .git
+	git init
+	wp theme activate &quot;$project_name&quot;
+	#wp plugin activate advanced-custom-fields-pro minimal-admin bulk-page-creator simple-page-ordering
+	#wp plugin update --all
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Project Created: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;$&#123;VP_NONE&#125;&quot;
+	echo &quot;L: $&#123;VP_UNDERLINE&#125;https:&#x2F;&#x2F;$project_name.test&#x2F;wp-admin&#x2F;$&#123;VP_NONE&#125;&quot;
+	echo &quot;U: $project_name&quot;
+	echo &quot;P: password&quot;
+	echo &quot;Valet Link Project&quot;
+	cd ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com~apple~CloudDocs&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;
+	valet link $project_name
+	valet secure $project_name
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Updating&amp;Running NPM install&quot;
+	cd ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com~apple~CloudDocs&#x2F;Sites&#x2F;&quot;$project_name&quot;&#x2F;wp-content&#x2F;themes&#x2F;&quot;$project_name&quot;
+	npm-upgrade
+	npm install
+	echo &quot;$&#123;VP_GREEN&#125;Success:$&#123;VP_NONE&#125; Running Parcel Build&quot;
+	npm run build
+	#gulp
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。
-
-如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～
-
-## ValetPress 安裝步驟
-
-相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：
-
-### 一、安裝 Homebrew
-
-[Homebrew](https:&#x2F;&#x2F;brew.sh&#x2F;index_zh-tw) 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝
-
-&#96;&#96;&#96;shell
-$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>關鍵是 git clone 那邊，你可以把你自己常用的 theme、plugin 整理成一包 wp-content 丟到 GitHub 或是其他版控服務上，然後下面他幫你用 WP CLI 啟用該啟用的東西、以及順便處理更新。</p>
+<p>如果有用 NPM 還會自動 npm install，簡單說就是可以把平常自己的工作流程全都用這一支來進行自動化，這樣要建新的開發專案時只要下 vp create 之後就可以去泡茶了～</p>
+<h2 id="ValetPress-安裝步驟"><a href="#ValetPress-安裝步驟" class="headerlink" title="ValetPress 安裝步驟"></a>ValetPress 安裝步驟</h2><p>相較於 Local，用指令安裝東西好卡關，主要是 MySql 的部分一直起不來，還有最後 valet 的部分要 link 才可以正確連線，詳細安裝步驟如下：</p>
+<h3 id="一、安裝-Homebrew"><a href="#一、安裝-Homebrew" class="headerlink" title="一、安裝 Homebrew"></a>一、安裝 Homebrew</h3><p><a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">Homebrew</a> 是 MacOS 專用的套件管理系統，開啟終端機，輸入以下指令即可安裝</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ &#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安裝完成後，先確認 brew 可以正確執行，</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -538,7 +535,7 @@ valet secure $project\_name<span aria-hidden="true" class="line-numbers-rows"><s
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Valet%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什麼是 Valet？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valet%E3%80%81Valet-Plus%E3%80%81ValetPress%E3%80%81ValetXXX"><span class="nav-number">3.</span> <span class="nav-text">Valet、Valet Plus、ValetPress、ValetXXX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%9D-PHP-amp-Composer"><span class="nav-number">3.1.</span> <span class="nav-text">二、安裝 PHP&amp;Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%9D-MySql"><span class="nav-number">3.2.</span> <span class="nav-text">三、安裝 MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%9D-Valet"><span class="nav-number">3.3.</span> <span class="nav-text">四、安裝 Valet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%9D-WP-CLI"><span class="nav-number">3.4.</span> <span class="nav-text">五、安裝 WP-CLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E8%BC%89-ValetPress"><span class="nav-number">3.5.</span> <span class="nav-text">六、下載 ValetPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%89%93%E5%AE%8C%E6%94%B6%E5%B7%A5"><span class="nav-number">3.6.</span> <span class="nav-text">七、打完收工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%A7%BB%E5%8B%95%E7%B6%B2%E7%AB%99%E6%A0%B9%E7%9B%AE%E9%8C%84"><span class="nav-number">3.7.</span> <span class="nav-text">八、移動網站根目錄</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text">心得</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Valet%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什麼是 Valet？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valet%E3%80%81Valet-Plus%E3%80%81ValetPress%E3%80%81ValetXXX"><span class="nav-number">3.</span> <span class="nav-text">Valet、Valet Plus、ValetPress、ValetXXX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ValetPress-%E5%AE%89%E8%A3%9D%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.</span> <span class="nav-text">ValetPress 安裝步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%9D-Homebrew"><span class="nav-number">4.1.</span> <span class="nav-text">一、安裝 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%9D-PHP-amp-Composer"><span class="nav-number">4.2.</span> <span class="nav-text">二、安裝 PHP&amp;Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%9D-MySql"><span class="nav-number">4.3.</span> <span class="nav-text">三、安裝 MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%9D-Valet"><span class="nav-number">4.4.</span> <span class="nav-text">四、安裝 Valet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%9D-WP-CLI"><span class="nav-number">4.5.</span> <span class="nav-text">五、安裝 WP-CLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E8%BC%89-ValetPress"><span class="nav-number">4.6.</span> <span class="nav-text">六、下載 ValetPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%89%93%E5%AE%8C%E6%94%B6%E5%B7%A5"><span class="nav-number">4.7.</span> <span class="nav-text">七、打完收工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%A7%BB%E5%8B%95%E7%B6%B2%E7%AB%99%E6%A0%B9%E7%9B%AE%E9%8C%84"><span class="nav-number">4.8.</span> <span class="nav-text">八、移動網站根目錄</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-number">5.</span> <span class="nav-text">心得</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -619,7 +616,7 @@ valet secure $project\_name<span aria-hidden="true" class="line-numbers-rows"><s
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:14</span>
+    <span title="所需總閱讀時間">12:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
