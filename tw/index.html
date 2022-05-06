@@ -210,6 +210,189 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/wordpress-plugin-zoom-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/wordpress-plugin-zoom-api/" class="post-title-link" itemprop="url">WordPress 外掛整合 Zoom API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-05-06 10:00:00 / 修改時間：10:17:46" itemprop="dateCreated datePublished" datetime="2022-05-06T10:00:00+08:00">2022-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/%E6%8E%A5%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">接案</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Zoom 是許多線上課程所採用的直播平台，但直到最近我才發現 Zoom 的 Marketplace 已經有超過上千個應用程式可以使用，把我嚇得屁滾尿流，有了這些 App 可以整合許多第三方的服務，像是在線上會議時舉辦投票、根據播放時間做筆記，還可以做文件的簽署以及客戶關係管理，裡面甚至還有多款小遊戲來增進視訊時的互動，好像還滿適合英語補習班老師的XD</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-01.jpg"></p>
+<p>雖然 Zoom 與中國政府之間的關係一直被熱議，我自己也是用 Google Meet 優先於 Zoom，但還是不乏許多知名廠商也有上架它們的 App，像是 Google、Dropbox、HubSpot 等，這多虧 Zoom 強大的 API，當然 WordPress 也不會缺席，目前市集上有幾款與 WordPress 有關的 App，比較值得一提的是這款：</p>
+<h2 id="Integration-for-WordPress"><a href="#Integration-for-WordPress" class="headerlink" title="Integration for WordPress"></a><a target="_blank" rel="noopener" href="https://marketplace.zoom.us/apps/SWwsJ3lHTZOxvtSW_0ELag">Integration for WordPress</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-02.jpg"></p>
+<p>這支外掛可以讓你在後台直接管理 Zoom 的會議、研討會、使用者以及報告，並且可以使用短碼、區塊編輯器或是 Elementor 來新增加入會議的前台畫面顯示，還可以匯入 Zoom 裡面既有的會議資料，比較特別的是它提供不透過 Zoom App 就能直接在瀏覽器上加入會議的功能，這對於不想另外安裝 Zoom 應用程式的朋友來說還滿方便的，查了文件才知道 Zoom 有 Web SDK 可以實現這功能。</p>
+<p>它的付費功能也很豐富，可以排程建立會議與研討會，這對於有安排固定直播時間的老師來說可以省下重複建立的時間，另外還可以增加註冊會議功能，更能有效控管參與人員的資料，以便做好客戶關係管理。</p>
+<p>此外還有不少擴充套件，像是整合 <a target="_blank" rel="noopener" href="https://www.codemanas.com/downloads/zoom-meetings-for-woocommerce/">WooCommerce</a> 讓顧客可以透過購買商品來取得加入線上會議的資格，以及整合其他三款 WooCommerce 的預約外掛，如果你要透過 Zoom 做一對一的線上教學會非常方便。</p>
+<p>這支外掛也有上架 WordPress.org，但名稱不太一樣，叫做 <a target="_blank" rel="noopener" href="https://wordpress.org/plugins/video-conferencing-with-zoom-api/">Video Conferencing with Zoom</a>，外掛頁的介紹與資訊都比 Zoom Marketplace 豐富，有需要的話直接從 WordPress 後台下載安裝比較快。</p>
+<h2 id="Zoom-URL-Schema"><a href="#Zoom-URL-Schema" class="headerlink" title="Zoom URL Schema"></a>Zoom URL Schema</h2><p>如果你並沒有想直接在 WordPress 後台管理 Zoom 的會議也沒打算賣線上研討會，你單純只是想有個按鈕可以讓瀏覽者啟動會議，那麼 URL Schema 是一個選擇，只要使用以下的網址即可：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">// 電腦版
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoommtg://zoom.us/join?confno=123&amp;pwd=123&amp;uname=oberonlai<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>點我進入會議<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+
+// 手機版
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoomus://zoom.us/join?confno=123&amp;pwd=123&amp;uname=oberonlai<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>點我進入會議<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>電腦版跟手機版前面的開頭不一樣，如果是用 Elementor 可以做兩個不同的按鈕分別在不同裝置下顯示對應的連結，連結參數 confno 指的是會議 ID，pwd 是會議密碼，而 uname 是加入會議者的名稱，uname 可以不指定讓加入會議者自行輸入。</p>
+<p>如果你想要更貼心一點讓程式自動抓已登入使用者的名稱來做為 uname，有幾種方式可以做，第一種可以建立短碼來處理：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_shortcode</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'zoom_link'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'generate_zoom_link'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">generate_zoom_link</span><span class="token punctuation">(</span> <span class="token variable">$atts</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">shortcode_atts</span><span class="token punctuation">(</span>
+		<span class="token keyword">array</span><span class="token punctuation">(</span>
+			<span class="token string single-quoted-string">'confno'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'pwd'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'uname'</span>  <span class="token operator">=></span> <span class="token punctuation">(</span> <span class="token function">is_user_logged_in</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">get_usermeta</span><span class="token punctuation">(</span> <span class="token function">get_current_user_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token operator">-></span><span class="token argument-name">display_name</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'text'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'點我進入會議'</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token variable">$atts</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$output</span>  <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
+	<span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">'&lt;a href="'</span> <span class="token operator">.</span> <span class="token punctuation">(</span> <span class="token function">wp_is_mobile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'zoomus:'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'zoommtg:'</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'//zoom.us/join?confno='</span> <span class="token operator">.</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'confno'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&amp;pwd='</span> <span class="token operator">.</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'pwd'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&amp;uname='</span> <span class="token operator">.</span> <span class="token variable">$uname</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'">'</span><span class="token punctuation">;</span>
+	<span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'text'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&lt;/a>'</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token variable">$output</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>這樣就可以使用這樣的短碼來顯示會議連結：<code>[zoom_link confo=&quot;123&quot; pwd=&quot;456&quot; text=&quot;加入會議&quot;]</code>，該短碼有四個參數，confo 跟 pwd 分別為會議 ID 跟密碼，uname 預設我讓它抓已登入使用者的顯示名稱或是也可以自己指定，text 則是按鈕的顯示文字，裝置的部分我直接用 ＷordPress 內建的 wp_is_mobile 來判斷，這樣就省去要做兩個按鈕的時間了。</p>
+<p>第二種方法需要用到比較多 JavaScript 的語法，基本邏輯是先在後端使用 wp_enqueue_scripts() 來把使用者名稱輸出到前端，再透過 jQuery 指定連結屬性 attr 去替換連結中的 uname 參數，這方法需要知道如何使用 jQuery 選到按鈕再修改 href 的結構，然後因為我懶，這部分有需要的話再跟我說，我再把範例寫出來。</p>
+<h2 id="Zoom-App-OAuth"><a href="#Zoom-App-OAuth" class="headerlink" title="Zoom App OAuth"></a>Zoom App OAuth</h2><p>如果你想要進一步讓 WordPress 網站可以整合更多 Zoom 的互動行為，像是在會員登入後同時註冊 Zoom 會議、加入會議前判斷使用者的會員資格，或是提供給有來上課的會員一些點數回饋，這些就需要客製化串接 Zoom API，他們的<a target="_blank" rel="noopener" href="https://marketplace.zoom.us/docs/api-reference/zoom-api/methods"> API 文件</a>非常完整，並且都有範例可以參考，串接上的體驗還滿不錯的。</p>
+<p>但要使用 API 前必須要先進行網站驗證，藉此確保使用該 API 的網站是用經過合法授權，以下文章會有一些程式碼，但都不會太困難，主要是希望可以讓你了解 WordPress 外掛在串接第三方 API 時會有的一些流程與步驟，這樣日後萬一遇到客戶有類似的需求就能大概知道有哪些製作項目。</p>
+<p>Zoom 提供兩種授權的方式，一種是 JSON Web Tokens (JWT)，因為我沒實作過所以先跳過XD，另外一種是你一定有看過的 OAuth（Open Authorization），如果你有在某些購物網站使用 Facebook 或是 Google 帳號來進行註冊的話這就是 OAuth，當你點下 FB 註冊頁面會跳轉到 Facebook 的登入與授權頁面，完成後回到原網站就能完成註冊，由於不用再多記一筆登入帳密對於使用者來說非常方便，因此這是現在帳號授權的主流做法。</p>
+<p>而使用 Zoom API 我們就必須透過這樣的方式來取得 Access Token，對網站來說每一次操作 Zoom 的 API 都必須要告訴 Zoom 的主機說我們是合法的使用者，Zoom 認的就是這個 Access Token，而這個 Token 也是必須要透過 API 來取得，一下是 API 一下又是 Token 的有點混淆，我們先把具體的步驟列出來：</p>
+<ol>
+<li>取得授權網址</li>
+<li>網站跳轉到授權頁面</li>
+<li>Zoom 回傳產生 Token 需要的資料</li>
+<li>透過該資料呼叫 Zoom API 取得 Token</li>
+<li>將 Token 存在資料庫中</li>
+<li>利用這個 Token 進行後續的 API 操作</li>
+</ol>
+<h3 id="一-取得授權網址"><a href="#一-取得授權網址" class="headerlink" title="(一) 取得授權網址"></a>(一) 取得授權網址</h3><p>你就想成是去購物平台點下 Facebook 登入按鈕後會跳轉的頁面，這個網址每家有自己的格式，但不外乎都是在網址上帶入一些參數，而這些參數需要靠我們自己把他填入，Zoom 的格式是這樣：</p>
+<p><a target="_blank" rel="noopener" href="https://zoom.us/oauth/authorize?response_type=code&amp;client_id=7lstjK9NTyett_oeXtFiEQ&amp;redirect_uri=https://yourapp.example.com">https://zoom.us/oauth/authorize?response_type=code&amp;client_id=7lstjK9NTyett_oeXtFiEQ&amp;redirect_uri=https://yourapp.example.com</a></p>
+<p>需要替換的參數有兩個，第一個是 client_id，通常做 OAuth 都需要去該服務的後台建立一個 App，而這 App 會有 app id 跟 app secret，而 client_id 就是 app id，如何建立 Zoom OAuth App 可以參考這篇文章：<a target="_blank" rel="noopener" href="https://marketplace.zoom.us/docs/guides/build/oauth-app/">https://marketplace.zoom.us/docs/guides/build/oauth-app/</a></p>
+<p>第二個要替換的參數是 redirect_url，這是當完成授權後要跳轉回網站的頁面，這個頁面十分重要，因為 Zoom 會透過這個頁面把產出 Token 所需要的資料回傳給我們，所以我們要把手套準備好來接 Zoom 的回傳球，這顆球叫做 Code，有了這個 Code 才有辦法產出 Token。</p>
+<p>當第一次進行授權時就會看到以下畫面：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-05.jpg"></p>
+<p>這時候你就要登入你的 Zoom 帳號來同意你的網站是經過你的授權的。</p>
+<h3 id="二-取得-Token"><a href="#二-取得-Token" class="headerlink" title="(二) 取得 Token"></a>(二) 取得 Token</h3><p>第二步驟我們要靠跳轉回網站後的頁面也就是 redirect_uri 所設定的網址來處理取得 Token 的請求，你可以新增一個頁面叫做 zoom-callback，在業界這一類的網址我們慣稱叫做 callback url，然後新增一個 page-zoom-callback.php 的範本檔來處理。</p>
+<p>但通常這種在處理 API 的情境我不會用頁面來做，而是改用 WordPress REST API 比較好管理，不然萬一哪天不小心手殘刪到這個頁面就 GG 了，因此我們會註冊一個新的 WordPress API 路徑來專門接受 Zoom 的回傳，並且在這個路徑中處理後續的事情。</p>
+<p>要註冊 WordPress REST API路徑使用的是 register_rest_route 方法，然後勾點是放在 rest_api_init 上，具體範例可以參考官方手冊：<a target="_blank" rel="noopener" href="https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/">https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/</a></p>
+<p>路徑的名稱我把它命名為 zoom/v1/token，所以在第一步的授權網址就要填入 <a target="_blank" rel="noopener" href="https://yoursite.com/zoom/v1/token">https://yoursite.com/zoom/v1/token</a></p>
+<p>具體寫法如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">register_rest_route</span><span class="token punctuation">(</span>
+	<span class="token string single-quoted-string">'zoom/v1'</span><span class="token punctuation">,</span>
+	<span class="token string single-quoted-string">'/token'</span><span class="token punctuation">,</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'methods'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'GET'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'callback'</span> <span class="token operator">=></span> <span class="token constant">__CLASS__</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'::get_bot_api_body'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>需要注意的地方是 callback 那邊我了它一個方法叫做 <code>get_zoom_token()</code>，這個方法稍後會實作取得 Token 的方法，所以這邊就是註冊一個新的路徑，讓 Zoom 回傳我們產生 Token 需要的資料，接下來就交給 get_zoom_token() 來處理。</p>
+<p>WordPress 呼叫 API 的方式是使用 <code>wp_remote_request()</code>，它封裝了 HTTP 請求的工具讓我們可以很方便地使用它，根據 Zoom 的文件說明它會回傳一個 Code 作為產出 Token 的基本元素，並且再組合 Zoom App 的 id 跟 Secret 來發出請求就能獲得 Token，具體寫法如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">get_bot_api_body</span><span class="token punctuation">(</span> <span class="token variable">$request</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$body</span>    <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'grant_type'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'authorization_code'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'code'</span>         <span class="token operator">=></span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'code'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'redirect_uri'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'https://yoursite.com/wp-json/zoom/v1/token'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$options</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'method'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'POST'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'timeout'</span> <span class="token operator">=></span> <span class="token number">60</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'headers'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+			<span class="token string single-quoted-string">'Content-Type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'application/x-www-form-urlencoded'</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'Authorization'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'Basic '</span> <span class="token operator">.</span> <span class="token function">base64_encode</span><span class="token punctuation">(</span> <span class="token constant">APP_ID</span> <span class="token operator">.</span> <span class="token string single-quoted-string">':'</span> <span class="token operator">.</span> <span class="token constant">APP_SECRET</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'body'</span>    <span class="token operator">=></span> <span class="token function">http_build_query</span><span class="token punctuation">(</span> <span class="token variable">$body</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$response</span> <span class="token operator">=</span> <span class="token function">wp_remote_request</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'https://zoom.us/oauth/token'</span><span class="token punctuation">,</span> <span class="token variable">$options</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$resp</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span> <span class="token function">wp_remote_retrieve_body</span><span class="token punctuation">(</span> <span class="token variable">$response</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">update_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ods_zoom_access_token'</span><span class="token punctuation">,</span> <span class="token variable">$resp</span><span class="token operator">-></span><span class="token property">access_token</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">update_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ods_zoom_refresh_token'</span><span class="token punctuation">,</span> <span class="token variable">$resp</span><span class="token operator">-></span><span class="token property">refresh_token</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">wp_safe_redirect</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'https://yoursite.com/finish-zoom-oauth'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">exit</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先 <code>$body</code> 是我們要傳給 Zoom 取得 API 的必要資料，其中 code 就是 Zoom 回傳給我們的，而這邊又有一個 redirect_uri 來告訴 Zoom 說當取得 Token 後會去哪個頁面，這邊範例一樣設定 API 路徑，而頁面跳轉則交給最下面的 <code>wp_safe_redirect</code> 來處理。</p>
+<p>其次是 API 請求的設定，根據文件我們要用 POST 方法以及 application/x-www-form-urlencoded 的格式來傳送，而 Authorization 驗證方法是用 Basic 加上 App ID 與 SECRET 的 base64 的加密方式來處理，這聽起來有點複雜，但 Zoom 文件都有範例可以複製貼上，只要置換裡面的變數即可。</p>
+<p>最後使用 wp_remote_request 去呼叫 <a target="_blank" rel="noopener" href="https://zoom.us/oauth/token">https://zoom.us/oauth/token</a> 這一個取得 Token 的 API 網址，得到回傳結果後再去解析我們要的 Token，這樣我們就能得到 API 要用的 Access Token 來做事了，我這邊用 update_option 來寫進資料庫中，之後要用這個 Token 就用 get_option( ‘ods_zoom_access_token’ ) 取得即可。</p>
+<p>另外你可能會好奇還有一個 refresh_token 是幹嘛用的，它的目的是讓你不用透過授權網址就能取得 Access Token，基於安全理由 Access Token 會有使用期限，所以我們要定期的去更換它，但總不能每次都要人工手動去點授權網址來取得，因此就能透過 Refresh Token 呼叫 Zoom API 來自動重新更換 Access Token。</p>
+<p>以上就是 Zoom API OAuth 授權的步驟，範例中簡化了許多程式細節，主要目的是希望透過這樣的文章介紹有哪些好用的現成外掛，還能學到一些關於程式開發的流程與知識，讓你之後跟客戶溝通需求或是交辦任務給工程師時能有一個大方向來進行說明，如果你想了解更多 WordPress 開發的技術邏輯再跟我說吧！</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/freelance-life/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1966,106 +2149,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/fear-of-missing-out/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/fear-of-missing-out/" class="post-title-link" itemprop="url">關於區塊鏈我看見的是...</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-12-03 11:00:00 / 修改時間：12:30:57" itemprop="dateCreated datePublished" datetime="2021-12-03T11:00:00+08:00">2021-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%8D%80%E5%A1%8A%E9%8F%88/" itemprop="url" rel="index"><span itemprop="name">區塊鏈</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%8D%80%E5%A1%8A%E9%8F%88/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/" itemprop="url" rel="index"><span itemprop="name">加密貨幣</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%8D%80%E5%A1%8A%E9%8F%88/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/IPFS/" itemprop="url" rel="index"><span itemprop="name">IPFS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/%E5%8D%80%E5%A1%8A%E9%8F%88/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/IPFS/Filecoin/" itemprop="url" rel="index"><span itemprop="name">Filecoin</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>3.5k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>3 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>不知道你有沒有發現近幾個月來身邊出現越來越多關於區塊鏈、加密貨幣以及 NFT 的相關資訊與新聞？尤其是前陣子的 NFT 熱潮，我每次只要打開臉書就會看到某某 NFT 又創下天價，然後一堆留言準備揪團搶盲盒，因為出現的頻率實在是太頻繁了，讓本來對於把這些行為視為投機炒作的我，不得不停下腳步來研究這件事背後所代表的意義，結果不研究還好，一研究下去才發現這是會影響這個世代整個網路甚至是社會發展的重大突破。</p>
-<p>放下成見後，開始學習著建立錢包、申請交易所、做不完的 KYC（一種避免洗錢的實名制）、每天沒事看個盤、認識永遠認識不完的新加密貨幣背後是幹嘛用的，更不用說一堆新冒出來的 Defi 商品、DAO 治理、NFT，以及最近越來越火熱的區塊鏈遊戲，這一切在 Facebook 改名為 Meta 達到了社群討論的高峰，也在這時候，我發現自己開始有錯失恐懼症 ( FOMO )。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/fear-of-missing-out/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2136,7 +2219,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">314</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2197,12 +2280,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">808k</span>
+    <span title="總字數">814k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:15</span>
+    <span title="所需總閱讀時間">12:20</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>

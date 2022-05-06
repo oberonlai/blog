@@ -1776,83 +1776,69 @@ export default &#123;
     <title>電子商務網站金流方案比較</title>
     <url>/tw/onlinecreditcard/</url>
     <content><![CDATA[<p>從網路上蒐集了各類型線上刷卡的方案資訊，並說明其優缺點，以及相關成本比較。  </p>
-<h3 id="交易方式一：線上刷卡-特約商店"><a href="#交易方式一：線上刷卡-特約商店" class="headerlink" title="交易方式一：線上刷卡-特約商店"></a>交易方式一：線上刷卡-特約商店</h3><p>申請資格</p>
-<p>1.資本額登記 500萬元以上商家 2.須公司設立登記滿半年以上。 3.個人無法申辦</p>
-<p>第一次開通費用</p>
-<p>10000元 (一次費用)</p>
-<p>固定費用</p>
-<p>18800元 / 年</p>
-<p>保證金</p>
-<p>無</p>
-<p>抽成費用</p>
-<p>每筆成交金額2~3%</p>
-<p>優點</p>
-<p>1.發票上有自己公司的抬頭 2.款項是直接收到自己公司的帳戶裡</p>
-<p>缺點</p>
-<p>1.申請門檻較高 2.文件較繁瑣 3.如果銷售業績不好，固定費用容易虧本，適合有一定規模的店家</p>
-<span id="more"></span>
-<p> </p>
-<h3 id="交易方式二：線上刷卡-代收代付"><a href="#交易方式二：線上刷卡-代收代付" class="headerlink" title="交易方式二：線上刷卡-代收代付"></a>交易方式二：線上刷卡-代收代付</h3><p>申請資格</p>
-<p>1.資本額無限制 2.設立時間無限制。 3.個人無法申辦</p>
-<p>第一次開通費用</p>
-<p>無</p>
-<p>固定費用</p>
-<p>10500元 / 年</p>
-<p>保證金</p>
-<p>30000元（期滿可退還）</p>
-<p>抽成費用</p>
-<p>每筆成交金額2.8~3.5%</p>
-<p>優點</p>
-<p>1.申請門檻較低 2.產品種類限制較少</p>
-<p>缺點</p>
-<p>1.款項是先進金流公司的戶頭，依照金流公司的付款週期客戶才能拿到款項 2.發票上是金流公司的抬頭，看起來不專業 3.如果銷售業績不好，固定費用容易虧本，適合有一定規模的店家</p>
+<h2 id="交易方式一：線上刷卡-特約商店"><a href="#交易方式一：線上刷卡-特約商店" class="headerlink" title="交易方式一：線上刷卡-特約商店"></a>交易方式一：線上刷卡-特約商店</h2><p>申請資格：</p>
+<ol>
+<li>資本額登記 500萬元以上商家</li>
+<li>須公司設立登記滿半年以上</li>
+<li>個人無法申辦</li>
+</ol>
+<p>第一次開通費用 10000元 (一次費用)，固定費用 18800元 / 年，無保證金，<br>抽成費用每筆成交金額2~3%</p>
+<ul>
+<li>優點：發票上有自己公司的抬以及款項是直接收到自己公司的帳戶裡</li>
+<li>缺點：申請門檻較高且文件較繁瑣，如果銷售業績不好，固定費用容易虧本，適合有一定規模的店家
+ </li>
+</ul>
+<h2 id="交易方式二：線上刷卡-代收代付"><a href="#交易方式二：線上刷卡-代收代付" class="headerlink" title="交易方式二：線上刷卡-代收代付"></a>交易方式二：線上刷卡-代收代付</h2><p>申請資格：</p>
+<ol>
+<li>資本額無限制</li>
+<li>設立時間無限制</li>
+<li>個人無法申辦</li>
+</ol>
+<p>無第一次開通費用，固定費用 10,500元 / 年，保證金 30,000 元（期滿可退還），每筆成交金額2.8~3.5%。</p>
+<ul>
+<li>優點：申請門檻較低且產品種類限制較少</li>
+<li>缺點：款項是先進金流公司的戶頭，依照金流公司的付款週期客戶才能拿到款項。發票上是金流公司的抬頭，看起來不專業，如果銷售業績不好，固定費用容易虧本，適合有一定規模的店家</li>
+</ul>
 <p>   </p>
-<h3 id="交易方式三：線上刷卡-PayPal"><a href="#交易方式三：線上刷卡-PayPal" class="headerlink" title="交易方式三：線上刷卡-PayPal"></a>交易方式三：線上刷卡-PayPal</h3><p>申請資格</p>
-<p>有email帳號即可</p>
-<p>第一次開通費用</p>
-<p>無</p>
-<p>固定費用</p>
-<p>無</p>
-<p>保證金</p>
-<p>無</p>
-<p>抽成費用</p>
-<p>每筆抽成依交易金額比例不同 NT$0 ~ NT$99,000 =&gt; 3.9% + NT$10 NT$99,001 ~ NT$33,000 =&gt; 3.4% + NT$10 NT$330,001 ~ NT$3,300,000 =&gt; 3.2% + NT$10 NT$3,300,000 =&gt; 2.9% + NT$10 *提領至台灣的銀行：單筆新台幣 5,000 元以上免手續費，未滿新台幣 5,000 元手續費新台幣 35 元。 *超過5000元paypal免手續費但台灣的銀行會收取200~500元的手續費。</p>
-<p>優點</p>
-<p>1.完全不用設定費 2.沒有固定成本開銷 3.沒有paypal帳號的消費者也能線上刷卡</p>
-<p>缺點</p>
-<p>匯率風險</p>
+<h2 id="交易方式三：線上刷卡-PayPal"><a href="#交易方式三：線上刷卡-PayPal" class="headerlink" title="交易方式三：線上刷卡-PayPal"></a>交易方式三：線上刷卡-PayPal</h2><p>申請資格：</p>
+<p>有email帳號即可，無第一次開通費用，無固定費用，無保證金，每筆抽成依交易金額比例不同：</p>
+<ul>
+<li>NT$0 ~ NT$99,000 =&gt; 3.9% + NT$10 </li>
+<li>NT$99,001 ~ NT$33,000 =&gt; 3.4% + NT$10 </li>
+<li>NT$330,001 ~ NT$3,300,000 =&gt; 3.2% + NT$10 </li>
+<li>NT$3,300,000 =&gt; 2.9% + NT$10 </li>
+</ul>
+<p>提領至台灣的銀行：單筆新台幣 5,000 元以上免手續費，未滿新台幣 5,000 元手續費新台幣 35 元。超過5000元paypal免手續費但台灣的銀行會收取200~500元的手續費。</p>
+<ul>
+<li><p>優點：完全不用設定費、沒有固定成本開銷，且沒有 PayPal帳號的消費者也能線上刷卡</p>
+</li>
+<li><p>缺點：匯率風險</p>
+</li>
+</ul>
 <p> </p>
-<h3 id="交易方式四：ezship超商取貨付款"><a href="#交易方式四：ezship超商取貨付款" class="headerlink" title="交易方式四：ezship超商取貨付款"></a>交易方式四：ezship超商取貨付款</h3><p>申請資格</p>
-<p>申請人不需要有公司行號或營業登記， 只要是中華民國國民並且在銀行或郵局有開立存款帳戶者，就可以申請。</p>
-<p>第一次開通費用</p>
-<p>無</p>
-<p>固定費用</p>
-<p>1.帳戶維護費 1200元 / 年 2.物流公司送到便利商店的運費 每週代收筆數第 1 ~ 30 件：每筆運費為 46 元 每週代收筆數第 31 ~ 300 件：每筆運費為 43 元 每週代收筆數第 301 件 以上：每筆運費為 40 元 3.客戶寄送商品至物流公司運費（新北市新店區）</p>
-<p>保證金</p>
-<p>無</p>
-<p>抽成費用</p>
-<p>代收金額 * 1.5%，至今年底前優惠為代收金額 * 0.8%，不足 3元 依 3元 計算</p>
-<p>優點</p>
-<p>便利商店代收的款項，週週結算，並且自動將代收款項匯給客戶</p>
-<p>缺點</p>
-<p>代收金額上限為4,000元</p>
+<h2 id="交易方式四：ezship超商取貨付款"><a href="#交易方式四：ezship超商取貨付款" class="headerlink" title="交易方式四：ezship超商取貨付款"></a>交易方式四：ezship超商取貨付款</h2><p>申請人不需要有公司行號或營業登記， 只要是中華民國國民並且在銀行或郵局有開立存款帳戶者，就可以申請。</p>
+<p>無第一次開通費用，固定費用如下：</p>
+<ol>
+<li>帳戶維護費 1200元 / 年 </li>
+<li>物流公司送到便利商店的運費 每週代收筆數第 1 ~ 30 件：每筆運費為 46 元 每週代收筆數第 31 ~ 300 件：每筆運費為 43 元 每週代收筆數第 301 件 以上：每筆運費為 40 元 3.客戶寄送商品至物流公司運費（新北市新店區）</li>
+</ol>
+<p>無保證金，代收金額 1.5%，至今年底前優惠為代收金額 0.8%，不足 3 元依 3 元計算</p>
+<ul>
+<li>優點：便利商店代收的款項，週週結算，並且自動將代收款項匯給客戶</li>
+<li>缺點：代收金額上限為 4,000 元</li>
+</ul>
 <p>   </p>
-<h3 id="交易方式五：東拓物流公司超商配貨"><a href="#交易方式五：東拓物流公司超商配貨" class="headerlink" title="交易方式五：東拓物流公司超商配貨"></a>交易方式五：東拓物流公司超商配貨</h3><p>申請資格</p>
-<p>無限制</p>
-<p>第一次開通費用</p>
-<p>選擇便利商店程式串接設定費 10000元</p>
-<p>固定費用</p>
-<p>客戶寄送商品至物流公司運費（新北市新店區）</p>
-<p>保證金</p>
-<p>無</p>
-<p>抽成費用</p>
-<p>每筆42元，隨便利商店調整而有異動，推薦全家，7-11價格較高</p>
-<p>優點</p>
-<p>7-11、全家、萊爾富、OK均有配送</p>
-<p>缺點</p>
-<p>超過4000塊高單價商品建議宅配</p>
-<p>  Excel彙整 <a href="http://goo.gl/av1QdZ">http://goo.gl/av1QdZ</a>  </p>
-<h4 id="資料來源："><a href="#資料來源：" class="headerlink" title="資料來源："></a>資料來源：</h4><p>金流服務比較表：<a href="https://neticrm.tw/resources/255">https://neticrm.tw/resources/255</a> 線上刷卡的特約商店與代收代付差異性：<a href="http://webok.tw/2010/09/credit-card-pay.html">http://webok.tw/2010/09/credit-card-pay.html</a> 只有商家才能收信用卡嗎？：<a href="http://goo.gl/HuxfMH">http://goo.gl/HuxfMH</a> 購物網站的金流：<a href="http://tw.knowledge.yahoo.com/question/question?qid=1607082005267">http://tw.knowledge.yahoo.com/question/question?qid=1607082005267</a> 金流公司服務：<a href="http://www.ecpay.com.tw/m_apply500.php">http://www.ecpay.com.tw/m_apply500.php</a></p>
+<h2 id="交易方式五：東拓物流公司超商配貨"><a href="#交易方式五：東拓物流公司超商配貨" class="headerlink" title="交易方式五：東拓物流公司超商配貨"></a>交易方式五：東拓物流公司超商配貨</h2><p>申請資格無限制，第一次開通費用選擇便利商店程式串接設定費 10000元，固定費用為客戶寄送商品至物流公司運費（新北市新店區），無保證金，抽成費用每筆42元，隨便利商店調整而有異動，推薦全家，7-11價格較高。</p>
+<ul>
+<li>優點：7-11、全家、萊爾富、OK 均有配送</li>
+<li>缺點：超過 4.,000 元高單價商品建議宅配</li>
+</ul>
+<h2 id="資料來源："><a href="#資料來源：" class="headerlink" title="資料來源："></a>資料來源：</h2><ul>
+<li>金流服務比較表：<a href="https://neticrm.tw/resources/255">https://neticrm.tw/resources/255</a> </li>
+<li>線上刷卡的特約商店與代收代付差異性：<a href="http://webok.tw/2010/09/credit-card-pay.html">http://webok.tw/2010/09/credit-card-pay.html</a></li>
+<li>只有商家才能收信用卡嗎？：<a href="http://goo.gl/HuxfMH">http://goo.gl/HuxfMH</a> </li>
+<li>金流公司服務：<a href="http://www.ecpay.com.tw/m_apply500.php">http://www.ecpay.com.tw/m_apply500.php</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>網站企劃</category>
@@ -1910,69 +1896,174 @@ export default &#123;
       </categories>
   </entry>
   <entry>
-    <title>響應式網頁設計 - 響應式選單設計模式</title>
+    <title>回應式網頁設計 - 回應式選單設計模式</title>
     <url>/tw/responsivewebdesign-navigation/</url>
-    <content><![CDATA[<p><a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-5.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-5.jpg" alt="responsiveNav-5"></a>   接續上週<a href="https://oberonlai.blog/responsivewebdesignforplanning/">響應式網頁設計主題</a>，本週將繼續探討在響應式網頁中導覽系統設計的模式，並分析其優缺點與適用情況，以快速應用於實際工作流程之中。  </p>
-<h3 id="響應式選單設計的限制"><a href="#響應式選單設計的限制" class="headerlink" title="響應式選單設計的限制"></a>響應式選單設計的限制</h3><p>有別於桌上型螢幕的大尺寸，手機的顯示空間往往不到其二分之一，雖然可以透過互動的方式來操作選單，但越高的互動性意謂著更高的使用門檻，在行動裝置使用普及率高的環境下，很難保證每一位使用者都有能力來進行操作，因此保持越簡單、越直觀的選單，才能確保更高的可用性。   其次是高互動性往往需要更複雜的程式來執行，對於網路速度較慢的且硬體等級較低的行動裝置會有難以操作的風險，因此響應式選單設計不宜過度參考手機原生應用程式(APP)的導覽模式，仍應就網頁的架構下進行思考。</p>
-<span id="more"></span>
-<p> </p>
-<h3 id="響應式選單的常見類型"><a href="#響應式選單的常見類型" class="headerlink" title="響應式選單的常見類型"></a>響應式選單的常見類型</h3><p>本文根據 Brad Frost 的文章 <a href="http://bradfrostweb.com/blog/web/responsive-nav-patterns">Responsive Navigation Patterns</a> 為基礎，並加入我們的實務經驗來說明各類型選單的優缺點與適用情況。以下類型為目前網站較常採用之設計模式: 1.頂部導覽 2.底部導覽 3.下拉選單 4.收合選單 5.浮動選單 6.移除選單  </p>
-<h4 id="一-頂部導覽"><a href="#一-頂部導覽" class="headerlink" title="(一)頂部導覽"></a>(一)頂部導覽</h4><p>最單純的導覽形式，把選單直接置於頁面頂部，依照畫面寬度自動縮小選單文字，如選單數量超過螢幕寬度則自行換行。</p>
-<p> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-1.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-1.jpg" alt="responsiveNav-1"></a> <a href="http://trentwalton.com/">http://trentwalton.com/</a></p>
-<p>    優點 : 不需改變任何版面配置的形式，也不用寫 javascript 來設計互動效果，只需要設定均分每個選單的寬度百分比，就能依照螢幕寬度進行縮放，在使用上也較為直觀，不用進行任何點擊就能找到選單。   缺點 : 如果選單過多則內容容易被往下擠，導致無法在第一眼可視畫面中找到網頁內容；而在不同的裝置、瀏覽器中所採用的預設字體不同，在開發時針對特定裝置進行調整，但無法確保在所有裝置中都能維持希望的版面配置，譬如字體過大而造成選單字斷行；另外因為螢幕變小可點擊範圍也會因此縮小，對於手指較癡肥的使用者可能會造成誤擊選單。   適用情況 : 選單數量少、架構單純的網站，或是將功能導覽採用該模式設計，方便使用者一眼就能找到。  </p>
-<h4 id="二-底部導覽"><a href="#二-底部導覽" class="headerlink" title="(二)底部導覽"></a>(二)底部導覽</h4><p>將選單移至頁面底部，而頂部可用錨點連結的方式將頁面帶往底部進行導覽。</p>
-<p> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-2.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-2.jpg" alt="responsiveNav-2"></a> <a href="http://contentsmagazine.com/">http://contentsmagazine.com/</a></p>
-<p>    優點 : 不需要使用 javasctipt ，並單純使用 css 即可進行調整，節省網站使用資源。   缺點 : 因為直接跳到頁面底部，會讓使用者對於頁面空間產生混淆，而且視覺效果很突兀，沒有美感。   適用情況 : 相對於頂部導覽的位置，在頁尾增加多層級的複雜選單較無空間上的限制，適合已有設計底部胖選單的網站，再加上選單在頁面底部，能讓使用者看完頁面內容後協助他們往下一個地方去，建議是不需要在頂部設計錨點連結，以避免使用者產生混淆，直接於頁尾中置入選單即可。  </p>
-<h4 id="三-下拉選單"><a href="#三-下拉選單" class="headerlink" title="(三)下拉選單"></a>(三)下拉選單</h4><p>將原有選單轉換為表格輸入中的下拉選單，利用瀏覽器本身的表單組件進行導覽。</p>
-<p> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-3.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-3.jpg" alt="responsiveNav-3"></a> <a href="http://viljamis.com/">http://viljamis.com/</a></p>
-<p>    優點 : 非常節省顯示空間，是使用者易於辨認且熟悉的互動方式，行動裝置瀏覽器的內建下拉選單組件，讓使用者可以輕易完成任務。   缺點 : 需使用 javascript 來轉換，另外下拉選單是輸入表單資料所採用的元件，可能會造成使用上的混淆。   適用情況 : 可以運用在含有多階層的選單之中，但在可用 javascript 的環境之下，有其它更好及更易於辨識的作法來設計導覽系統。  </p>
-<h4 id="四-收合選單"><a href="#四-收合選單" class="headerlink" title="(四)收合選單"></a>(四)收合選單</h4><p>運用 javascript 來呈現選單，各種不同的選單展開方式提升互動性與美觀度。</p>
-<p><a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-4.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-4.jpg" alt="responsiveNav-4"></a> <a href="https://oberonlai.blog/">https://oberonlai.blog/</a></p>
-<p>  優點 : 節省空間，且並不會讓畫面跳動而造成頁面瀏覽混淆，以及可以設計符合整體風格樣式，達成使用體驗一致性，實際製作上也很容易，可輕易達成豐富的互動性選單。   缺點 : 越豐富的呈現效果，依賴 javascript 的程度也越深，對於硬體效能不佳的行動裝置而言，會導致使用體驗降低。   適用情況 : 架構從簡單至稍微有規模的網站幾乎都能勝任，或是想提供更豐富使用體驗的網站都能採用此類型做法。  </p>
+    <content><![CDATA[<p>接續上週<a href="/rwd-plan">回應式網頁設計主題</a>，本週將繼續探討在回應式網頁中導覽系統設計的模式，並分析其優缺點與適用情況，以快速應用於實際工作流程之中。  </p>
+<h2 id="回應式選單設計的限制"><a href="#回應式選單設計的限制" class="headerlink" title="回應式選單設計的限制"></a>回應式選單設計的限制</h2><p>有別於桌上型螢幕的大尺寸，手機的顯示空間往往不到其二分之一，雖然可以透過互動的方式來操作選單，但越高的互動性意謂著更高的使用門檻，在行動裝置使用普及率高的環境下，很難保證每一位使用者都有能力來進行操作。</p>
+<p>因此保持越簡單、越直觀的選單，才能確保更高的可用性。其次是高互動性往往需要更複雜的程式來執行，對於網路速度較慢的且硬體等級較低的行動裝置會有難以操作的風險，因此回應式選單設計不宜過度參考手機原生應用程式（APP）的導覽模式，仍應就網頁的架構下進行思考。
+ </p>
+<h2 id="回應式選單的常見類型"><a href="#回應式選單的常見類型" class="headerlink" title="回應式選單的常見類型"></a>回應式選單的常見類型</h2><p>本文根據 Brad Frost 的文章 Responsive Navigation Patterns 為基礎，並加入我的實務經驗來說明各類型選單的優缺點與適用情況。以下類型為目前網站較常採用之設計模式：</p>
+<ol>
+<li>頂部導覽</li>
+<li>底部導覽</li>
+<li>下拉選單</li>
+<li>收合選單</li>
+<li>浮動選單</li>
+<li>移除選單  </li>
+</ol>
+<h3 id="頂部導覽"><a href="#頂部導覽" class="headerlink" title="頂部導覽"></a>頂部導覽</h3><p>最單純的導覽形式，把選單直接置於頁面頂部，依照畫面寬度自動縮小選單文字，如選單數量超過螢幕寬度則自行換行。</p>
+<p><a href="http://trentwalton.com/">http://trentwalton.com/</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>不需改變任何版面配置的形式，也不用寫 javascript 來設計互動效果，只需要設定均分每個選單的寬度百分比，就能依照螢幕寬度進行縮放，在使用上也較為直觀，不用進行任何點擊就能找到選單。   </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>如果選單過多則內容容易被往下擠，導致無法在第一眼可視畫面中找到網頁內容；而在不同的裝置、瀏覽器中所採用的預設字體不同，在開發時針對特定裝置進行調整，但無法確保在所有裝置中都能維持希望的版面配置。</p>
+<p>譬如字體過大而造成選單字斷行；另外因為螢幕變小可點擊範圍也會因此縮小，對於手指較癡肥的使用者可能會造成誤擊選單。   </p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>選單數量少、架構單純的網站，或是將功能導覽採用該模式設計，方便使用者一眼就能找到。  </p>
+<p>###底部導覽</p>
+<p>將選單移至頁面底部，而頂部可用錨點連結的方式將頁面帶往底部進行導覽。</p>
+<p><a href="http://contentsmagazine.com/">http://contentsmagazine.com/</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>不需要使用 javasctipt ，並單純使用 css 即可進行調整，節省網站使用資源。   </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>因為直接跳到頁面底部，會讓使用者對於頁面空間產生混淆，而且視覺效果很突兀，沒有美感。   </p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>相對於頂部導覽的位置，在頁尾增加多層級的複雜選單較無空間上的限制，適合已有設計底部胖選單的網站，再加上選單在頁面底部，能讓使用者看完頁面內容後協助他們往下一個地方去，建議是不需要在頂部設計錨點連結，以避免使用者產生混淆，直接於頁尾中置入選單即可。  </p>
+<h3 id="下拉選單"><a href="#下拉選單" class="headerlink" title="下拉選單"></a>下拉選單</h3><p>將原有選單轉換為表格輸入中的下拉選單，利用瀏覽器本身的表單組件進行導覽。</p>
+<p><a href="http://viljamis.com/">http://viljamis.com/</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>非常節省顯示空間，是使用者易於辨認且熟悉的互動方式，行動裝置瀏覽器的內建下拉選單組件，讓使用者可以輕易完成任務。  </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>需使用 javascript 來轉換，另外下拉選單是輸入表單資料所採用的元件，可能會造成使用上的混淆。   </p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>可以運用在含有多階層的選單之中，但在可用 javascript 的環境之下，有其它更好及更易於辨識的作法來設計導覽系統。  </p>
+<h3 id="四-收合選單"><a href="#四-收合選單" class="headerlink" title="(四)收合選單"></a>(四)收合選單</h3><p>運用 javascript 來呈現選單，各種不同的選單展開方式提升互動性與美觀度。</p>
+<p><a href="https://oberonlai.blog/">https://oberonlai.blog/</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>節省空間，且並不會讓畫面跳動而造成頁面瀏覽混淆，以及可以設計符合整體風格樣式，達成使用體驗一致性，實際製作上也很容易，可輕易達成豐富的互動性選單。   </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>越豐富的呈現效果，依賴 javascript 的程度也越深，對於硬體效能不佳的行動裝置而言，會導致使用體驗降低。   </p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>架構從簡單至稍微有規模的網站幾乎都能勝任，或是想提供更豐富使用體驗的網站都能採用此類型做法。  </p>
 <h4 id="五-浮動選單"><a href="#五-浮動選單" class="headerlink" title="(五)浮動選單"></a>(五)浮動選單</h4><p>從APP延伸而來的選單設計方式，將選單覆蓋至螢幕三分之二的大比例。</p>
-<p><a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-5.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-5.jpg" alt="responsiveNav-5"></a> <a href="http://mmenu.frebsite.nl/examples/responsive/index.html">http://mmenu.frebsite.nl/examples/responsive/index.html</a></p>
-<p>優點 : 非常優雅的呈現方式，並且可以把選單層級一次展開，全部檢視所有項目，又能節省許多空間。   缺點 : 使用者可能會被內容與選單區塊所混淆，並且在不同解析度的裝置下無法確保能完整的呈現選單。   適用情況 : 適合有許多層級選單的中大型規模網站。  </p>
+<p><a href="http://mmenu.frebsite.nl/examples/responsive/index.html">http://mmenu.frebsite.nl/examples/responsive/index.html</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>非常優雅的呈現方式，並且可以把選單層級一次展開，全部檢視所有項目，又能節省許多空間。   </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>使用者可能會被內容與選單區塊所混淆，並且在不同解析度的裝置下無法確保能完整的呈現選單。</p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>適合有許多層級選單的中大型規模網站。  </p>
 <h4 id="六-移除選單"><a href="#六-移除選單" class="headerlink" title="(六)移除選單"></a>(六)移除選單</h4><p>考量到行動裝置上不需要桌面版的導覽系統，僅留下所需之功能選單。</p>
-<p> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-6.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-6.jpg" alt="responsiveNav-6"> http://www.authenticjobs.com/</a></p>
-<p>    優點 : 沒有任何選單會佔使用者的螢幕空間。   缺點 : 容易讓使用者迷路。   適用情況 : 對於行動裝置使用者的目的性非常明確，不提供他們不需要的選單以降低干擾。  </p>
-<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>對於行動裝置使用者而言，短暫、快速、片段的使用特性，往往影響他們瀏覽網頁的行為模式，因此如何讓使用者快速找到內容，以及如何透過導覽系統協助他們，此乃響應式選單設計的目標，然而除了全域導覽外，亦可利用區域導覽吸引使用者瀏覽更多內容，或是併用各類型的模式，來設計更多樣化的使用體驗。</p>
+<p><a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-6.jpg">http://www.authenticjobs.com/</a></p>
+<ul>
+<li>優點：</li>
+</ul>
+<p>沒有任何選單會佔使用者的螢幕空間。   </p>
+<ul>
+<li>缺點：</li>
+</ul>
+<p>容易讓使用者迷路。   </p>
+<ul>
+<li>適用情況：</li>
+</ul>
+<p>對於行動裝置使用者的目的性非常明確，不提供他們不需要的選單以降低干擾。  </p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>對於行動裝置使用者而言，短暫、快速、片段的使用特性，往往影響他們瀏覽網頁的行為模式，因此如何讓使用者快速找到內容，以及如何透過導覽系統協助他們，此乃回應式選單設計的目標，然而除了全域導覽外，亦可利用區域導覽吸引使用者瀏覽更多內容，或是併用各類型的模式，來設計更多樣化的使用體驗。</p>
 ]]></content>
       <categories>
         <category>使用者介面</category>
       </categories>
   </entry>
   <entry>
-    <title>響應式網頁設計開發實戰 - 設計面</title>
+    <title>回應式網頁設計開發實戰 - 設計面</title>
     <url>/tw/responsivewebdesign-psddesign/</url>
-    <content><![CDATA[<p>本週進入響應式網頁設計主題的第三篇，前兩篇請參考 <a href="https://oberonlai.blog/responsivewebdesign-navigation/" title="響應式網頁設計 – 響應式選單設計模式">響應式網頁設計 – 響應式選單設計模式</a> <a href="https://oberonlai.blog/responsivewebdesignforplanning/" title="https://oberonlai.blog/responsivewebdesignforplanning/">響應式網頁設計開發實戰 – 企劃面</a>   關於響應式網站的設計面，我想從設計師最常用的設計工具photoshop開始談起。  </p>
-<h3 id="根本就沒有「網頁設計」軟體！？"><a href="#根本就沒有「網頁設計」軟體！？" class="headerlink" title="根本就沒有「網頁設計」軟體！？"></a>根本就沒有「網頁設計」軟體！？</h3><p>開發網站的成員之中，企劃人員常用的工具是word、PowerPoint，進階一點的還會用到網站原型繪製軟體，像<a href="http://blog.planism.com/archives/2008/06/05/1557/%E5%A5%BD%E7%89%A9%E6%8E%A8%E8%96%A6-%E7%95%AB-prototype-%E7%9A%84%E5%A5%BD%E5%B7%A5%E5%85%B7-axure-rp-pro" title="Axure rp">Axure rp</a>；而工程師會用notepad++、visual studio、或是最近非常火紅的<a href="http://goo.gl/0SFtmK" title="sublime text 2">sublime text2</a>，   至於設計師，多半用photoshop做圖像與版面的設計，縱使是習慣用向量創作的設計師，最終也是要將圖像點陣化，才能在網頁上順利呈現，然而這些再平常不過的慣用工具，在響應式網頁設計中會碰到許多麻煩，最主要的原因是photoshop為平面設計工具，網頁與平面看似相同，但卻有著本質上的巨大差異。 <a href="https://oberonlai.blog/wp-content/uploads/2013/08/011.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/011-1024x627.jpg" alt="01"></a></p>
-<span id="more"></span>
-<h4 id="1、文件尺寸"><a href="#1、文件尺寸" class="headerlink" title="1、文件尺寸"></a>1、文件尺寸</h4><p>在Photoshop中，當一份新檔案被建立時，它的尺寸就被固定了，在響應式網頁中，能隨行動裝置調整版面尺寸是主要特徵，在Photoshop中完全無法在這樣的環境下進行設計，因為它是給「固定尺寸」的平面設計而用。  </p>
-<h4 id="2、文件解析度"><a href="#2、文件解析度" class="headerlink" title="2、文件解析度"></a>2、文件解析度</h4><p>承上，文件解析度也是在檔案新建時就被決定，但在行動裝置上，網路速度決定使用體驗，而影響的主因之一，就是圖像的解析度，在小螢幕的手機上瀏覽網頁不需要高解度的圖像來延緩下載速度。  </p>
-<h4 id="3、文件互動性"><a href="#3、文件互動性" class="headerlink" title="3、文件互動性"></a>3、文件互動性</h4><p>平面作品完成後需要輸出，而網頁則是要能在螢幕上讓使用者以滑鼠進行互動，在Photoshop上無法即時呈現互動的元素，因為它是平面設計軟體。</p>
-<p>上述的差異性，讓Photoshop不適合成為網頁設計的唯一工具，那該用什麼來做呢？平面設計最終的產出工具是印表機，而網頁設計最終的產出工具是…沒錯！就是瀏覽器。既然最終的成品會在瀏覽器上呈現，它又能符合文件在各種裝置下的情境，以及達成即時互動功能，沒有任何一套軟體比瀏覽器來得更適合了。   因此要完成這件事，網頁設計師一定要會html、css，這不是工程師的責任，而是身為一位設計師想把作品做到完美兒要了解印刷的知識一樣，是非常基本且必要的。  </p>
-<h3 id="所以Photoshop再也不需要？"><a href="#所以Photoshop再也不需要？" class="headerlink" title="所以Photoshop再也不需要？"></a>所以Photoshop再也不需要？</h3><p>前面提過，Photoshop是作為平面設計的主要工具，而網站也是充滿平面圖像的成品，所以如何讓Photoshop跟瀏覽器更好的進行合作，是本篇文章接下來分享的重點：   <a href="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-4.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/responsiveNav-4.jpg" alt="responsiveNav-4"></a>  </p>
-<h4 id="lt-一-gt-使用Photoshop設計網站主視覺"><a href="#lt-一-gt-使用Photoshop設計網站主視覺" class="headerlink" title="&lt;一&gt;使用Photoshop設計網站主視覺"></a>&lt;一&gt;使用Photoshop設計網站主視覺</h4><p>雖然有很多撰寫CSS的方便工具，但還是不可能比Photoshop直接在螢幕上畫出元素來得更方便，許多細節的感受，沒有在畫面上直接看到是很難做調整的，更不用說風格的營造，Photoshop絕對是最強大的圖像製作工具，所以還是可以跟以前一樣，開一個固定尺寸的文件來設計主視覺與介面細節，而這尺寸也是桌面版網站的支援程度(通常是用1024px)，接下來再考慮到小裝置的尺寸。  </p>
-<h4 id="lt-二-gt-使用Photoshop決定起點和終點"><a href="#lt-二-gt-使用Photoshop決定起點和終點" class="headerlink" title="&lt;二&gt;使用Photoshop決定起點和終點"></a>&lt;二&gt;使用Photoshop決定起點和終點</h4><p>第一步設計的桌面版頁面，可以把它看做是響應式變化的終點，至於起點就是，就是預定支援的最小畫面，通常是手機螢幕。設計方法是把桌面版中的主要框架元素截取出來，然後放到新開啟的小尺寸固定文件中(通常是用320px)，並針對行動裝置設計不同的導覽模式，如果不知該如何設計的話，可以參考這篇文章—&gt;<a href="https://oberonlai.blog/responsivewebdesign-navigation/" title="響應式網頁設計 – 響應式選單設計模式">響應式網頁設計 – 響應式選單設計模式</a>   而先設計桌面版的好處就在這邊，所有設計好的視覺元素可以縮小後給手機版面使用，如果是針對iPhone的視網膜解析度也不用擔心圖片不夠大而需重新設計，所以在做設計稿時建議是以桌面版為優先。  </p>
-<h4 id="lt-三-gt-使用瀏覽器決定路線"><a href="#lt-三-gt-使用瀏覽器決定路線" class="headerlink" title="&lt;三&gt;使用瀏覽器決定路線"></a>&lt;三&gt;使用瀏覽器決定路線</h4><p>完成手機與桌面版的設計稿後，就到了該跟Photoshop說再見的時候了，因為我們又用瀏覽器來設計網頁從小到大的版面樣式，這過程十分有趣，因為不用去考慮裝置的大小，只要去想在什麼狀況下那種使用行為最優先，然後根據內容去調整版面的配置方式，真正的用CSS去設計出適合的結果，以符合使用者的閱讀模式。而這部份會牽涉到大量的CSS與微量的Javascript，所以放在下一篇文章來繼續探討。  </p>
-<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>Photoshop無法完全滿足響應式網頁設計的需求，但圖像的創造還是必須仰賴它，至於牽涉到網頁的部份，還是在瀏覽器中進行設計最實際，這也是身為網頁設計師必須要學會Html、CSS的主要原因。</p>
+    <content><![CDATA[<p>本週進入回應式網頁設計主題的第三篇，前兩篇請參考 <a href="/rwd-nav">回應式網頁設計 – 回應式選單設計模式</a> 、<a href="/rwd-plan">回應式網頁設計開發實戰 – 企劃面</a>   關於回應式網站的設計面，我想從設計師最常用的設計工具Photoshop 開始談起。  </p>
+<h2 id="根本就沒有「網頁設計」軟體！？"><a href="#根本就沒有「網頁設計」軟體！？" class="headerlink" title="根本就沒有「網頁設計」軟體！？"></a>根本就沒有「網頁設計」軟體！？</h2><p>開發網站的成員之中，企劃人員常用的工具是 Word、PowerPoint，進階一點的還會用到網站原型繪製軟體，像<a href="https://www.axure.com/">Axure rp</a>。至於設計師，多半用 Photoshop 做圖像與版面的設計，縱使是習慣用向量創作的設計師，最終也是要將圖像點陣化，才能在網頁上順利呈現。</p>
+<p>然而這些再平常不過的慣用工具，在回應式網頁設計中會碰到許多麻煩，最主要的原因是Photoshop為平面設計工具，網頁與平面看似相同，但卻有著本質上的巨大差異，原因如下：</p>
+<h3 id="文件尺寸"><a href="#文件尺寸" class="headerlink" title="文件尺寸"></a>文件尺寸</h3><p>在 Photoshop 中，當一份新檔案被建立時，它的尺寸就被固定了，在回應式網頁中，能隨行動裝置調整版面尺寸是主要特徵，在 Photoshop 中完全無法在這樣的環境下進行設計，因為它是給「固定尺寸」的平面設計而用。  </p>
+<h3 id="文件解析度"><a href="#文件解析度" class="headerlink" title="文件解析度"></a>文件解析度</h3><p>承上，文件解析度也是在檔案新建時就被決定，但在行動裝置上，網路速度決定使用體驗，而影響的主因之一，就是圖像的解析度，在小螢幕的手機上瀏覽網頁不需要高解度的圖像來延緩下載速度。  </p>
+<h3 id="文件互動性"><a href="#文件互動性" class="headerlink" title="文件互動性"></a>文件互動性</h3><p>平面作品完成後需要輸出，而網頁則是要能在螢幕上讓使用者以滑鼠進行互動，在 Photoshop 上無法即時呈現互動的元素，因為它是平面設計軟體。</p>
+<p>上述的差異性，讓 Photoshop 不適合成為網頁設計的唯一工具，那該用什麼來做呢？平面設計最終的產出工具是印表機，而網頁設計最終的產出工具是…沒錯！就是瀏覽器。</p>
+<p>既然最終的成品會在瀏覽器上呈現，它又能符合文件在各種裝置下的情境，以及達成即時互動功能，沒有任何一套軟體比瀏覽器來得更適合了。   </p>
+<p>因此要完成這件事，網頁設計師一定要會 HTML / CSS，這不是工程師的責任，而是身為一位設計師想把作品做到完美而要了解印刷的知識一樣，是非常基本且必要的。  </p>
+<h2 id="所以-Photoshop-再也不需要？"><a href="#所以-Photoshop-再也不需要？" class="headerlink" title="所以 Photoshop 再也不需要？"></a>所以 Photoshop 再也不需要？</h2><p>前面提過，Photoshop 是作為平面設計的主要工具，而網站也是充滿平面圖像的成品，所以如何讓 Photoshop 跟瀏覽器更好的進行合作，是本篇文章接下來分享的重點：</p>
+<h3 id="使用-Photoshop-設計網站主視覺"><a href="#使用-Photoshop-設計網站主視覺" class="headerlink" title="使用 Photoshop 設計網站主視覺"></a>使用 Photoshop 設計網站主視覺</h3><p>雖然有很多撰寫 CSS 的方便工具，但還是不可能比 Photoshop 直接在螢幕上畫出元素來得更方便，許多細節的感受，沒有在畫面上直接看到是很難做調整的，更不用說風格的營造，Photoshop絕對是最強大的圖像製作工具。</p>
+<p>所以還是可以跟以前一樣，開一個固定尺寸的文件來設計主視覺與介面細節，而這尺寸也是桌面版網站的支援程度（通常是用1024px），接下來再考慮到小裝置的尺寸。  </p>
+<h3 id="使用Photoshop決定起點和終點"><a href="#使用Photoshop決定起點和終點" class="headerlink" title="使用Photoshop決定起點和終點"></a>使用Photoshop決定起點和終點</h3><p>第一步設計的桌面版頁面，可以把它看做是回應式變化的終點，至於起點就是，就是預定支援的最小畫面，通常是手機螢幕。設計方法是把桌面版中的主要框架元素截取出來，然後放到新開啟的小尺寸固定文件中(通常是用320px)，並針對行動裝置設計不同的導覽模式。</p>
+<p>如果不知該如何設計的話，可以參考這篇文章–&gt;<a href="/rwd-nav">回應式網頁設計 – 回應式選單設計模式</a>   而先設計桌面版的好處就在這邊，所有設計好的視覺元素可以縮小後給手機版面使用，如果是針對iPhone 的視網膜解析度也不用擔心圖片不夠大而需重新設計，所以在做設計稿時建議是以桌面版為優先。  </p>
+<h3 id="使用瀏覽器決定路線"><a href="#使用瀏覽器決定路線" class="headerlink" title="使用瀏覽器決定路線"></a>使用瀏覽器決定路線</h3><p>完成手機與桌面版的設計稿後，就到了該跟 Photoshop 說再見的時候了，因為我們又用瀏覽器來設計網頁從小到大的版面樣式，這過程十分有趣，因為不用去考慮裝置的大小，只要去想在什麼狀況下那種使用行為最優先，然後根據內容去調整版面的配置方式。真正的用 CSS 去設計出適合的結果，以符合使用者的閱讀模式。</p>
+<p>而這部份會牽涉到大量的 CSS 與微量的 Javascript，所以放在下一篇文章來繼續探討。  </p>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>Photoshop 無法完全滿足回應式網頁設計的需求，但圖像的創造還是必須仰賴它，至於牽涉到網頁的部份，還是在瀏覽器中進行設計最實際，這也是身為網頁設計師必須要學會 HTML / CSS 的主要原因。</p>
 ]]></content>
       <categories>
         <category>使用者介面</category>
       </categories>
   </entry>
   <entry>
-    <title>響應式網頁設計開發實戰 - 企劃面</title>
+    <title>回應式網頁設計開發實戰 - 企劃面</title>
     <url>/tw/responsivewebdesignforplanning/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg" alt="6020288_m_m"> <a href="https://oberonlai.blog/wp-content/uploads/2013/08/6020288_m_m.jpg"></a> 網站的物種演進</p>
-<p>  距離本人上一篇文章已相隔許久，這陣子輸入的多卻輸出的少，很多知識沒經過整理就像媽媽的嘮叨一樣，左耳進右耳出；另一方面，太久沒寫文章都快忘了寫作的樂趣，而這樂趣的來源，就是希望能夠幫助到真正有需要的朋友，所以我強迫自己每週一定要生一篇文章出來，鼓勵自己往這目標邁進。   為何會想寫響應式網頁設計這個主題，因為發現雖然相關技術很多，但很少有一套系統化的整理，也因為該技術不斷的在演進，還沒有一套標準的設計流程，基於這個出發點，我把曾經規劃的設計經驗，寫出來與大家分享，當然一定會有許多不足的地方，或是其它更好的做法，但我希望自己只是一個起點，能幫助到想學習的朋友，也獲其它先進的寶貴經驗，而這也是我寫這系列文章的主要目的。   關於響應式網頁設計，我想分成三個主題來說明，分別是企劃、視覺設計與前端技術來討論。</p>
-<span id="more"></span>
-<p> </p>
-<h3 id="lt-一-gt-何謂響應式網頁設計"><a href="#lt-一-gt-何謂響應式網頁設計" class="headerlink" title="&lt;一&gt;何謂響應式網頁設計"></a>&lt;一&gt;何謂響應式網頁設計</h3><p>響應式網頁設計英文全名為Responsive Web Design，借用維基百科的解釋：「響應式網頁設計是一種網頁設計的技術做法，該設計可使網站在多種瀏覽裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上閱讀和導航，同時減少縮放、平移和捲動。」但就我自己的觀察，這項技術只反應出版面呈現的變化，卻少了適應裝置的特性與使用體驗。   響應式網頁設計不該只是以調整畫面為終極目標，它應該是一套整體的設計觀念融入在網站的開發流程之中，更活的彈性版面、更豐富的互動模式，甚至是在不同裝置上有著不同的使用目的，或是不同平臺的行銷訴求，這些都必須在開發前就要有完整的深入規劃，才能徹底發揮它的威力。  </p>
-<h3 id="lt-二-gt-誰需要響應式網站"><a href="#lt-二-gt-誰需要響應式網站" class="headerlink" title="&lt;二&gt;誰需要響應式網站"></a>&lt;二&gt;誰需要響應式網站</h3><p>那些類型的網站會需要響應式的做法，可以根據以下條件來做評估： 1.網站性能：在台灣4G網路發展停滯與3G使用人口爆炸的環境下，手機上網的速度還無法與家中有線寬頻來相比，所以行動裝置上的內容不宜太過複雜，盡可能減輕手機瀏覽器的載入負擔。如果知道自己公司的網站常常有人用行動裝置來瀏覽，那就有必要實際檢測使用3G網路的網站性能，如果過慢的話可能就要考慮設計手機版網頁，或是採用響應式網站的規劃概念，來重新檢視網站的架構與程式的撰寫方式，來加快網站的載入速度，這部份在談技術面時會提到更多。 2.使用情境：如果你的網站在電腦上與在行動裝置上的使用目的不同，也可以透過響應式網站來處理不同的使用行為，譬如旅遊類型的網站在電腦版中是所有地區的資訊，但在手機上可能就只需要根據所在位置提供週邊景點資料。 3.內容排序：行動訴求（Call To Action）在電腦版是位於重要的明顯位置，但如用小尺寸螢幕可能會被擠到下方或是第一眼可視範圍之外，在該種情況下就能使用響應式技術來做內容調整。 4.時間成本：如果你對於在行動裝置上有明確的行銷策略藍圖，但卻沒有足夠的預算來針對所有裝置設計不同的網站，那麼響應式技術就會是很好的解決方案。 5.品牌形象：在競爭的產業之中，能提供越多的服務越能讓消費者產生記憶點，亦是創造與消費者之間的共通話題，在手機應用程式開發門檻較高的情況下，使用響應式技術較易切入，也能初步獲得行動市場的需求，以做為未來開發行動應用程式的參考依據。  </p>
-<h3 id="lt-三-gt-如何規劃響應式網站"><a href="#lt-三-gt-如何規劃響應式網站" class="headerlink" title="&lt;三&gt;如何規劃響應式網站"></a>&lt;三&gt;如何規劃響應式網站</h3><p>現行的響應式網站多是從技術的角度切入，把電腦版網站轉成小版面，對工程師而言，光要能在裝置上正確顯示，就已經一個頭兩個大，能否真正滿足使用者需求還有待商確。建議可以從以下角度進行思考 1.目標使用者是誰 2.現行網站有那些內容 3.如何簡化現行網站內容 4.關鍵的行動訴求或訊息是什麼 5.次要的訊息是什麼 6.內容的層級 將上述問題釐清後，接下來就要逐一檢視頁面內容，相關格式可參考「<a href="http://goo.gl/fIZ0VN">內容清單</a>」，當我們知道有那些頁面後，就可以針對它們進行「<a href="http://goo.gl/fXQjNr">頁面摘要</a>」，頁面摘要紀錄了每一頁的結構和關鍵訊息，用來幫助在不同的解析度下如何決定頁面順序的參考依據。 其次要來決定支援的平臺與設備，平臺目前以iOS與Android為大宗，設備可以從各家手機品牌的銷售量下手，當然最好的方法是查看現行網站的行動裝置瀏覽數據，來決定要支援的範圍；最後則是考量到裝置的使用體驗，是否要設計不同的手勢來瀏覽內容，或是使用裝置內建的功能來加強互動，像是GPS或是水平儀等功能。  </p>
-<h3 id="lt-四-gt-響應式網站的線框圖與互動原型"><a href="#lt-四-gt-響應式網站的線框圖與互動原型" class="headerlink" title="&lt;四&gt;響應式網站的線框圖與互動原型"></a>&lt;四&gt;響應式網站的線框圖與互動原型</h3><p>有了企劃的表格後，就可以透過線框圖來決定區塊配置。我試過最好的方法，就是離開電腦，拿起美工刀跟一堆紙，把草稿畫在裁切好手機大小的白紙上，或是到<a href="http://interfacesketch.tumblr.com/">這個網站</a>去列印目前主流裝置的尺寸，要那種機型幾吋螢幕都可以，然後放在手機保護套裡面，實際進行功能測試，以及檢視內容的編排是否容易達成頁面目標。   <a href="https://oberonlai.blog/wp-content/uploads/2013/08/02.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/02.jpg" alt="02"></a>   與規劃電腦版網站不同的地方是，要注意按鈕的尺寸並實際進行測試，另外也要一併思考裝置的互動方式，而不僅止於滑鼠事件而已，關於響應式線框圖的繪製工具，我尙未找到最好的解決辦法，所以還是選擇最常用的photoshop來繪製灰色區塊來示意版面配置，快速完成後輸出成圖檔放在手機上檢視，來確認區塊的比例還有按鈕的大小是否恰當，使用它的好處是在做視覺設計的時候就能沿用這份線框圖來掌握正確的尺寸，避免做出過小的按鈕或錯誤的版面比例。至於互動原型的部份我直接採用Fire App來快速打造，這部份在之後會討論到。  </p>
-<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>基本上在企劃的過程中，雖然與規劃一般網站差不多，但要能更週全的考慮到行動裝置的使用者會想以什麼方式來瀏覽我們的網站，把自己投射在使用情境中或是找朋友測試都是不錯的方法，下一篇將會針對視覺設計的部份來做探討，這部份是我覺得與一般網站設計差距最大的地方。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距離本人上一篇文章已相隔許久，這陣子輸入的多卻輸出的少，很多知識沒經過整理就像媽媽的嘮叨一樣，左耳進右耳出；另一方面，太久沒寫文章都快忘了寫作的樂趣，而這樂趣的來源，就是希望能夠幫助到真正有需要的朋友，所以我強迫自己每週一定要生一篇文章出來，鼓勵自己往這目標邁進。   </p>
+<p>為何會想寫回應式網頁設計這個主題，因為發現雖然相關技術很多，但很少有一套系統化的整理，也因為該技術不斷的在演進，還沒有一套標準的設計流程，基於這個出發點，我把曾經規劃的設計經驗，寫出來與大家分享。</p>
+<p>當然一定會有許多不足的地方，或是其它更好的做法，但我希望自己只是一個起點，能幫助到想學習的朋友，也獲其它先進的寶貴經驗，而這也是我寫這系列文章的主要目的。</p>
+<p>關於回應式網頁設計，我想分成三個主題來說明，分別是企劃、視覺設計與前端技術來討論。
+ </p>
+<h2 id="何謂回應式網頁設計"><a href="#何謂回應式網頁設計" class="headerlink" title="何謂回應式網頁設計"></a>何謂回應式網頁設計</h2><p>回應式網頁設計英文全名為 Responsive Web Design，借用維基百科的解釋：「回應式網頁設計是一種網頁設計的技術做法，該設計可使網站在多種瀏覽裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上閱讀和導航，同時減少縮放、平移和捲動。」</p>
+<p>但就我自己的觀察，這項技術只反應出版面呈現的變化，卻少了適應裝置的特性與使用體驗。   回應式網頁設計不該只是以調整畫面為終極目標，它應該是一套整體的設計觀念融入在網站的開發流程之中。</p>
+<p>更活的彈性版面、更豐富的互動模式，甚至是在不同裝置上有著不同的使用目的，或是不同平臺的行銷訴求，這些都必須在開發前就要有完整的深入規劃，才能徹底發揮它的威力。  </p>
+<h2 id="誰需要回應式網站"><a href="#誰需要回應式網站" class="headerlink" title="誰需要回應式網站"></a>誰需要回應式網站</h2><p>那些類型的網站會需要回應式的做法，可以根據以下條件來做評估： </p>
+<h3 id="網站性能："><a href="#網站性能：" class="headerlink" title="網站性能："></a>網站性能：</h3><p>在台灣 4G 網路發展停滯與 3G 使用人口爆炸的環境下，手機上網的速度還無法與家中有線寬頻來相比，所以行動裝置上的內容不宜太過複雜，盡可能減輕手機瀏覽器的載入負擔。</p>
+<p>如果知道自己公司的網站常常有人用行動裝置來瀏覽，那就有必要實際檢測使用 3G 網路的網站性能，如果過慢的話可能就要考慮設計手機版網頁，或是採用回應式網站的規劃概念，來重新檢視網站的架構與程式的撰寫方式，來加快網站的載入速度，這部份在談技術面時會提到更多。</p>
+<h3 id="使用情境："><a href="#使用情境：" class="headerlink" title="使用情境："></a>使用情境：</h3><p>如果你的網站在電腦上與在行動裝置上的使用目的不同，也可以透過回應式網站來處理不同的使用行為，譬如旅遊類型的網站在電腦版中是所有地區的資訊，但在手機上可能就只需要根據所在位置提供週邊景點資料。 </p>
+<h3 id="內容排序："><a href="#內容排序：" class="headerlink" title="內容排序："></a>內容排序：</h3><p>行動訴求（Call To Action）在電腦版是位於重要的明顯位置，但如用小尺寸螢幕可能會被擠到下方或是第一眼可視範圍之外，在該種情況下就能使用回應式技術來做內容調整。 </p>
+<h3 id="時間成本："><a href="#時間成本：" class="headerlink" title="時間成本："></a>時間成本：</h3><p>如果你對於在行動裝置上有明確的行銷策略藍圖，但卻沒有足夠的預算來針對所有裝置設計不同的網站，那麼回應式技術就會是很好的解決方案。 </p>
+<h3 id="品牌形象："><a href="#品牌形象：" class="headerlink" title="品牌形象："></a>品牌形象：</h3><p>在競爭的產業之中，能提供越多的服務越能讓消費者產生記憶點，亦是創造與消費者之間的共通話題，在手機應用程式開發門檻較高的情況下，使用回應式技術較易切入，也能初步獲得行動市場的需求，以做為未來開發行動應用程式的參考依據。  </p>
+<h2 id="如何規劃回應式網站"><a href="#如何規劃回應式網站" class="headerlink" title="如何規劃回應式網站"></a>如何規劃回應式網站</h2><p>現行的回應式網站多是從技術的角度切入，把電腦版網站轉成小版面，對工程師而言，光要能在裝置上正確顯示，就已經一個頭兩個大，能否真正滿足使用者需求還有待商確。</p>
+<p>建議可以從以下角度進行思考：</p>
+<ol>
+<li>目標使用者是誰 </li>
+<li>現行網站有那些內容  </li>
+<li>如何簡化現行網站內容 </li>
+<li>關鍵的行動訴求或訊息是什麼 </li>
+<li>次要的訊息是什麼 </li>
+<li>內容的層級 </li>
+</ol>
+<p>將上述問題釐清後，接下來就要逐一檢視頁面內容，相關格式可參考「<a href="http://goo.gl/fIZ0VN">內容清單</a>」，當我們知道有那些頁面後，就可以針對它們進行「<a href="http://goo.gl/fXQjNr">頁面摘要</a>」。</p>
+<p>頁面摘要紀錄了每一頁的結構和關鍵訊息，用來幫助在不同的解析度下如何決定頁面順序的參考依據。 其次要來決定支援的平臺與設備，平臺目前以iOS與Android為大宗。</p>
+<p>設備可以從各家手機品牌的銷售量下手，當然最好的方法是查看現行網站的行動裝置瀏覽數據，來決定要支援的範圍；最後則是考量到裝置的使用體驗，是否要設計不同的手勢來瀏覽內容，或是使用裝置內建的功能來加強互動，像是GPS或是水平儀等功能。  </p>
+<h2 id="回應式網站的線框圖與互動原型"><a href="#回應式網站的線框圖與互動原型" class="headerlink" title="回應式網站的線框圖與互動原型"></a>回應式網站的線框圖與互動原型</h2><p>有了企劃的表格後，就可以透過線框圖來決定區塊配置。我試過最好的方法，就是離開電腦，拿起美工刀跟一堆紙，把草稿畫在裁切好手機大小的白紙上，實際進行功能測試，以及檢視內容的編排是否容易達成頁面目標。</p>
+<p>與規劃電腦版網站不同的地方是，要注意按鈕的尺寸並實際進行測試，另外也要一併思考裝置的互動方式，而不僅止於滑鼠事件而已，關於回應式線框圖的繪製工具，我尙未找到最好的解決辦法，所以還是選擇最常用的 Photoshop 來繪製灰色區塊來示意版面配置。</p>
+<p>快速完成後輸出成圖檔放在手機上檢視，來確認區塊的比例還有按鈕的大小是否恰當，使用它的好處是在做視覺設計的時候就能沿用這份線框圖來掌握正確的尺寸，避免做出過小的按鈕或錯誤的版面比例。</p>
+<p>至於互動原型的部份我直接採用 Fire App 來快速打造，這部份在之後會討論到。  </p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>基本上在企劃的過程中，雖然與規劃一般網站差不多，但要能更週全的考慮到行動裝置的使用者會想以什麼方式來瀏覽我們的網站，把自己投射在使用情境中或是找朋友測試都是不錯的方法，下一篇將會針對視覺設計的部份來做探討，這部份是我覺得與一般網站設計差距最大的地方。</p>
 ]]></content>
       <categories>
         <category>網站企劃</category>
@@ -2088,21 +2179,45 @@ function scrollIndicatior() &#123;
   <entry>
     <title>HPX Life 網路 X 投資 如何在成熟產業中創業 / 財報狗 參後感</title>
     <url>/tw/statementdog/</url>
-    <content><![CDATA[<p><a href="https://oberonlai.blog/wp-content/uploads/2013/08/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7-2013-08-16-%E4%B8%8A%E5%8D%8812.24.13.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/08/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7-2013-08-16-%E4%B8%8A%E5%8D%8812.24.13.jpg" alt="財報狗"></a>   今天參加了hpx life的分享會，主題是如何在成熟產業中創業，主角是<a href="http://statementdog.com/">財報狗投資數據理財網站</a>，他們以簡化的圖表來呈現複雜的投資數據，讓使用者可以輕易了解整體趨勢表現。   與會前稍稍研究了一下他們的網站，跟一般的理財網站比起來，他們簡直就是股市界網站的一道清流，沒有眼花撩亂的圖表轟炸我的雙眼，也沒有一堆無關緊要的最新快訊，有的只是一條簡單的搜尋框，和明確的行動訴求。   隨意試著搜尋一家上市公司，映入眼簾的是清爽配色的易讀圖表，而且配色非常用，有根據色彩心理來設計，這是一般投資網站很少會做的事，而且要能做到這樣的呈現，勢必要篩選整理許多資料，在資訊爆炸的今天，要能整理出一套有系統的知識，才會產生價值，而財報狗做到了，他們現行有四萬多的會員，成立超過三年而且穩定成長。   如果我沒參加今天的分享會，我想我對財報狗的了解也就僅只於此。開始前以為是會聽到他們怎麼靠做用戶研究、使用者測試來改善網站介面，想不到卻是完全意外的超展開XD</p>
-<span id="more"></span>
-<p>  以上的部分照共同創辦人小鄭所言，是創業1.0的部分，真正精彩的在後面，原以為靠著篩選投資資訊就能吸引消費者的想法，受到市場的殘酷考驗，在飽受質疑這網站是否存活的下來時，他們卻發現另外一項商機。   小鄭有張簡報說的很好，不要教育你的客戶，除非你的客戶有需要被教育的需求，他們發現很多人，對於財務報表的專有名詞理解不多，所以他們從教育的市場切入，教導客戶如何看懂那些公司值不值得投資，運用<a href="http://statementdog.com/blog/">部落格</a>進行有價值的文章分享，以培養忠實會員的信任感。   另外讓我驚訝的地方是，他們對於投資理財網站服務產業的認識，就像跟自己的老爸老媽一樣熟，因為非常熟悉，讓他們有能力在成熟產業中找到一塊屬於自己的餅，他們不闖成長期產業的高度競爭風險，不去搶已成熟產業中的主力市場，只針對散戶的客群，提供最有價值的資訊，進而建立起信賴，我想這是再強的技術也很難辦到的事。   會後聽小鄭分享，他坦承他們的技術很容易模仿，但他們最寶貴，是長期培養出的信任關係。投資不一定是金融商品，也可以是一群志同道合的朋友。</p>
+    <content><![CDATA[<p>今天參加了hpx life的分享會，主題是如何在成熟產業中創業，主角是<a href="http://statementdog.com/">財報狗投資數據理財網站</a>，他們以簡化的圖表來呈現複雜的投資數據，讓使用者可以輕易了解整體趨勢表現。   </p>
+<p>與會前稍稍研究了一下他們的網站，跟一般的理財網站比起來，他們簡直就是股市界網站的一道清流，沒有眼花撩亂的圖表轟炸我的雙眼，也沒有一堆無關緊要的最新快訊，有的只是一條簡單的搜尋框，和明確的行動訴求。   </p>
+<p>隨意試著搜尋一家上市公司，映入眼簾的是清爽配色的易讀圖表，而且配色非常用，有根據色彩心理來設計，這是一般投資網站很少會做的事，而且要能做到這樣的呈現，勢必要篩選整理許多資料。</p>
+<p>在資訊爆炸的今天，要能整理出一套有系統的知識，才會產生價值，而財報狗做到了，他們現行有四萬多的會員，成立超過三年而且穩定成長。   </p>
+<p>如果我沒參加今天的分享會，我想我對財報狗的了解也就僅只於此。開始前以為是會聽到他們怎麼靠做用戶研究、使用者測試來改善網站介面，想不到卻是完全意外的超展開XD</p>
+<p>以上的部分照共同創辦人小鄭所言，是創業1.0的部分，真正精彩的在後面，原以為靠著篩選投資資訊就能吸引消費者的想法，受到市場的殘酷考驗，在飽受質疑這網站是否存活的下來時，他們卻發現另外一項商機。   </p>
+<p>小鄭有張簡報說的很好，不要教育你的客戶，除非你的客戶有需要被教育的需求，他們發現很多人，對於財務報表的專有名詞理解不多，所以他們從教育的市場切入，教導客戶如何看懂那些公司值不值得投資，運用<a href="http://statementdog.com/blog/">部落格</a>進行有價值的文章分享，以培養忠實會員的信任感。</p>
+<p>另外讓我驚訝的地方是，他們對於投資理財網站服務產業的認識，就像跟自己的老爸老媽一樣熟，因為非常熟悉，讓他們有能力在成熟產業中找到一塊屬於自己的餅，他們不闖成長期產業的高度競爭風險，不去搶已成熟產業中的主力市場，只針對散戶的客群，提供最有價值的資訊，進而建立起信賴，我想這是再強的技術也很難辦到的事。</p>
+<p>會後聽小鄭分享，他坦承他們的技術很容易模仿，但他們最寶貴，是長期培養出的信任關係。投資不一定是金融商品，也可以是一群志同道合的朋友。</p>
 ]]></content>
       <categories>
         <category>網站企劃</category>
       </categories>
   </entry>
   <entry>
-    <title>Wordpress文章發表按鈕變成送交審查</title>
+    <title>WordPress 文章發表按鈕變成送交審查</title>
     <url>/tw/submit-for-review/</url>
-    <content><![CDATA[<p>最近中了頭獎，當然不是大樂透，而是 wordpress 的離奇懸案。 話說前天有 FU 想寫些文章，大概打了兩大段準備先儲存為草稿時，發現存的時間異常的久，於是想說算了，先直接發表文章看看會不會比較快，結果看到「發表」按鈕變成「送交審查」讓我下巴掉了下來。 <a href="https://oberonlai.blog/wp-content/uploads/2013/11/04.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/11/04.jpg" alt="04"></a> 這網站的管理員只有我一個人，我也從未修改過發表文章的權限，正在狐疑怎麼會變成這種情況的時候，另外一個更驚人的現象發生了， <a href="https://oberonlai.blog/wp-content/uploads/2013/11/01.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/11/01.jpg" alt="01"></a> <a href="https://oberonlai.blog/wp-content/uploads/2013/11/02.jpg"><img src="https://oberonlai.blog/wp-content/uploads/2013/11/02.jpg" alt="02"></a>   所有的文章、頁面、分類、標籤全都變成零，進去列表的時候也發現所有文章都不見了，急急忙忙跑去前臺看，發現網頁的載入速度異常遲緩，好不容易載入完後發現唯一值得慶幸的事情，就是所有頁面、文章都還在。   Google 了之後只發現有對岸同胞在百度上提了這個問題，但並未有任何解決辦法，搜尋了 wordpress support，發現到幾篇類似相同症狀的文章， 1.<a href="http://wordpress.org/support/topic/a-cause-of-the-submit-for-review-problem?replies=3">A cause of the “submit for review” problem</a> 2.<a href="http://wordpress.org/support/topic/submit-for-review-no-publish-button">Submit For Review —- No Publish button</a> 3.<a href="http://goo.gl/IDj5Qq">Solve a “Submit For Review” issue on WordPress</a>   我嘗試過的方法如下： 1.進入 phpmyadmin 修復資料庫 2.進入 phpmyadmin 修改 wp_usermeta 裡 wp_capabilities 的值 3.新增資料庫使用者帳密，修改 wp_config.php 的值 4.執行 ALTER TABLE some_table AUTO_INCREMENT=1000 5.匯出所有頁面文章，再重新匯入（經實驗在這種情況下匯出的檔案只有 2KB，內容是 Hello World…） 6.上 wordpress taiwan 正體中文粉絲團求救 7.趕快洗澡睡覺祈求隔天一切完好如初…   如果您的 wordpress 也碰到這個問題，想必您一定也很著急解決辦法是什麼，我的解決辦法很簡單，那就是…</p>
-<span id="more"></span>
-<p> </p>
-<h2 id="一切重來吧！"><a href="#一切重來吧！" class="headerlink" title="一切重來吧！"></a>一切重來吧！</h2><p>  沒錯，我重裝了一套 wordpress，從備份恢復頁面、文章，經過一番功夫總算是回歸正軌，所以小弟事實上完全沒解決這個問題，也無從釐清這問題的狀況是如何發生的，這實在是令人非常氣餒的一件事，但還是在此留個紀錄，讓將來有遇到這問題的朋友有個參考方向，進而解決它。</p>
+    <content><![CDATA[<p>最近中了頭獎，當然不是大樂透，而是 WordPress 的離奇懸案。 話說前天有 FU 想寫些文章，大概打了兩大段準備先儲存為草稿時，發現存的時間異常的久，於是想說算了，先直接發表文章看看會不會比較快，結果看到「發表」按鈕變成「送交審查」讓我下巴掉了下來。</p>
+<p>這網站的管理員只有我一個人，我也從未修改過發表文章的權限，正在狐疑怎麼會變成這種情況的時候，另外一個更驚人的現象發生了，所有的文章、頁面、分類、標籤全都變成零，進去列表的時候也發現所有文章都不見了。</p>
+<p>急急忙忙跑去前臺看，發現網頁的載入速度異常遲緩，好不容易載入完後發現唯一值得慶幸的事情，就是所有頁面、文章都還在。</p>
+<p>Google 了之後只發現有對岸同胞在百度上提了這個問題，但並未有任何解決辦法，搜尋了 WordPress support，發現到幾篇類似相同症狀的文章：</p>
+<ul>
+<li><a href="http://wordpress.org/support/topic/a-cause-of-the-submit-for-review-problem?replies=3">A cause of the “submit for review” problem</a> </li>
+<li><a href="http://wordpress.org/support/topic/submit-for-review-no-publish-button">Submit For Review —- No Publish button</a> </li>
+<li><a href="http://goo.gl/IDj5Qq">Solve a “Submit For Review” issue on WordPress</a>   </li>
+</ul>
+<p>我嘗試過的方法如下： </p>
+<ol>
+<li>進入 phpmyadmin 修復資料庫 </li>
+<li>進入 phpmyadmin 修改 <code>wp\_usermeta</code> 裡 <code>wp\_capabilities</code> 的值 </li>
+<li>新增資料庫使用者帳密，修改 <code>wp\_config.php</code> 的值 </li>
+<li>執行 <code>ALTER TABLE some\_table AUTO\_INCREMENT=1000</code></li>
+<li>匯出所有頁面文章，再重新匯入（經實驗在這種情況下匯出的檔案只有 2KB，內容是 Hello World…） </li>
+<li>上 WordPress Taiwan 正體中文粉絲團求救 </li>
+<li>趕快洗澡睡覺祈求隔天一切完好如初…   </li>
+</ol>
+<p>如果您的 WordPress 也碰到這個問題，想必您一定也很著急解決辦法是什麼，我的解決辦法很簡單，那就是…
+ </p>
+<h2 id="一切重來吧！"><a href="#一切重來吧！" class="headerlink" title="一切重來吧！"></a>一切重來吧！</h2><p>沒錯，我重裝了一套 WordPress，從備份恢復頁面、文章，經過一番功夫總算是回歸正軌，所以我事實上完全沒解決這個問題，也無從釐清這問題的狀況是如何發生的，這實在是令人非常氣餒的一件事，但還是在此留個紀錄，讓將來有遇到這問題的朋友有個參考方向，進而解決它。</p>
 ]]></content>
       <categories>
         <category>WordPress</category>
@@ -17934,6 +18049,118 @@ iron-pay$ git push origin v1.0.1<span aria-hidden="true" class="line-numbers-row
 <p>打不破自己的認知，就接觸不到新視野。所以求知若渴的人勇於接受各種挑戰，面對各種聲音，主動去尋求自己與這世界的平衡。</p>
 </blockquote>
 <p>希望我們都能找到自己與這世界的平衡！</p>
+]]></content>
+      <categories>
+        <category>接案</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>WordPress 外掛整合 Zoom API</title>
+    <url>/tw/wordpress-plugin-zoom-api/</url>
+    <content><![CDATA[<p>Zoom 是許多線上課程所採用的直播平台，但直到最近我才發現 Zoom 的 Marketplace 已經有超過上千個應用程式可以使用，把我嚇得屁滾尿流，有了這些 App 可以整合許多第三方的服務，像是在線上會議時舉辦投票、根據播放時間做筆記，還可以做文件的簽署以及客戶關係管理，裡面甚至還有多款小遊戲來增進視訊時的互動，好像還滿適合英語補習班老師的XD</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-01.jpg"></p>
+<p>雖然 Zoom 與中國政府之間的關係一直被熱議，我自己也是用 Google Meet 優先於 Zoom，但還是不乏許多知名廠商也有上架它們的 App，像是 Google、Dropbox、HubSpot 等，這多虧 Zoom 強大的 API，當然 WordPress 也不會缺席，目前市集上有幾款與 WordPress 有關的 App，比較值得一提的是這款：</p>
+<h2 id="Integration-for-WordPress"><a href="#Integration-for-WordPress" class="headerlink" title="Integration for WordPress"></a><a href="https://marketplace.zoom.us/apps/SWwsJ3lHTZOxvtSW_0ELag">Integration for WordPress</a></h2><p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-02.jpg"></p>
+<p>這支外掛可以讓你在後台直接管理 Zoom 的會議、研討會、使用者以及報告，並且可以使用短碼、區塊編輯器或是 Elementor 來新增加入會議的前台畫面顯示，還可以匯入 Zoom 裡面既有的會議資料，比較特別的是它提供不透過 Zoom App 就能直接在瀏覽器上加入會議的功能，這對於不想另外安裝 Zoom 應用程式的朋友來說還滿方便的，查了文件才知道 Zoom 有 Web SDK 可以實現這功能。</p>
+<p>它的付費功能也很豐富，可以排程建立會議與研討會，這對於有安排固定直播時間的老師來說可以省下重複建立的時間，另外還可以增加註冊會議功能，更能有效控管參與人員的資料，以便做好客戶關係管理。</p>
+<p>此外還有不少擴充套件，像是整合 <a href="https://www.codemanas.com/downloads/zoom-meetings-for-woocommerce/">WooCommerce</a> 讓顧客可以透過購買商品來取得加入線上會議的資格，以及整合其他三款 WooCommerce 的預約外掛，如果你要透過 Zoom 做一對一的線上教學會非常方便。</p>
+<p>這支外掛也有上架 WordPress.org，但名稱不太一樣，叫做 <a href="https://wordpress.org/plugins/video-conferencing-with-zoom-api/">Video Conferencing with Zoom</a>，外掛頁的介紹與資訊都比 Zoom Marketplace 豐富，有需要的話直接從 WordPress 後台下載安裝比較快。</p>
+<h2 id="Zoom-URL-Schema"><a href="#Zoom-URL-Schema" class="headerlink" title="Zoom URL Schema"></a>Zoom URL Schema</h2><p>如果你並沒有想直接在 WordPress 後台管理 Zoom 的會議也沒打算賣線上研討會，你單純只是想有個按鈕可以讓瀏覽者啟動會議，那麼 URL Schema 是一個選擇，只要使用以下的網址即可：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">// 電腦版
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoommtg://zoom.us/join?confno=123&amp;pwd=123&amp;uname=oberonlai<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>點我進入會議<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+
+// 手機版
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoomus://zoom.us/join?confno=123&amp;pwd=123&amp;uname=oberonlai<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>點我進入會議<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>電腦版跟手機版前面的開頭不一樣，如果是用 Elementor 可以做兩個不同的按鈕分別在不同裝置下顯示對應的連結，連結參數 confno 指的是會議 ID，pwd 是會議密碼，而 uname 是加入會議者的名稱，uname 可以不指定讓加入會議者自行輸入。</p>
+<p>如果你想要更貼心一點讓程式自動抓已登入使用者的名稱來做為 uname，有幾種方式可以做，第一種可以建立短碼來處理：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">add_shortcode</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'zoom_link'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'generate_zoom_link'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">generate_zoom_link</span><span class="token punctuation">(</span> <span class="token variable">$atts</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">shortcode_atts</span><span class="token punctuation">(</span>
+		<span class="token keyword">array</span><span class="token punctuation">(</span>
+			<span class="token string single-quoted-string">'confno'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'pwd'</span>    <span class="token operator">=></span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'uname'</span>  <span class="token operator">=></span> <span class="token punctuation">(</span> <span class="token function">is_user_logged_in</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">get_usermeta</span><span class="token punctuation">(</span> <span class="token function">get_current_user_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token operator">-></span><span class="token argument-name">display_name</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'text'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'點我進入會議'</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token variable">$atts</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$output</span>  <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
+	<span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">'&lt;a href="'</span> <span class="token operator">.</span> <span class="token punctuation">(</span> <span class="token function">wp_is_mobile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'zoomus:'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'zoommtg:'</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'//zoom.us/join?confno='</span> <span class="token operator">.</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'confno'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&amp;pwd='</span> <span class="token operator">.</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'pwd'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&amp;uname='</span> <span class="token operator">.</span> <span class="token variable">$uname</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'">'</span><span class="token punctuation">;</span>
+	<span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'text'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&lt;/a>'</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token variable">$output</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>這樣就可以使用這樣的短碼來顯示會議連結：<code>[zoom_link confo=&quot;123&quot; pwd=&quot;456&quot; text=&quot;加入會議&quot;]</code>，該短碼有四個參數，confo 跟 pwd 分別為會議 ID 跟密碼，uname 預設我讓它抓已登入使用者的顯示名稱或是也可以自己指定，text 則是按鈕的顯示文字，裝置的部分我直接用 ＷordPress 內建的 wp_is_mobile 來判斷，這樣就省去要做兩個按鈕的時間了。</p>
+<p>第二種方法需要用到比較多 JavaScript 的語法，基本邏輯是先在後端使用 wp_enqueue_scripts() 來把使用者名稱輸出到前端，再透過 jQuery 指定連結屬性 attr 去替換連結中的 uname 參數，這方法需要知道如何使用 jQuery 選到按鈕再修改 href 的結構，然後因為我懶，這部分有需要的話再跟我說，我再把範例寫出來。</p>
+<h2 id="Zoom-App-OAuth"><a href="#Zoom-App-OAuth" class="headerlink" title="Zoom App OAuth"></a>Zoom App OAuth</h2><p>如果你想要進一步讓 WordPress 網站可以整合更多 Zoom 的互動行為，像是在會員登入後同時註冊 Zoom 會議、加入會議前判斷使用者的會員資格，或是提供給有來上課的會員一些點數回饋，這些就需要客製化串接 Zoom API，他們的<a href="https://marketplace.zoom.us/docs/api-reference/zoom-api/methods"> API 文件</a>非常完整，並且都有範例可以參考，串接上的體驗還滿不錯的。</p>
+<p>但要使用 API 前必須要先進行網站驗證，藉此確保使用該 API 的網站是用經過合法授權，以下文章會有一些程式碼，但都不會太困難，主要是希望可以讓你了解 WordPress 外掛在串接第三方 API 時會有的一些流程與步驟，這樣日後萬一遇到客戶有類似的需求就能大概知道有哪些製作項目。</p>
+<p>Zoom 提供兩種授權的方式，一種是 JSON Web Tokens (JWT)，因為我沒實作過所以先跳過XD，另外一種是你一定有看過的 OAuth（Open Authorization），如果你有在某些購物網站使用 Facebook 或是 Google 帳號來進行註冊的話這就是 OAuth，當你點下 FB 註冊頁面會跳轉到 Facebook 的登入與授權頁面，完成後回到原網站就能完成註冊，由於不用再多記一筆登入帳密對於使用者來說非常方便，因此這是現在帳號授權的主流做法。</p>
+<p>而使用 Zoom API 我們就必須透過這樣的方式來取得 Access Token，對網站來說每一次操作 Zoom 的 API 都必須要告訴 Zoom 的主機說我們是合法的使用者，Zoom 認的就是這個 Access Token，而這個 Token 也是必須要透過 API 來取得，一下是 API 一下又是 Token 的有點混淆，我們先把具體的步驟列出來：</p>
+<ol>
+<li>取得授權網址</li>
+<li>網站跳轉到授權頁面</li>
+<li>Zoom 回傳產生 Token 需要的資料</li>
+<li>透過該資料呼叫 Zoom API 取得 Token</li>
+<li>將 Token 存在資料庫中</li>
+<li>利用這個 Token 進行後續的 API 操作</li>
+</ol>
+<h3 id="一-取得授權網址"><a href="#一-取得授權網址" class="headerlink" title="(一) 取得授權網址"></a>(一) 取得授權網址</h3><p>你就想成是去購物平台點下 Facebook 登入按鈕後會跳轉的頁面，這個網址每家有自己的格式，但不外乎都是在網址上帶入一些參數，而這些參數需要靠我們自己把他填入，Zoom 的格式是這樣：</p>
+<p><a href="https://zoom.us/oauth/authorize?response_type=code&amp;client_id=7lstjK9NTyett_oeXtFiEQ&amp;redirect_uri=https://yourapp.example.com">https://zoom.us/oauth/authorize?response_type=code&amp;client_id=7lstjK9NTyett_oeXtFiEQ&amp;redirect_uri=https://yourapp.example.com</a></p>
+<p>需要替換的參數有兩個，第一個是 client_id，通常做 OAuth 都需要去該服務的後台建立一個 App，而這 App 會有 app id 跟 app secret，而 client_id 就是 app id，如何建立 Zoom OAuth App 可以參考這篇文章：<a href="https://marketplace.zoom.us/docs/guides/build/oauth-app/">https://marketplace.zoom.us/docs/guides/build/oauth-app/</a></p>
+<p>第二個要替換的參數是 redirect_url，這是當完成授權後要跳轉回網站的頁面，這個頁面十分重要，因為 Zoom 會透過這個頁面把產出 Token 所需要的資料回傳給我們，所以我們要把手套準備好來接 Zoom 的回傳球，這顆球叫做 Code，有了這個 Code 才有辦法產出 Token。</p>
+<p>當第一次進行授權時就會看到以下畫面：</p>
+<p><img src="https://oberonlai.blog/wp-content/uploads/wordpress-plugin-zoom-api/wordpress-plugin-zoom-api-05.jpg"></p>
+<p>這時候你就要登入你的 Zoom 帳號來同意你的網站是經過你的授權的。</p>
+<h3 id="二-取得-Token"><a href="#二-取得-Token" class="headerlink" title="(二) 取得 Token"></a>(二) 取得 Token</h3><p>第二步驟我們要靠跳轉回網站後的頁面也就是 redirect_uri 所設定的網址來處理取得 Token 的請求，你可以新增一個頁面叫做 zoom-callback，在業界這一類的網址我們慣稱叫做 callback url，然後新增一個 page-zoom-callback.php 的範本檔來處理。</p>
+<p>但通常這種在處理 API 的情境我不會用頁面來做，而是改用 WordPress REST API 比較好管理，不然萬一哪天不小心手殘刪到這個頁面就 GG 了，因此我們會註冊一個新的 WordPress API 路徑來專門接受 Zoom 的回傳，並且在這個路徑中處理後續的事情。</p>
+<p>要註冊 WordPress REST API路徑使用的是 register_rest_route 方法，然後勾點是放在 rest_api_init 上，具體範例可以參考官方手冊：<a href="https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/">https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/</a></p>
+<p>路徑的名稱我把它命名為 zoom/v1/token，所以在第一步的授權網址就要填入 <a href="https://yoursite.com/zoom/v1/token">https://yoursite.com/zoom/v1/token</a></p>
+<p>具體寫法如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">register_rest_route</span><span class="token punctuation">(</span>
+	<span class="token string single-quoted-string">'zoom/v1'</span><span class="token punctuation">,</span>
+	<span class="token string single-quoted-string">'/token'</span><span class="token punctuation">,</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'methods'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'GET'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'callback'</span> <span class="token operator">=></span> <span class="token constant">__CLASS__</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'::get_bot_api_body'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>需要注意的地方是 callback 那邊我了它一個方法叫做 <code>get_zoom_token()</code>，這個方法稍後會實作取得 Token 的方法，所以這邊就是註冊一個新的路徑，讓 Zoom 回傳我們產生 Token 需要的資料，接下來就交給 get_zoom_token() 來處理。</p>
+<p>WordPress 呼叫 API 的方式是使用 <code>wp_remote_request()</code>，它封裝了 HTTP 請求的工具讓我們可以很方便地使用它，根據 Zoom 的文件說明它會回傳一個 Code 作為產出 Token 的基本元素，並且再組合 Zoom App 的 id 跟 Secret 來發出請求就能獲得 Token，具體寫法如下：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">get_bot_api_body</span><span class="token punctuation">(</span> <span class="token variable">$request</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token variable">$body</span>    <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'grant_type'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'authorization_code'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'code'</span>         <span class="token operator">=></span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'code'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'redirect_uri'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'https://yoursite.com/wp-json/zoom/v1/token'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$options</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'method'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'POST'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'timeout'</span> <span class="token operator">=></span> <span class="token number">60</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'headers'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+			<span class="token string single-quoted-string">'Content-Type'</span>  <span class="token operator">=></span> <span class="token string single-quoted-string">'application/x-www-form-urlencoded'</span><span class="token punctuation">,</span>
+			<span class="token string single-quoted-string">'Authorization'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'Basic '</span> <span class="token operator">.</span> <span class="token function">base64_encode</span><span class="token punctuation">(</span> <span class="token constant">APP_ID</span> <span class="token operator">.</span> <span class="token string single-quoted-string">':'</span> <span class="token operator">.</span> <span class="token constant">APP_SECRET</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'body'</span>    <span class="token operator">=></span> <span class="token function">http_build_query</span><span class="token punctuation">(</span> <span class="token variable">$body</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$response</span> <span class="token operator">=</span> <span class="token function">wp_remote_request</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'https://zoom.us/oauth/token'</span><span class="token punctuation">,</span> <span class="token variable">$options</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token variable">$resp</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span> <span class="token function">wp_remote_retrieve_body</span><span class="token punctuation">(</span> <span class="token variable">$response</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">update_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ods_zoom_access_token'</span><span class="token punctuation">,</span> <span class="token variable">$resp</span><span class="token operator">-></span><span class="token property">access_token</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">update_option</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'ods_zoom_refresh_token'</span><span class="token punctuation">,</span> <span class="token variable">$resp</span><span class="token operator">-></span><span class="token property">refresh_token</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">wp_safe_redirect</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'https://yoursite.com/finish-zoom-oauth'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">exit</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先 <code>$body</code> 是我們要傳給 Zoom 取得 API 的必要資料，其中 code 就是 Zoom 回傳給我們的，而這邊又有一個 redirect_uri 來告訴 Zoom 說當取得 Token 後會去哪個頁面，這邊範例一樣設定 API 路徑，而頁面跳轉則交給最下面的 <code>wp_safe_redirect</code> 來處理。</p>
+<p>其次是 API 請求的設定，根據文件我們要用 POST 方法以及 application/x-www-form-urlencoded 的格式來傳送，而 Authorization 驗證方法是用 Basic 加上 App ID 與 SECRET 的 base64 的加密方式來處理，這聽起來有點複雜，但 Zoom 文件都有範例可以複製貼上，只要置換裡面的變數即可。</p>
+<p>最後使用 wp_remote_request 去呼叫 <a href="https://zoom.us/oauth/token">https://zoom.us/oauth/token</a> 這一個取得 Token 的 API 網址，得到回傳結果後再去解析我們要的 Token，這樣我們就能得到 API 要用的 Access Token 來做事了，我這邊用 update_option 來寫進資料庫中，之後要用這個 Token 就用 get_option( ‘ods_zoom_access_token’ ) 取得即可。</p>
+<p>另外你可能會好奇還有一個 refresh_token 是幹嘛用的，它的目的是讓你不用透過授權網址就能取得 Access Token，基於安全理由 Access Token 會有使用期限，所以我們要定期的去更換它，但總不能每次都要人工手動去點授權網址來取得，因此就能透過 Refresh Token 呼叫 Zoom API 來自動重新更換 Access Token。</p>
+<p>以上就是 Zoom API OAuth 授權的步驟，範例中簡化了許多程式細節，主要目的是希望透過這樣的文章介紹有哪些好用的現成外掛，還能學到一些關於程式開發的流程與知識，讓你之後跟客戶溝通需求或是交辦任務給工程師時能有一個大方向來進行說明，如果你想了解更多 WordPress 開發的技術邏輯再跟我說吧！</p>
 ]]></content>
       <categories>
         <category>接案</category>

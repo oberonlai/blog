@@ -210,6 +210,185 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/tcp-ip-101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/tcp-ip-101/" class="post-title-link" itemprop="url">網路技術 101</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-02-15 23:25:33" itemprop="dateCreated datePublished" datetime="2019-02-15T23:25:33+08:00">2019-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/TCP-IP/" itemprop="url" rel="index"><span itemprop="name">TCP/IP</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://oberonlai.blog/wp-content/uploads/2019/02/CleanShot-2019-02-16-at-16.48.42.png"></p>
+<p>做了近十年的網站，每每遇到網路的問題總是靠著 Google 來的片斷資訊來矇混過關，心虛感長年揮之不去，所以一直想把這方面的基礎知識好好加強一下，但在想省書本錢的心態下，去圖書館能借到的這類書籍都是好久以前的古董，最後硬著頭皮 K 的結果也是消化不良。</p>
+<p>某天去逛誠品看到這本「機器博士帶你輕鬆看懂網路技術」，覺得日本人製作的電腦理論書籍真的非常厲害，透過豐富的插圖以及具體的生活比喻，翻了之後好像有比較理解一些，當下就忍住沒買直到在圖書館看到後立馬把它借回家(疑?)</p>
+<p>全書分為七個章節，核心主題圍繞在 TCP/IP 的四個階層來逐一說明，還有附帶網路安全以及加密機制的圖說，看完後不敢說全懂，但至少有一點基礎概念以及相關名詞的認識，要再回去 Google 又多了一些關鍵字可以用了XD</p>
+<p>以下就書中重點進行摘錄：</p>
+<p>網路簡單說就是電腦們採用相同的通訊協定進行溝通以及傳輸資料，依據不同的規模，可以分成以下幾種網路：</p>
+<ul>
+<li>  Local Area Network (LAN) 區域網路 - 家庭、小公司使用</li>
+<li>  Wireless Local Area Network (WLAN) 無線區域網路</li>
+<li>  Wide Area Network (WAN) 廣域網路 - 跨國的網路</li>
+<li>  Personal Area Network (PAN) 個人區域網路</li>
+<li>  Metropolitan Area Network (MAN) 都會區域網路</li>
+</ul>
+<p>TCP/IP 是網路傳輸協定的統稱，裡面包含了各種不同的協定，所謂的協定就是電腦跟電腦之間約定好的溝通方式，此外，所有要被傳送的資料都會被分割為封包進行傳輸，除了萬一斷線方便續傳外，還可以減小傳輸體積以利於運送。</p>
+<p>TCP/IP 傳輸協定主要有四個層級，不管是接收端還是傳送端都必須經過這四個階段：</p>
+<ol>
+<li> 電腦將輸入的資料轉換為網路共同的處理形式</li>
+<li> 思考用哪種方法傳輸資料</li>
+<li> 將資料分割為封包並決定傳送路徑</li>
+<li> 將封包轉為位元流 01 碼再透過線路傳送出去</li>
+</ol>
+<p>四個階段有不同的階層，分別為應用層、傳輸層、網際層、網路介面層。</p>
+<h2 id="一、應用層-Application-Layer"><a href="#一、應用層-Application-Layer" class="headerlink" title="一、應用層 (Application Layer)"></a>一、應用層 (Application Layer)</h2><p>應用層負責接收應用程式所輸入的資料，不同的軟體有不同的協定，常見的有以下這幾種：</p>
+<p><strong>HTTP 協定</strong>：瀏覽器所使用的，包含了 HTTP 請求以及 HTTP 回應，HTTP 請求只會傳送標頭封包不會傳檔案，標題裡面包含 client 端的資訊以及需要的檔案，HTTP 回應會回傳代碼來顯示狀態，以及傳送被請求的檔案。在造訪網站的過程中，每個檔案像是 js、css、或是圖片等資源在沒有快取的情況下，都要經過請求與回應的溝通過程。</p>
+<p>當使用者輸入網址要瀏覽一個網站時，會有一個 DNS 伺服器來告訴瀏覽器這個網址對應到的是哪個 IP 位址，萬ㄧ DNS 伺服器不知道的話，會去詢問名稱伺服器 (Name Server) ，詢問的邏輯會先從根網域伺服器開始，然後從網址由右至左開始依序查詢是哪一個名稱伺服器所有。</p>
+<p><strong>SMTP 協定</strong>：發信軟體與發信伺服器之間的協定，一般的發信流程為發信軟體 &gt; 發信人網域的 SMTP Server &gt; 中繼 Server-暫放信件的地方 &gt; 收信人網域的 POP server &gt; 收信軟體擷取新郵件</p>
+<p><strong>POP 協定</strong>：收信軟體與收信伺服器之間的協定，一般的收信流程為收信軟體 &gt; 收信 POP server &gt; 驗證身份 &gt; 取出 mail 到收信軟體。</p>
+<p>信件在傳送時，客戶端軟體使用 MIME 的 base64 編碼來傳送帶有中文主旨的郵件，收信軟體會再解碼還原成中文，以解決亂碼的問題，</p>
+<p><strong>IMAP 協定</strong>：另外一種收信的協定，好處是相較於 POP 協定，信件會持續保留在 IMAP Server 上，可以用不同裝置取得郵件，如果是 POP 協定則是 A 裝置收了信件後，B 裝置就無法再擷取到信件。</p>
+<p><strong>Telent 協定</strong>：可以從本機電腦連線遠端主機的協定，但因安全性較弱，現多採用 SSH 協定進行連線。</p>
+<h2 id="二、傳輸層-Transport-Layer"><a href="#二、傳輸層-Transport-Layer" class="headerlink" title="二、傳輸層 (Transport Layer)"></a>二、傳輸層 (Transport Layer)</h2><p>傳輸層主要負責決定要用哪種方式進行資料傳輸，並使用 port 號讓傳送的資料可以送給正確的應用層軟體，此外也負責節點間的數據傳送，此層主要的協定有兩種，TCP 與 UDP 協定。</p>
+<p><strong>TCP 協定</strong>：是屬於連線型的網路連線，主要特點為安全可靠，連線步驟有建立連線 &gt; 將資料拆成帶有流水號的 Segment(區段) 並依序傳輸 &gt; 關閉連線，每個被傳送的Segment 都帶有標頭，而標頭中有 Flag 來表示連線狀態，一共有六種：</p>
+<ul>
+<li>  URG (Urgent) - 緊急優先</li>
+<li>  PSH (Push) - 傳送到上一層</li>
+<li>  SYN (Synchronize) - 請求連線</li>
+<li>  ACK (Acknowledgement) - 確認需求</li>
+<li>  RST (Reset) - 中斷連線</li>
+<li>  FIN - 結束連線</li>
+</ul>
+<p>TCP 協定非常可靠的原因是會進行三次握手連線，傳送方發出 Syn 請求連線 &gt; 接收方發出 Ack 確認可連線 &gt; 傳送方發出 Ack 確認接收方可接收，也就是說會確認雙方都有正確的回應的狀況下才會開始傳送。</p>
+<p>這邊補充四次揮手斷線，傳送方發送 Fin 結束連線請求 &gt; 接收方發送 Ack 告訴傳送方等下，先確保資料已經傳完 &gt; 接收方發送 Fin 確定中止連線 &gt; 傳送方再次發送 Ack 告知接收方已收到中止連線確認，在接收方還沒收到 Ack 前都還可以繼續傳。</p>
+<p>連線逾時的情況則出現在遲遲沒有收到接收方的 Ack，傳送方送完後沒收到 Ack 就會再送一次，傳送方重傳多次都失敗就會發出 RST 中斷連線而造成連線逾時。</p>
+<p>為了加速 Segment 傳送，可設定 Window Size 來決定一次要傳多少資料，接收端可視自身的處理狀況來告知傳送方應該要用多大的 Window Size 來進行 Segement 傳送。</p>
+<p><strong>UDP 協定</strong>：屬於非連線型的網路連線，也就是不管接收方有沒有回應，傳送方就開始進行傳送，也因為不用等對方回應，所以傳送速度快，但最大缺點是完全不知道接收方有沒有收到，UDP 協定適合用在影音串流或是語音通訊服務，不用確保封包完整到達，只要可以堪用就好。</p>
+<h2 id="三、-網際層-Network-Layer"><a href="#三、-網際層-Network-Layer" class="headerlink" title="三、 網際層 (Network Layer)"></a>三、 網際層 (Network Layer)</h2><p>網際層主要負責決定封包要怎麼走，傳到哪個路由，另外切割封包也是在這一層，網際層最重要的就是 IP 協定。</p>
+<p><strong>IP 協定</strong>：主要使用 IP address 來確認要傳送的對象，IP address 為 32 位元的二進制數字，每 8 位元為一組(Octet)，共有四組，分為前段的網路編號與後端的主機編號，並使用子網路遮罩來決定怎麼分網路編號還是主機編號。</p>
+<p>假設子網路遮罩是 255.255.255.0，被遮住的前三組為網路編號，最後一組為主機編號，另外還可以使用 Prefix 表示法：192.168.0.1/24 代表前 24 個位元是網路編號( IPv4 一共有 32 個位元 )。</p>
+<p><strong>ICMP 協定</strong>：輔助 IP 的協定，萬一封包無法傳送到接收端，會通知傳送端封包傳送失敗，另外還可以做為診斷網路問題的工具。</p>
+<p><strong>ARP 協定</strong>：協助 IP 協定可以透過 IP 位址找到目標節點的 MAC 位址，其運作原理為傳送端節點使用廣播的方式送出 ARP 封包，裡面記錄了目標 IP，當目標 IP 節點收到該封包後，會再回傳帶有 MAC 位址的 ARP 回應封包給傳送端節點，如此就能正確的傳送。</p>
+<p>路由在 OSI 的第三層所以又叫第三層交換器，負責封包指路、中繼封包的裝置，路由到路由間的移動叫做 HOP 跳躍數。</p>
+<p>幫電腦指派 IP 的方法有兩種，由網管人員手動分派 IP，另外一種是使用 DHCP 協定，DHCP 協定可以動態指定 IP 位址，自動指派閒置的 IP 給要用的電腦。</p>
+<p>至於新加入到網路內的電腦還沒有被分派到 IP，所以預設為 0.0.0.0，DHCP server 的 IP 為廣播位址 255.255.255.255，所以通常能用的 IP 位址數量要扣掉這兩組。</p>
+<p>至於如何讓私有 IP 去連上公有 IP 則是透過 NAT (Network Address Translator) 技術去進行 IP 位址轉譯成為對外 IP，NAT 是一對一的，也就是同時間只能有一個私有 IP 去轉譯成公有 IP，而使用 NAPT (Network Address Port Translator) 則是用 Port 號去轉譯，所以可以達成多個私有 IP 對應到一個公有 IP。</p>
+<p>管理公有 IP 的單位為 ICANN，由這組織將 IP 分到各大洲，所以台灣分配到亞太地區的 IP，台灣管理 IP 單位為 TWNIC，TWNIC 再分配給 ISP 業者，ISP 業者再用動態公用 IP 來進行調度。</p>
+<p>但 IP 已經不夠用了，所以有 IPv6，一組有 16 位元，總共 8 組 128 位元，用冒號相隔每一組，並有三種省略規則：</p>
+<ul>
+<li>  每組數字的第一個 0 可以省略，像是「0DB8」可以省略為「DB8」</li>
+<li>  若整組皆為 0，則以 0 表示，像是「0000」則為「0」</li>
+<li>  為連續出現的0000可以省略成「::」，整組 IP 只能出現一次「::」來省略 0</li>
+</ul>
+<h2 id="四、網路介面層-Physical-Layer"><a href="#四、網路介面層-Physical-Layer" class="headerlink" title="四、網路介面層 (Physical Layer)"></a>四、網路介面層 (Physical Layer)</h2><p>網路介面層為整個網路傳輸的出入口，也就是將位元流轉換為訊號的形式來進行資料的傳輸或接收。主要分為兩種介面：</p>
+<ul>
+<li>  通訊介面 - 主要是指實體的網路纜線</li>
+<li>  網路介面 - 主要是指可以插網路纜線的接頭</li>
+</ul>
+<p>透過通訊介面相連的兩台電腦，也必須要採用相同的規範的通訊協定才能進行資料傳輸與接收，目前主流的通訊協定是乙太網路規範。而彼此透過網路線相連的電腦就可以稱作資料鏈路 (Data Link)。</p>
+<p>資料鏈路構成的基本條件是被連結的裝置必須要有網路卡，而構成資料鏈路的電腦被稱作為節點，資料鏈路常見的有四種類型：</p>
+<ul>
+<li>  匯流排狀 (Bus) 由一條主線分岔出支線來連結節點，優點是方便新增節點，缺點是主線掛掉全部節點就跟著 GG</li>
+<li>  環狀 (Ring) 像圓環一樣一條主線連到每個節點，優點是速度快， 因為每個節點都在主線上，缺點是主線或是其中其中一個節點掛掉就全部 GG</li>
+<li>  星狀 (Star) 中心點有路由器或是集線器來連到各節點，優點是可以靠中心裝置來控制各個節點，缺點是中心裝置不能壞</li>
+<li>  網狀 (Net) 各節點都有線路彼此相連，壞了其中一條或是節點都還可以從另外一條路繞道</li>
+</ul>
+<p>對於同個資料鏈路內，會使用 ＭAC 位址也就是網卡編號來辨識節點，但要把封包傳送到網際網路的另一端，不會是只有傳送端與接收端一對一這麼單純，中間會經過非常多的路由器來進行封包傳送的中繼，</p>
+<p>以生活中的例子來表示，如果要從台灣寄包裹到美國，寄件者要先寫好收件者的地址 (IP)，拿到郵局寄出後，中間可能會有集貨站 (路由器)，長途的話可能不只一個集貨站，寄到集貨站之間也需要集貨站的地址 (MAC)，最後才會到達收件者的手上。</p>
+<p>在網路介面層傳送的封包叫做訊框 (Frame)，如果是使用匯流排狀、環狀這樣的連結方式，就常常會遇到傳送訊框打架的情況，所以現在多採用路由器或是交換器的裝置，讓每個節點都有獨立的線路來進行訊框的傳遞，以減少等待或是發生衝突的狀況。</p>
+<p>常見的資料鏈結層中繼裝置：</p>
+<ul>
+<li>  中繼器 (Repeater) 讓訊號可以增加傳送距離，放大訊號，但如果是毀損的訊號也會造照樣被放大</li>
+<li>  集線器 (Hub) 把單一訊號分配給多個節點，另有中繼集線器，除了分配還可以順便加強訊號</li>
+<li>  橋接器 (Bridge) 又名第二層交換器，用來橋接兩組不同的資料鏈路，並且會判斷訊框是否有毀損來決定是否要傳送</li>
+<li>  交換式集線器 (Switching Hub) 橋接器的一種，也兼具集線器的功能</li>
+</ul>
+<p>常見的資料鏈路規範有以下幾種：</p>
+<ul>
+<li>  乙太網路 (Ethernet) 目前的主流，依據不同的規格傳輸速率以及纜線長度都有所不同，其中雙絞線可以進行全雙工，也就是同一線路可以同時進行傳送和接收，而半雙工則是只能進行傳送或接收的其中一種工作</li>
+<li>  無線區域網路 (Wireless LAN) 無線上網的通訊規範，家用路由器就是將兩種不同的通訊規範進行橋接，讓彼此互相連結</li>
+<li>  光纖分散式資料介面 (FDDI) 使用光纖線或是雙絞線的環狀資料鏈路，採用雙環線路，其中一條斷了另一條還可以運作</li>
+<li>  非同步傳輸模式 (ATM)</li>
+<li>  藍芽 (Bluetooth)</li>
+<li>  HDMI</li>
+</ul>
+<p>這本書一路這樣看下來，真心覺得網路十分神奇，用很多無法想像的方式連結著全世界，也稍微多了解了一點每天自己離不開的網路是如何運作的，期待下次 Debug 會順利一些啊啊啊～</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/git-history-%E5%8B%95%E7%95%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2135,99 +2314,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E7%B6%B2%E7%AB%99%E4%B8%AD%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%88%AA%E9%99%A4%E5%B8%B3%E8%99%9F%E7%9A%84%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E7%B6%B2%E7%AB%99%E4%B8%AD%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%88%AA%E9%99%A4%E5%B8%B3%E8%99%9F%E7%9A%84%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">如何在 WordPress 網站中提供會員刪除帳號的功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-22 12:38:11" itemprop="dateCreated datePublished" datetime="2018-02-22T12:38:11+08:00">2018-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在一般情況下，網站通常只有註冊、加入會員的機制，很少看到能退出會員、刪除帳號的功能，在尊重會員隱私以及提供更友善的使用體驗下，加入刪除帳號的功能是個不錯的選擇，也可以在刪除前做問卷調查，蒐集會員流失的原因進而改善，這比留著一堆沒有互動的殭屍會員來得更有意義。這篇文章介紹了兩支外掛來做這功能，需要整理會員名單的朋友可以參考看看～</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/%E5%A6%82%E4%BD%95%E5%9C%A8-wordpress-%E7%B6%B2%E7%AB%99%E4%B8%AD%E6%8F%90%E4%BE%9B%E6%9C%83%E5%93%A1%E5%88%AA%E9%99%A4%E5%B8%B3%E8%99%9F%E7%9A%84%E5%8A%9F%E8%83%BD/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2298,7 +2384,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">314</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2359,12 +2445,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">808k</span>
+    <span title="總字數">814k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:15</span>
+    <span title="所需總閱讀時間">12:20</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
