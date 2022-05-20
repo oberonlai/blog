@@ -210,6 +210,217 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/modal-popup-with-vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/tw/images/avatar.jpg">
+      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
+      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WordPress 開發日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/tw/modal-popup-with-vuex/" class="post-title-link" itemprop="url">使用 Vuex 來控制燈箱效果狀態</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-02-19 23:06:26" itemprop="dateCreated datePublished" datetime="2019-02-19T23:06:26+08:00">2019-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tw/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i2.wp.com/oberonlai.blog/wp-content/uploads/2019/02/Carbonize-2019-02-19-at-9.59.07-PM.png?fit=1024,807&ssl=1"></p>
+<p>今天碰到一個難題，我把每一個燈箱的顯示視窗獨立成元件，我想要用 A 元件裡面的按鈕去觸發燈箱元件的顯示，然後再用燈箱元件裡面的關閉按鈕來隱藏它，這就牽涉到一些問題：</p>
+<ol>
+<li> 燈箱元件如果是 A 元件的子組件，我可以用 props 去傳值給燈箱，但問題在於關閉的時候必須要從燈箱元件去控制父元件的參數，似乎可以用 $emit 但感覺好像又行不通</li>
+<li> 如果燈箱元件跟 A 元件並不是父子關係，props 就無用了</li>
+<li> 我的燈箱元件不只一個，而且 B 燈箱裡面會有觸發 C 燈箱的按鈕</li>
+</ol>
+<p>好吧，事實上我心裡早就有逃不掉用 Vuex 的打算了，只是因為一直看不懂它，所以就能閃則閃，研究了一天後，大概只了解了三成，但也夠我解決問題了，剩下的部分就等有遇上再說吧。</p>
+<p>我的目標流程是這樣：</p>
+<ul>
+<li>  一個主要模板 Layout.vue，用來引入燈箱 A、燈箱 B 以及 Header.vue</li>
+<li>  Header.vue 裡面有按鈕，點擊後會觸發燈箱 A</li>
+<li>  燈箱 A 裡面有按鈕，點擊後會關閉燈箱 A 並且開燈箱 B</li>
+</ul>
+<p>Vue 最大好處是中國人開發的，有很多中文資料，但他們的中文我真的有看沒有懂，雖然也有很多資料是繁體中文的整理，但大部分就是把官方文件繁體化，語意還是原本的簡中版本，所以還是看得霧煞煞。</p>
+<p>經過一天的實驗以及碰壁後，總算釐清了一些關於 Vuex 的基本概念，以下是我自己理解的繁中白話文解釋：</p>
+<ul>
+<li>  Vuex 是把變數變成全域的元件，相較於寫在元件裡的 data 只能給元件自己用，Vuex 的變數是所有元件都能存取</li>
+<li>  state 就等於元件裡面的 data，可以是物件</li>
+<li>  mutation 是唯一能改變 state 的方法，元件不能直接修改 state，會噴錯</li>
+<li>  modules 是可以把 state、mutations 這些 Vuex 的狀態變成物件，萬一有一堆東西要用 Vuex 來管理才不會超亂</li>
+<li>  store.js 是引入 modules 的母檔案，而主要全站入口 app.js 會引入 store.js，所以所有的元件都能讀到 state 裡面的變數</li>
+<li>  元件裡面是用 computed 來取得 state 值，因為我是用 v-model 來決定燈箱狀態，所以需要設 get 與 set function，不然會噴 Computed property “modalState” was assigned to but it has no setter 這個錯誤</li>
+<li>  至於 actions、getters、namespace 那些還看不懂…</li>
+</ul>
+<p>接下來進行實作，首先是增加一個 module 叫做 modals.js，裡面是控制所有燈箱的顯示狀態布林值，以及修改狀態的 mutations，然後把 store.js 引入到全站入口 app.js，接著去 A 燈箱使用 computed 去讀取 state、使用 methods 去定義 mutations，最後在 header.vue 也加入 mutations 方法，讓相對應的按鈕 click 後觸發。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;** modals.js **&#x2F;
+export const modals &#x3D; &#123;
+  state: &#123;
+    isModalaActive: false, &#x2F;&#x2F; Ａ燈箱狀態
+    isModalbActive: false, &#x2F;&#x2F; B燈箱狀態
+  &#125;,
+  mutations: &#123;
+    &#x2F;&#x2F; 切換登入彈跳視窗狀態
+    modalAToggle ( state ) &#123;
+      state.isModalAActive &#x3D; !state.isModalAActive &#x2F;&#x2F; 當 isModalAActive 為 false 時變成 true，反之為 true 時變成 false
+    &#125;,
+    &#x2F;&#x2F; 切換登入彈跳視窗狀態
+    modalBToggle ( state ) &#123;
+      state.isModalBActive &#x3D; !state.isModalBActive
+      state.isModalAActive &#x3D; false &#x2F;&#x2F; 出現 B 燈箱時就要隱藏 A 燈箱
+    &#125;,
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下來是把 modal.js 引入到 store.js</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;** store.js **&#x2F;
+
+&#x2F;&#x2F; 給 IE11 用的 polyfill
+require (&#39;es6-promise&#39;).polyfill()
+
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use( Vuex )
+
+&#x2F;&#x2F; 我的 modal.js 是放在 modules 資料夾底下
+import &#123; modals &#125; from &#39;.&#x2F;modules&#x2F;modals.js&#39;
+
+export default new Vuex.Store(&#123;
+  &#x2F;&#x2F; 引入 modal.js
+  modules: &#123;
+    modals
+  &#125;
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>再把 store.js 引入到全站入口 app.js</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;** app.js **&#x2F;
+
+&#x2F;&#x2F; 略...
+import store from &quot;.&#x2F;store.js&quot;;
+
+new Vue(&#123;
+  router,
+  store
+&#125;).$mount(&#39;#app&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 A 燈箱元件加入 state 與 mutations，framework 我是用 uikit 的 vue 版本 <a target="_blank" rel="noopener" href="https://vuikit.js.org/">vuikit</a>，原始版本用得很開心，但 vuikit 很多元件都沒整合，很多 UI 不是要自己刻就是要另外找套件，vk-modal 是它的燈箱元件，使用 :show.sync 去決定顯示與否。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;template lang&#x3D;&#39;pug&#39;&gt;
+  div
+    vk-modal.modal-small-width.modal-remove-padding(:show.sync&#x3D;&#39;modalState&#39;, center, stuck)
+      vk-modal-close(@click&#x3D;&#39;modalAToggle&#39;)
+      a.text-dark.link-underline(href&#x3D;&#39;#&#39; @click&#x3D;&#39;modalBToggle&#39;) 連到 B 燈箱的按鈕
+&lt;&#x2F;template&gt;
+&lt;script&gt;
+export default &#123;
+  computed: &#123;
+    &#x2F;&#x2F; modalState 是儲存從 store 裡面拿到的 state 值，寫法是 this.$store.state.module名.變數名，這邊卡超久@@
+    modalState: &#123;
+      &#x2F;&#x2F; 沒有 set 會出錯，get 記得要有 return
+      get()&#123;
+        return this.$store.state.modals.isModalAActive
+      &#125;,
+      set()&#123;
+        this.$store.state.modals.isModalAActive
+      &#125;
+    &#125;
+  &#125;,
+  methods: &#123;
+    &#x2F;&#x2F; 註冊 mutations 事件，就可以給元件使用
+    modalAToggle()&#123;
+      this.$store.commit(&#39;modalAToggle&#39;);
+    &#125;,
+    modalBToggle()&#123;
+      this.$store.commit(&#39;modalBToggle&#39;);
+    &#125;,
+  &#125;,
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最後是 Header.vue，幫它也加入 modalAToggle 的 methods，這邊不需要 computed，因為沒有要取得燈箱狀態的功能，只要有 mutations 可以改變它就好。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;template lang&#x3D;&#39;pug&#39;&gt;
+  div
+    a(href&#x3D;&#39;#&#39; @click&#x3D;&#39;modalAToggle&#39;) 要開啟 A 燈箱的按鈕
+&lt;&#x2F;template&gt;
+&lt;script&gt;
+export default &#123;
+  methods: &#123;
+    modalAToggle()&#123;
+      this.$store.commit(&#39;modalAToggle&#39;);
+    &#125;,
+  &#125;,
+&#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>用 Vuex 就可以很有組織的完成這些需要參數傳來傳去的複雜問題，元件之間的溝通也容易了許多，相信再多用一陣子也逃不了要面對 actions 跟 getters 了啊啊啊～</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/tcp-ip-101/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2221,99 +2432,6 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://oberonlai.blog/tw/%E5%A2%9E%E5%BC%B7-wordpress-%E9%9B%BB%E5%AD%90%E9%83%B5%E4%BB%B6%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tw/images/avatar.jpg">
-      <meta itemprop="name" content="賴俊吾 / Oberon Lai">
-      <meta itemprop="description" content="現為全職 WordPress 工程師，網站開發經歷 11 年，專攻前端工程與 WordPress 佈景主題、外掛客製化開發">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WordPress 開發日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tw/%E5%A2%9E%E5%BC%B7-wordpress-%E9%9B%BB%E5%AD%90%E9%83%B5%E4%BB%B6%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">增強 WordPress 電子郵件功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-02-23 11:39:45" itemprop="dateCreated datePublished" datetime="2018-02-23T11:39:45+08:00">2018-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-01 10:12:39" itemprop="dateModified" datetime="2021-05-01T10:12:39+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/tw/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>WordPress 的預設電子郵件通知類型較少，而且也自訂電子郵件的內容對於不懂程式的朋友會有一定的難度，Better Notification for WordPress 這支外掛可以針對十幾種情境來發送 email 給需要通知的對象，包含新文章發佈、文章更新、新分類、新增頁面等等，此外還有提供多種欄位的 shortcode 把站內資訊加入到 email 之中，還有提供編輯器介面來設計郵件，讓你可以打造符合企業形象的電子郵件，付費版提供更多的發信情境，巧妙運用能設計出與用戶意想不到的互動方式。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tw/%E5%A2%9E%E5%BC%B7-wordpress-%E9%9B%BB%E5%AD%90%E9%83%B5%E4%BB%B6%E5%8A%9F%E8%83%BD/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2384,7 +2502,7 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/tw/archives">
-          <span class="site-state-item-count">314</span>
+          <span class="site-state-item-count">315</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -2445,12 +2563,12 @@ requireAll(req)<span aria-hidden="true" class="line-numbers-rows"><span></span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">814k</span>
+    <span title="總字數">816k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12:20</span>
+    <span title="所需總閱讀時間">12:22</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
   </div>
